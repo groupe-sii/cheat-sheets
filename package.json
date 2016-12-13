@@ -1,0 +1,16 @@
+{
+  "name": "cheat-sheet-markdown",
+  "version": "0.1.0",
+  "main": "index.js",
+  "author": "Kevin Grandemange <kgrandemange@sii-ouest.fr>",
+  "license": "MIT",
+  "dependencies": {
+    "showdown": "^1.5.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-file-include": "^1.0.0",
+    "gulp-inject-string": "^1.1.0",
+    "gulp-markdown": "^1.2.0"
+  }
+}
