@@ -2,6 +2,9 @@ const gulp = require('gulp'),
       fileinclude = require('gulp-file-include'),
       markdown = require('gulp-markdown');
 
+/**
+ * default task, create dist/index.html file
+ */
 gulp.task('build', ['markdown-build'], () => {
     gulp.src(['./src/html/index.html'])
         .pipe(fileinclude({
