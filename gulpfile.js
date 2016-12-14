@@ -1,16 +1,23 @@
 const gulp = require('gulp'),
       fileinclude = require('gulp-file-include'),
-      markdown = require('gulp-markdown');
+      markdown = require('gulp-markdown'),
+      sass = require('gulp-sass');
 
 /**
  * default task, create dist/index.html file
  */
-gulp.task('build', ['markdown-build'], () => {
+gulp.task('build', ['markdown-build', 'build-sass'], () => {
     return gulp.src(['./src/html/index.html'])
         .pipe(fileinclude({
             prefix: '@@'
         }))
         .pipe(gulp.dest('./dist/'));
+});
+
+gulp.task('build-sass', () => {
+    return gulp.src(['./src/css/*.scss'])
+               .pipe(sass().on('error', sass.logError))
+               .pipe(gulp.dest('./dist'))
 });
 
 /**
@@ -26,5 +33,5 @@ gulp.task('markdown-build', () => {
  * Watch all files in src/html folder then run build task
  */
 gulp.task('watch', ['build'], () => {
-   return gulp.watch('./src/html/**', ['build']);
+   return gulp.watch(['./src/html/**', './src/css/**'], ['build']);
 });
