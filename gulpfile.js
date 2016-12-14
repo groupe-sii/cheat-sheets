@@ -24,7 +24,7 @@ gulp.task('build-sass', () => {
  * Build markdown files in dist folder
  */
 gulp.task('markdown-build', () => {
-    return gulp.src(['./src/html/column/column1.md', './src/html/column/column2.md', './src/html/column/column3.md'])
+    return gulp.src(['./src/html/markdown/column1.md', './src/html/markdown/column2.md', './src/html/markdown/column3.md'])
                .pipe(markdown())
                .pipe(gulp.dest('./dist'));
 });
