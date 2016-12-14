@@ -6,7 +6,7 @@ const gulp = require('gulp'),
 /**
  * default task, create dist/index.html file
  */
-gulp.task('build', ['markdown-build', 'build-sass'], () => {
+gulp.task('build', ['markdown-build', 'build-sass' ,'assets'], () => {
     return gulp.src(['./src/html/index.html'])
         .pipe(fileinclude({
             prefix: '@@'
@@ -14,7 +14,10 @@ gulp.task('build', ['markdown-build', 'build-sass'], () => {
         .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('build-sass', () => {
+/**
+ * Converts sass to css
+ */
+gulp.task('build-sass', ['assets'], () => {
     return gulp.src(['./src/css/*.scss'])
                .pipe(sass().on('error', sass.logError))
                .pipe(gulp.dest('./dist'))
@@ -34,4 +37,12 @@ gulp.task('markdown-build', () => {
  */
 gulp.task('watch', ['build'], () => {
    return gulp.watch(['./src/html/**', './src/css/**'], ['build']);
+});
+
+/**
+ * Export assets
+ */
+gulp.task('assets', () => {
+    return gulp.src('./assets/**/*')
+               .pipe(gulp.dest('./dist/assets'));
 });
