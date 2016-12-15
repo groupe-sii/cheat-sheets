@@ -4,10 +4,10 @@ const gulp = require('gulp'),
       sass = require('gulp-sass');
 
 /**
- * default task, create dist/index.html file
+ * default task, export html pages
  */
 gulp.task('build', ['markdown-build', 'build-sass' ,'assets'], () => {
-    return gulp.src(['./src/html/index.html'])
+    return gulp.src(['./src/**/*.html'])
         .pipe(fileinclude({
             prefix: '@@'
         }))
@@ -18,7 +18,7 @@ gulp.task('build', ['markdown-build', 'build-sass' ,'assets'], () => {
  * Converts sass to css
  */
 gulp.task('build-sass', ['assets'], () => {
-    return gulp.src(['./src/css/*.scss'])
+    return gulp.src(['./src/**/*.scss'])
                .pipe(sass().on('error', sass.logError))
                .pipe(gulp.dest('./dist'))
 });
@@ -27,16 +27,16 @@ gulp.task('build-sass', ['assets'], () => {
  * Build markdown files in dist folder
  */
 gulp.task('markdown-build', () => {
-    return gulp.src(['./src/html/markdown/column1.md', './src/html/markdown/column2.md', './src/html/markdown/column3.md'])
+    return gulp.src(['./src/**/*.md'])
                .pipe(markdown())
                .pipe(gulp.dest('./dist'));
 });
 
 /**
- * Watch all files in src/html folder then run build task
+ * Watch all files in src/ folder then run build task
  */
 gulp.task('watch', ['build', 'assets'], () => {
-   return gulp.watch(['./src/html/**', './src/css/**'], ['build']);
+   return gulp.watch(['./src/**'], ['build']);
 });
 
 /**

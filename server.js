@@ -8,7 +8,15 @@ console.log(__dirname);
 app.use(express.static(__dirname + '/dist/'));
 
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + '/dist/index.html')
+    res.sendFile(__dirname + '/dist/firstSide/firstSide.html')
+});
+
+app.get("/firstSide", (req, res) => {
+    res.sendFile(__dirname + '/dist/firstSide/firstSide.html')
+});
+
+app.get("/reverse", (req, res) => {
+    res.sendFile(__dirname + '/dist/reverse/reverse.html')
 });
 
 app.listen(port, () => {
