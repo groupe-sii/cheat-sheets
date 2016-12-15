@@ -35,7 +35,7 @@ gulp.task('markdown-build', () => {
 /**
  * Watch all files in src/html folder then run build task
  */
-gulp.task('watch', ['build'], () => {
+gulp.task('watch', ['build', 'assets'], () => {
    return gulp.watch(['./src/html/**', './src/css/**'], ['build']);
 });
 
