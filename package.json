@@ -5,7 +5,6 @@
   "author": "Kevin Grandemange <kgrandemange@sii-ouest.fr>",
   "license": "MIT",
   "dependencies": {
-    "showdown": "^1.5.1"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
