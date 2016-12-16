@@ -11,17 +11,24 @@
 }
 
 body {
-    --nb-column: 3;
-    --dark-grey: #282C34;
+    --nb-column: 2;
+    --blue: #0B6EB4;
+    --green: #B2C039;
+    --purple: #8D338A;
+    --orange: #D64911;
+    --grey: #7E898D;
+
+    --currentColor: var(--blue);
 
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: #0B6EB4;
+    font-size: 14px;
+    background-color: white;
     -webkit-print-color-adjust: exact;
 
     .container-colors-header {
         display: flex;
-        height: 5px;
+        height: 10px;
 
         & > div {
             width: 25%;
@@ -30,18 +37,15 @@ body {
 
     header {
         display: flex;
-        height: 150px;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--currentColor);
 
         .logo-container {
             margin: 1em;
-
-            img {
-                width: 160px;
-            }
         }
 
         .description-content {
-            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
@@ -75,13 +79,21 @@ body {
             margin: 0 1%;
             padding: 1%;
             z-index: 1;
-            background-color: white;
-            border-radius: 10px;
         }
     }
 
     h1 {
-        color: var(--dark-grey);
+        background-color: var(--currentColor);
+        opacity: 0.7;
+        color: white;
+        padding: 5px;
+        text-transform: uppercase;
+        font-size: 1.2em;
+        margin: 0.5em 0;
+    }
+
+    h2 {
+        padding: 0.2em;
         font-size: 1em;
         margin: 0.5em 0;
     }
@@ -94,6 +106,39 @@ body {
             padding: 0.2em;
             margin: 0.2em 0;
             background-color: lightgrey;
+        }
+    }
+
+    footer {
+        background-color: var(--currentColor);
+        opacity: 0.7;
+        height: 80px;
+        display: flex;
+        align-items: center;
+
+        .link-content {
+            display: flex;
+            flex-wrap: wrap;
+            color: white;
+            padding: 0 0.5em;
+
+            & > div:not(:first-child) {
+                flex: 1;
+            }
+
+            & > div:first-child {
+                height: 40px;
+            }
+
+            a {
+                color: white;
+                text-decoration: none;
+            }
+        }
+
+        img {
+            height: 60px;
+            padding: 0.5em 0.5em 0 0;
         }
     }
 }

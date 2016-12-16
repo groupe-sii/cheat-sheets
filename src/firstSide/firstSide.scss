@@ -1,6 +1,14 @@
+header {
+  height: 145px;
+
+  .logo-container img {
+      height: 90px;
+  }
+}
+
 main {
 
   & > div {
-    height: 78vh;
+    height: 885px;
   }
 }

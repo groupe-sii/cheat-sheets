@@ -1,7 +1,15 @@
+header {
+  height: 70px;
+
+  .logo-container img {
+    height: 45px;
+  }
+}
+
 main {
   margin: 1em 0;
 
   & > div {
-    height: 96vh;
+    height: 934px;
   }
 }
