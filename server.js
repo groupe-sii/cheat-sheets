@@ -8,7 +8,7 @@ console.log(__dirname);
 app.use(express.static(__dirname + '/dist/'));
 
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + '/dist/firstSide/firstSide.html')
+    res.redirect("/firstSide");
 });
 
 app.get("/firstSide", (req, res) => {
