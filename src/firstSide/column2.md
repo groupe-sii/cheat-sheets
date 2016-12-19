@@ -41,11 +41,3 @@ Delete a local branch
 
 Tag a commit
 `git tag <tag-name>`
-
-# Merge
-
-Merge <branch> on your current branch
-`git merge <branch>`
-
-Reapply commits (of the <branch>) on top of you current branch
-`git rebase <branch>`

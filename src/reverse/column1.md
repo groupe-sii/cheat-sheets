@@ -1,3 +1,11 @@
+# Merge
+
+Merge <branch> on your current branch
+`git merge <branch>`
+
+Reapply commits (of the <branch>) on top of you current branch
+`git rebase <branch>`
+
 # Alias
 
 Custom the *git log* command
