@@ -9,8 +9,8 @@ Reapply commits (of the <branch>) on top of you current branch
 # Alias
 
 Custom the *git log* command
-`git config --global alias.lg     "log --graph --abbrev-commit --color --oneline"`
-`git config --global alias.lga     "log --graph --abbrev-commit --color --oneline --all"`
+`git config --global alias.lg     'log --graph --abbrev-commit --color --oneline'`
+`git config --global alias.lga     'log --graph --abbrev-commit --color --oneline --all'`
 Now you can write *git lg* and *git lga*
 
 # Settings
