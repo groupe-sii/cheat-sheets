@@ -38,6 +38,14 @@ body {
             margin: 1em 0;
             height: 906px;
         }
+
+        header {
+            height: 70px;
+
+            .logo-container img {
+                height: 45px;
+            }
+        }
     }
 
     .container-colors-header {
