@@ -1,13 +1,16 @@
 const gulp = require('gulp'),
       fileinclude = require('gulp-file-include'),
       markdown = require('gulp-markdown'),
-      sass = require('gulp-sass');
+      sass = require('gulp-sass'),
+      argv  = require('yargs').argv,
+      template = require('gulp-template'),
+      inject = require('gulp-inject-string');
 
 /**
  * default task, export html pages
  */
 gulp.task('build', ['js', 'markdown-build', 'build-sass' ,'assets'], () => {
-    return gulp.src(['./src/**/*.html'])
+    return gulp.src(['./src/**/*.html', '!./src/templates/**'])
         .pipe(fileinclude({
             prefix: '@@'
         }))
@@ -53,4 +56,32 @@ gulp.task('assets', () => {
 gulp.task('js', () => {
     return gulp.src('./src/**/*.js')
         .pipe(gulp.dest('./dist/'));
+});
+
+/**
+ * Create folders, files and add link in menu
+ */
+gulp.task('create-new-cheat-sheet', () => {
+    let name = argv.name;
+
+    if (!name) {
+        throw "name is not defined";
+    }
+
+    // trim then snakeCase
+    name = name.trim().replace(/ /gi, '-');
+
+    gulp.src('./src/templates/**/*')
+        .pipe(template({name: name}))
+        .pipe(gulp.dest('./src/' + name));
+
+    gulp.src('./src/common/menu.html')
+        .pipe(inject.before('<!-- inject a new cheat sheet -->', '<li><a href="../../' + name + '/first-side/first-side.html">' + name + ' - recto</a></li>\n<li><a href="../../' + name + '/reverse/reverse.html">' + name + ' - verso</a></li>\n'))
+        .pipe(gulp.dest('./src/common/'))
+
+    console.log('Put the svg logo in assets/images folder')
+    console.log('Put your commands or codes on src/' + name + '/first-side/column1.md, ' +
+                                                'src/' + name + '/first-side/column2.md)' +
+                                                'src/' + name + '/reverse/column1.md)' +
+                                                'src/' + name + '/reverse/column2.md)');
 });
