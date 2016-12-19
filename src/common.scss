@@ -211,13 +211,13 @@ body {
         height: 80px;
         display: flex;
         align-items: center;
-        margin: 0 1%;
 
         .link-content {
             display: flex;
             flex-wrap: wrap;
             color: white;
             padding: 0 0.5em;
+            margin: 0 1%;
 
             & > div:not(:first-child) {
                 flex: 1;
