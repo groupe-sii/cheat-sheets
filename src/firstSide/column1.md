@@ -1,32 +1,24 @@
-# un titre
-## Get help
-`git help [command]`
+# Local Git State
 
-## Create
-Clone an existing repository
-`git clone ssh://user@domain.org/repository.git`
-descriptif de la commande du dessus
+![gitZone](../../assets/images/gitZone.png)
 
-# un titre
-## Create
-Clone an existing repository
-`git clone ssh://user@domain.org/repository.git`
-descriptif de la commande du dessus
+# Manage local changes
 
-## Create
-Clone an existing repository
-`git clone ssh://user@domain.org/repository.git`
-descriptif de la commande du dessus
+Show the working tree status
+`git status`
 
-## Create
-Clone an existing repository
-`git clone ssh://user@domain.org/repository.git`
+Show changes between commits, commit and working tree
+![gitDiff](../../assets/images/gitDiff.png)
 
-# un titre
-## Get help
-`git help [command]`
+Add <file> contents to the index
+`git add <file>`
 
-## Create
-Clone an existing repository
-`git clone ssh://user@domain.org/repository.git`
-descriptif de la commande du dessus
+Add current contents of the index in a new commit
+`git commit -m 'subject' -m 'body'`
+
+Change the last commit
+`git commit --amend`
+**Be careful: don't amend a published commit!**
+
+Who changed what in <file>
+`git blame <file>`

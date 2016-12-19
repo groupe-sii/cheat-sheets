@@ -1,34 +1,51 @@
-# un titre
-## Get help
-`git help [command]`
+# Undo
+ 
+discard all local changes in your working directory
+`git reset --hard HEAD`
 
-## Je suis une super mega grande commande a la con d ouf de la mort qui tue
+discard local changes in a file
+`git checkout HEAD <file>`
 
-# un titre
-## Create
-Clone an existing repository
-`git clone ssh://user@domain.org/repository.git`
-descriptif de la commande du dessus
+Revert a commit (add a new commit with contrary changes)
+`git revert <commit>`
 
-## Create
-Clone an existing repository
-`git clone ssh://user@domain.org/repository.git`
-descriptif de la commande du dessus
+# Remote
 
-## Create
-Clone an existing repository
-`git clone ssh://user@domain.org/repository.git`
-descriptif de la commande du dessus
+List all remotes repositories
+`git remote -v`
 
-## Create
-Clone an existing repository
-`git clone ssh://user@domain.org/repository.git`
+Show information about remote
+`git remote show <remote>`
 
-# un titre
-## Get help
-`git help [command]`
+Add new remote repository
+`git remove add <remote> <url>`
 
-## Create
-Clone an existing repository
-`git clone ssh://user@domain.org/repository.git`
-descriptif de la commande du dessus
+Dowload all changes from <remote>
+`git fetch <remote>`
+
+Download changes and integrate into HEAD
+`git pull <remote> <branch>`
+
+Publish changes on a remote
+`git push  <remote> <branch>`
+
+#Branch
+
+Create a new local branch and switch HEAD branch
+`git checkout -b newBranch`
+
+Delete a local branch
+`git branch -d <branch>`
+
+# Tag
+
+Tag a commit
+`git tag <tag-name>`
+
+# Merge
+
+Merge <branch> on your current branch
+`git merge <branch>`
+
+Reapply commits (of the <branch>) on top of you current branch
+`git rebase <branch>`

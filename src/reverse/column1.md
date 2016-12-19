@@ -1,23 +1,29 @@
-# Get help
-`git help [command]`
+# Alias
 
-# Create
-Clone an existing repository
-`git clone ssh://user@domain.org/repository.git`
-descriptif de la commande du dessus
+Custom the *git log* command
+`git config --global alias.lg     "log --graph --abbrev-commit --color --oneline"`
+`git config --global alias.lga     "log --graph --abbrev-commit --color --oneline --all"`
+Now you can write *git lg* and *git lga*
 
-# Je suis une super mega grande commande a la con d ouf de la mort qui tue
+# Settings
 
-# Create
-Clone an existing repository
-`git clone ssh://user@domain.org/repository.git`
-descriptif de la commande du dessus
+Somes commands to change the default git behavior
+`git config --global pull. rebase true`
+`git config --global rerere.enabled 1`
 
-# Create
-Clone an existing repository
-`git clone ssh://user@domain.org/repository.git`
-descriptif de la commande du dessus
+# Proxy
 
-# Create
-Clone an existing repository
-`git clone ssh://user@domain.org/repository.git`
+Add proxy on your global configuration
+`git config --global http.proxy http://proxy.com:1234`
+
+Unset the global proxy
+`git config --global --unset http.proxy`
+
+Add proxy on your current project directory
+`git config http.proxy http://proxy.com:1234`
+
+Check your global proxy
+`git config --global --get http.proxy`
+
+Check your local proxy
+`git config --get http.proxy`
