@@ -6,7 +6,7 @@ const gulp = require('gulp'),
 /**
  * default task, export html pages
  */
-gulp.task('build', ['markdown-build', 'build-sass' ,'assets'], () => {
+gulp.task('build', ['js', 'markdown-build', 'build-sass' ,'assets'], () => {
     return gulp.src(['./src/**/*.html'])
         .pipe(fileinclude({
             prefix: '@@'
@@ -45,4 +45,12 @@ gulp.task('watch', ['build', 'assets'], () => {
 gulp.task('assets', () => {
     return gulp.src('./assets/**/*')
                .pipe(gulp.dest('./dist/assets'));
+});
+
+/**
+ * Export js files
+ */
+gulp.task('js', () => {
+    return gulp.src('./src/**/*.js')
+        .pipe(gulp.dest('./dist/'));
 });

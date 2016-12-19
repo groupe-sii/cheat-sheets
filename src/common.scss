@@ -27,6 +27,19 @@ body {
     background-color: white;
     -webkit-print-color-adjust: exact;
 
+    &.first-side {
+        main {
+            height: 934px;
+        }
+    }
+
+    &.reverse {
+        main {
+            margin: 1em 0;
+            height: 906px;
+        }
+    }
+
     .container-colors-header {
         display: flex;
         height: 10px;
@@ -71,6 +84,68 @@ body {
             .sub-title {
                 flex: 3;
                 font-size: 1.25em;
+            }
+        }
+    }
+
+    .burger-menu {
+        width: 250px;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transition: ease .5s;
+        box-shadow: 2px 0 12px rgba(0,0,0,0.4);
+
+        &.hidden {
+            transform: translateX(-102%);
+            will-change: transform;
+        }
+
+        background-color: white;
+        z-index: 10;
+
+        button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: none;
+            border: none;
+            width: 24px;
+            height: 24px;
+            padding: 0;
+            margin: 0;
+            color: black;
+            transition: ease .5s;
+
+            &.hidden {
+                transform: translateX(130%);
+                color: white;
+            }
+        }
+
+        ul {
+            flex: 1;
+            list-style: none;
+            padding: 30px 0 0 0;
+            margin: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+
+            li {
+                height: 48px;
+                line-height: 48px;
+                padding: 0 16px;
+
+                &:hover {
+                    background: #CCC;
+                }
+
+                a {
+                    display: block;
+                    text-decoration: none;
+                    color: black;
+                }
             }
         }
     }
