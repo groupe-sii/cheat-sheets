@@ -7,7 +7,9 @@ const gulp = require('gulp'),
       inject = require('gulp-inject-string'),
        rename = require('gulp-rename'),
        merge = require('merge-stream'),
-       clean = require('gulp-clean');
+       clean = require('gulp-clean'),
+       connect = require('gulp-connect'),
+       gulpLivereload = require('gulp-livereload');
 
 /**
  * default task, export html pages
@@ -39,10 +41,24 @@ gulp.task('markdown-build', () => {
 });
 
 /**
- * Watch all files in src/ folder then run build task
+ * Run server
  */
-gulp.task('watch', ['build', 'assets'], () => {
-   return gulp.watch(['./src/**'], ['build']);
+gulp.task('connect', function() {
+    connect.server({
+        root: 'dist'
+    });
+});
+
+/**
+ * Watch all files in src/ folder then run build task and reload server
+ */
+gulp.task('watch', ['connect'], function () {
+    gulpLivereload.listen();
+
+    gulp.watch(['./src/**'], ['build'], (file) => {
+        gulp.src(file.path)
+            .pipe(gulpLivereload())
+    });
 });
 
 /**
@@ -92,9 +108,9 @@ gulp.task('rename-css', ['move-templates','inject-sources'], () => {
 gulp.task('clean-styles.scss', ['move-templates','inject-sources', 'rename-css'],  () => {
     console.log('Put the svg logo in assets/images folder');
     console.log('Put your commands or codes on src/' + name + '/first-side/column1.md, ' +
-        'src/' + name + '/first-side/column2.md)' +
-        'src/' + name + '/reverse/column1.md)' +
-        'src/' + name + '/reverse/column2.md)');
+        'src/' + name + '/first-side/column2.md,' +
+        'src/' + name + '/reverse/column1.md,' +
+        'src/' + name + '/reverse/column2.md');
 
     return gulp.src('./src/' + name + '/style.scss')
         .pipe(clean())
