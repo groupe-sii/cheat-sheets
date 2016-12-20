@@ -4,7 +4,10 @@ const gulp = require('gulp'),
       sass = require('gulp-sass'),
       argv  = require('yargs').argv,
       template = require('gulp-template'),
-      inject = require('gulp-inject-string');
+      inject = require('gulp-inject-string'),
+       rename = require('gulp-rename'),
+       merge = require('merge-stream'),
+       clean = require('gulp-clean');
 
 /**
  * default task, export html pages
@@ -58,30 +61,41 @@ gulp.task('js', () => {
         .pipe(gulp.dest('./dist/'));
 });
 
-/**
- * Create folders, files and add link in menu
- */
-gulp.task('create-new-cheat-sheet', () => {
-    let name = argv.name;
+let name = '';
+gulp.task('create-new-cheat-sheet', ['move-templates','inject-sources', 'rename-css', 'clean-styles.scss']);
+
+gulp.task('move-templates', () => {
+    name = argv.name;
+    console.log(name);
 
     if (!name) {
-        throw "name is not defined";
+        throw 'name is not defined';
     }
-
-    // trim then snakeCase
-    name = name.trim().replace(/ /gi, '-');
-
-    gulp.src('./src/templates/**/*')
+    console.log('ici' + name);
+    return gulp.src('./src/templates/**/*')
         .pipe(template({name: name}))
         .pipe(gulp.dest('./src/' + name));
+});
 
-    gulp.src('./src/common/menu.html')
+gulp.task('inject-sources', ['move-templates'], () => {
+    return gulp.src('./src/common/menu.html')
         .pipe(inject.before('<!-- inject a new cheat sheet -->', '<li><a href="../../' + name + '/first-side/first-side.html">' + name + ' - recto</a></li>\n<li><a href="../../' + name + '/reverse/reverse.html">' + name + ' - verso</a></li>\n'))
-        .pipe(gulp.dest('./src/common/'))
+        .pipe(gulp.dest('./src/common/'));
+});
 
-    console.log('Put the svg logo in assets/images folder')
+gulp.task('rename-css', ['move-templates','inject-sources'], () => {
+    return gulp.src('./src/' + name + '/style.scss')
+        .pipe(rename(name + '.scss'))
+        .pipe(gulp.dest('./src/' + name));
+});
+
+gulp.task('clean-styles.scss', ['move-templates','inject-sources', 'rename-css'],  () => {
+    console.log('Put the svg logo in assets/images folder');
     console.log('Put your commands or codes on src/' + name + '/first-side/column1.md, ' +
-                                                'src/' + name + '/first-side/column2.md)' +
-                                                'src/' + name + '/reverse/column1.md)' +
-                                                'src/' + name + '/reverse/column2.md)');
+        'src/' + name + '/first-side/column2.md)' +
+        'src/' + name + '/reverse/column1.md)' +
+        'src/' + name + '/reverse/column2.md)');
+
+    return gulp.src('./src/' + name + '/style.scss')
+        .pipe(clean())
 });

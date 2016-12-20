@@ -1,8 +1,12 @@
 /* put your all custom css rules here */
 /* you must not change other scss files */
 
-main div {
-  img {
-    height: 230px;
+body {
+  --currentColor: var(--blue);
+
+  main div {
+    img {
+      height: 230px;
+    }
   }
 }
