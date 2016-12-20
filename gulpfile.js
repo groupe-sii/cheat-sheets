@@ -82,12 +82,11 @@ gulp.task('create-new-cheat-sheet', ['move-templates','inject-sources', 'rename-
 
 gulp.task('move-templates', () => {
     name = argv.name;
-    console.log(name);
 
     if (!name) {
         throw 'name is not defined';
     }
-    console.log('ici' + name);
+
     return gulp.src('./src/templates/**/*')
         .pipe(template({name: name}))
         .pipe(gulp.dest('./src/' + name));
