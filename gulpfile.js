@@ -43,7 +43,7 @@ gulp.task('markdown-build', () => {
 /**
  * Run server
  */
-gulp.task('connect', function() {
+gulp.task('connect', ['build'], () => {
     connect.server({
         root: 'dist'
     });
@@ -52,7 +52,7 @@ gulp.task('connect', function() {
 /**
  * Watch all files in src/ folder then run build task and reload server
  */
-gulp.task('watch', ['connect'], function () {
+gulp.task('watch', ['build', 'connect'], function () {
     gulpLivereload.listen();
 
     gulp.watch(['./src/**'], ['build'], (file) => {
