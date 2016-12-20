@@ -1,9 +1,9 @@
 # Undo
  
-discard all local changes in your working directory
+Discard all local changes in your working directory
 `git reset --hard HEAD`
 
-discard local changes in a file
+Discard local changes in a file
 `git checkout HEAD <file>`
 
 Revert a commit (add a new commit with contrary changes)
