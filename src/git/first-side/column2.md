@@ -18,7 +18,7 @@ Show information about remote
 `git remote show <remote>`
 
 Add new remote repository
-`git remove add <remote> <url>`
+`git remote add <remote> <url>`
 
 Dowload all changes from <remote>
 `git fetch <remote>`
