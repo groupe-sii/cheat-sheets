@@ -210,13 +210,14 @@ body {
         align-items: center;
 
         .link-content {
+            width:100%;
             display: flex;
             flex-wrap: wrap;
             color: white;
             padding: 0 0.5em;
             margin: 0 1%;
 
-            & > div:not(:first-child) {
+            & > div {
                 flex: 1;
             }
 
