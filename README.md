@@ -22,3 +22,9 @@ Put your commands or codes on:
 Build and reload server:
 
 `gulp watch`
+
+## Screenshots
+
+![alt text](./assets/images/webVersion.png)
+
+![alt text](./assets/images/pdfVersion.png)
