@@ -10,7 +10,7 @@ var gitCommands = {
     configEmail:    "git config user.email \"mbrechet@sii.fr\"",
     add:            "git add --all",
     commit:         "git commit -am \"Automatic build from Travis-CI\"",
-    push:           "git push \"git@github.com:groupe-sii/cheatSheets.git.git\" gh-pages:gh-pages"
+    push:           "git push \"https://${GH_TOKEN}@github.com/groupe-sii/cheatSheets.git\" gh-pages:gh-pages"
 };
 
 /**
