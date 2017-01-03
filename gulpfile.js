@@ -98,10 +98,19 @@ gulp.task('inject-sources', ['move-templates'], () => {
         .pipe(gulp.dest('./src/common/'));
 });
 
-gulp.task('rename-css', ['move-templates','inject-sources'], () => {
+gulp.task('rename-css', ['move-templates','inject-sources', 'add-item-on-index'], () => {
     return gulp.src('./src/' + name + '/style.scss')
         .pipe(rename(name + '.scss'))
         .pipe(gulp.dest('./src/' + name));
+});
+
+/**
+ * add an item link on the main page index.html
+ */
+gulp.task('add-item-on-index', ['move-templates', 'inject-sources'], () => {
+    return gulp.src('./src/index.html')
+        .pipe(inject.before('<!-- inject a new cheat sheet -->', '<div class="item">\n<a href="./' + name + '/first-side/first-side.html"><img src="./assets/images/' + name + '.svg" /></a>\n</div>\n'))
+        .pipe(gulp.dest('./src/'));
 });
 
 gulp.task('clean-styles.scss', ['move-templates','inject-sources', 'rename-css'],  () => {
