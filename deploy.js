@@ -53,6 +53,9 @@ var getBranchName = function() {
 // 2 - clean gh-pages directory
 // 2 - Copy 'dist' directory contents into gh-pages
 // 3 - Add, commit and push changes to Github
+
+
+// 1 - get Branch name
 getBranchName().then(function(branch){
     branch = branch.trim();
     console.log('DEPLOY_BRANCH', DEPLOY_BRANCH, DEPLOY_BRANCH.length);
