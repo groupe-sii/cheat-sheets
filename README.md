@@ -1,6 +1,8 @@
 # Cheat Sheet Generator
 
 ## install
+gulp is needed in global
+`npm  install gulp -g`
 
 `yarn`
 or
