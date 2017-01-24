@@ -21,3 +21,7 @@ class SideNav {
 }
 
 new SideNav();
+
+document.addEventListener('DOMContentLoaded', function() {
+    hljs.initHighlightingOnLoad();
+});
