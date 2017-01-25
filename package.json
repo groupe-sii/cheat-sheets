@@ -5,11 +5,13 @@
   "author": "Kevin Grandemange <kgrandemange@sii.fr>",
   "scripts": {
     "build": "gulp build",
-    "deploy": "node deploy.js"
+    "deploy": "node deploy.js",
+    "watch": "gulp watch"
   },
   "license": "MIT",
   "devDependencies": {
     "del": "^2.2.2",
+    "eslint": "^3.14.0",
     "express": "^4.14.0",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
