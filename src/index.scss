@@ -1,3 +1,4 @@
+
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -5,7 +6,7 @@
 body {
   margin: 0;
   background-color: #e2e2e2;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'open-sans', sans-serif;
   min-width: 740px;
 
   header  {
@@ -24,22 +25,49 @@ body {
 
   main {
     display: flex;
-    flex-wrap: wrap;
+    justify-content:space-around;
     padding-top: 108px;
 
-    .item {
-      margin: 0.3em;
-      background-color: #ffffff;
-      padding: 1em;
-      border-radius: 2px;
-      box-shadow: 2px 2px 1px 0px rgba(0,0,0,0.3);
 
-      &:hover {
-        box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.3);
+    section {
+      width:33%;
+      text-align: center;
+      h1 {
+          i {
+              vertical-align: middle;
+            }
+          padding: 5px;
+          text-transform: uppercase;
+          font-size: 1.2em;
+          margin: 1em 0;
+          font-weight: bold;
       }
+      .container {
+        display: flex;
+        flex-wrap: wrap;
 
-      img {
-        width: 100px;
+         .item {
+          margin: 0.3em;
+          background-color: #ffffff;
+          padding: 1em;
+          font-weight: bold;
+          border-radius: 2px;
+          box-shadow: 2px 2px 1px 0px rgba(0,0,0,0.3);
+
+          &:hover {
+            box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.3);
+          }
+
+          img {
+            width: 100px;
+          }
+
+          div {
+            width: 100px;
+            text-overflow: ellipsis;
+            text-align: center;
+          }
+        }
       }
     }
   }
