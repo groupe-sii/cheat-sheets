@@ -1,18 +1,28 @@
 # Generating Components, Directives, Pipes and Services
 
+You can use the __ng generate__ (or just __ng g__) command to generate :
+
 Components
-`ng generate component <my-new-component>`
+`ng g component my-new-component`
 Directive
-`ng generate directive <my-new-directive>`
+`ng g directive my-new-directive`
 Pipe
-`ng generate pie <my-new-pipe>`
+`ng g pipe my-new-pipe`
 Service
-`ng generate service <my-new-service>`
+`ng g service my-new-service`
 Interface
-`ng generate interface <my-new-interface>`
+`ng g interface my-new-interface`
 Enum
-`ng generate enum <my-new-enum>`
+`ng g enum my-new-enum`
+Module
+`ng g module my-new-module`
+Module with module routes
+`ng g module my-new-module --routing`
 
-# Module
+# Linting code
 
-`ng generate module <my-new-module>`
+`ng lint`
+
+# Help
+
+`ng help`
