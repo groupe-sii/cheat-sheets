@@ -32,3 +32,14 @@ Boolean
 ```
 var mybool: bool = true;
 ```
+
+# Arrays
+
+Array of strings
+```
+string[] or Array<string>
+```
+Array of functions that return boolean
+```
+{(): boolean;}[] or Array<()=>boolean>
+```

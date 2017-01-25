@@ -32,3 +32,23 @@ class Person extends IPerson {
 ```
 
 # Object type literals
+
+Object with implicit Any properties
+```
+{ foo: any; bar: any } or { foo; bar; }
+```
+
+Object with optional property
+```
+{ required: boolean; optional?: number; }
+```
+
+Hash map
+```
+{ [key: string]: Type; }
+```
+
+Indexable types
+```
+{ [id: number]: Type; }
+```
