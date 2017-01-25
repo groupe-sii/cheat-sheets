@@ -17,11 +17,11 @@ body {
     --purple: #8D338A;
     --orange: #D64911;
     --grey: #7E898D;
-    --lightgrey: #e2e1e1;
+    --lightgrey: #eeeef0;
 
     min-width: 740px;
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     background-color: white;
     -webkit-print-color-adjust: exact;
@@ -181,6 +181,7 @@ body {
         text-transform: uppercase;
         font-size: 1.2em;
         margin: 1em 0 0.5em 0;
+        font-weight: bold;
     }
 
     h2 {
@@ -198,6 +199,7 @@ body {
         padding: 0.6em;
         margin: 0.5em 0;
         background-color: var(--lightgrey);
+        font-family: 'Droid Sans', monospace, sans-serif;
     }
 
     ul {
