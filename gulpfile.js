@@ -6,7 +6,6 @@ const gulp = require('gulp'),
       template = require('gulp-template'),
       inject = require('gulp-inject-string'),
        rename = require('gulp-rename'),
-       merge = require('merge-stream'),
        clean = require('gulp-clean'),
        connect = require('gulp-connect'),
        gulpLivereload = require('gulp-livereload');
@@ -77,18 +76,27 @@ gulp.task('js', () => {
         .pipe(gulp.dest('./dist/'));
 });
 
+
 let name = '';
+let category = '';
+
+
 gulp.task('create-new-cheat-sheet', ['move-templates','inject-sources', 'rename-css', 'clean-styles.scss']);
 
 gulp.task('move-templates', () => {
     name = argv.name;
+    category = argv.category
 
-    if (!name) {
-        throw 'name is not defined';
+    if (!name || !category) {
+        throw new Error('usage is "gulp create-new-cheat-sheet --name <name> --category <tools|frameworks|languages>');
+    }
+
+    if(category !== 'tools' && category !== 'frameworks' && category !== 'languages'){
+        throw new Error('"category must be any of these values  : tools | frameworks | languages');
     }
 
     return gulp.src('./src/templates/**/*')
-        .pipe(template({name: name}))
+        .pipe(template({name: name, category:category}))
         .pipe(gulp.dest('./src/' + name));
 });
 
@@ -108,8 +116,15 @@ gulp.task('rename-css', ['move-templates','inject-sources', 'add-item-on-index']
  * add an item link on the main page index.html
  */
 gulp.task('add-item-on-index', ['move-templates', 'inject-sources'], () => {
+    let ITEM_INDEX_TEMPLATE = `<div class="item">
+                                <a href="./${name}/first-side/first-side.html">
+                                    <img src="./assets/images/${name}.svg"/>
+                                    <div>${name}</div>
+                                </a>
+                            </div>`;
+
     return gulp.src('./src/index.html')
-        .pipe(inject.before('<!-- inject a new cheat sheet -->', '<div class="item">\n<a href="./' + name + '/first-side/first-side.html"><img src="./assets/images/' + name + '.svg" /></a>\n</div>\n'))
+        .pipe(inject.before(`<!-- inject a new cheat sheet ${category} -->`, ITEM_INDEX_TEMPLATE))
         .pipe(gulp.dest('./src/'));
 });
 
