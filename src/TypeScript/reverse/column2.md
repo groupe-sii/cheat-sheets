@@ -7,8 +7,8 @@ export interface StringValidator {
     isAcceptable(s: string): boolean;
 }
 
-var lettersRegexp = /^[A-Za-z]+$/;
-var numberRegexp = /^[0-9]+$/;
+let lettersRegexp = /^[A-Za-z]+$/,
+    numberRegexp = /^[0-9]+$/;
 
 export class Letters implements StringValidator {
     isAcceptable(s: string) {

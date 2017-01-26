@@ -15,7 +15,7 @@ interface IPerson {
     firstname: string;
     age?: number; //optional
     sayHello(): void;
-    size?: Size = Size.L;
+    size?: Size;
 }
 ```
 
@@ -23,7 +23,8 @@ Class
 ```
 class Person extends IPerson {
     firstname: string;
-    age?: number;
+    age: number;
+    size: Size = Size.L;
 
     constructor() {}
 

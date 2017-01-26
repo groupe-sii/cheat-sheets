@@ -20,17 +20,17 @@ function nothing(): void {}
 
 String
 ```
-var myString: string = "hello";
+let myString: string = "hello";
 ```
 
 Number
 ```
-var myNumber: number = 1;
+let myNumber: number = 1;
 ```
 
 Boolean
 ```
-var mybool: bool = true;
+let mybool: bool = true;
 ```
 
 # Arrays
