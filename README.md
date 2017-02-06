@@ -1,8 +1,14 @@
 # Cheat Sheet Generator
 
-## Install
+## install
+gulp is needed in global in order to run compilation :
 
-gulp is needed in global `npm install -g gulp`
+`npm  install gulp -g`
+
+
+`yarn`
+or
+`npm install`
 
 `yarn` or `npm install`
 
