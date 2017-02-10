@@ -53,7 +53,7 @@ gulp.task('build', ['js', 'markdown-build', 'build-sass' ,'assets'], () => {
  * Converts sass to css
  */
 gulp.task('build-sass', ['assets'], () => {
-    return gulp.src(['./src/**/*.scss'])
+    return gulp.src(['./src/**/*.scss','!./src/templates/**/*'])
                .pipe(sass().on('error', sass.logError))
                .pipe(gulp.dest('./dist'))
 });
