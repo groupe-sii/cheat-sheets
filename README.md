@@ -14,7 +14,7 @@ or
 
 ## Usage
 
-`gulp create-new-cheat-sheet --name 'name'`
+`gulp create-new-cheat-sheet --name <name> --category <tools|frameworks|languages>`
 
 Put your svg|png logo in assets/images folder
 Put your commands or codes on:

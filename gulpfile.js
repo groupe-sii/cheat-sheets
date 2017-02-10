@@ -8,7 +8,35 @@ const gulp = require('gulp'),
        rename = require('gulp-rename'),
        clean = require('gulp-clean'),
        connect = require('gulp-connect'),
-       gulpLivereload = require('gulp-livereload');
+       gulpLivereload = require('gulp-livereload'),
+       replace = require('gulp-replace');
+
+/**
+ * Variable used in scipts
+ */
+
+const CATEGORY = {
+    TOOLS:'tools',
+    FRAMEWORKS:'frameworks',
+    LANGUAGES:'languages'
+}
+
+let name = '';
+let category = '';
+
+const getColor = (category) =>{
+    switch(category){
+        case CATEGORY.FRAMEWORKS:
+            return 'green';
+        case CATEGORY.LANGUAGES:
+            return 'orange';
+        case CATEGORY.TOOLS:
+        default:
+            return 'blue';
+    }
+}
+
+
 
 /**
  * default task, export html pages
@@ -77,9 +105,6 @@ gulp.task('js', () => {
 });
 
 
-let name = '';
-let category = '';
-
 
 gulp.task('create-new-cheat-sheet', ['move-templates','inject-sources', 'rename-css', 'clean-styles.scss']);
 
@@ -91,7 +116,7 @@ gulp.task('move-templates', () => {
         throw new Error('usage is "gulp create-new-cheat-sheet --name <name> --category <tools|frameworks|languages>');
     }
 
-    if(category !== 'tools' && category !== 'frameworks' && category !== 'languages'){
+    if(category !== CATEGORY.TOOLS && category !== CATEGORY.FRAMEWORKS && category !== CATEGORY.LANGUAGES){
         throw new Error('"category must be any of these values  : tools | frameworks | languages');
     }
 
@@ -108,6 +133,7 @@ gulp.task('inject-sources', ['move-templates'], () => {
 
 gulp.task('rename-css', ['move-templates','inject-sources', 'add-item-on-index'], () => {
     return gulp.src('./src/' + name + '/style.scss')
+        .pipe(replace('{{COLOR}}', getColor(category)))
         .pipe(rename(name + '.scss'))
         .pipe(gulp.dest('./src/' + name));
 });
@@ -122,7 +148,6 @@ gulp.task('add-item-on-index', ['move-templates', 'inject-sources'], () => {
                                     <div>${name}</div>
                                 </a>
                             </div>`;
-
     return gulp.src('./src/index.html')
         .pipe(inject.before(`<!-- inject a new cheat sheet ${category} -->`, ITEM_INDEX_TEMPLATE))
         .pipe(gulp.dest('./src/'));
