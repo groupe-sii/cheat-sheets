@@ -2,8 +2,8 @@ Angular CLI need Node 4++ with NPM 3++
 
 # Installation
 
-`npm install -g angular-cli`
-`yarn global add angular-cli`
+`npm install -g @angular/cli`
+`yarn global add @angular/cli`
 
 # Usage
 
