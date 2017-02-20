@@ -106,7 +106,7 @@ gulp.task('js', () => {
 
 
 
-gulp.task('create-new-cheat-sheet', ['move-templates','inject-sources', 'rename-css', 'clean-styles.scss']);
+gulp.task('create-new-cheat-sheet', ['move-templates', 'rename-css', 'clean-styles.scss']);
 
 gulp.task('move-templates', () => {
     name = argv.name;
@@ -131,7 +131,7 @@ gulp.task('inject-sources', ['move-templates'], () => {
         .pipe(gulp.dest('./src/common/'));
 });
 
-gulp.task('rename-css', ['move-templates','inject-sources', 'add-item-on-index'], () => {
+gulp.task('rename-css', ['move-templates', 'add-item-on-index'], () => {
     return gulp.src('./src/' + name + '/style.scss')
         .pipe(replace('{{COLOR}}', getColor(category)))
         .pipe(rename(name + '.scss'))
@@ -141,7 +141,7 @@ gulp.task('rename-css', ['move-templates','inject-sources', 'add-item-on-index']
 /**
  * add an item link on the main page index.html
  */
-gulp.task('add-item-on-index', ['move-templates', 'inject-sources'], () => {
+gulp.task('add-item-on-index', ['move-templates'], () => {
     let ITEM_INDEX_TEMPLATE = `<div class="item">
                                 <a href="./${name}/first-side/first-side.html">
                                     <img src="./assets/images/${name}.svg"/>
@@ -153,7 +153,7 @@ gulp.task('add-item-on-index', ['move-templates', 'inject-sources'], () => {
         .pipe(gulp.dest('./src/'));
 });
 
-gulp.task('clean-styles.scss', ['move-templates','inject-sources', 'rename-css'],  () => {
+gulp.task('clean-styles.scss', ['move-templates', 'rename-css'],  () => {
     console.log('Put the svg logo in assets/images folder');
     console.log('Put your commands or codes on src/' + name + '/first-side/column1.md, ' +
         'src/' + name + '/first-side/column2.md,' +

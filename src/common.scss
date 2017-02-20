@@ -70,6 +70,27 @@ body {
             }
         }
 
+        .home-button{
+            a { color:white;}
+            i {
+                font-size:50px;
+            }
+            float:left;
+            position:absolute;
+            left:30px;
+            color:white;
+        }
+
+        .logo-category {
+            position:absolute;
+            right:30px;
+            i {
+                font-size: 50px;
+            }
+            color:white;
+            float: right;
+        }
+
         .description-content {
             display: flex;
             flex-direction: column;
