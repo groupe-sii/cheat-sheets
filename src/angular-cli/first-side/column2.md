@@ -1,3 +1,12 @@
+ current version: __1.0.0-beta.32.3__ - Date: __Feb. 2017__
+# Test
+
+Running unit tests
+`ng test`
+
+Running end-to-end tests
+`ng e2e`
+
 # Generating Components, Directives, Pipes and Services
 
 You can use the __ng generate__ (or just __ng g__) command to generate :
@@ -18,11 +27,3 @@ Module
 `ng g module my-new-module`
 Module with module routes
 `ng g module my-new-module --routing`
-
-# Linting code
-
-`ng lint`
-
-# Help
-
-`ng help`
