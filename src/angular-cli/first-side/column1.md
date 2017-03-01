@@ -11,9 +11,6 @@ Generating an Angular project
 `ng new <project_name>`
 `cd <project_name>`
 
-In existing folder: 
-`ng init`
-
 Serving via development server
 `ng serve`
 
