@@ -10,9 +10,6 @@ class SideNav {
         this.addEventListeners();
     }
 
-    addEventListeners () {
-        this.sideNavMenuButton.addEventListener('click', this.toggleSideNavHandler);
-    }
 
     toggleSideNavHandler() {
         this.sideNav.classList.toggle('hidden');
