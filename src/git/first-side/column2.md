@@ -1,14 +1,3 @@
-# Undo
- 
-Discard all local changes in your working directory
-`git reset --hard HEAD`
-
-Discard local changes in a file
-`git checkout HEAD <file>`
-
-Revert a commit (add a new commit with contrary changes)
-`git revert <commit>`
-
 # Remote
 
 List all remotes repositories
@@ -29,7 +18,7 @@ Download changes and integrate into HEAD
 Publish changes on a remote
 `git push  <remote> <branch>`
 
-#Branch
+# Branch
 
 Create a new local branch and switch HEAD branch
 `git checkout -b newBranch`
@@ -37,7 +26,12 @@ Create a new local branch and switch HEAD branch
 Delete a local branch
 `git branch -d <branch>`
 
-# Tag
+# Commit messages
 
-Tag a commit
-`git tag <tag-name>`
+- Limit the subject line to 50 characters
+- Do not end the subject with a period
+- Use the imperative mood in the subject line
+- User the body to explain *what*, *why* and *how*
+
+Tips: Separate subject from body with a blank line. From de command line you can use:
+`git commit -m 'subject' -m 'body'`

@@ -3,7 +3,7 @@
 
 body {
   // available colors are: blue, green, purple, orange and grey
-  --currentColor: var(--blue);
+  --currentColor: var(--{{COLOR}});
 
   main div {
     img {

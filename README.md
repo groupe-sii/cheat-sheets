@@ -1,27 +1,38 @@
 # Cheat Sheet Generator
 
 ## install
+gulp is needed in global in order to run compilation :
+
+`npm  install gulp -g`
+
 
 `yarn`
 or
 `npm install`
 
-## usage
+`yarn` or `npm install`
 
-`gulp create-new-cheat-sheet --name 'name'`
+## Usage
 
-Put your svg logo in assets/images folder
+`gulp create-new-cheat-sheet --name <name> --category <tools|frameworks|languages>`
+
+Put your svg|png logo in assets/images folder
 Put your commands or codes on:
  - src/\<name\>/first-side/column1.md
  - src/\<name\>/first-side/column2.md
  - src/\<name\>/reverse/column1.md
  - src/\<name\>/reverse/column2.md
- 
-## devtools
+
+## Devtools
 
 Build and reload server:
 
 `gulp watch`
+
+## Print
+
+- Hit `Ctrl+P` to generate the PDF version, using `Save as PDF`
+- Disable margins
 
 ## Screenshots
 

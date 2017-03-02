@@ -102,4 +102,5 @@ yarn.lock
 ## ignore build folder
 dist/
 
+.vscode/
 

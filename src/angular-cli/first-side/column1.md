@@ -1,37 +1,31 @@
-Angular CLI need Node 4 or higher with NPM 3 or higher
+Angular CLI need __Node 4++__ with __NPM 3++__
 
 # Installation
 
-`npm install -g angular-cli`
-or
-`yarn global add angular-cli`
+`npm install -g @angular/cli`
+`yarn global add @angular/cli`
 
 # Usage
 
-Help
-`ng help`
-Generating and serving an Angular project via development server
+Generating an Angular project
 `ng new <project_name>`
 `cd <project_name>`
+
+Serving via development server
 `ng serve`
 
-Navigate to `http://localhost:4200/`
-The app will automatically reload if you change any of the source files.
+Navigate to __http://localhost:4200/__. The app will automatically reload if you change any source files.
 
-You can configure the default HTTP port and the one used by the LiveReload server with two command-line options
+Change _port_ and _LiveReload port_
 `ng serve --host 0.0.0.0 --port 4201 --live-reload-port 49153`
 
-# Generating Components, Directives, Pipes and Services
+# Build
 
-Components
-`ng generate component <my-new-component>`
-Directive
-`ng generate directive <my-new-directive>`
-Pipe
-`ng generate pie <my-new-pipe>`
-Service
-`ng generate service <my-new-service>`
-Interface
-`ng generate interface <my-new-interface>`
-Enum
-`ng generate enum <my-new-enum>`
+Creating a build : the artifacts will be stored in the _dist/_ directory.
+`ng build`
+
+Build targets and environment, the mapping used can be found in _angular-cli.json_ :
+`ng build --target=production --environment=prod`
+
+Angular CLI supports AOT compilation by running :
+`ng build --aot`
