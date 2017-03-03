@@ -1,11 +1,11 @@
 # Local Git State and changes
 
-![gitZone](../../assets/images/gitZone.png)
+![gitZone](../assets/images/gitZone.png)
 
 # Manage local changes
 
 Show changes between commits, commit and working tree
-![gitDiff](../../assets/images/gitDiff.png)
+![gitDiff](../assets/images/gitDiff.png)
 
 Show the working tree status
 `git status`
