@@ -135,7 +135,7 @@ gulp.task('move-templates', () => {
 
 gulp.task('inject-sources', ['move-templates'], () => {
     return gulp.src('./src/common/menu.html')
-        .pipe(inject.before('<!-- inject a new cheat sheet -->', '<li><a href="../../' + name + '/first-side/first-side.html">' + name + ' - recto</a></li>\n<li><a href="../../' + name + '/reverse/reverse.html">' + name + ' - verso</a></li>\n'))
+        .pipe(inject.before('<!-- inject a new cheat sheet -->', '<li><a href="../../' + name + '/index.html">' + name + '</a></li>\n'))
         .pipe(gulp.dest('./src/common/'));
 });
 
@@ -151,7 +151,7 @@ gulp.task('rename-css', ['move-templates', 'add-item-on-index'], () => {
  */
 gulp.task('add-item-on-index', ['move-templates'], () => {
     let ITEM_INDEX_TEMPLATE = `<div class="item">
-                                <a href="./${name}/first-side/first-side.html">
+                                <a href="./${name}/index.html">
                                     <img src="./assets/images/${name}.svg"/>
                                     <div>${name}</div>
                                 </a>
