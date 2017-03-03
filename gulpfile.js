@@ -1,15 +1,17 @@
 const gulp = require('gulp'),
-      fileinclude = require('gulp-file-include'),
-      markdown = require('gulp-markdown'),
-      sass = require('gulp-sass'),
-      argv  = require('yargs').argv,
-      template = require('gulp-template'),
-      inject = require('gulp-inject-string'),
-       rename = require('gulp-rename'),
-       clean = require('gulp-clean'),
-       connect = require('gulp-connect'),
-       gulpLivereload = require('gulp-livereload'),
-       replace = require('gulp-replace');
+    fileinclude = require('gulp-file-include'),
+    markdown = require('gulp-markdown'),
+    sass = require('gulp-sass'),
+    argv  = require('yargs').argv,
+    template = require('gulp-template'),
+    inject = require('gulp-inject-string'),
+    rename = require('gulp-rename'),
+    clean = require('gulp-clean'),
+    connect = require('gulp-connect'),
+    gulpLivereload = require('gulp-livereload'),
+    tap = require('gulp-tap'),
+    path = require('path'),
+    replace = require('gulp-replace');
 
 /**
  * Variable used in scipts
@@ -19,7 +21,7 @@ const CATEGORY = {
     TOOLS:'tools',
     FRAMEWORKS:'frameworks',
     LANGUAGES:'languages'
-}
+};
 
 let name = '';
 let category = '';
@@ -34,19 +36,27 @@ const getColor = (category) =>{
         default:
             return 'blue';
     }
-}
-
-
+};
 
 /**
  * default task, export html pages
  */
 gulp.task('build', ['js', 'markdown-build', 'build-sass' ,'assets'], () => {
-    return gulp.src(['./src/**/*.html', '!./src/templates/**'])
-        .pipe(fileinclude({
-            prefix: '@@'
-        }))
-        .pipe(gulp.dest('./dist/'));
+    return gulp.src(['./src/common/**/*.html', './src/**/*.html', '!./src/templates/**'], {base: './src/'})
+        .pipe(tap(function(file) {
+            let projectFolder = file.relative.replace(/\\/g,'/');
+            projectFolder = projectFolder.substr(0, projectFolder.indexOf('/'));
+            return gulp.src(file.path, {base: file.base})
+                .pipe(fileinclude({
+                    prefix: '@@',
+                    basepath: '@file',
+                    context: {
+                        folder: projectFolder.toLowerCase()
+                    }
+                }))
+                .pipe(gulp.dest('./dist/'));
+
+        }));
 });
 
 /**
@@ -54,8 +64,8 @@ gulp.task('build', ['js', 'markdown-build', 'build-sass' ,'assets'], () => {
  */
 gulp.task('build-sass', ['assets'], () => {
     return gulp.src(['./src/**/*.scss','!./src/templates/**/*'])
-               .pipe(sass().on('error', sass.logError))
-               .pipe(gulp.dest('./dist'))
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('./dist'))
 });
 
 /**
@@ -63,8 +73,8 @@ gulp.task('build-sass', ['assets'], () => {
  */
 gulp.task('markdown-build', () => {
     return gulp.src(['./src/**/*.md'])
-               .pipe(markdown())
-               .pipe(gulp.dest('./dist'));
+        .pipe(markdown())
+        .pipe(gulp.dest('./dist'));
 });
 
 /**
@@ -93,7 +103,7 @@ gulp.task('watch', ['build', 'connect'], function () {
  */
 gulp.task('assets', () => {
     return gulp.src('./assets/**/*')
-               .pipe(gulp.dest('./dist/assets'));
+        .pipe(gulp.dest('./dist/assets'));
 });
 
 /**
@@ -104,13 +114,11 @@ gulp.task('js', () => {
         .pipe(gulp.dest('./dist/'));
 });
 
-
-
 gulp.task('create-new-cheat-sheet', ['move-templates', 'rename-css', 'clean-styles.scss']);
 
 gulp.task('move-templates', () => {
     name = argv.name;
-    category = argv.category
+    category = argv.category;
 
     if (!name || !category) {
         throw new Error('usage is "gulp create-new-cheat-sheet --name <name> --category <tools|frameworks|languages>');
@@ -127,7 +135,7 @@ gulp.task('move-templates', () => {
 
 gulp.task('inject-sources', ['move-templates'], () => {
     return gulp.src('./src/common/menu.html')
-        .pipe(inject.before('<!-- inject a new cheat sheet -->', '<li><a href="../../' + name + '/first-side/first-side.html">' + name + ' - recto</a></li>\n<li><a href="../../' + name + '/reverse/reverse.html">' + name + ' - verso</a></li>\n'))
+        .pipe(inject.before('<!-- inject a new cheat sheet -->', '<li><a href="../../' + name + '/index.html">' + name + '</a></li>\n'))
         .pipe(gulp.dest('./src/common/'));
 });
 
@@ -143,7 +151,7 @@ gulp.task('rename-css', ['move-templates', 'add-item-on-index'], () => {
  */
 gulp.task('add-item-on-index', ['move-templates'], () => {
     let ITEM_INDEX_TEMPLATE = `<div class="item">
-                                <a href="./${name}/first-side/first-side.html">
+                                <a href="./${name}/index.html">
                                     <img src="./assets/images/${name}.svg"/>
                                     <div>${name}</div>
                                 </a>
