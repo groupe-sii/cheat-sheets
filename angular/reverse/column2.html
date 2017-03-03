@@ -1,0 +1,43 @@
+<!--# Routing and navigation
+
+BIG
+
+# Dependency injection configuration
+
+MINI
+
+# Directive and component change detection and lifecycle hooks
+
+MOYEN
+
+# Class field decorators for directives and components
+
+Moyen
+
+# Component configuration
+
+little
+
+-->
+<h1 id="directive-configuration">Directive configuration</h1>
+<pre><code>@Directive({ property1: value1, ... })
+</code></pre><p>Specifies a CSS selector that identifies this directive within a template. Supported selectors include element, [attribute], .class, and :not().
+Does not support parent-child relationship selectors.</p>
+<pre><code>selector: &#39;.cool-button:not(a)&#39;
+</code></pre><p>List of dependency injection providers for this directive and its children.</p>
+<pre><code>providers: [MyService, { provide: ... }]
+</code></pre><h1 id="class-decorators">Class decorators</h1>
+<pre><code>import { Directive, ... } from &#39;@angular/core&#39;;
+</code></pre><p>Declares that a class is a component and provides metadata about the component.</p>
+<pre><code>@Component({...})
+class MyComponent() {}
+</code></pre><p>Declares that a class is a directive and provides metadata about the directive.</p>
+<pre><code>@Directive({...})
+class MyDirective() {}
+</code></pre><p>Declares that a class is a pipe and provides metadata about the pipe.</p>
+<pre><code>@Pipe({...})
+class MyPipe() {}
+</code></pre><p>Declares that a class has dependencies that should be injected into the constructor when the dependency injector is creating an instance of this class.</p>
+<pre><code>@Injectable()
+class MyService() {}
+</code></pre>

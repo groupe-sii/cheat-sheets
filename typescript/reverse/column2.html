@@ -1,0 +1,25 @@
+<h1 id="modules">Modules</h1>
+<p><em>validation.ts</em></p>
+<pre><code>export interface StringValidator {
+    isAcceptable(s: string): boolean;
+}
+
+let lettersRegexp = /^[A-Za-z]+$/,
+    numberRegexp = /^[0-9]+$/;
+
+export class Letters implements StringValidator {
+    isAcceptable(s: string) {
+        return lettersRegexp.test(s);
+    }
+}
+</code></pre><p><em>random.ts</em></p>
+<pre><code>export default function random() {
+    return Math.random();
+}
+</code></pre><h1 id="module-import">Module import</h1>
+<p><em>hello-world.ts</em></p>
+<pre><code>import { StringValidator, Letters } from &#39;./validation&#39;
+
+import random from &#39;./hello-world&#39;
+import { random as RD } from &#39;./hello-world&#39;
+</code></pre>

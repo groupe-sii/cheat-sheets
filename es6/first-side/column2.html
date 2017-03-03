@@ -1,0 +1,41 @@
+<h1 id="arrow-function">Arrow function</h1>
+<pre><code class="lang-js">((variable) =&gt; {
+    console.log(variable);
+})(&#39;test&#39;);
+</code></pre>
+<pre><code class="lang-js">((doubleMe) =&gt; doubleMe * 2)(2) // auto return 4;
+((doubleMe) =&gt; {return doubleMe * 2})(2) // return 4;
+</code></pre>
+<p>Arrow functions don&#39;t have its own <strong>this</strong>.</p>
+<h1 id="for-of">For of</h1>
+<pre><code class="lang-js">let arr = [1, 2, 3];
+for (const i of arr) {
+    console.log(i);
+}
+// &quot;1&quot;, &quot;2&quot;, and &quot;3&quot;
+</code></pre>
+<h1 id="for-in">For in</h1>
+<pre><code class="lang-js">let arr = [3, 5, 7];
+for (let i in arr) {
+  console.log(i);     // show indexes : &quot;0&quot;, &quot;1&quot;, &quot;2&quot;
+}
+arr.toto = &quot;coucou&quot;;
+Object.prototype.objCustom = function () {};
+for (let i in arr) {
+  console.log(i);     // show : &quot;0&quot;, &quot;1&quot;, &quot;2&quot;, &quot;toto&quot;, &quot;objCustom&quot;
+}
+</code></pre>
+<pre><code class="lang-js">var obj = {a:1, b:2, c:3};
+
+for (var prop in obj) {
+  console.log(&quot;obj.&quot; + prop + &quot; = &quot; + obj[prop]);
+}
+// &quot;obj.a = 1&quot;
+// &quot;obj.b = 2&quot;
+// &quot;obj.c = 3&quot;
+</code></pre>
+<h1 id="promise">Promise</h1>
+<pre><code class="lang-js">function makeIt() {
+    return new Promise((resolve, reject) =&gt; { makeAsyncTask(); resolve(); });
+}
+</code></pre>

@@ -1,0 +1,32 @@
+<h1 id="tuples">Tuples</h1>
+<p>A tuple is a finite ordered list of elements. A tuple in TypeScript is much like a typed list except that it is immutable (unchangeable) once created.</p>
+<pre><code>type keyValuePair = [number, string];
+let list: keyValuePair = [123, &#39;abc&#39;]
+</code></pre><h1 id="union-types">Union types</h1>
+<pre><code>let myUnionVariable: number | string;
+</code></pre><h1 id="classes">Classes</h1>
+<pre><code>class CodeLock {
+    id: number; // implicitly public
+    public manufacturer: string;
+    static brand = &#39;SecurityInc&#39;;
+    constructor(id: number,
+                manufacturer: string,
+                private code?: string = &quot;anon&quot;) {
+        // [...]
+    }
+}
+console.log(CodeLock.brand); // no instance
+new CodeLock(1, &quot;x&quot;, &quot;secret&quot;).id; // ok
+new CodeLock(1, &quot;x&quot;, &quot;secret&quot;).manufacturer; // ok
+new CodeLock(1, &quot;x&quot;, &quot;secret&quot;).code; // warning
+</code></pre><h1 id="generics">Generics</h1>
+<p>Function using type parameters</p>
+<pre><code>&lt;T&gt;(items:T[], callback:(item:T) =&gt; T):T[]
+</code></pre><p>Interface with multiple types</p>
+<pre><code>interface Pair&lt;T1, T2&gt; {
+  first:T1;
+  second:T2;
+}
+</code></pre><p>Constrained type parameter</p>
+<pre><code>&lt;T extends ConstrainedType&gt;():T
+</code></pre>

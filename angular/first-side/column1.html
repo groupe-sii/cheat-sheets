@@ -1,0 +1,24 @@
+<h1 id="bootstrapping">Bootstrapping</h1>
+<p>Bootstraps the app, using the root component from the specified <strong>NgModule</strong>.</p>
+<pre><code>import { platformBrowserDynamic }
+    from &#39;@angular/platform-browser-dynamic&#39;;
+
+platformBrowserDynamic()
+    .bootstrapModule(AppModule);
+</code></pre><h1 id="ngmodule">NgModule</h1>
+<p>Defines a module that contains components, directives, pipes, and providers.</p>
+<pre><code>import { NgModule } from &#39;@angular/core&#39;;
+
+@NgModule({
+    declarations: ...,
+    imports: ...,
+    exports: ...,
+    providers: ...,
+    bootstrap: ...
+})
+class MyModule {}
+</code></pre><p><strong>declarations</strong> : List of components, directives, and pipes that belong to this module.</p>
+<p><strong>imports</strong> : List of modules to import into this module. Everything from the imported modules is available to <strong>declarations</strong> of this module.</p>
+<p><strong>exports</strong> : List of components, directives, and pipes visible to modules that import this module.</p>
+<p><strong>declarations</strong> : List of dependency injection providers visible both to the contents of this module and to importers of this module.</p>
+<p><strong>bootstrap</strong> : List of components to bootstrap when this module is bootstrapped.</p>

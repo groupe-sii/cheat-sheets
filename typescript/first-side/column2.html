@@ -1,0 +1,34 @@
+<h1 id="named-types">Named types</h1>
+<p>Enum</p>
+<pre><code>enum Size {
+    S,
+    L,
+    XL
+};
+</code></pre><p>Interface</p>
+<pre><code>interface IPerson {
+    firstname: string;
+    age?: number; //optional
+    sayHello(): void;
+    size?: Size;
+}
+</code></pre><p>Class</p>
+<pre><code>class Person extends IPerson {
+    firstname: string;
+    age: number;
+    size: Size = Size.L;
+
+    constructor() {}
+
+    sayHello(): void {};
+}
+</code></pre><h1 id="object-type-literals">Object type literals</h1>
+<p>Object with implicit Any properties</p>
+<pre><code>{ foo: any; bar: any } or { foo; bar; }
+</code></pre><p>Object with optional property</p>
+<pre><code>{ required: boolean; optional?: number; }
+</code></pre><p>Hash map</p>
+<pre><code>{ [key: string]: Type; }
+</code></pre><p>Indexable types</p>
+<pre><code>{ [id: number]: Type; }
+</code></pre>

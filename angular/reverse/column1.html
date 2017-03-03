@@ -1,0 +1,21 @@
+<h1 id="built-in-directives">Built-in directives</h1>
+<pre><code>import { CommonModule } from &#39;@angular/common&#39;;
+</code></pre><p>Removes or recreates a portion of the DOM tree based on the showSection expression.</p>
+<pre><code>&lt;section *ngIf=&quot;showSection&quot;&gt;
+</code></pre><p>Turns the li element and its contents into a template, and uses that to instantiate a view for each item in list.</p>
+<pre><code>&lt;li *ngFor=&quot;let item of list&quot;&gt;
+</code></pre><p>Conditionally swaps the contents of the div by selecting one of the embedded templates based on the current value of <strong>conditionExpression</strong>.</p>
+<pre><code>&lt;div [ngSwitch]=&quot;conditionExpression&quot;&gt;
+  &lt;template [ngSwitchCase]=&quot;case1Exp&quot;&gt;...&lt;/template&gt;
+  &lt;template ngSwitchCase=&quot;case2Str&quot;&gt;...&lt;/template&gt;
+  &lt;template ngSwitchDefault&gt;...&lt;/template&gt;
+&lt;/div&gt;
+</code></pre><p>Binds the presence of CSS classes on the element to the truthiness of the associated map values. The right-hand expression should return {class-name: true/false} map.</p>
+<pre><code>&lt;div [ngClass]=&quot;{active: isActive,
+                disabled: isDisabled}&quot;&gt;
+</code></pre><h1 id="forms">Forms</h1>
+<p>Provides two-way data-binding, parsing, and validation for form controls.</p>
+<pre><code>import { FormsModule } from &#39;@angular/forms&#39;;
+
+&lt;input [(ngModel)]=&quot;userName&quot;&gt;
+</code></pre>

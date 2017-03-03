@@ -1,0 +1,198 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Droid+Sans:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="../common/lib/atom-one-light.css">
+    <link rel="stylesheet" href="./typescript.css">
+  </head>
+  <body>
+    <input type="checkbox" id="showPreview"/>
+    <div class="first-side">
+      <header>
+    <div class="home-button no-print">
+        <a href="/" title="back to home cheat Sheet"><i class="material-icons">home</i></a>
+        <label for="showPreview"><i class="material-icons">visibility</i></label>
+    </div>
+    <div class="header-center">
+        <div class="description-content">
+            <div class="title">TypeScript cheat sheet</div>
+            <div class="sub-title">JavaScript that scales.</div>
+        </div>
+
+        <div class="logo-container">
+            <img src="../assets/images/typescript.png">
+        </div>
+    </div>
+    <div class="logo-category no-print">
+        <!--i class="material-icons">store</i-->
+    </div>
+</header>
+
+
+
+      <main>
+        <div class="column1">
+          <p>TypeScript is a super-set of JavaScript that enforce the code quality. This cheat sheet summarizes all the syntax and features of the language.</p>
+<h1 id="usage">Usage</h1>
+<p><code>npm install typescript</code></p>
+<p><code>&gt; tsc hello-world.ts</code></p>
+<h1 id="primitives-types">Primitives types</h1>
+<p>Any type (explicitly untyped)</p>
+<pre><code>let whatever: any = &quot;anything&quot;;
+</code></pre><p>Void type (null or undefined, use for function returns only)</p>
+<pre><code>function nothing(): void {}
+</code></pre><p>String</p>
+<pre><code>let myString: string = &quot;hello&quot;;
+</code></pre><p>Number</p>
+<pre><code>let myNumber: number = 1;
+</code></pre><p>Boolean</p>
+<pre><code>let mybool: bool = true;
+</code></pre><h1 id="arrays">Arrays</h1>
+<p>Array of strings</p>
+<pre><code>string[] or Array&lt;string&gt;
+</code></pre><p>Array of functions that return boolean</p>
+<pre><code>{(): boolean;}[] or Array&lt;()=&gt;boolean&gt;
+</code></pre>
+        </div>
+        <div class="column2">
+          <h1 id="named-types">Named types</h1>
+<p>Enum</p>
+<pre><code>enum Size {
+    S,
+    L,
+    XL
+};
+</code></pre><p>Interface</p>
+<pre><code>interface IPerson {
+    firstname: string;
+    age?: number; //optional
+    sayHello(): void;
+    size?: Size;
+}
+</code></pre><p>Class</p>
+<pre><code>class Person extends IPerson {
+    firstname: string;
+    age: number;
+    size: Size = Size.L;
+
+    constructor() {}
+
+    sayHello(): void {};
+}
+</code></pre><h1 id="object-type-literals">Object type literals</h1>
+<p>Object with implicit Any properties</p>
+<pre><code>{ foo: any; bar: any } or { foo; bar; }
+</code></pre><p>Object with optional property</p>
+<pre><code>{ required: boolean; optional?: number; }
+</code></pre><p>Hash map</p>
+<pre><code>{ [key: string]: Type; }
+</code></pre><p>Indexable types</p>
+<pre><code>{ [id: number]: Type; }
+</code></pre>
+        </div>
+      </main>
+
+      <footer class="print-only">
+  <div class="link-content">
+    <div><a href="http://www.groupe-sii.com">www.groupe-sii.com</a></div>
+  </div>
+  <img src="../assets/images/logoSII-white.svg">
+</footer>
+
+
+
+    </div>
+
+    <hr class="no-print"/>
+
+    <div class="reverse">
+      <header class="print-only">
+    <div class="header-center">
+        <div class="description-content">
+            <div class="title">TypeScript cheat sheet</div>
+        </div>
+        <div class="logo-container">
+            <img src="../assets/images/typescript.png" >
+        </div>
+    </div>
+</header>
+
+
+      <main>
+        <div class="column1">
+          <h1 id="tuples">Tuples</h1>
+<p>A tuple is a finite ordered list of elements. A tuple in TypeScript is much like a typed list except that it is immutable (unchangeable) once created.</p>
+<pre><code>type keyValuePair = [number, string];
+let list: keyValuePair = [123, &#39;abc&#39;]
+</code></pre><h1 id="union-types">Union types</h1>
+<pre><code>let myUnionVariable: number | string;
+</code></pre><h1 id="classes">Classes</h1>
+<pre><code>class CodeLock {
+    id: number; // implicitly public
+    public manufacturer: string;
+    static brand = &#39;SecurityInc&#39;;
+    constructor(id: number,
+                manufacturer: string,
+                private code?: string = &quot;anon&quot;) {
+        // [...]
+    }
+}
+console.log(CodeLock.brand); // no instance
+new CodeLock(1, &quot;x&quot;, &quot;secret&quot;).id; // ok
+new CodeLock(1, &quot;x&quot;, &quot;secret&quot;).manufacturer; // ok
+new CodeLock(1, &quot;x&quot;, &quot;secret&quot;).code; // warning
+</code></pre><h1 id="generics">Generics</h1>
+<p>Function using type parameters</p>
+<pre><code>&lt;T&gt;(items:T[], callback:(item:T) =&gt; T):T[]
+</code></pre><p>Interface with multiple types</p>
+<pre><code>interface Pair&lt;T1, T2&gt; {
+  first:T1;
+  second:T2;
+}
+</code></pre><p>Constrained type parameter</p>
+<pre><code>&lt;T extends ConstrainedType&gt;():T
+</code></pre>
+        </div>
+        <div class="column2">
+          <h1 id="modules">Modules</h1>
+<p><em>validation.ts</em></p>
+<pre><code>export interface StringValidator {
+    isAcceptable(s: string): boolean;
+}
+
+let lettersRegexp = /^[A-Za-z]+$/,
+    numberRegexp = /^[0-9]+$/;
+
+export class Letters implements StringValidator {
+    isAcceptable(s: string) {
+        return lettersRegexp.test(s);
+    }
+}
+</code></pre><p><em>random.ts</em></p>
+<pre><code>export default function random() {
+    return Math.random();
+}
+</code></pre><h1 id="module-import">Module import</h1>
+<p><em>hello-world.ts</em></p>
+<pre><code>import { StringValidator, Letters } from &#39;./validation&#39;
+
+import random from &#39;./hello-world&#39;
+import { random as RD } from &#39;./hello-world&#39;
+</code></pre>
+        </div>
+      </main>
+
+      <footer class="@@class">
+  <div class="link-content">
+    <div><a href="http://www.groupe-sii.com">www.groupe-sii.com</a></div>
+  </div>
+  <img src="../assets/images/logoSII-white.svg">
+</footer>
+
+    </div>
+
+    <script src="../common/lib/highlight.pack.js"></script>
+    <script src="../common/script.js"></script>
+  </body>
+</html>

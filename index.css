@@ -1,0 +1,81 @@
+*, *:before, *:after {
+  box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background-color: #e2e2e2;
+  font-family: 'open-sans', sans-serif;
+  min-width: 740px; }
+  body header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0B6EB4;
+    height: 108px;
+    text-transform: uppercase;
+    font-size: 2em;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0; }
+  body main {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 108px; }
+    body main section {
+      width: 33%;
+      text-align: center; }
+      body main section h1 {
+        padding: 5px;
+        text-transform: uppercase;
+        font-size: 1.2em;
+        margin: 1em 0;
+        font-weight: bold; }
+        body main section h1 i {
+          vertical-align: middle; }
+      body main section .container {
+        display: flex;
+        flex-wrap: wrap; }
+        body main section .container .item {
+          margin: 0.3em;
+          background-color: #ffffff;
+          padding: 1em;
+          font-weight: bold;
+          border-radius: 2px;
+          box-shadow: 2px 2px 1px 0px rgba(0, 0, 0, 0.3); }
+          body main section .container .item:hover {
+            box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.3); }
+          body main section .container .item img {
+            width: 100px; }
+          body main section .container .item a {
+            text-decoration: none;
+            color: #000; }
+          body main section .container .item div {
+            width: 100px;
+            text-overflow: ellipsis;
+            text-align: center; }
+  body footer {
+    background-color: #0B6EB4;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    width: 100%; }
+    body footer .link-content {
+      display: flex;
+      flex-wrap: wrap;
+      color: white;
+      padding: 0 0.5em;
+      margin: 0 1%; }
+      body footer .link-content > div:not(:first-child) {
+        flex: 1; }
+      body footer .link-content > div:first-child {
+        height: 40px; }
+      body footer .link-content a {
+        color: white;
+        text-decoration: none; }
+    body footer img {
+      height: 60px;
+      padding: 0.5em 0.5em 0 0; }

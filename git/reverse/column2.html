@@ -1,0 +1,22 @@
+<h1 id="settings">Settings</h1>
+<p>Somes commands to change the default git behavior
+<code>git config --global pull. rebase true</code>
+<code>git config --global rerere.enabled 1</code></p>
+<h1 id="proxy">Proxy</h1>
+<p>Add proxy on your global configuration
+<code>git config --global http.proxy http://proxy.com:1234</code></p>
+<p>Unset the global proxy
+<code>git config --global --unset http.proxy</code></p>
+<p>Add proxy on your current project directory
+<code>git config http.proxy http://proxy.com:1234</code></p>
+<p>Check your global proxy
+<code>git config --global --get http.proxy</code></p>
+<p>Check your local proxy
+<code>git config --get http.proxy</code></p>
+<h1 id="commit-rules">Commit rules</h1>
+<ul>
+<li>One commit for one task: if you have 2 tasks written in one file you can use <em>git add -p</em> and chose which chunk you need to add ad your commit</li>
+<li>Try to commit as often as possible</li>
+<li>Do not commit a half-done work. You should only commit code when it&#39;s completed.</li>
+<li>Commit a stable version of your work: the tests should not failed</li>
+</ul>

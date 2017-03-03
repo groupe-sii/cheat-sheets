@@ -1,0 +1,45 @@
+<h1 id="destructuring">Destructuring</h1>
+<pre><code class="lang-js">[a, b] = [1, 2];
+a === 1;
+b === 2;
+
+[a, b, ...c] = [1, 2, 3, 4, 5];
+a === 1;
+b === 2;
+c === [3, 4, 5];
+
+{a, b} = {a:1, b:2};
+a === 1;
+b === 2;
+</code></pre>
+<p>Default values :</p>
+<pre><code class="lang-js">var a, b;
+[a = 7, b = 1] = [5];
+
+a === 5;
+b === 1;
+</code></pre>
+<p>Destructuring on the fly</p>
+<pre><code class="lang-js">for (let {name: n, family: { mother: f } } of persons) {
+    console.log(&quot;Name : &quot; + n + &quot;, Mother : &quot; + f);
+}
+
+function showPersonne({name: n, family: { mother: f } }) {
+    console.log(&quot;Name : &quot; + n + &quot;, Mother : &quot; + f);
+}
+</code></pre>
+<h1 id="rest-spread-operator">Rest &amp; Spread operator</h1>
+<pre><code class="lang-js">var arr = [1, 2, 3];
+var arr1 = [4, 5];
+var arr2 = [...arr, 4];
+arr.push(...arr1);
+
+function f(a, b, ...args) {}
+
+function f(...[a, b, c]) {}
+</code></pre>
+<h1 id="default-parameters">Default parameters</h1>
+<pre><code class="lang-js">function multiplier(a, b = a + 1) {
+    return a*b;
+}
+</code></pre>

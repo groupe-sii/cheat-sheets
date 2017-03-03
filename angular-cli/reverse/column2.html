@@ -1,0 +1,19 @@
+<h1 id="updating-angular-cli">Updating angular-cli</h1>
+<p>To update angular-cli to a new version, you must update both the global package and your project&#39;s local package.</p>
+<p>Global package:</p>
+<pre><code class="lang-shell">npm uninstall -g @angular/cli
+npm cache clean
+npm install -g @angular/cli@latest
+</code></pre>
+<p>Local project package:</p>
+<pre><code class="lang-shell">rm -rf node_modules dist # use rmdir on Windows
+npm install --save-dev @angular/cli@latest
+npm install
+ng init
+</code></pre>
+<h1 id="3rd-party-library-installation">3rd Party Library Installation</h1>
+<p>Simply install your library via <strong>npm install lib-name --save</strong> and import it in your code.</p>
+<p>If the library does not include typings, you can install them using npm:</p>
+<pre><code class="lang-shell">npm install d3 --save
+npm install @types/d3 --save-dev
+</code></pre>

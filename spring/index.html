@@ -1,0 +1,215 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Droid+Sans:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="../common/lib/atom-one-light.css">
+    <link rel="stylesheet" href="./spring.css">
+  </head>
+  <body>
+    <input type="checkbox" id="showPreview"/>
+    <div class="first-side">
+      <header>
+    <div class="home-button no-print">
+        <a href="/" title="back to home cheat Sheet"><i class="material-icons">home</i></a>
+        <label for="showPreview"><i class="material-icons">visibility</i></label>
+    </div>
+    <div class="header-center">
+        <div class="description-content">
+            <div class="title">spring cheat sheet</div>
+            <div class="sub-title">sous titre, une description</div>
+        </div>
+
+        <div class="logo-container">
+            <img src="../assets/images/spring.png">
+        </div>
+    </div>
+    <div class="logo-category no-print">
+        <!--i class="material-icons">store</i-->
+    </div>
+</header>
+
+
+
+      <main>
+        <div class="column1">
+          <h1 id="controllers">Controllers</h1>
+<p>At class level
+<code>@Controller</code>
+<code>@RequestMapping(&quot;/appointments&quot;)</code>
+<code>public class AppointmentsController {</code></p>
+<p>At method level for HTTP GET
+<code>@GetMapping(path = &quot;/{day}&quot;)</code>
+<code>public Map&lt;String, Appointment&gt; getForDay(@PathVariable @DateTimeFormat(iso=ISO.DATE) Date day, Model model) {</code></p>
+<p>Getting request parameter
+<code>@RequestMapping(method = RequestMethod.GET)</code>
+<code>public String setupForm(@RequestParam(&quot;petId&quot;, required=false) int petId, ModelMap model) {</code></p>
+<p>You can use consumes and/or produces to control data type
+<code>@RequestMapping(path = &quot;/pets&quot;, method = RequestMethod.POST, consumes=&quot;application/json&quot;, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)</code>
+<code>@ResponseBoddy</code>
+<code>public Pet addPet(@RequestBody Pet pet, Model model) {</code></p>
+<p>NB: You can avoid using ResponseBody if you use @RestController instead of @Controller</p>
+<p>Handling cookies
+<code>@RequestMapping(&quot;/displayInfo&quot;)</code>
+<code>public void displayHeaderInfo(@CookieValue(&quot;JSESSIONID&quot;) String cookie)</code></p>
+<p>Handling HTTP headers
+<code>@RequestMapping(&quot;/displayHeaderInfo&quot;)</code>
+<code>public void displayHeaderInfo(@RequestHeader(&quot;Accept-Encoding&quot;) String encoding, @RequestHeader(&quot;Keep-Alive&quot;) long keepAlive) {</code></p>
+<h1 id="using-modelattribute-and-sessionattributes">Using ModelAttribute and SessionAttributes</h1>
+<p>Full example:
+<code>@Controller @RequestMapping(&quot;/trades&quot;)</code>
+<code>@SessionAttributes(&quot;visitor&quot;)</code>
+<code>public class TradeController {</code>
+    <code>@RequestMapping(&quot;/**&quot;)</code>
+    <code>public String handleRequestById (@ModelAttribute(&quot;visitor&quot;) Visitor visitor,Model model, HttpServletRequest request) {</code>
+        <code>model.addAttribute(&quot;msg&quot;, &quot;trades request, serving page &quot; + request.getRequestURI());</code>
+        <code>visitor.addPageVisited(request.getRequestURI());</code>
+        <code>return &quot;traders-page&quot;;</code>
+    <code>}</code>
+    <code>@ModelAttribute(&quot;visitor&quot;)</code>
+    <code>public Visitor getVisitor (HttpServletRequest request) {</code>
+        <code>return new Visitor(request.getRemoteAddr());</code>
+    <code>}</code>
+<code>}</code></p>
+
+        </div>
+        <div class="column2">
+          <h1 id="handling-exceptions">Handling exceptions</h1>
+<p><code>@ControllerAdvice</code>
+<code>public class ErrorController {</code>
+<code>...</code>
+<code>@ExceptionHandler(AccessDeniedException.class)</code>
+<code>@ResponseBody</code>
+<code>@ResponseStatus(HttpStatus.FORBIDDEN)</code>
+<code>public ErrorResponse accessDenied(AccessDeniedException e) {</code></p>
+<h1 id="asynchronous-request-processing">Asynchronous request processing</h1>
+<p>It is possible to use the Servlet 3.0 asynchronous request processing feature in Spring:
+<code>@RequestMapping(method=RequestMethod.POST)</code>
+<code>public Callable&lt;String&gt; processUpload(final MultipartFile file) {</code>
+<code>return new Callable&lt;String&gt;() {</code>
+<code>public String call() throws Exception {</code>
+<code>// ...</code>
+<code>return &quot;someView&quot;;</code>
+<code>}</code>
+<code>};</code>
+<code>}</code></p>
+<p>Or using DefferedResult
+<code>@RequestMapping(&quot;/quotes&quot;)</code>
+<code>@ResponseBody</code>
+<code>public DeferredResult&lt;String&gt; quotes() {</code>
+<code>DeferredResult&lt;String&gt; deferredResult = new DeferredResult&lt;String&gt;();</code>
+<code>// Save the deferredResult somewhere..</code>
+<code>return deferredResult;</code>
+<code>}</code>
+<code>// In some other thread...</code>
+<code>deferredResult.setResult(data);</code></p>
+
+        </div>
+      </main>
+
+      <footer class="print-only">
+  <div class="link-content">
+    <div><a href="http://www.groupe-sii.com">www.groupe-sii.com</a></div>
+  </div>
+  <img src="../assets/images/logoSII-white.svg">
+</footer>
+
+
+
+    </div>
+
+    <hr class="no-print"/>
+
+    <div class="reverse">
+      <header class="print-only">
+    <div class="header-center">
+        <div class="description-content">
+            <div class="title">spring cheat sheet</div>
+        </div>
+        <div class="logo-container">
+            <img src="../assets/images/spring.png" >
+        </div>
+    </div>
+</header>
+
+
+      <main>
+        <div class="column1">
+          <h1 id="create-query-from-properties">Create query from properties</h1>
+<p>Create your interface implementing the <strong>CrudRepository</strong> :
+<code>public interface PersonRepository extends CrudRepository&lt;User, Long&gt;</code></p>
+<p>Create a &quot;find by&quot; query :
+<code>List&lt;Person&gt; findByLastname(String lastname);</code></p>
+<p>Using several class attributes :
+<code>List&lt;Person&gt; findByEmailAddressAndLastname(EmailAddress emailAddress, String lastname);</code></p>
+<p>Using several properties and distinct:
+<code>List&lt;Person&gt; findDistinctPeopleByLastnameOrFirstname(String lastname, String firstname);</code></p>
+<p>Ignoring case for all properties :
+<code>List&lt;Person&gt; findByLastnameAndFirstnameAllIgnoreCase(String lastname, String firstname);</code></p>
+<p>Using ORDER BY for a query
+<code>List&lt;Person&gt; findByLastnameOrderByFirstnameAsc(String lastname);</code></p>
+<p>Counting :
+<code>Long countByLastname(String lastname);</code></p>
+<p>Deleting by property :
+<code>Long deleteByLastname(String lastname);</code></p>
+<p>Using property expressions (zipCode attribute in address object) :
+<code>List&lt;Person&gt; findByAddress_ZipCode(ZipCode zipCode);</code></p>
+<h1 id="paging-and-sorting-requests">Paging and sorting requests</h1>
+<p>Finding data using paging
+<code>List&lt;User&gt; findByLastname(String lastname, Pageable pageable);</code></p>
+<p>Sorting data
+<code>List&lt;User&gt; findByLastname(String lastname, Sort sort);</code></p>
+<p>Paging first 10 by property
+<code>Page&lt;User&gt; queryFirst10ByLastname(String lastname, Pageable pageable);</code></p>
+<h1 id="supported-keywords">Supported Keywords</h1>
+<p>The supported keywords are:
+<code>And, Or, Is, Equals, Between, LessThan, LessThanEqual, GreaterThan, GreaterThanEqual, findByAgeGreaterThanEqual, 
+After, Before, IsNull, IsNotNull, NotNull, Like, NotLike, StartingWith, EndingWith, Containing, OrderBy, 
+Not, In, NotIn, True, False, IgnoreCase</code></p>
+
+        </div>
+        <div class="column2">
+          <h1 id="predicates">Predicates</h1>
+<p>Implements QueryDslPredicateExecutor:
+<code>interface UserRepository extends CrudRepository&lt;User, Long&gt;, QueryDslPredicateExecutor&lt;User&gt;</code></p>
+<p>Working with predicates:
+<code>Predicate predicate = user.firstname.equalsIgnoreCase(&quot;dave&quot;)
+.and(user.lastname.startsWithIgnoreCase(&quot;mathews&quot;));</code>
+<code>userRepository.findAll(predicate);</code></p>
+<h1 id="using-query">Using @Query</h1>
+<p>Implements the JPA repository
+<code>public interface UserRepository extends JpaRepository&lt;User, Long&gt;</code></p>
+<p>Named queries in an interface
+<code>@Query(&quot;select u from User u where u.firstname like %?1&quot;)</code>
+<code>List&lt;User&gt; findByFirstnameEndsWith(String firstname);</code></p>
+<p>Streaming the result of a query with java 8
+<code>@Query(&quot;select u from User u&quot;)</code>
+<code>Stream&lt;User&gt; findAllByCustomQueryAndStream();</code></p>
+<h1 id="native-queries">Native queries</h1>
+<p>Native queries can be executed using an EntityManager
+<code>@PersistenceContext private EntityManager em;</code>
+<code>...</code>
+<code>Query q = em.createNativeQuery(&quot;SELECT a.id, a.version, a.firstname, a.lastname FROM Author a&quot;, Author.class);</code>
+<code>List&lt;Author&gt; authors = q.getResultList();</code></p>
+<p>Native queries using @Query
+<code>@Query(value = &quot;SELECT * FROM USERS WHERE LASTNAME = ?1&quot;,</code>
+<code>countQuery = &quot;SELECT count(*) FROM USERS WHERE LASTNAME = ?1&quot;,</code>
+<code>nativeQuery = true)</code>
+<code>Page&lt;User&gt; findByLastname(String lastname, Pageable pageable);</code></p>
+
+        </div>
+      </main>
+
+      <footer class="@@class">
+  <div class="link-content">
+    <div><a href="http://www.groupe-sii.com">www.groupe-sii.com</a></div>
+  </div>
+  <img src="../assets/images/logoSII-white.svg">
+</footer>
+
+    </div>
+
+    <script src="../common/lib/highlight.pack.js"></script>
+    <script src="../common/script.js"></script>
+  </body>
+</html>
