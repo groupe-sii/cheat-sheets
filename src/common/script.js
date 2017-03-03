@@ -7,7 +7,6 @@ class SideNav {
 
         this.toggleSideNavHandler = this.toggleSideNavHandler.bind(this);
 
-        this.addEventListeners();
     }
 
 
