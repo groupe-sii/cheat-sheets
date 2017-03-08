@@ -152,7 +152,9 @@ gulp.task('rename-css', ['move-templates', 'add-item-on-index'], () => {
 gulp.task('add-item-on-index', ['move-templates'], () => {
     let ITEM_INDEX_TEMPLATE = `<div class="item">
                                 <a href="./${name}/index.html">
-                                    <img src="./assets/images/${name}.svg"/>
+                                    <div class="img-item">
+                                        <img src="./assets/images/${name}.svg"/>
+                                    </div>
                                     <div>${name}</div>
                                 </a>
                             </div>`;
