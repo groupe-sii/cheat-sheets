@@ -2,40 +2,40 @@
 
 ## Install package via NPM
 
-```bash
+```npm
 npm install <modulename> --save
 npm install <modulename>@<version> --save
-#install globally :
+# install globally :
 npm install --global <modulename>
 ```
 
 ## Install dev package via NPM
 
-```bash
+```npm
 npm install <modulename> --save-dev
 ```
 
 ## Add default '--save' to config
  
-```bash
+```npm
 npm config set save true
 ```
 
 ## Install package from git repo
  
-```bash
+```npm
 npm install git://github.com/my/dep.git
 ```
 
 ## Uninstall package
 
-```bash
+```npm
 npm uninstall <module_name>
 ```
 
 # NPM project initialization
 
-```bash
+```npm
 npm init
 ```
 
@@ -43,7 +43,7 @@ npm init
 
 ## get configuration
 
-```bash
+```npm
 npm config ls -l
 npm config list
 npm config get <conf-key>
@@ -51,7 +51,7 @@ npm config get <conf-key>
 
 ## edit configuration
 
-```bash
+```npm
 npm config set <conf-key>=value
 npm config edit
 npm config set proxy=proxy.dns.fr:3128
