@@ -1,5 +1,9 @@
 # Cheat Sheet Generator
 
+## hosted on github pages
+
+Cheat sheets are hosted on github pages : [https://groupe-sii.github.io/cheat-sheets/](https://groupe-sii.github.io/cheat-sheets/)
+
 ## install
 gulp is needed in global in order to run compilation :
 

@@ -23,6 +23,17 @@ body {
     top:0;
   }
 
+  .img-item {
+    height: 101px;
+    display: flex;
+    align-items: center;
+    img {
+      width: 100%;
+      height: auto;
+      max-height: 100%;
+    }
+  }
+
   main {
     display: flex;
     justify-content:space-around;
