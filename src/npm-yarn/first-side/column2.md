@@ -48,7 +48,7 @@ Run by the npm restart command (if no 'restart' script, run 'stop' and 'start')
 # Publish
 
 ```bash
-npm adduser [-registy=<registry>]
-npm login [-registy=<registry>]
-npm publish [-registy=<registry>]
+npm adduser [--registy=<registry>]
+npm login [--registy=<registry>]
+npm publish [--registy=<registry>]
 ```
