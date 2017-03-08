@@ -1,0 +1,28 @@
+<pre><code class="lang-bash">sudo npm install -g ionic
+npm install -g ios-sim
+</code></pre>
+<p>Create a folder named <strong>resources</strong> with <strong>icon.png</strong> and <strong>spash.png</strong> with good aspect ratio.</p>
+<p>Start conversion with optionnal proxy :</p>
+<pre><code class="lang-bash">sudo PROXY=http://proxy.rennes.sii.fr:3128 ionic resources —f
+</code></pre>
+<h1 id="generated-signed-android-application">Generated signed android application</h1>
+<p>Generate your keystore with keytool</p>
+<pre><code class="lang-bash">keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
+</code></pre>
+<p>Put keystore in <strong>android-signing</strong> folder at root of your cordova project.</p>
+<p>In the generated <strong>android</strong> platform folder of your cordova project, create a <strong>release-signing.properties</strong>.</p>
+<pre><code class="lang-rc">storeFile=../../android-signing/&lt;myKeyFile&gt;.keystore
+storeType=jks
+keyAlias=&lt;aliasKey&gt;
+</code></pre>
+<p>Next the build.gradle must take this file to sign your application with this command :</p>
+<pre><code class="lang-bash">cordova build android --release
+</code></pre>
+<p>Next find your generated package to <strong>~/platforms/android/build/outputs/apk</strong></p>
+<h1 id="add-proxy-to-android-gradle">Add proxy to android gradle</h1>
+<p>create <strong>gradle.properties</strong> in the generated <strong>android</strong> platform folder :</p>
+<pre><code class="lang-rc">systemProp.http.proxyHost=proxy.dns.fr
+systemProp.http.proxyPort=3128
+systemProp.https.proxyHost=proxy.dns.fr
+systemProp.https.proxyPort=3128
+</code></pre>

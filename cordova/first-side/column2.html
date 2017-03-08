@@ -1,0 +1,48 @@
+<h1 id="android-commands">Android commands</h1>
+<ul>
+<li>List availables targets</li>
+</ul>
+<pre><code class="lang-bash">android list targets
+</code></pre>
+<ul>
+<li>List availables virtual devices</li>
+</ul>
+<pre><code class="lang-bash">android list avds
+</code></pre>
+<ul>
+<li>Create virtual devices</li>
+</ul>
+<pre><code class="lang-bash">android create avd -n bob -t android-19
+</code></pre>
+<h1 id="adb-commands">ADB commands</h1>
+<ul>
+<li>List connected physical device</li>
+</ul>
+<pre><code class="lang-bash">adb devices
+</code></pre>
+<ul>
+<li>Install specific apk</li>
+</ul>
+<pre><code class="lang-bash">adb install demo.apk
+</code></pre>
+<ul>
+<li>Reinstall specific apk</li>
+</ul>
+<pre><code class="lang-bash">adb install -r demo.apk
+</code></pre>
+<ul>
+<li>Remove specific package</li>
+</ul>
+<pre><code class="lang-bash">adb uninstall name-of-app-package
+</code></pre>
+<ul>
+<li>List installed packages</li>
+</ul>
+<pre><code class="lang-bash">adb shell pm list packages
+</code></pre>
+<h1 id="emulator-commands">Emulator commands</h1>
+<p>Launch android emulator with specific avd target</p>
+<pre><code class="lang-bash">emulator -avd bob
+</code></pre>
+<h1 id="config-xml">Config.xml</h1>
+<p><strong>Standard operation on config.xml</strong></p>

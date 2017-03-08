@@ -1,0 +1,31 @@
+<h1 id="change-version">Change version</h1>
+<p> Change <strong>version</strong> parameter of <strong> widget</strong> tag. With android target, you must also update <strong>android-versionCode</strong>.</p>
+<h1 id="change-application-name">Change application name</h1>
+<p> Simply change <strong>name</strong> tag&#39;s value.</p>
+<h1 id="change-package-name">Change package name</h1>
+<p> Simply change <strong>android-packageName</strong> parameter value.</p>
+<h1 id="entry-point">Entry point</h1>
+<p> The entry-point is define by <strong>src</strong> parameter in the <strong>content</strong> tag</p>
+<h1 id="whitelist">Whitelist</h1>
+<p> Whitelist plugin is often require. You must install it from the <strong>plugin add</strong> command (cordova-plugin-whitelist).</p>
+<p> This plugin allow or reject specific URL.</p>
+<pre><code class="lang-xml">&lt;!-- access to google secured domain --&gt;
+&lt;access origin=&quot;https://www.google.com&quot; /&gt;
+&lt;!-- access to google map domain --&gt;
+&lt;access origin=&quot;http://maps.google.com&quot; /&gt;
+&lt;!-- access to all google sub-domain --&gt;
+&lt;access origin=&quot;http://*.google.com&quot; /&gt;
+&lt;!-- access allow from all --&gt;
+&lt;access origin=&quot;*&quot; /&gt;
+</code></pre>
+<p> Allow application to call specific intent</p>
+<pre><code class="lang-xml">&lt;allow-intent href=&quot;http://*/*&quot;/&gt;
+&lt;allow-intent href=&quot;https://*/*&quot;/&gt;
+&lt;allow-intent href=&quot;tel:*&quot;/&gt;
+&lt;allow-intent href=&quot;sms:*&quot;/&gt;
+&lt;allow-intent href=&quot;mailto:*&quot;/&gt;
+&lt;allow-intent href=&quot;geo:*&quot;/&gt;
+</code></pre>
+<h1 id="generate-ios-resources">Generate iOS Resources</h1>
+<p>You can auto-generate spash and icon multiple size for iOS platform.
+Install ios-sim :</p>
