@@ -18,6 +18,14 @@ body {
     position: fixed;
     width: 100%;
     top: 0; }
+  body .img-item {
+    height: 101px;
+    display: flex;
+    align-items: center; }
+    body .img-item img {
+      width: 100%;
+      height: auto;
+      max-height: 100%; }
   body main {
     display: flex;
     justify-content: space-around;

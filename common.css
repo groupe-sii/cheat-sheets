@@ -1,6 +1,7 @@
 *, *:before, *:after {
   box-sizing: border-box; }
 
+/* Print settings */
 @media print {
   .no-print, .no-print * {
     display: none !important; }
@@ -11,13 +12,97 @@
     height: 100% !important;
     width: 100% !important;
     margin: auto !important;
-    box-shadow: none !important; } }
+    box-shadow: none !important; }
+  .reverse {
+    page-break-before: always; }
+  .print-large .cutter {
+    display: block !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; } }
+
+.cutter {
+  display: none; }
 
 .print-only {
   display: none; }
 
+/* Cut tag */
+.cut {
+  position: absolute;
+  width: 4mm;
+  height: 4mm;
+  z-index: 1000; }
+  .cut.cut-top-left {
+    left: 0;
+    top: 0; }
+  .cut.cut-top-right {
+    right: 0;
+    top: 0; }
+  .cut.cut-bottom-left {
+    left: 0;
+    bottom: 0; }
+  .cut.cut-bottom-right {
+    right: 0;
+    bottom: 0; }
+  .cut.cut-top-left:before, .cut.cut-bottom-left:after, .cut.cut-top-right:before, .cut.cut-bottom-right:after {
+    height: 3mm;
+    width: 1px;
+    display: block;
+    background: black;
+    position: absolute;
+    margin-left: 4mm;
+    content: ''; }
+  .cut.cut-top-left:after, .cut.cut-top-right:after {
+    height: 1px;
+    width: 3mm;
+    top: 4mm;
+    display: block;
+    background: black;
+    position: absolute;
+    content: ''; }
+  .cut.cut-top-right:after {
+    right: 0; }
+  .cut.cut-top-right:before, .cut.cut-bottom-right:after {
+    margin-left: 0; }
+  .cut.cut-bottom-left:before, .cut.cut-bottom-right:before {
+    height: 1px;
+    width: 3mm;
+    top: 0;
+    display: block;
+    background: black;
+    position: absolute;
+    content: ''; }
+  .cut.cut-bottom-left:after, .cut.cut-bottom-right:after {
+    top: 1mm; }
+  .cut.cut-bottom-right:before {
+    margin-left: 1mm; }
+
+/* Large sheet print */
+.print-large {
+  background-color: var(--currentColor); }
+  .print-large .reverse,
+  .print-large .first-side {
+    margin: 4mm 0 !important;
+    height: 297mm !important;
+    background-color: white; }
+    .print-large .reverse main,
+    .print-large .first-side main {
+      width: calc(100% - 10mm);
+      margin: auto; }
+    .print-large .reverse header, .print-large .reverse footer,
+    .print-large .first-side header,
+    .print-large .first-side footer {
+      padding: 0 4mm; }
+    .print-large .reverse footer,
+    .print-large .first-side footer {
+      height: 72px; }
+
+/* Normal sheet print */
 @page {
-  size: auto;
+  size: 210mm 297mm;
   margin: 0mm; }
 
 body {
