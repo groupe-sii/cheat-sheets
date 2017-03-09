@@ -30,6 +30,6 @@
     "yargs": "^6.5.0"
   },
   "dependencies": {
-    "highlight.js": "^9.10.0"
+    "highlight.js": "git+https://github.com/groupe-sii/highlight.js.git"
   }
 }
