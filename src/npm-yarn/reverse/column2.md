@@ -1,14 +1,34 @@
- * `yarn remove <package> = npm uninstall <package> --save`
- * `yarn add <package> --dev = npm install <package> --save-dev`
- * `yarn update = npm update --save`
- * `yarn global add <package> = npm install <package> --global`
- * `yarn cache clean = npm cache clean`
- * `yarn --production = npm install --production`
- * `yarn link = npm link`
- 
-# Same syntaxe for run script
+```npm
+yarn remove <package> = npm uninstall <package> --save
+```
 
-```bash
+```npm
+yarn add <package> --dev = npm install <package> --save-dev
+```
+
+```npm
+yarn update = npm update --save
+```
+
+```npm
+yarn global add <package> = npm install <package> --global
+```
+
+```npm
+yarn cache clean = npm cache clean
+```
+
+```npm
+yarn --production = npm install --production
+```
+
+```npm
+yarn link = npm link
+```
+ 
+# Same command as NPM's
+
+```npm
 yarn init
 yarn outdated
 yarn publish
@@ -19,6 +39,10 @@ yarn test
 
 # Things yarn has that NPM doesn’t
 
- * **'yarn upgrade-interactive'** allow to selective upgrade package
- 
+Allow selective upgrade
+
+```npm
+yarn upgrade-interactive
+```
+
 ![yarnInteractive](../assets/images/yarn-interactive.png)

@@ -99,24 +99,25 @@ body {
     width: 100%;
 
     .link-content {
-      display: flex;
-      flex-wrap: wrap;
-      color: white;
-      padding: 0 0.5em;
-      margin: 0 1%;
-
-      & > div:not(:first-child) {
-        flex: 1;
-      }
-
-      & > div:first-child {
-        height: 40px;
-      }
-
-      a {
+        width:100%;
+        display: flex;
+        flex-wrap: wrap;
         color: white;
-        text-decoration: none;
-      }
+        padding: 0 0.5em;
+        margin: 0 1%;
+
+        & > div {
+            flex: 1;
+        }
+
+        & > div:first-child {
+            height: 40px;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
     }
 
     img {

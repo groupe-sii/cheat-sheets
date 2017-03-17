@@ -9,5 +9,16 @@ body {
     img {
       height: 230px;
     }
+
+    .column1:first-child{
+        font-size:12px;
+    }
+
+    .column2:first-child{
+        font-size:12px;
+    }
   }
 }
+
+.hljs-built_in { color: #05B808; }
+.hljs-keyword { color: #AA8E08; }

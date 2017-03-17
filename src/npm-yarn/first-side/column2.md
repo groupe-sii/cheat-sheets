@@ -1,18 +1,20 @@
+Date : __March 2017__
 # Update global version
 
-```bash
+```npm
 npm update npm -g
 ```
 
+# NPM scripts 
 
-# NPM scripts
-
-```bash
+```json
 <package.json>
 "scripts" : {"the-script" : "node testfile.js"}
 ```
+
 Run known or custom script :
-```bash
+
+```npm
 npm test
 npm run my-custom-script
 ```
@@ -47,8 +49,8 @@ Run by the npm restart command (if no 'restart' script, run 'stop' and 'start')
 
 # Publish
 
-```bash
-npm adduser [-registy=<registry>]
-npm login [-registy=<registry>]
-npm publish [-registy=<registry>]
+```npm
+npm adduser [--registy=<registry>]
+npm login [--registy=<registry>]
+npm publish [--registy=<registry>]
 ```
