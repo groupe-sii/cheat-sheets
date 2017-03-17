@@ -6,7 +6,8 @@
   "scripts": {
     "build": "gulp build",
     "deploy": "node deploy.js",
-    "watch": "gulp watch"
+    "watch": "gulp watch",
+    "start": "gulp watch"
   },
   "license": "MIT",
   "devDependencies": {
