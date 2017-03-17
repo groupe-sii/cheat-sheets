@@ -72,12 +72,13 @@ body {
     bottom: 0;
     width: 100%; }
     body footer .link-content {
+      width: 100%;
       display: flex;
       flex-wrap: wrap;
       color: white;
       padding: 0 0.5em;
       margin: 0 1%; }
-      body footer .link-content > div:not(:first-child) {
+      body footer .link-content > div {
         flex: 1; }
       body footer .link-content > div:first-child {
         height: 40px; }

@@ -1,12 +1,13 @@
+<p>Date : <strong>March 2017</strong></p>
 <h1 id="update-global-version">Update global version</h1>
-<pre><code class="lang-bash">npm update npm -g
+<pre><code class="lang-npm">npm update npm -g
 </code></pre>
 <h1 id="npm-scripts">NPM scripts</h1>
-<pre><code class="lang-bash">&lt;package.json&gt;
+<pre><code class="lang-json">&lt;package.json&gt;
 &quot;scripts&quot; : {&quot;the-script&quot; : &quot;node testfile.js&quot;}
 </code></pre>
 <p>Run known or custom script :</p>
-<pre><code class="lang-bash">npm test
+<pre><code class="lang-npm">npm test
 npm run my-custom-script
 </code></pre>
 <ul>
@@ -38,7 +39,7 @@ npm run my-custom-script
 </ul>
 <p>Run by the npm restart command (if no &#39;restart&#39; script, run &#39;stop&#39; and &#39;start&#39;)</p>
 <h1 id="publish">Publish</h1>
-<pre><code class="lang-bash">npm adduser [-registy=&lt;registry&gt;]
-npm login [-registy=&lt;registry&gt;]
-npm publish [-registy=&lt;registry&gt;]
+<pre><code class="lang-npm">npm adduser [--registy=&lt;registry&gt;]
+npm login [--registy=&lt;registry&gt;]
+npm publish [--registy=&lt;registry&gt;]
 </code></pre>

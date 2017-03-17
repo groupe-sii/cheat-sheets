@@ -1,31 +1,31 @@
 <h1 id="list-outdated-package">List outdated package</h1>
-<pre><code class="lang-bash">npm outdated
+<pre><code class="lang-npm">npm outdated
 </code></pre>
 <h1 id="linking">Linking</h1>
-<pre><code class="lang-bash">npm link
+<pre><code class="lang-npm">npm link
 </code></pre>
 <p>Link allow to create a globally-installed package that is in development (or not in registries).</p>
 <p>But you can also link your package in other <strong>node_modules</strong> directory :</p>
-<pre><code class="lang-bash">cd my-lib/
+<pre><code class="lang-npm">cd my-lib/
 npm link
 cd ../my-project-that-use-lib/
 npm link my-lib
 </code></pre>
 <p>Or in only one step :</p>
-<pre><code class="lang-bash">cd my-project-that-use-lib/
+<pre><code class="lang-npm">cd my-project-that-use-lib/
 npm link ../my-lib
 </code></pre>
 <h1 id="cache-clean">Cache clean</h1>
-<pre><code class="lang-bash">npm cache clean
+<pre><code class="lang-npm">npm cache clean
 </code></pre>
 <h1 id="install-in-production">Install in production</h1>
 <p>This command don&#39;t install dev dependencies</p>
-<pre><code class="lang-bash">npm install --production
+<pre><code class="lang-npm">npm install --production
 </code></pre>
 <h1 id="yarn-package-managment">Yarn package managment</h1>
 <p>Yarn is a faster package manager than NPM.</p>
 <h2 id="equivalent-to-npm-command">Equivalent to npm command</h2>
-<ul>
-<li><code>yarn = npm install</code></li>
-<li><code>yarn add &lt;package&gt; = npm install &lt;package&gt; --save</code></li>
-</ul>
+<pre><code class="lang-npm">yarn = npm install
+</code></pre>
+<pre><code class="lang-npm">yarn add &lt;package&gt; = npm install &lt;package&gt; --save
+</code></pre>

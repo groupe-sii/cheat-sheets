@@ -4,3 +4,13 @@ body {
   --currentColor: var(--purple); }
   body main div img {
     height: 230px; }
+  body main div .column1:first-child {
+    font-size: 12px; }
+  body main div .column2:first-child {
+    font-size: 12px; }
+
+.hljs-built_in {
+  color: #05B808; }
+
+.hljs-keyword {
+  color: #AA8E08; }
