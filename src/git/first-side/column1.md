@@ -1,3 +1,5 @@
+ git version: __2.9+__ - Date: __March 2017__
+ 
 # Local Git State and changes
 
 ![gitZone](../assets/images/gitZone.png)
