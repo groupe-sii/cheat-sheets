@@ -10,7 +10,6 @@ const gulp = require('gulp'),
   connect = require('gulp-connect'),
   gulpLivereload = require('gulp-livereload'),
   tap = require('gulp-tap'),
-  path = require('path'),
   replace = require('gulp-replace');
 
 let toCopy = [
