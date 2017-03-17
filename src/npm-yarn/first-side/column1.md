@@ -1,3 +1,4 @@
+npm version: __3.10.8__  - yarn version: __0.20.3__
 # NPM package managment
 
 ## Install package via NPM
