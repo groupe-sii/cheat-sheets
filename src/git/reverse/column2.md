@@ -1,9 +1,3 @@
-# Settings
-
-Somes commands to change the default git behavior
-`git config --global pull. rebase true`
-`git config --global rerere.enabled 1`
-
 # Proxy
 
 Add proxy on your global configuration
@@ -27,3 +21,11 @@ Check your local proxy
 - Try to commit as often as possible
 - Do not commit a half-done work. You should only commit code when it's completed.
 - Commit a stable version of your work: the tests should not failed
+
+# default client
+
+Visualize git tree
+`gitk --all`
+
+Graphical git operations
+`git gui`
