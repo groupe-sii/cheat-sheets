@@ -110,11 +110,11 @@
 
 body {
   --nb-column: 2;
-  --blue: #0B6EB4;
-  --green: #B2C039;
-  --purple: #8D338A;
-  --orange: #D64911;
-  --grey: #7E898D;
+  --blue: #005AA2;
+  --green: #B2BE3A;
+  --purple: #8D3589;
+  --orange: #D64B13;
+  --grey: #80888C;
   --lightgrey: #eeeef0;
   min-width: 740px;
   margin: 0;
