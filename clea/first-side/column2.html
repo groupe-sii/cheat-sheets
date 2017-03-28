@@ -1,0 +1,33 @@
+<h1 id="serve">Serve</h1>
+<p>Change the host and port to listen to:</p>
+<pre><code class="lang-clea">clea serve --port 4000 --host 0.0.0.0
+</code></pre>
+<p>Merge or override the webpack configuration:</p>
+<pre><code class="lang-clea"># Merge with Clea webpack configuration
+clea --merge-config webpack.config.js
+
+# Override Clea webpack configuration
+clea --override-config webpack.config.js
+</code></pre>
+<p><span class="no-print"><a href="https://github.com/groupe-sii/clea-cli/blob/master/docs/serve.md">More details</a></span></p>
+<h1 id="mock-your-api">Mock your API</h1>
+<p>Easily mock a REST API with JSON Server:</p>
+<pre><code class="lang-clea">clea serve --api
+</code></pre>
+<h2 id="options">Options</h2>
+<p><strong>--api [db]</strong> enable the mock API on the specified database JSON file (defaults to: <strong>db.json</strong>)</p>
+<p><strong>--api-custom-routes [config]</strong> add custom Express routes if you want something more than just a RESTFul API (defaults to: <strong>api.conf.js</strong>)</p>
+<p>By using the <strong>--api</strong> option, a proxy is set to the <strong>/api</strong> URL.</p>
+<p><span class="no-print"><a href="https://github.com/groupe-sii/clea-cli/blob/master/docs/more/api.md">More details</a></span></p>
+<h1 id="environments">Environments</h1>
+<p>You can target an environment with the following:</p>
+<pre><code class="lang-clea">clea serve|build --target=&lt;environment&gt;
+</code></pre>
+<p>Environments mapping is made in the <strong>.clea-cli.json</strong> file:</p>
+<pre><code class="lang-json">environmentSource: &quot;config/config.json&quot;,
+environments: {
+  development: &quot;config/config.dev.json&quot;,
+  production: &quot;config/config.prod.json&quot;
+}
+</code></pre>
+<p><span class="no-print"><a href="https://github.com/groupe-sii/clea-cli/blob/master/docs/more/environments.md">More details</a></span></p>

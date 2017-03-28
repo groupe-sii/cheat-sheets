@@ -1,0 +1,34 @@
+<h1 id="proxy-to-backend">Proxy to Backend</h1>
+<p>Using the proxy mode of Webpack dev server, it&#39;s possible to redirect some URLs to another server.</p>
+<p>Create a <strong>proxy.conf.json</strong> file with the following conf:</p>
+<pre><code class="lang-json">{
+  &quot;/api&quot;: {
+    &quot;target&quot;: &quot;http://localhost:3000&quot;,
+    &quot;secure&quot;: false
+  }
+}
+</code></pre>
+<p>Then launch:</p>
+<pre><code class="lang-clea">clea serve --proxy-config proxy.conf.json
+</code></pre>
+<p>It will redirect each call to <a href="http://localhost:8080/api">http://localhost:8080/api</a> to the targeted server.</p>
+<p><span class="no-print"><a href="https://github.com/groupe-sii/clea-cli/blob/master/docs/more/proxy.md">More details</a></span></p>
+<h1 id="code-analysis">Code analysis</h1>
+<p>Launch TypeScript &amp; Sass code analysis</p>
+<pre><code class="lang-clea">clea lint
+
+# Will attempt to fix lint errors
+clea lint --fix
+</code></pre>
+<p><span class="no-print"><a href="https://github.com/groupe-sii/clea-cli/blob/master/docs/lint.md">More details</a></span></p>
+<h1 id="testing">Testing</h1>
+<p>Launch unit tests with Karma &amp; Jasmine</p>
+<pre><code class="lang-clea">clea test
+</code></pre>
+<p><span class="no-print"><a href="https://github.com/groupe-sii/clea-cli/blob/master/docs/test.md">More details</a></span></p>
+<h1 id="sonarqube-reporter">SonarQube reporter</h1>
+<p>Use <strong>sonar-web-frontend-reporters</strong> to generate understandable reporters for SonarQube.</p>
+<p>Launch the following command to regenerate reporters under the <strong>reports</strong> folder:</p>
+<pre><code class="lang-npm">npm run sonar:reporters
+</code></pre>
+<p><span class="no-print"><a href="https://github.com/groupe-sii/clea-cli/blob/master/docs/more/sonarqube-reporters.md">More details</a></span></p>

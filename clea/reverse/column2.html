@@ -1,0 +1,47 @@
+<h1 id="generate-entities">Generate entities</h1>
+<p>All AngularJS entities are one command away:</p>
+<pre><code class="lang-clea">clea generate [entity] my-new-entity
+
+# Support relative path
+# If you are under the src/app/feature/ folder,
+# and launch:
+clea generate [entity] my-new-entity
+# Your new entity will be generated under the
+# src/app/feature/my-new-entity folder
+
+# But, if you are still in the src/app/feature/ folder
+# and launch:
+clea generate [entity] ../my-newer-entity
+# Your entity will be generated in the
+# src/app/my-newer-entity folder
+</code></pre>
+<p>Available entities:</p>
+<pre><code class="lang-clea"># Component
+clea generate component my-new-component
+
+# Directive
+clea generate directive my-new-directive
+
+# Filter
+clea generate filter my-new-filter
+
+# Service
+clea generate service my-new-service
+
+# Module
+clea generate module my-module
+
+# Lazy load the module in the parent routing file
+clea generate module my-module --lazy-load
+
+# Generate a component for the new module
+clea generate module my-module --with-component
+</code></pre>
+<p><span class="no-print"><a href="https://github.com/groupe-sii/clea-cli/blob/master/docs/generate.md">More details</a></span></p>
+<h1 id="build">Build</h1>
+<p>Compiles the application into an output directory</p>
+<pre><code class="lang-clea">clea build
+</code></pre>
+<p>Target <strong>production</strong> environment, generate the <strong>doc</strong> and the <strong>sourcemaps</strong> (for debugging purpose).</p>
+<pre><code class="lang-clea">clea build --target=production --doc --sourcemap
+</code></pre>

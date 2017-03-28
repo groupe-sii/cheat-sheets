@@ -1,0 +1,33 @@
+<h1 id="usage">Usage</h1>
+<p>The CLI requires NodeJS &gt;= 6.9.0 and NPM 3 or higher.</p>
+<pre><code class="lang-clea">clea help
+# or
+clea help [command]
+</code></pre>
+<h1 id="how-to-start-">How to start ?</h1>
+<pre><code class="lang-clea">clea new &lt;app-name&gt; # Generate a new project
+cd &lt;app-name&gt;
+clea serve # Serve it
+</code></pre>
+<p>Go to <a href="http://localhost:8080/">http://localhost:8080/</a>. Hot reload is active by default.</p>
+<h1 id="ui-framework">UI Framework</h1>
+<p>Pre-configure a default UI Framework:</p>
+<pre><code class="lang-clea">clea new &lt;app-name&gt; --ui-framework &lt;type&gt;
+</code></pre>
+<p>Available types:</p>
+<ul>
+<li><strong>material</strong>: for AngularJS Material</li>
+<li><strong>bootstrap</strong>: for Angular UI Bootstrap</li>
+</ul>
+<h1 id="make-it-progressive">Make it Progressive</h1>
+<p>Generate the basics of a Progressive Web App with the following:</p>
+<pre><code class="lang-clea">clea new &lt;app-name&gt; --make-it-progressive
+</code></pre>
+<p>Generated files:</p>
+<ul>
+<li><strong>sw.conf.js</strong>: sw-precache and sw-toolbox configuration file.</li>
+<li><strong>src/app/app.sw.ts</strong>: Service Worker registration.</li>
+<li><strong>src/public/index.html</strong>: add <head> metadata for PWA support.</li>
+<li><strong>src/public/manifest.json</strong>: manifest file describing the application.</li>
+</ul>
+<p><span class="no-print"><a href="https://github.com/groupe-sii/clea-cli/blob/master/docs/more/make-it-progressive.md">More details</a></span></p>
