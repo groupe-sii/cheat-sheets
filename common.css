@@ -275,27 +275,19 @@ body {
     padding-left: 20px; }
   body footer {
     background-color: var(--currentColor);
+    width: 100%;
     height: 71px;
     display: flex;
-    align-items: center; }
-    body footer .link-content {
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    color: white; }
+    body footer a {
       color: white;
-      padding: 0 0.5em;
-      margin: 0 1%; }
-      body footer .link-content > div {
-        flex: 1; }
-      body footer .link-content > div:first-child {
-        height: 40px; }
-      body footer .link-content a {
-        color: white;
-        text-decoration: none; }
+      text-decoration: none; }
     body footer img {
       height: 60px;
-      width: 60px;
-      padding: 0.5em 0.5em 0 0; }
+      width: 60px; }
   body .toast {
     position: fixed;
     z-index: 10;
@@ -318,3 +310,8 @@ body {
       text-decoration: none; }
     body .toast .material-icons {
       color: white; }
+  body a {
+    color: var(--currentColor);
+    transition: opacity .25s; }
+    body a:hover, body a:active, body a:focus {
+      opacity: .8; }
