@@ -463,4 +463,16 @@ body {
             color: white;
         }
     }
+
+  a {
+    color: var(--currentColor);
+    transition: opacity .25s;
+
+    &:hover,
+    &:active,
+    &:focus {
+      opacity: .8;
+      //color: lighten(currentColor, 10%);
+    }
+  }
 }
