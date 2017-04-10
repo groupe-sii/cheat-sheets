@@ -20,5 +20,7 @@ body {
   }
 }
 
-.hljs-built_in { color: #05B808; }
-.hljs-keyword { color: #AA8E08; }
+.hljs-built_in,
+.hljs-attr { color: var(--purple); }
+.hljs-keyword,
+.hljs-string { color: #E56399; }
