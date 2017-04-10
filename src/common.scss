@@ -414,36 +414,22 @@ body {
 
     footer {
         background-color: var(--currentColor);
+        width:100%;
         height: 71px;
         display: flex;
         align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        color: white;
 
-        .link-content {
-            width:100%;
-            display: flex;
-            flex-wrap: wrap;
+        a {
             color: white;
-            padding: 0 0.5em;
-            margin: 0 1%;
-
-            & > div {
-                flex: 1;
-            }
-
-            & > div:first-child {
-                height: 40px;
-            }
-
-            a {
-                color: white;
-                text-decoration: none;
-            }
+            text-decoration: none;
         }
 
         img {
             height: 60px;
             width: 60px;
-            padding: 0.5em 0.5em 0 0;
         }
     }
     .toast {
@@ -477,4 +463,16 @@ body {
             color: white;
         }
     }
+
+  a {
+    color: var(--currentColor);
+    transition: opacity .25s;
+
+    &:hover,
+    &:active,
+    &:focus {
+      opacity: .8;
+      //color: lighten(currentColor, 10%);
+    }
+  }
 }
