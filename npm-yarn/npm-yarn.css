@@ -9,8 +9,10 @@ body {
   body main div .column2:first-child {
     font-size: 12px; }
 
-.hljs-built_in {
-  color: #05B808; }
+.hljs-built_in,
+.hljs-attr {
+  color: var(--purple); }
 
-.hljs-keyword {
-  color: #AA8E08; }
+.hljs-keyword,
+.hljs-string {
+  color: #E56399; }
