@@ -1,0 +1,21 @@
+/* put your all custom css rules here */
+/* you must not change other scss files */
+
+body {
+  // available colors are: blue, green, purple, orange and grey
+  --currentColor: #28b5d8;
+
+  main div {
+    img {
+      height: 224px;
+    }
+  }
+
+  @media print {
+
+    footer {
+      position: fixed;
+      bottom: 0;
+    }
+  }
+}
