@@ -46,6 +46,8 @@ Build and reload server:
 
 ## Screenshots
 
-![alt text](./assets/images/webVersion.png)
+![menu](./assets/images/menu.png)
 
-![alt text](./assets/images/pdfVersion.png)
+![web version](./assets/images/webVersion.png)
+
+![pdf version](./assets/images/pdfVersion.png)
