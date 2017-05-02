@@ -1,0 +1,23 @@
+<p>VMware PowerCLI <strong>6.5.1</strong> </p>
+<p>Date : <strong>April 2017</strong></p>
+<h1 id="installation">Installation</h1>
+<p>From Powershell Gallery</p>
+<p><code>Install-Module ‑Name VMware.PowerCLI –Scope CurrentUser</code></p>
+<p>Offline installation</p>
+<p><code>Save-Module ‑Name VMware.PowerCLI ‑Path C:\Path\To\Desired\Folder</code></p>
+<p>... then copy content to the target machine in folder: <em>&quot;$home\Documents\WindowsPowerShell\Modules&quot;</em></p>
+<p>Load module</p>
+<p><code>Import-Module VMware.PowerCLI</code></p>
+<h1 id="connections">Connections</h1>
+<p>Enter credentials in a windows popup
+<code>Connect-VIServer ‑Server &lt;server&gt; ‑credential $(Get-Credential)</code></p>
+<h1 id="host-management">Host management</h1>
+<p>Add a new ESXi to the inventory
+<code>Add-VMHost &lt;fqdn or ip&gt; ‑Location (Get-Cluster &lt;cLustername&gt;) ‑User root ‑Password &lt;password&gt;</code></p>
+<p>Set a host to maintenand mode
+<code>Set-VMHost ‑VMHost &lt;host&gt; ‑State &quot;Maintenance&quot;</code></p>
+<p>Power operations on ESXi</p>
+<ul>
+<li><code>Restart-VMHost ‑VMHost &lt;host&gt;</code></li>
+<li><code>Stop-VMHost ‑VMHost &lt;host&gt;</code></li>
+</ul>

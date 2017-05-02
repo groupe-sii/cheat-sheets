@@ -1,0 +1,190 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Droid+Sans:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="../common/lib/atom-one-light.css">
+    <link rel="stylesheet" href="./powercli.css">
+  </head>
+  <body>
+    <input type="checkbox" id="showPreview"/>
+    <div class="first-side">
+      <div class="cutter">
+<div class="cut cut-top-left">&nbsp;</div>
+<div class="cut cut-bottom-left">&nbsp;</div>
+<div class="cut cut-top-right">&nbsp;</div>
+<div class="cut cut-bottom-right">&nbsp;</div>
+</div>
+<header>
+    <div class="home-button no-print">
+        <a href="../" title="back to home cheat Sheet"><i class="material-icons">home</i></a>
+        <label for="showPreview"><i class="material-icons">visibility</i></label>
+    </div>
+    <div class="header-center">
+        <div class="description-content">
+            <div class="title">PowerCLI cheat sheet</div>
+            <div class="sub-title">PowerShell SDK to manage VMware vSphere environments</div>
+        </div>
+
+        <div class="logo-container">
+            <img src="../assets/images/powercli.png">
+        </div>
+    </div>
+    <div class="logo-category no-print">
+        <i class="material-icons" onclick="printLarge()">print</i>
+    </div>
+</header>
+
+
+
+      <main>
+        <div class="column1">
+          <p>VMware PowerCLI <strong>6.5.1</strong> </p>
+<p>Date : <strong>April 2017</strong></p>
+<h1 id="installation">Installation</h1>
+<p>From Powershell Gallery</p>
+<p><code>Install-Module ‑Name VMware.PowerCLI –Scope CurrentUser</code></p>
+<p>Offline installation</p>
+<p><code>Save-Module ‑Name VMware.PowerCLI ‑Path C:\Path\To\Desired\Folder</code></p>
+<p>... then copy content to the target machine in folder: <em>&quot;$home\Documents\WindowsPowerShell\Modules&quot;</em></p>
+<p>Load module</p>
+<p><code>Import-Module VMware.PowerCLI</code></p>
+<h1 id="connections">Connections</h1>
+<p>Enter credentials in a windows popup
+<code>Connect-VIServer ‑Server &lt;server&gt; ‑credential $(Get-Credential)</code></p>
+<h1 id="host-management">Host management</h1>
+<p>Add a new ESXi to the inventory
+<code>Add-VMHost &lt;fqdn or ip&gt; ‑Location (Get-Cluster &lt;cLustername&gt;) ‑User root ‑Password &lt;password&gt;</code></p>
+<p>Set a host to maintenand mode
+<code>Set-VMHost ‑VMHost &lt;host&gt; ‑State &quot;Maintenance&quot;</code></p>
+<p>Power operations on ESXi</p>
+<ul>
+<li><code>Restart-VMHost ‑VMHost &lt;host&gt;</code></li>
+<li><code>Stop-VMHost ‑VMHost &lt;host&gt;</code></li>
+</ul>
+
+        </div>
+        <div class="column2">
+          <p>Retrieves information about host services
+<code>Get-VMHostService &lt;host&gt;</code></p>
+<p>Restart a specific host service
+<code>Get-VMHostService &lt;host&gt; | ? {($_.Key ‑eq &quot;TSM-ssh&quot;)} | Restart-VMHostService</code></p>
+<h1 id="cluster-management">Cluster management</h1>
+<p>Get cluster information
+<code>Get-Cluster ‑Name &lt;clustername&gt;</code></p>
+<p>Enable HA on cluster
+<code>Set-Cluster ‑Cluster &lt;cluster&gt; ‑HAEnabled:$true ‑HAAdmissionControlEnabled:$true</code></p>
+<p>Enable DRS on cluster
+<code>Set-Cluster ‑Cluster &lt;cluster&gt; ‑DRSEnabled:$true ‑DRSAutomationLevel &quot;FullyAutomated&quot;</code></p>
+<p>Set EVC mode on cluster
+<code>Set-Cluster ‑Cluster &lt;cluster&gt; ‑EVCMode &quot;intel-nehalem&quot;</code></p>
+<h1 id="vapp-management">vApp management</h1>
+<p>Export a vApp in OVA format
+<code>Export-VApp ‑vApp &lt;vapp&gt; ‑Destination &quot;c:\vapps\&quot; ‑Format Ova</code></p>
+<p>Import OVA file as vApp
+<code>Import-vApp ‑Source &quot;c:\vapps\appliance.ova&quot; ‑Datastore &lt;datastore&gt; ‑VMHost &lt;vmhost&gt;</code></p>
+<p>Configure memory ressources for a vApp
+<code>Set-VApp ‑VApp &lt;vapp&gt; ‑MemExpandableReservation:$true ‑MemReservationGB 2 ‑MemLimitGB 4</code></p>
+
+        </div>
+      </main>
+
+      <footer class="print-only">
+  <a href="https://groupe-sii.github.io/cheat-sheets">groupe-sii.github.io/cheat-sheets</a>
+  <a href="http://www.groupe-sii.com">www.groupe-sii.com</a>
+  <a href="https://blog.groupe-sii.com">blog.groupe-sii.com</a>
+  <img src="../assets/images/logoSII-white.svg">
+</footer>
+
+
+
+    </div>
+
+    <hr class="no-print"/>
+
+    <div class="reverse">
+      <header class="print-only">
+    <div class="header-center">
+        <div class="description-content">
+            <div class="title">powercli cheat sheet</div>
+        </div>
+        <div class="logo-container">
+            <img src="../assets/images/powercli.png" >
+        </div>
+    </div>
+</header>
+
+
+      <main>
+        <div class="column1">
+          <h1 id="vm-management">VM management</h1>
+<p>Get VM information
+<code>Get-VM &lt;vmname&gt;</code></p>
+<p>Power operations</p>
+<ul>
+<li><code>Start-VM ‑VM &lt;vm&gt;</code></li>
+<li><code>Stop-VM ‑VM &lt;vm&gt;</code></li>
+<li><code>Restart-VM ‑VM &lt;vm&gt;</code></li>
+</ul>
+<p>Open console in the web browser
+<code>Get-VM &lt;vm&gt; | Open-VMConsoleWindow</code></p>
+<p>Convert a VM to a template
+<code>Set-VM ‑VM &lt;vm&gt; ‑ToTemplate ‑Name &lt;templatename&gt;</code></p>
+<p>Connect ISO file to a VM
+<code>New-CDDrive ‑VM &lt;vm&gt; ‑ISOPath &quot;[&lt;datastorename&gt;] ISO\sample.iso&quot;</code></p>
+<p>Disconnect any CD drive from a VM
+<code>Get-CDDrive ‑VM &lt;vm&gt; | Set-CDDrive ‑connected 0 ‑StartConnected 0 ‑NoMedia</code></p>
+<p>Attach a new persistent disk
+<code>New-HardDisk ‑VM &lt;vm&gt; ‑CapacityGB 10 ‑Persistence persistent</code></p>
+<h1 id="snapshot-management">Snapshot management</h1>
+<p>Create snapshot of a VM with active memory
+<code>New-Snapshot ‑VM &lt;vm&gt; ‑Name &quot;beforePatch&quot; ‑Memory</code></p>
+<p>List snapshots of a VM
+<code>$snapshot = Get-Snapshot ‑VM &lt;vm&gt;</code></p>
+<p>Remove snapshot
+<code>Remove-Snapshot ‑Snapshot &lt;snapshot&gt;</code></p>
+
+        </div>
+        <div class="column2">
+          <h1 id="guest-os-operations">Guest OS operations</h1>
+<p>Power operations</p>
+<ul>
+<li><code>Shutdown-VMGuest ‑VM &lt;vm&gt;</code></li>
+<li><code>Restart-VMGuest ‑VM &lt;vm&gt;</code></li>
+</ul>
+<p>(dis)Mounts the VMware Tools CD installer
+<code>Mount-Tools ‑VM &lt;vm&gt;</code>
+<code>Dismount-Tools ‑VM &lt;vm&gt;</code></p>
+<h1 id="datastore">Datastore</h1>
+<p>Get datastore information
+<code>Get-Datastore ‑Name &lt;dsname&gt;</code></p>
+<p>Create (NFS|VMFS) datastores
+<code>New-Datastore ‑Nfs ‑VMHost &lt;host&gt; ‑Name &lt;dsname&gt; ‑Path &lt;/path/folder&gt; ‑NfsHost &lt;nfsserver&gt;</code>
+<code>New-Datastore ‑Vmfs ‑VMHost &lt;host&gt; ‑Name &lt;dsname&gt; ‑Path &lt;scsiLun.CanonicalName&gt;</code></p>
+<h1 id="network">Network</h1>
+<p>Get vSphere distributed switch or port group
+<code>Get-VDSwitch ‑name &lt;name&gt;</code>
+<code>Get-VDPortgroup ‑Name &lt;name&gt;</code></p>
+<p>Create a vSphere distributed switch
+<code>New-VDSwitch ‑Name &lt;dvsname&gt; ‑Location &lt;datacenter&gt;</code></p>
+<p>Create a distributed port group
+<code>New-VDPortgroup ‑VDSwitch &lt;dvswitch&gt; ‑Name &lt;pgname&gt; ‑NumPorts 8 ‑VLanId 4</code></p>
+<p>Backup/Export of a vSphere distributed switch
+<code>Export-VDSwitch ‑VDSwitch &lt;dvswitch&gt; ‑Destination &quot;c:\mybkp.zip&quot; ‑WithoutPortGroups</code></p>
+
+        </div>
+      </main>
+
+      <footer class="@@class">
+  <a href="https://groupe-sii.github.io/cheat-sheets">groupe-sii.github.io/cheat-sheets</a>
+  <a href="http://www.groupe-sii.com">www.groupe-sii.com</a>
+  <a href="https://blog.groupe-sii.com">blog.groupe-sii.com</a>
+  <img src="../assets/images/logoSII-white.svg">
+</footer>
+
+    </div>
+
+    <script src="../common/lib/highlight.pack.js"></script>
+    <script src="../common/script.js"></script>
+  </body>
+</html>
