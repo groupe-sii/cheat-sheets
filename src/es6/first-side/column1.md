@@ -41,7 +41,7 @@ console.log(`The best drink ever is ${ a + b } and not ${(a * b * 3) - 286}.`);
 
 ```js
 function modifier(strings,...values) {
-    // strings = ['The best drink ever is', 'and not'];
+    // strings = ['The best drink ever is', 'and not', '.'];
     // values = 51, 1664
     return "Modified words";
 }
