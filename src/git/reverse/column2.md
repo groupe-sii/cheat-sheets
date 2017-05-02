@@ -17,7 +17,7 @@ Check your local proxy
 
 # Commit rules
 
-- One commit for one task: if you have 2 tasks written in one file you can use *git add -p* and chose which chunk you need to add ad your commit
+- One commit for one task: if you have 2 tasks written in one file you can use *git add -p* and chose which chunk you need to add at your commit
 - Try to commit as often as possible
 - Do not commit a half-done work. You should only commit code when it's completed.
 - Commit a stable version of your work: the tests should not failed

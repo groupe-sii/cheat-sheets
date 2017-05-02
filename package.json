@@ -30,6 +30,10 @@
     "merge-stream": "^1.0.1",
     "yargs": "^6.5.0"
   },
+  "engines": {
+    "node": ">=6.9.0 ",
+    "npm": ">= 3.0.0"
+  },
   "dependencies": {
     "highlight.js": "git+https://github.com/groupe-sii/highlight.js.git"
   }

@@ -1,10 +1,16 @@
 # Cheat Sheet Generator
 
-## hosted on github pages
+## Hosted on github pages
 
 Cheat sheets are hosted on github pages : [https://groupe-sii.github.io/cheat-sheets/](https://groupe-sii.github.io/cheat-sheets/)
 
-## install
+## Browsers support <sub><sup><sub><sub>made by <a href="https://godban.github.io">godban</a></sub></sub></sup></sub>
+
+| [<img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/chrome.png" alt="Chrome" width="16px" height="16px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome |
+| --------- |
+| last 2 versions
+
+## Install
 gulp is needed in global in order to run compilation :
 
 `npm  install gulp -g`
@@ -40,6 +46,8 @@ Build and reload server:
 
 ## Screenshots
 
-![alt text](./assets/images/webVersion.png)
+![menu](./assets/images/menu.png)
 
-![alt text](./assets/images/pdfVersion.png)
+![web version](./assets/images/webVersion.png)
+
+![pdf version](./assets/images/pdfVersion.png)
