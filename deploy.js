@@ -96,5 +96,4 @@ getBranchName().then(function(branch){
         console.error(err);
         throw new Error(err);
     }
-    
 });
