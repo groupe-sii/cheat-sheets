@@ -37,7 +37,7 @@ Ex: *return 100 meaning datapoints from the previous GeoTimeSeries®*
 
 Syntaxe: __[ [GTS]...[GTS] [*labels*] *reducer* ] REDUCE__
 
-Ex: *return a sum of aggregated GeoTimeSerie® from the previous GeoTimeSerie®²*
+Ex: *return a sum of aggregated GeoTimeSerie® from the previous GeoTimeSerie®*
 ```
 [ SWAP [ 'label1'] reducer.sum ] REDUCE
 ```
