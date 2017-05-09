@@ -164,7 +164,7 @@ gulp.task('add-item-on-index', ['move-templates'], () => {
                                     <div class="img-item">
                                         <img src="./assets/images/${name}.svg"/>
                                     </div>
-                                    <div>${name}</div>
+                                    <div class="title">${name}</div>
                                 </a>
                             </div>`;
   return gulp.src('./src/index.html')
