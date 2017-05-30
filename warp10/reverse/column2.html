@@ -1,0 +1,34 @@
+<h1 id="for">For</h1>
+<p>Ex: <em>for i from 1 to 10 : push i*i</em></p>
+<pre><code>1 10 &lt;% 2 **  %&gt; FOR
+</code></pre><h1 id="secure-script">Secure Script</h1>
+<p>Cipher a script to share it</p>
+<pre><code>&#39;aSecretKey&#39; SECUREKEY
+&lt;S
+  [
+    &#39;TOKEN&#39;
+    &#39;~metric.*&#39;
+    { }
+    NOW
+    -1
+  ] FETCH
+S&gt;
+</code></pre><p>And to execute it</p>
+<pre><code>&quot;secureScriptString&quot; EVALSECURE
+</code></pre><h1 id="filter-on-geo-place">Filter on Geo place</h1>
+<p><strong>The last position must be the start position</strong></p>
+<p>Ex: <em>Grep all GeoTimeSerie® which have datapoints in the place</em></p>
+<pre><code>[ [ &#39;READ_TOKEN&#39; &#39;~station.*&#39; { } NOW -1 ] FETCH
+  &#39;POLYGON ((
+  47.6300000 3.8300000,
+  47.6600000 3.8300000,
+  47.6300000 3.7900000,
+  47.6300000 3.8300000, ))&#39;
+  0.1 true GEO.WKT
+  mapper.geo.within 0 0 0
+]
+</code></pre><h1 id="links">Links</h1>
+<p>My first steps with WarpScript</p>
+<p><a href="http://tour.warp10.io/#1-1">http://tour.warp10.io/#1-1</a></p>
+<p>List of WarpScript functions</p>
+<p><a href="http://www.warp10.io/reference/reference/#frameworks">http://www.warp10.io/reference/reference/#frameworks</a></p>

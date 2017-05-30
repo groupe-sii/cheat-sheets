@@ -1,0 +1,37 @@
+<h1 id="mappers">Mappers</h1>
+<p>Apply a function on each tick of each GeoTimeSeries®.</p>
+<p>Syntaxe: <strong>[ [GTS]...[GTS] <em>constant</em> <em>mapper</em> 0 0 0 ] MAP</strong></p>
+<p>Ex: <em>display Bytes instead of bits</em></p>
+<pre><code>[ SWAP 8.0 mapper.mul 0 0 0 ] MAP
+</code></pre><h1 id="input-data-format">Input data format</h1>
+<p>Each metric has an unique identifier. Changing just one label, create a new GeoTimeSeries®.</p>
+<p><strong>TIMESTAMP/LATITUDE:LONGITUDE/ALTITUDE className{label=value} VALUE</strong></p>
+<pre><code>1493153321000000/49.13:6.65/12.75 device{id=1} 15
+</code></pre><h1 id="output-data-format">Output data format</h1>
+<pre><code class="lang-json">[{
+  &quot;c&quot;: &quot;class&quot;,
+  &quot;i&quot;: &quot;1&quot;,
+  &quot;l&quot;: {
+    &quot;label0&quot;: &quot;value0&quot;,
+    &quot;label1&quot;: &quot;value1&quot;
+  },
+  &quot;a&quot;: {
+    &quot;attr0&quot;: &quot;value0&quot;
+  },
+  &quot;v&quot;:[
+    [ 1380475081000000, 3.14 ],
+    [ 1380475081500000, 48.0, -4.5, 2.5],
+    [ 1380475082000000, 10000000, 3.0]
+  ]
+},
+{
+  &quot;i&quot;: &quot;1&quot;,
+  &quot;v&quot;: [
+    [ 1380475083000000, 48.1, -4.5,11000000, 42.0]
+  ]
+}]
+</code></pre>
+<h1 id="if-else">If / Else</h1>
+<p>Ex: if 7 &lt;= 4 then A else B</p>
+<pre><code>&lt;% 7 4 &lt;= %&gt;   &lt;% &#39;A&#39; %&gt;   &lt;% &#39;B&#39;%&gt;   IFTE
+</code></pre>

@@ -1,0 +1,294 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Droid+Sans:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="../common/lib/atom-one-light.css">
+    <link rel="stylesheet" href="./warp10.css">
+  </head>
+  <body>
+    <input type="checkbox" id="showPreview"/>
+    <div class="first-side">
+      <div class="cutter">
+<div class="cut cut-top-left">&nbsp;</div>
+<div class="cut cut-bottom-left">&nbsp;</div>
+<div class="cut cut-top-right">&nbsp;</div>
+<div class="cut cut-bottom-right">&nbsp;</div>
+</div>
+<header>
+    <div class="home-button no-print">
+        <a href="../" title="back to home cheat Sheet"><i class="material-icons">home</i></a>
+        <label for="showPreview"><i class="material-icons">visibility</i></label>
+    </div>
+    <div class="header-center">
+        <div class="description-content">
+            <div class="title">Warp10 cheat sheet</div>
+            <div class="sub-title">GeoTimeSeries® manipulation script.</div>
+        </div>
+
+        <div class="logo-container">
+            <img src="../assets/images/warp10.png">
+        </div>
+    </div>
+    <div class="logo-category no-print">
+        <i class="material-icons" onclick="printLarge()">print</i>
+    </div>
+</header>
+
+
+
+      <main>
+        <div class="column1">
+          <p>Date : <strong>april 2017</strong></p>
+<p>The WarpScript data manipulation environment allows the retrieval and analysis of data stored in the Warp 10 storage platform. It&#39;s a stack oriented language.</p>
+<h1 id="api-endpoints">API endpoints</h1>
+<p>API need an <strong>X-Warp10-Token</strong> header set with a <em>READ</em> or <em>WRITE</em> token.</p>
+<p>Send data to the platform</p>
+<pre><code>POST /api/v0/update
+</code></pre><p>Executing a WarpScript</p>
+<pre><code>POST /api/v0/exec
+</code></pre><p>Get raw GeoTimeSeries® data</p>
+<pre><code>GET /api/v0/fetch
+</code></pre><p>Get GeoTimeSeries® identifier (class name and labels)</p>
+<pre><code>GET /api/v0/find
+</code></pre><p>Remove data from the platform</p>
+<pre><code>GET /api/v0/delete
+</code></pre><p>For setting GeoTimeSeries® attributes</p>
+<pre><code>POST /api/v0/meta
+</code></pre><h1 id="fetch-some-metrics">Fetch some metrics</h1>
+<p>During the last hour, any metric which contains <em>os.cpu</em></p>
+<pre><code>[ &#39;READ_TOKEN&#39; &#39;~os.cpu.*&#39; { } NOW 1 h ] FETCH
+</code></pre><p>The last 10 datapoints of metric which name is exactly <em>fuel.station</em></p>
+<pre><code>[ &#39;READ_TOKEN&#39; &#39;=fuel.station&#39; { &#39;tag&#39; &#39;value&#39; } NOW -10 ] FETCH
+</code></pre>
+        </div>
+        <div class="column2">
+          <h1 id="bucketizer">Bucketizer</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.sum</td>
+<td>.max</td>
+</tr>
+<tr>
+<td>.min</td>
+<td>.count</td>
+</tr>
+<tr>
+<td>.mean</td>
+<td>.first</td>
+</tr>
+<tr>
+<td>.mean.circular</td>
+<td>.and</td>
+</tr>
+<tr>
+<td>.mean.circular.exclude-nulls</td>
+<td>.join</td>
+</tr>
+<tr>
+<td>.last</td>
+<td>.or</td>
+</tr>
+<tr>
+<td>.median</td>
+</tr>
+</tbody>
+</table>
+<p>Syntaxe: <strong>[ [GTS] <em>bucketizer</em> <em>lastbucket</em> <em>bucketspan</em> <em>bucketcount</em> ] BUCKETIZE</strong></p>
+<p>Ex: <em>return 100 meaning datapoints from the previous GeoTimeSeries®</em></p>
+<pre><code>[ SWAP bucketizer.mean 0 0 100 ] BUCKETIZE
+</code></pre><h1 id="reducer">Reducer</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.argmax</td>
+<td>.argmin</td>
+</tr>
+<tr>
+<td>.count.exclude-nulls</td>
+<td>.count</td>
+</tr>
+<tr>
+<td>.count.include-nulls</td>
+<td>.join</td>
+</tr>
+<tr>
+<td>.join.forbid-nulls</td>
+<td>.max</td>
+</tr>
+<tr>
+<td>.max.forbid-nulls</td>
+<td>.mean</td>
+</tr>
+<tr>
+<td>.mean.exclude-nulls</td>
+<td>.mean.circular</td>
+</tr>
+<tr>
+<td>.mean.circular.exclude-nulls</td>
+<td>.median</td>
+</tr>
+<tr>
+<td>.min</td>
+<td>.min.forbid-nulls</td>
+</tr>
+<tr>
+<td>.and</td>
+<td>.and.exclude-nulls</td>
+</tr>
+<tr>
+<td>.or.exclude-nulls</td>
+<td>.or</td>
+</tr>
+<tr>
+<td>.shannonentropy.0</td>
+<td>.sd</td>
+</tr>
+<tr>
+<td>.shannonentropy.1</td>
+<td>.sum</td>
+</tr>
+<tr>
+<td>.sum.forbid-nulls</td>
+<td>.var</td>
+</tr>
+</tbody>
+</table>
+<p>Syntaxe: <strong>[ [GTS]...[GTS] [<em>labels</em>] <em>reducer</em> ] REDUCE</strong></p>
+<p>Ex: <em>return a sum of aggregated GeoTimeSerie® from the previous GeoTimeSerie®</em></p>
+<pre><code>[ SWAP [ &#39;label1&#39;] reducer.sum ] REDUCE
+</code></pre>
+        </div>
+      </main>
+
+      <footer class="print-only">
+  <a href="https://groupe-sii.github.io/cheat-sheets">groupe-sii.github.io/cheat-sheets</a>
+  <a href="http://www.groupe-sii.com">www.groupe-sii.com</a>
+  <a href="https://blog.groupe-sii.com">blog.groupe-sii.com</a>
+  <img src="../assets/images/logoSII-white.svg">
+</footer>
+
+
+
+    </div>
+
+    <hr class="no-print"/>
+
+    <div class="reverse">
+      <header class="print-only">
+    <div class="header-center">
+        <div class="description-content">
+            <div class="title">Warp10 cheat sheet</div>
+        </div>
+        <div class="logo-container">
+            <img src="../assets/images/warp10.png" >
+        </div>
+    </div>
+</header>
+
+
+      <main>
+        <div class="column1">
+          <h1 id="mappers">Mappers</h1>
+<p>Apply a function on each tick of each GeoTimeSeries®.</p>
+<p>Syntaxe: <strong>[ [GTS]...[GTS] <em>constant</em> <em>mapper</em> 0 0 0 ] MAP</strong></p>
+<p>Ex: <em>display Bytes instead of bits</em></p>
+<pre><code>[ SWAP 8.0 mapper.mul 0 0 0 ] MAP
+</code></pre><h1 id="input-data-format">Input data format</h1>
+<p>Each metric has an unique identifier. Changing just one label, create a new GeoTimeSeries®.</p>
+<p><strong>TIMESTAMP/LATITUDE:LONGITUDE/ALTITUDE className{label=value} VALUE</strong></p>
+<pre><code>1493153321000000/49.13:6.65/12.75 device{id=1} 15
+</code></pre><h1 id="output-data-format">Output data format</h1>
+<pre><code class="lang-json">[{
+  &quot;c&quot;: &quot;class&quot;,
+  &quot;i&quot;: &quot;1&quot;,
+  &quot;l&quot;: {
+    &quot;label0&quot;: &quot;value0&quot;,
+    &quot;label1&quot;: &quot;value1&quot;
+  },
+  &quot;a&quot;: {
+    &quot;attr0&quot;: &quot;value0&quot;
+  },
+  &quot;v&quot;:[
+    [ 1380475081000000, 3.14 ],
+    [ 1380475081500000, 48.0, -4.5, 2.5],
+    [ 1380475082000000, 10000000, 3.0]
+  ]
+},
+{
+  &quot;i&quot;: &quot;1&quot;,
+  &quot;v&quot;: [
+    [ 1380475083000000, 48.1, -4.5,11000000, 42.0]
+  ]
+}]
+</code></pre>
+<h1 id="if-else">If / Else</h1>
+<p>Ex: if 7 &lt;= 4 then A else B</p>
+<pre><code>&lt;% 7 4 &lt;= %&gt;   &lt;% &#39;A&#39; %&gt;   &lt;% &#39;B&#39;%&gt;   IFTE
+</code></pre>
+        </div>
+        <div class="column2">
+          <h1 id="for">For</h1>
+<p>Ex: <em>for i from 1 to 10 : push i*i</em></p>
+<pre><code>1 10 &lt;% 2 **  %&gt; FOR
+</code></pre><h1 id="secure-script">Secure Script</h1>
+<p>Cipher a script to share it</p>
+<pre><code>&#39;aSecretKey&#39; SECUREKEY
+&lt;S
+  [
+    &#39;TOKEN&#39;
+    &#39;~metric.*&#39;
+    { }
+    NOW
+    -1
+  ] FETCH
+S&gt;
+</code></pre><p>And to execute it</p>
+<pre><code>&quot;secureScriptString&quot; EVALSECURE
+</code></pre><h1 id="filter-on-geo-place">Filter on Geo place</h1>
+<p><strong>The last position must be the start position</strong></p>
+<p>Ex: <em>Grep all GeoTimeSerie® which have datapoints in the place</em></p>
+<pre><code>[ [ &#39;READ_TOKEN&#39; &#39;~station.*&#39; { } NOW -1 ] FETCH
+  &#39;POLYGON ((
+  47.6300000 3.8300000,
+  47.6600000 3.8300000,
+  47.6300000 3.7900000,
+  47.6300000 3.8300000, ))&#39;
+  0.1 true GEO.WKT
+  mapper.geo.within 0 0 0
+]
+</code></pre><h1 id="links">Links</h1>
+<p>My first steps with WarpScript</p>
+<p><a href="http://tour.warp10.io/#1-1">http://tour.warp10.io/#1-1</a></p>
+<p>List of WarpScript functions</p>
+<p><a href="http://www.warp10.io/reference/reference/#frameworks">http://www.warp10.io/reference/reference/#frameworks</a></p>
+
+        </div>
+      </main>
+
+      <footer class="@@class">
+  <a href="https://groupe-sii.github.io/cheat-sheets">groupe-sii.github.io/cheat-sheets</a>
+  <a href="http://www.groupe-sii.com">www.groupe-sii.com</a>
+  <a href="https://blog.groupe-sii.com">blog.groupe-sii.com</a>
+  <img src="../assets/images/logoSII-white.svg">
+</footer>
+
+    </div>
+
+    <script src="../common/lib/highlight.pack.js"></script>
+    <script src="../common/script.js"></script>
+  </body>
+</html>

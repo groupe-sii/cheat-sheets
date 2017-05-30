@@ -1,0 +1,22 @@
+<p>Date : <strong>april 2017</strong></p>
+<p>The WarpScript data manipulation environment allows the retrieval and analysis of data stored in the Warp 10 storage platform. It&#39;s a stack oriented language.</p>
+<h1 id="api-endpoints">API endpoints</h1>
+<p>API need an <strong>X-Warp10-Token</strong> header set with a <em>READ</em> or <em>WRITE</em> token.</p>
+<p>Send data to the platform</p>
+<pre><code>POST /api/v0/update
+</code></pre><p>Executing a WarpScript</p>
+<pre><code>POST /api/v0/exec
+</code></pre><p>Get raw GeoTimeSeries® data</p>
+<pre><code>GET /api/v0/fetch
+</code></pre><p>Get GeoTimeSeries® identifier (class name and labels)</p>
+<pre><code>GET /api/v0/find
+</code></pre><p>Remove data from the platform</p>
+<pre><code>GET /api/v0/delete
+</code></pre><p>For setting GeoTimeSeries® attributes</p>
+<pre><code>POST /api/v0/meta
+</code></pre><h1 id="fetch-some-metrics">Fetch some metrics</h1>
+<p>During the last hour, any metric which contains <em>os.cpu</em></p>
+<pre><code>[ &#39;READ_TOKEN&#39; &#39;~os.cpu.*&#39; { } NOW 1 h ] FETCH
+</code></pre><p>The last 10 datapoints of metric which name is exactly <em>fuel.station</em></p>
+<pre><code>[ &#39;READ_TOKEN&#39; &#39;=fuel.station&#39; { &#39;tag&#39; &#39;value&#39; } NOW -10 ] FETCH
+</code></pre>
