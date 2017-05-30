@@ -21,7 +21,7 @@ interface IPerson {
 
 Class
 ```
-class Person extends IPerson {
+class Person implement IPerson {
     firstname: string;
     age: number;
     size: Size = Size.L;
