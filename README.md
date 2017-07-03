@@ -41,6 +41,8 @@ Build and reload server:
 
 ## Docker
 
+To simplify the installation we also provide a Dockerfile to run the application in a container.
+
 Build image:  
 `docker build -t cheatsheet .`
 
@@ -54,6 +56,8 @@ docker run \
 cheatsheet:latest gulp create-new-cheat-sheet --name <name> --category <tools|frameworks|languages>
 ```
 
+`-v $PWD:/app` mounts the current directory as working directory inside the container.
+
 Put your svg|png logo in assets/images folder  
 Put your commands or codes on:
  - src/\<name\>/first-side/column1.md
@@ -61,7 +65,7 @@ Put your commands or codes on:
  - src/\<name\>/reverse/column1.md
  - src/\<name\>/reverse/column2.md
 
-Run server:
+Run the web server to display all the cheat-sheets:
 ```
 docker run -ti \
 -v $PWD:/app \
