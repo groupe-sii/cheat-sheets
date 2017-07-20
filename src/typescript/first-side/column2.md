@@ -3,9 +3,9 @@
 Enum
 ```
 enum Size {
-    S,
-    L,
-    XL
+    S = 'small',
+    L = 'large',
+    XL = 'xlarge'
 };
 ```
 
@@ -36,7 +36,7 @@ class Person implement IPerson {
 
 Object with implicit Any properties
 ```
-{ foo: any; bar: any } or { foo; bar; }
+{ foo: 'hello'; bar: 5 } or { foo; 'hello'; }
 ```
 
 Object with optional property
