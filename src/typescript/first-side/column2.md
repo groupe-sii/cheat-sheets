@@ -34,7 +34,7 @@ class Person implement IPerson {
 
 # Object type literals
 
-Object with implicit Any properties
+Object with implicit properties
 ```
 { foo: 'hello'; bar: 5 } or { foo; 'hello'; }
 ```
