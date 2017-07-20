@@ -1,9 +1,9 @@
 <h1 id="named-types">Named types</h1>
 <p>Enum</p>
 <pre><code>enum Size {
-    S,
-    L,
-    XL
+    S = &#39;small&#39;,
+    L = &#39;large&#39;,
+    XL = &#39;xlarge&#39;
 };
 </code></pre><p>Interface</p>
 <pre><code>interface IPerson {
@@ -23,8 +23,8 @@
     sayHello(): void {};
 }
 </code></pre><h1 id="object-type-literals">Object type literals</h1>
-<p>Object with implicit Any properties</p>
-<pre><code>{ foo: any; bar: any } or { foo; bar; }
+<p>Object with implicit properties</p>
+<pre><code>{ foo: &#39;hello&#39;; bar: 5 } or { foo; &#39;hello&#39;; }
 </code></pre><p>Object with optional property</p>
 <pre><code>{ required: boolean; optional?: number; }
 </code></pre><p>Hash map</p>
