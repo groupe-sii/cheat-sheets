@@ -1,4 +1,4 @@
-Typescript : __2+__ - Date : __March 2017__
+Typescript : __2.4.1__ - Date : __July 2017__
 
 
 TypeScript is a super-set of JavaScript that enforce the code quality. This cheat sheet summarizes all the syntax and features of the language.
