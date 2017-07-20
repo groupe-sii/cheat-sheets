@@ -30,7 +30,6 @@ Change the last commit
 
 # Settings
 
-Somes commands to change the default git behavior
+Some commands to change the default git behavior
 `git config --global pull. rebase true`
 `git config --global rerere.enabled 1`
-
