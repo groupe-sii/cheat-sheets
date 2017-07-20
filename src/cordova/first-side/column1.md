@@ -1,4 +1,4 @@
-Cordova : __6.5.0__ - Date : __March 2017__
+Cordova : __7.0.0__ - Date : __July 2017__
 
 # NPM commands
 
