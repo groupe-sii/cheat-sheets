@@ -1,0 +1,40 @@
+<h1 id="playbooks">Playbooks</h1>
+<p>Execute a playbook :
+<code>ansible-playbook &lt;playbook.yml&gt; -i ./hosts</code></p>
+<p>Test a playbook (don&#39;t make any changes on servers) :
+<code>ansible-playbook &lt;playbook.yml&gt; --check</code></p>
+<p>Limit a playbook on a host :
+<code>ansible-playbook &lt;playbook.yml&gt; --limit &lt;host&gt;</code></p>
+<p><strong>Tasks</strong> : </p>
+<pre><code>---
+- hosts: web
+  tasks:
+   - name: Installation of Apache Package
+     yum:
+       name: httpd
+       state: present
+       update_cache: yes
+
+   - name: Ensure Apache is running (and enable it at boot)
+     service: name=httpd state=started enabled=yes
+</code></pre><p><strong>Roles</strong> (use to structure a list of Tasks):</p>
+<ul>
+<li>Directory structure :<pre><code>.
+├── ansible.cfg
+├── hosts
+└── roles
+  └── myrole
+      ├── defaults
+      │   └── main.yml
+      ├── files
+      │   └── myfile
+      ├── handlers
+      │   └── main.yml
+      ├── tasks
+      │   └── main.yml
+      ├── templates
+      │   └── mytemplate.j2
+      └── vars
+          └── main.yml
+</code></pre></li>
+</ul>

@@ -32,7 +32,8 @@ body {
   body main {
     display: flex;
     justify-content: space-around;
-    padding-top: 108px; }
+    padding-top: 108px;
+    padding-bottom: 80px; }
     body main section {
       width: 33%;
       text-align: center; }

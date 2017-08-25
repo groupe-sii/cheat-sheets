@@ -1,0 +1,245 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Droid+Sans:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="../common/lib/atom-one-light.css">
+    <link rel="stylesheet" href="./ansible.css">
+  </head>
+  <body>
+    <input type="checkbox" id="showPreview"/>
+    <div class="first-side">
+      <div class="cutter">
+<div class="cut cut-top-left">&nbsp;</div>
+<div class="cut cut-bottom-left">&nbsp;</div>
+<div class="cut cut-top-right">&nbsp;</div>
+<div class="cut cut-bottom-right">&nbsp;</div>
+</div>
+<header>
+    <div class="home-button no-print">
+        <a href="../" title="back to home cheat Sheet"><i class="material-icons">home</i></a>
+        <label for="showPreview"><i class="material-icons">visibility</i></label>
+    </div>
+    <div class="header-center">
+        <div class="description-content">
+            <div class="title">ansible cheat sheet</div>
+            <div class="sub-title">Configuration Management Tool</div>
+        </div>
+
+        <div class="logo-container">
+            <img src="../assets/images/ansible.png">
+        </div>
+    </div>
+    <div class="logo-category no-print">
+        <i class="material-icons" onclick="printLarge()">print</i>
+    </div>
+</header>
+
+
+
+      <main>
+        <div class="column1">
+          <p> Ansible version: <strong>2.3</strong> - Date: <strong>June 2017</strong></p>
+<h1 id="getting-started">Getting Started</h1>
+<p><strong>Installation</strong> (example on RedHat environnement) : </p>
+<pre><code>$ sudo yum -y install epel-release
+$ sudo yum -y update
+$ sudo yum -y install ansible
+</code></pre><p><strong> Doc link : <a href="http://docs.ansible.com/ansible/latest/">http://docs.ansible.com/ansible/latest/</a></strong></p>
+<h1 id="inventory-files">Inventory files</h1>
+<p>The default file is <strong>/etc/ansible/hosts</strong> :</p>
+<pre><code>[web]
+web1.sii-ouest.fr ansible_ssh_host=192.168.0.101
+web2.sii-ouest.fr ansible_ssh_host=192.168.0.102
+
+[db]
+db1.sii-ouest.fr ansible_ssh_host=192.168.0.100
+
+[production:children]
+web
+db
+</code></pre><h2 id="hostname-ranges">Hostname ranges</h2>
+<pre><code>www[01:50].example.com, db-[a:f].example.com
+</code></pre><h1 id="variable-files">Variable files</h1>
+<ul>
+<li><strong>./group_vars/web</strong> : variable definitions for all members of group &#39;web&#39;</li>
+<li><strong>./host_vars/web1.sii-ouest.fr</strong> : variable definitions for &#39;web1.sii-ouest.fr&#39;</li>
+</ul>
+<h1 id="ad-hoc-commands">Ad-Hoc commands</h1>
+<p><code>ansible &lt;pattern&gt; -m &lt;module&gt; -a &lt;params&gt;</code></p>
+<p>Execute reboot on all servers in a group (example on production, in 10 parallel forks) :</p>
+<pre><code>$ ansible production -i ./hosts all -m command -a &quot;/sbin/reboot&quot; -f 10
+</code></pre>
+        </div>
+        <div class="column2">
+          <h1 id="playbooks">Playbooks</h1>
+<p>Execute a playbook :
+<code>ansible-playbook &lt;playbook.yml&gt; -i ./hosts</code></p>
+<p>Test a playbook (don&#39;t make any changes on servers) :
+<code>ansible-playbook &lt;playbook.yml&gt; --check</code></p>
+<p>Limit a playbook on a host :
+<code>ansible-playbook &lt;playbook.yml&gt; --limit &lt;host&gt;</code></p>
+<p><strong>Tasks</strong> : </p>
+<pre><code>---
+- hosts: web
+  tasks:
+   - name: Installation of Apache Package
+     yum:
+       name: httpd
+       state: present
+       update_cache: yes
+
+   - name: Ensure Apache is running (and enable it at boot)
+     service: name=httpd state=started enabled=yes
+</code></pre><p><strong>Roles</strong> (use to structure a list of Tasks):</p>
+<ul>
+<li>Directory structure :<pre><code>.
+├── ansible.cfg
+├── hosts
+└── roles
+  └── myrole
+      ├── defaults
+      │   └── main.yml
+      ├── files
+      │   └── myfile
+      ├── handlers
+      │   └── main.yml
+      ├── tasks
+      │   └── main.yml
+      ├── templates
+      │   └── mytemplate.j2
+      └── vars
+          └── main.yml
+</code></pre></li>
+</ul>
+
+        </div>
+      </main>
+
+      <footer class="print-only">
+  <a href="https://groupe-sii.github.io/cheat-sheets">groupe-sii.github.io/cheat-sheets</a>
+  <a href="http://www.groupe-sii.com">www.groupe-sii.com</a>
+  <a href="https://blog.groupe-sii.com">blog.groupe-sii.com</a>
+  <img src="../assets/images/logoSII-white.svg">
+</footer>
+
+
+
+    </div>
+
+    <hr class="no-print"/>
+
+    <div class="reverse">
+      <header class="print-only">
+    <div class="header-center">
+        <div class="description-content">
+            <div class="title">ansible cheat sheet</div>
+        </div>
+        <div class="logo-container">
+            <img src="../assets/images/ansible.png" >
+        </div>
+    </div>
+</header>
+
+
+      <main>
+        <div class="column1">
+          <p><strong>Handlers and Notify</strong> :</p>
+<pre><code>tasks:
+ - name: Install Apache
+   yum: name=httpd state=present
+   notify: Start Apache
+
+handlers:
+ - name: Start Apache
+   service: name=httpd state=started
+</code></pre><p>Handlers by default get executed at the end of the playbook.</p>
+<p><strong>Conditionnals</strong> :</p>
+<pre><code>- name: Analyse &#39;my_file&#39;
+  shell: cat &quot;my_file&quot;
+  register: my_file_contents
+
+- name: Show results
+  shell: echo &quot;find &lt;toto&gt; pattern&quot;
+  when: my_file_contents.stdout.find(&#39;toto&#39;) != -1
+</code></pre><p><strong>Template</strong> : Jinja Templating</p>
+<ul>
+<li><strong>{% ... %}</strong> for control statements</li>
+<li><strong>{{ ... }}</strong> for expressions</li>
+<li><strong>{# ... #}</strong> for comments</li>
+</ul>
+<p><strong>Tags</strong> :
+Limit a playbook on tags :
+<code>ansible-playbook &lt;playbook.yml&gt; -i ./hosts --tag &lt;mytag&gt;</code></p>
+<p><strong>Loops over items</strong> :</p>
+<pre><code>- name: Add a list of users
+  user: name={{ item }} state=present
+  with_items:
+   - testuser1
+   - testuser2
+   - testuser3
+</code></pre><h2 id="example-installation-and-conf-of-apache-server-">Example (Installation and conf. of Apache server):</h2>
+<p>./playbook-deploy-apache.yml</p>
+<pre><code>---
+- hosts: web
+  roles:
+    - { role: demo-install-apache }
+    - { role: demo-configure-apache }
+</code></pre>
+        </div>
+        <div class="column2">
+          <p>./roles/demo-configure-apache/vars/main.yml</p>
+<pre><code>---
+apache_listen_port: 8081
+app_directory: /var/www/html
+app_user: apache
+app_group: apache
+</code></pre><p>./roles/demo-configure-apache/handlers/main.yml</p>
+<pre><code>---
+ - name: Reload Apache
+     service:
+       name: httpd
+       state: reloaded
+</code></pre><p>./roles/demo-install-apache/tasks/main.yml</p>
+<pre><code>---
+   - name: Installation of Apache Package
+     yum:
+       name: httpd
+       state: present
+       update_cache: yes
+
+   - name: Ensure Apache is running (and enable it at boot)
+     service: name=httpd state=started enabled=yes
+</code></pre><p>./roles/demo-configure-apache/tasks/main.yml</p>
+<pre><code>---
+   - name: Modify permission of directory {{ app_directory }}
+     file:
+       dest: &#39;{{ app_directory }}&#39;
+       mode: 0755
+       owner: &#39;{{ app_user }}&#39;
+       group: &#39;{{ app_group }}&#39;
+       recurse: yes
+
+   - name: Modify Apache configuration
+     lineinfile:
+       dest: /etc/httpd/conf/httpd.conf
+       regexp: &#39;^Listen &#39;
+       line: &#39;Listen {{ apache_listen_port }}&#39;
+     notify: Reload Apache
+</code></pre>
+        </div>
+      </main>
+
+      <footer class="@@class">
+  <a href="https://groupe-sii.github.io/cheat-sheets">groupe-sii.github.io/cheat-sheets</a>
+  <a href="http://www.groupe-sii.com">www.groupe-sii.com</a>
+  <a href="https://blog.groupe-sii.com">blog.groupe-sii.com</a>
+  <img src="../assets/images/logoSII-white.svg">
+</footer>
+
+    </div>
+
+    <script src="../common/lib/highlight.pack.js"></script>
+    <script src="../common/script.js"></script>
+  </body>
+</html>

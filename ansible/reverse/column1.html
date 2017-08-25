@@ -1,0 +1,42 @@
+<p><strong>Handlers and Notify</strong> :</p>
+<pre><code>tasks:
+ - name: Install Apache
+   yum: name=httpd state=present
+   notify: Start Apache
+
+handlers:
+ - name: Start Apache
+   service: name=httpd state=started
+</code></pre><p>Handlers by default get executed at the end of the playbook.</p>
+<p><strong>Conditionnals</strong> :</p>
+<pre><code>- name: Analyse &#39;my_file&#39;
+  shell: cat &quot;my_file&quot;
+  register: my_file_contents
+
+- name: Show results
+  shell: echo &quot;find &lt;toto&gt; pattern&quot;
+  when: my_file_contents.stdout.find(&#39;toto&#39;) != -1
+</code></pre><p><strong>Template</strong> : Jinja Templating</p>
+<ul>
+<li><strong>{% ... %}</strong> for control statements</li>
+<li><strong>{{ ... }}</strong> for expressions</li>
+<li><strong>{# ... #}</strong> for comments</li>
+</ul>
+<p><strong>Tags</strong> :
+Limit a playbook on tags :
+<code>ansible-playbook &lt;playbook.yml&gt; -i ./hosts --tag &lt;mytag&gt;</code></p>
+<p><strong>Loops over items</strong> :</p>
+<pre><code>- name: Add a list of users
+  user: name={{ item }} state=present
+  with_items:
+   - testuser1
+   - testuser2
+   - testuser3
+</code></pre><h2 id="example-installation-and-conf-of-apache-server-">Example (Installation and conf. of Apache server):</h2>
+<p>./playbook-deploy-apache.yml</p>
+<pre><code>---
+- hosts: web
+  roles:
+    - { role: demo-install-apache }
+    - { role: demo-configure-apache }
+</code></pre>

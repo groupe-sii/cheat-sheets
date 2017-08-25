@@ -1,0 +1,31 @@
+<p> Ansible version: <strong>2.3</strong> - Date: <strong>June 2017</strong></p>
+<h1 id="getting-started">Getting Started</h1>
+<p><strong>Installation</strong> (example on RedHat environnement) : </p>
+<pre><code>$ sudo yum -y install epel-release
+$ sudo yum -y update
+$ sudo yum -y install ansible
+</code></pre><p><strong> Doc link : <a href="http://docs.ansible.com/ansible/latest/">http://docs.ansible.com/ansible/latest/</a></strong></p>
+<h1 id="inventory-files">Inventory files</h1>
+<p>The default file is <strong>/etc/ansible/hosts</strong> :</p>
+<pre><code>[web]
+web1.sii-ouest.fr ansible_ssh_host=192.168.0.101
+web2.sii-ouest.fr ansible_ssh_host=192.168.0.102
+
+[db]
+db1.sii-ouest.fr ansible_ssh_host=192.168.0.100
+
+[production:children]
+web
+db
+</code></pre><h2 id="hostname-ranges">Hostname ranges</h2>
+<pre><code>www[01:50].example.com, db-[a:f].example.com
+</code></pre><h1 id="variable-files">Variable files</h1>
+<ul>
+<li><strong>./group_vars/web</strong> : variable definitions for all members of group &#39;web&#39;</li>
+<li><strong>./host_vars/web1.sii-ouest.fr</strong> : variable definitions for &#39;web1.sii-ouest.fr&#39;</li>
+</ul>
+<h1 id="ad-hoc-commands">Ad-Hoc commands</h1>
+<p><code>ansible &lt;pattern&gt; -m &lt;module&gt; -a &lt;params&gt;</code></p>
+<p>Execute reboot on all servers in a group (example on production, in 10 parallel forks) :</p>
+<pre><code>$ ansible production -i ./hosts all -m command -a &quot;/sbin/reboot&quot; -f 10
+</code></pre>

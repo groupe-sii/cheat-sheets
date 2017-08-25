@@ -1,0 +1,39 @@
+<p>./roles/demo-configure-apache/vars/main.yml</p>
+<pre><code>---
+apache_listen_port: 8081
+app_directory: /var/www/html
+app_user: apache
+app_group: apache
+</code></pre><p>./roles/demo-configure-apache/handlers/main.yml</p>
+<pre><code>---
+ - name: Reload Apache
+     service:
+       name: httpd
+       state: reloaded
+</code></pre><p>./roles/demo-install-apache/tasks/main.yml</p>
+<pre><code>---
+   - name: Installation of Apache Package
+     yum:
+       name: httpd
+       state: present
+       update_cache: yes
+
+   - name: Ensure Apache is running (and enable it at boot)
+     service: name=httpd state=started enabled=yes
+</code></pre><p>./roles/demo-configure-apache/tasks/main.yml</p>
+<pre><code>---
+   - name: Modify permission of directory {{ app_directory }}
+     file:
+       dest: &#39;{{ app_directory }}&#39;
+       mode: 0755
+       owner: &#39;{{ app_user }}&#39;
+       group: &#39;{{ app_group }}&#39;
+       recurse: yes
+
+   - name: Modify Apache configuration
+     lineinfile:
+       dest: /etc/httpd/conf/httpd.conf
+       regexp: &#39;^Listen &#39;
+       line: &#39;Listen {{ apache_listen_port }}&#39;
+     notify: Reload Apache
+</code></pre>
