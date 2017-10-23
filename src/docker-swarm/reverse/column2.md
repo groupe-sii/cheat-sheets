@@ -1,25 +1,25 @@
 # Manage stacks
 
 Deploy a new stack from a compose file  
-`docker stack deploy --compose-file <COMPOSE-FILE> <STACK>`
+`docker stack deploy --compose-file COMPOSE-FILE STACK`
 
 List all stacks  
 `docker stack ls`
 
 List the services of a stack  
-`docker stack services <STACK>`
+`docker stack services STACK`
 
 List the tasks of a stack  
-`docker stack ps <STACK>`
+`docker stack ps STACK`
 
 Remove a stack  
-`docker stack rm <STACK>`
+`docker stack rm STACK`
 
 # Manage secrets
 
 Create a secret from a file or STDIN  
-`Docker secret create <SECRET-NAME> <FILE-PATH>`
-`echo <STRING> |docker secret create <SECRET-NAME>`
+`Docker secret create SECRET-NAME FILE-PATH`
+`echo STRING |docker secret create SECRET-NAME`
 
 List all secrets  
 `Docker secret ls`
