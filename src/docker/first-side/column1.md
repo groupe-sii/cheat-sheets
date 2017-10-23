@@ -1,4 +1,4 @@
- docker version: __17.05+__ - Date: __June 2017__
+ docker version: __17.09+__ - Date: __October 2017__
  
 # Installation
 
@@ -11,10 +11,10 @@ Show the Docker version information
 # Start containers
 
 Run a container  
-`docker run <options> <image> <command>`
+`docker run [options] IMAGE [COMMAND]`
 
 Run a container in background  
-`docker run -d <image> <command>`
+`docker run -d IMAGE [COMMAND]`
 
 # Manage containers
 
@@ -25,13 +25,13 @@ List all containers
 `docker ps -a`
 
 Restart container  
-`docker restart <container>`
+`docker restart [options] CONTAINER`
 
 Stop a running container  
-`docker stop <container>`
+`docker stop CONTAINER`
 
 Remove a container  
-`docker rm <container>`
+`docker rm CONTAINER`
 
 Remove all containers  
 `docker rm $(docker ps -a -q)`
