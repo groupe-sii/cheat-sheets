@@ -1,0 +1,43 @@
+<h1 id="compose-file-example">Compose File Example</h1>
+<p>Deploying Wordpress with docker-compose :</p>
+<p><code>docker-compose.yml</code></p>
+<pre><code class="lang-yaml">version: &#39;3&#39;
+
+services:
+
+   db:
+     image: mysql:5.7
+     volumes:
+       - db_data:/var/lib/mysql
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: somewordpress
+       MYSQL_DATABASE: wordpress
+       MYSQL_USER: wordpress
+       MYSQL_PASSWORD: wordpress
+
+   wordpress:
+     depends_on:
+       - db
+     image: wordpress:latest
+     ports:
+       - &quot;8000:80&quot;
+     restart: always
+     environment:
+       WORDPRESS_DB_HOST: db:3306
+       WORDPRESS_DB_USER: wordpress
+       WORDPRESS_DB_PASSWORD: wordpress
+
+volumes:
+    db_data:
+</code></pre>
+<p>Using : </p>
+<ul>
+<li>version <strong>3</strong> of compose file </li>
+<li><strong>2 services</strong> (db and wordpress)</li>
+<li><strong>restart policies</strong> for containers</li>
+<li><strong>ports</strong> to access web interface</li>
+<li><strong>environment variables</strong> to initialize the database and allow wordpress to connect</li>
+<li><strong>volume</strong> to store data</li>
+<li><strong>name of service</strong> as DNS entry for <strong>WORDPRESS_DB_HOST</strong></li>
+</ul>

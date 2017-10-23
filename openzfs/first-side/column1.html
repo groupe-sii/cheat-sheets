@@ -1,0 +1,23 @@
+<h1 id="zpool-configure-zfs-storage-pools">zpool – configure ZFS storage pools</h1>
+<p><strong><em>A ZFS storage pool is a logical collection of devices that provide space for datasets.</em></strong></p>
+<p>List pool health status and space usage
+<code>zpool list</code></p>
+<p>Display the detailed health status
+<code>zpool status</code>
+<code>zpool status -x</code></p>
+<p>Create a new storage pool
+<code>zpool create &lt;pool&gt; &lt;disk&gt;</code></p>
+<p>Create a new storage pool (RAID1)
+<code>zpool create &lt;pool&gt; mirror &lt;first_disk&gt; &lt;second_disk&gt;</code></p>
+<p>Grow-up a storage pool
+<code>zpool add &lt;pool&gt; &lt;disk&gt;</code></p>
+<p>Remove a storage pool
+<code>zpool destroy &lt;pool&gt;</code></p>
+<p>Import a storage pool
+<code>zpool import &lt;pool&gt;|&lt;pool_id&gt;</code></p>
+<p>Export a storage pool
+<code>zpool export &lt;pool&gt;|&lt;pool_id&gt;</code></p>
+<p>Display I/O statistics
+<code>zpool iostat &lt;interval&gt;</code></p>
+<p>Display the command history
+<code>zpool history &lt;pool&gt;</code></p>

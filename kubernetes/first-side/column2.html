@@ -1,0 +1,27 @@
+<h1 id="viewing-finding-resources">Viewing, Finding Resources</h1>
+<p>List main resources
+<code>kubectl get all</code></p>
+<p>List all services in the namespace
+<code>kubectl get services [--namespace NS]</code></p>
+<p>List all pods in all namespaces
+<code>kubectl get pods --all-namespaces</code></p>
+<p>List a particular deployment
+<code>kubectl get deployment DEPLOYMENT</code></p>
+<p>Get the version label of all pods with label <em>version=v1</em></p>
+<pre><code>kubectl get pods --selector=version=v1
+</code></pre><p>Describe commands with verbose output
+<code>kubectl describe nodes NODE</code>
+<code>kubectl describe pods POD</code></p>
+<h1 id="updating-resources">Updating Resources</h1>
+<p>Rolling update
+<code>kubectl rolling-update POD ARGS</code></p>
+<ul>
+<li><p>Rolling update pods of <em>app-v1</em>:
+<code>kubectl rolling-update app-v1 -f app-v2.yaml</code></p>
+</li>
+<li><p>Change the name of the resource and update the image:
+<code>kubectl rolling-update app-v1 app-v2 --image=image:v2</code></p>
+</li>
+</ul>
+<p>Force replace, delete and then re-create the resource. Will cause a service outage.
+<code>kubectl replace --force -f POD.json</code></p>

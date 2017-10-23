@@ -1,0 +1,211 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Droid+Sans:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="../common/lib/atom-one-light.css">
+    <link rel="stylesheet" href="./docker-compose.css">
+  </head>
+  <body>
+    <input type="checkbox" id="showPreview"/>
+    <div class="first-side">
+      <div class="cutter">
+<div class="cut cut-top-left">&nbsp;</div>
+<div class="cut cut-bottom-left">&nbsp;</div>
+<div class="cut cut-top-right">&nbsp;</div>
+<div class="cut cut-bottom-right">&nbsp;</div>
+</div>
+<header>
+    <div class="home-button no-print">
+        <a href="../" title="back to home cheat Sheet"><i class="material-icons">home</i></a>
+        <label for="showPreview"><i class="material-icons">visibility</i></label>
+    </div>
+    <div class="header-center">
+        <div class="description-content">
+            <div class="title">Docker Compose</div>
+            <div class="sub-title">Tool for running multi-container Docker applications</div>
+        </div>
+
+        <div class="logo-container">
+            <img src="../assets/images/docker-compose.png">
+        </div>
+    </div>
+    <div class="logo-category no-print">
+        <i class="material-icons" onclick="printLarge()">print</i>
+    </div>
+</header>
+
+
+
+      <main>
+        <div class="column1">
+          <p> docker-compose version: <strong>1.16.1</strong> - Date: <strong>October 2017</strong></p>
+<h1 id="info">Info</h1>
+<p>Show the docker-compose version<br><code>docker-compose version</code></p>
+<p>Display help and usage instructions for a command
+<code>docker-compose help</code></p>
+<h1 id="manage-containers">Manage containers</h1>
+<p>Build, (re)create and start containers
+<code>docker-compose up [options] [SERVICE]</code></p>
+<ul>
+<li>Start all containers in background: <code>docker-compose up -d</code></li>
+</ul>
+<p>Stop containers and remove containers, networks, volumes, and images created.
+<code>docker-compose down [options]</code></p>
+<p>Restart all stopped and running services
+<code>docker-compose restart [options] [SERVICE]</code></p>
+<p>Create containers (without starting them)
+<code>docker-compose create [options] [SERVICE]</code></p>
+<ul>
+<li>Build images before creating containers: <code>docker-compose create --build</code></li>
+</ul>
+<p>Removes stopped service containers
+<code>docker-compose rm [options] [SERVICE]</code></p>
+<ul>
+<li>Stop the containers, if required, before removing: <code>docker-compose rm --stop</code></li>
+</ul>
+
+        </div>
+        <div class="column2">
+          <p>Set the number of containers to run for an existing service
+<code>docker-compose scale SERVICE=NUM</code></p>
+<ul>
+<li>Scale the service web with 3 containers: <code>docker-compose scale web=3</code></li>
+</ul>
+<p>Start existing containers for a service
+<code>docker-compose start SERVICE</code></p>
+<p>Stop running containers (without removing them)
+<code>docker-compose stop SERVICE</code></p>
+<p>Pause running containers of a service
+<code>docker-compose pause SERVICE</code></p>
+<p>Unpause paused containers of a service
+<code>docker-compose unpause SERVICE</code></p>
+<p>Run a one-time command against a service
+<code>docker-compose run [options] SERVICE [COMMAND]</code></p>
+<ul>
+<li>Start the web service and runs bash as its command: <code>docker-compose run web bash</code></li>
+</ul>
+<p>Force running containers to stop by sending a SIGKILL signal
+<code>docker-compose kill [options] [SERVICE]</code></p>
+<ul>
+<li>Kill all containers with SIGINT signal: <code>docker-compose kill -s SIGINT</code></li>
+</ul>
+
+        </div>
+      </main>
+
+      <footer class="print-only">
+  <a href="https://groupe-sii.github.io/cheat-sheets">groupe-sii.github.io/cheat-sheets</a>
+  <a href="http://www.groupe-sii.com">www.groupe-sii.com</a>
+  <a href="https://blog.groupe-sii.com">blog.groupe-sii.com</a>
+  <img src="../assets/images/logoSII-white.svg">
+</footer>
+
+
+
+    </div>
+
+    <hr class="no-print"/>
+
+    <div class="reverse">
+      <header class="print-only">
+    <div class="header-center">
+        <div class="description-content">
+            <div class="title">docker-compose cheat sheet</div>
+        </div>
+        <div class="logo-container">
+            <img src="../assets/images/docker-compose.png" >
+        </div>
+    </div>
+</header>
+
+
+      <main>
+        <div class="column1">
+          <h1 id="manage-images">Manage Images</h1>
+<p>Build images referenced in Compose file (without starting the containers)
+<code>docker-compose build [options] [SERVICE]</code></p>
+<p>Pull images referenced in Compose file
+<code>docker-compose pull [options] [SERVICE]</code></p>
+<p>Push images for services to their respective registry/repository
+<code>docker-compose push [options] [SERVICE]</code></p>
+<h1 id="tools">Tools</h1>
+<p>Validate and view the Compose file
+<code>docker-compose config</code></p>
+<p>List containers
+<code>docker-compose ps [options] [SERVICE]</code></p>
+<p>Display log output from services
+<code>docker-compose logs [options] [SERVICE]</code></p>
+<p>Display the running processes
+<code>docker-compose top [SERVICE]</code></p>
+<p>Stream container events for every container
+<code>docker-compose events [options] [SERVICE]</code></p>
+<p>List images used by the created containers
+<code>docker-compose images</code></p>
+<p>Run arbitrary commands in the containers of a service
+<code>docker-compose exec [options] SERVICE COMMAND</code></p>
+<p>Print the public port for a port binding
+<code>docker-compose port [options] SERVICE PRIVATE_PORT</code></p>
+
+        </div>
+        <div class="column2">
+          <h1 id="compose-file-example">Compose File Example</h1>
+<p>Deploying Wordpress with docker-compose :</p>
+<p><code>docker-compose.yml</code></p>
+<pre><code class="lang-yaml">version: &#39;3&#39;
+
+services:
+
+   db:
+     image: mysql:5.7
+     volumes:
+       - db_data:/var/lib/mysql
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: somewordpress
+       MYSQL_DATABASE: wordpress
+       MYSQL_USER: wordpress
+       MYSQL_PASSWORD: wordpress
+
+   wordpress:
+     depends_on:
+       - db
+     image: wordpress:latest
+     ports:
+       - &quot;8000:80&quot;
+     restart: always
+     environment:
+       WORDPRESS_DB_HOST: db:3306
+       WORDPRESS_DB_USER: wordpress
+       WORDPRESS_DB_PASSWORD: wordpress
+
+volumes:
+    db_data:
+</code></pre>
+<p>Using : </p>
+<ul>
+<li>version <strong>3</strong> of compose file </li>
+<li><strong>2 services</strong> (db and wordpress)</li>
+<li><strong>restart policies</strong> for containers</li>
+<li><strong>ports</strong> to access web interface</li>
+<li><strong>environment variables</strong> to initialize the database and allow wordpress to connect</li>
+<li><strong>volume</strong> to store data</li>
+<li><strong>name of service</strong> as DNS entry for <strong>WORDPRESS_DB_HOST</strong></li>
+</ul>
+
+        </div>
+      </main>
+
+      <footer class="@@class">
+  <a href="https://groupe-sii.github.io/cheat-sheets">groupe-sii.github.io/cheat-sheets</a>
+  <a href="http://www.groupe-sii.com">www.groupe-sii.com</a>
+  <a href="https://blog.groupe-sii.com">blog.groupe-sii.com</a>
+  <img src="../assets/images/logoSII-white.svg">
+</footer>
+
+    </div>
+
+    <script src="../common/lib/highlight.pack.js"></script>
+    <script src="../common/script.js"></script>
+  </body>
+</html>

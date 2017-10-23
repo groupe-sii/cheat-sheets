@@ -1,0 +1,23 @@
+<h1 id="zfs-configure-zfs-snapshots">zfs – configure ZFS snapshots</h1>
+<p><strong><em>A snapshot is a read-only copy of a file system.</em></strong></p>
+<p><em>File system snapshots can be accessed under the .zfs/snapshot directory in the root of the file system.</em></p>
+<p>List snapshots
+<code>zfs list -t snapshot</code></p>
+<p>Create a snapshot
+<code>zfs snapshot &lt;pool&gt;/&lt;dataset&gt;@&lt;snapshot&gt;</code></p>
+<p>Rollback a snapshot
+<code>zfs rollback &lt;pool&gt;/&lt;dataset&gt;@&lt;snapshot&gt;</code></p>
+<p>Remove a snapshot
+<code>zfs destroy &lt;pool&gt;/&lt;dataset&gt;@&lt;snapshot&gt;</code></p>
+<p>Remove a snapshot and his descendent snapshots
+<code>zfs destroy -r &lt;pool&gt;/&lt;dataset&gt;@&lt;snapshot&gt;</code></p>
+<h1 id="zfs-configure-zfs-clones">zfs – configure ZFS CLONES</h1>
+<p><strong><em>A clone is a writable volume or file system whose initial contents are the same as the original dataset.</em></strong></p>
+<p>Create a clone
+<code>zfs clone &lt;snapshot&gt; &lt;filesystem&gt;|&lt;volume&gt;</code></p>
+<h1 id="zfs-configure-backup-and-restore">zfs – configure backup and restore</h1>
+<p><strong><em>ZFS implements data protection feature</em></strong></p>
+<p>Backup a snapshot in a file
+<code>zfs send &lt;pool&gt;/&lt;dataset&gt;@&lt;snapshot&gt;  &gt;  &lt;file&gt;</code></p>
+<p>Restore a file system from a file
+<code>zfs recv &lt;pool&gt;/&lt;dataset&gt;  &lt;  &lt;file&gt;</code></p>

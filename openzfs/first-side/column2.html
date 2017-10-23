@@ -1,0 +1,23 @@
+<h1 id="zfs-configure-zfs-file-systems">zfs – configure ZFS file systems</h1>
+<p><strong><em>A ZFS dataset of type filesystem can be mounted.</em></strong></p>
+<p>List the property information for the fs-type datasets
+<code>zfs list</code></p>
+<p>Create a new ZFS file system
+<code>zfs create &lt;pool&gt;/&lt;dataset&gt;</code></p>
+<p>Remove a ZFS file system
+<code>zfs destroy &lt;pool&gt;/&lt;dataset&gt;</code></p>
+<p>Set mount point for a dataset
+<code>zfs set mountpoint=&lt;path&gt; &lt;pool&gt;/&lt;dataset&gt;</code></p>
+<p>Mount and umount a ZFS file system
+<code>zfs mount [-o mountpoint=&lt;dir&gt;]&lt;pool&gt;/&lt;dataset&gt;</code>
+<code>zfs umount &lt;pool&gt;/&lt;dataset&gt;</code></p>
+<p>Limit the amount of space a dataset can consume
+<code>zfs set refquota=&lt;size&gt; &lt;pool&gt;/&lt;dataset&gt;</code></p>
+<p>Guaranty minimum amount of space to a dataset
+<code>zfs set refreservation=&lt;size&gt; &lt;pool&gt;/&lt;dataset&gt;</code></p>
+<h1 id="zfs-configure-zfs-volumes">zfs – configure ZFS volumes</h1>
+<p><strong><em>A ZFS dataset of type volume is a logical volume exported as a raw or block device.</em></strong></p>
+<p>Create a volume with reservation (thick)
+<code>zfs create -V &lt;size&gt; &lt;volume&gt;</code></p>
+<p>Creates a sparse volume with no reservation
+<code>zfs create -s -V &lt;size&gt; &lt;volume&gt;</code></p>

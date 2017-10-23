@@ -1,0 +1,22 @@
+<p>Perform increment backup in a file
+<code>zfs send -i &lt;snapshot_n&gt; &lt;snapshot_n+1&gt; &gt; &lt;file&gt;</code></p>
+<p>Perform differential backup in a file
+<code>zfs send -I &lt;snapshot_n&gt; &lt;snapshot_n+p&gt; &gt; &lt;file&gt;</code></p>
+<p>Duplicate a snapshot as a new file system
+<code>zfs send &lt;pool&gt;/&lt;dataset&gt;@&lt;snapshot&gt; | zfs recv &lt;pool&gt;/&lt;other_dataset&gt;</code></p>
+<p>Duplicate a snapshot on a different host
+<code>zfs send &lt;pool&gt;/&lt;dataset&gt;@&lt;snapshot&gt; | ssh &lt;host&gt; zfs recv &lt;pool&gt;/&lt;dataset&gt;</code></p>
+<h1 id="zfs-set-zfs-file-systems-properties">zfs – set ZFS file systems properties</h1>
+<p><strong><em>Properties control ZFS behaviour.</em></strong></p>
+<p>List properties of a dataset
+<code>zfs get all &lt;pool&gt;/&lt;dataset&gt;</code></p>
+<p>Create a NFS share
+<code>zfs set sharenfs=on &lt;pool&gt;/&lt;dataset&gt;</code></p>
+<p>Activate compression
+<code>zfs set compression=gzip &lt;pool&gt;/&lt;dataset&gt;</code></p>
+<p>Activate encryption (only at the creation of the dataset), with Oracle ZFS
+<code>zfs create -o encryption=on &lt;pool&gt;/&lt;dataset&gt;</code></p>
+<p>Activate read-only mode
+<code>zfs set readonly=on &lt;pool&gt;/&lt;dataset&gt;</code></p>
+<p>Prevent executing from within this file system
+<code>zfs set exec=off &lt;pool_name&gt;/&lt;dataset_name&gt;</code></p>
