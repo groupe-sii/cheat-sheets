@@ -1,11 +1,10 @@
-Date : __March 2017__
 # Update global version
 
 ```npm
 npm update npm -g
 ```
 
-# NPM scripts 
+# NPM scripts
 
 ```json
 <package.json>

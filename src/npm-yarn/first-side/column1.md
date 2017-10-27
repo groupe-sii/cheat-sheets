@@ -1,4 +1,3 @@
-npm version: __3.10.8__  - yarn version: __0.20.3__
 # NPM package managment
 
 ## Install package via NPM
@@ -17,13 +16,13 @@ npm install <modulename> --save-dev
 ```
 
 ## Add default '--save' to config
- 
+
 ```npm
 npm config set save true
 ```
 
 ## Install package from git repo
- 
+
 ```npm
 npm install git://github.com/my/dep.git
 ```
@@ -58,4 +57,3 @@ npm config edit
 npm config set proxy=proxy.dns.fr:3128
 npm config set https-proxy=proxy.dns.fr:3128
 ```
-
