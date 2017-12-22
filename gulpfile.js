@@ -85,7 +85,8 @@ gulp.task('markdown-build', () => {
  */
 gulp.task('connect', ['build'], () => {
   connect.server({
-    root: 'dist'
+    root: 'dist',
+    port: process.env.PORT || 8080
   });
 });
 
