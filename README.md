@@ -11,6 +11,9 @@ Cheat sheets are hosted on github pages : [https://groupe-sii.github.io/cheat-sh
 | last 2 versions
 
 ## Install
+
+NodeJS version 6+
+
 gulp is needed in global in order to run compilation :
 
 `npm  install gulp -g`
@@ -20,9 +23,10 @@ gulp is needed in global in order to run compilation :
 or
 `npm install`
 
-`yarn` or `npm install`
 
 ## Usage
+
+From install folder: 
 
 `gulp create-new-cheat-sheet --name <name> --category <tools|frameworks|languages>`
 
