@@ -1,8 +1,18 @@
+```css
+a[href^="https://"] { } /*targets every <a> element with a "href" attribute value beginning with "https://"*/
+a[href$=".com"] { } /*targets every <a> element with a "href" attribute value ending with ".com"*/
+
+a[href~="example"] { } /*targets every <a> element with a "href" attribute value containing the word* "example"*/
+a[href|="example"] { } /*targets every <a> element with a "href" attribute value beginning with the word* "example"*/
+
+a[href*="www"] { } /*targets every <a> element with a "href" attribute value containing "www"*/
+```
+
 # Pseudo-class
 
-A __pseudo-class__ selector is a selector preceded by "__:__" or "__::__".
+A __pseudo-class__ selector is a selector preceded by "__:__" or "__::__". 
 
-Some pseudo-classes are used to apply style on a specific __state__ of an element.
+Some are used to apply style on a specific __state__ of an element.
 
 ```css
 button:hover { } /*the style will apply on a button when the user's mouse hovers it*/
@@ -26,13 +36,4 @@ It takes every selector type as argument.
 div:not(.myClass) { } /* targets every <div> that doesn't have the "myClass" class attribute.*/
 div p:not(:last-child) { } /*targets all <p> elements in my <div> except the last one*/
 input:not([type="checkbox"]) { } /*targets all <input> elements that are not checkboxes type*/
-```
-
-# Universal selector
-
-"__*__" is used to apply style on __EVERY__ element. He is called __universal selector__.
-```css
-* { } /*targets every element in the DOM*/
-div * { } /*targets every element inside a <div> element*/
-.myClass * { } /*targets every element inside elements with "myClass" class*/
 ```

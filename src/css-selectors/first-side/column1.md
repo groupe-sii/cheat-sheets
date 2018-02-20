@@ -28,10 +28,13 @@ div.myClass { } /*targets every div with "myClass" class*/
 ```
 # Attributes
 
-You can target an element by any of its attributes. 
+You can target an element by any of its attributes and attributes value.
 
 ```css
-input[type="checkbox"] { } /*targets every <input> with the "checkbox" type attribute*/
-img[alt="myImage"] { } /*targets the <img> elements with the "myImage" alt attribute */
-div[class="myClass"] { } /*is equivalent to div.myClass*/
+[alt] { } /*targets every element with an alt attribute */
+input[type="checkbox"] { } /*targets every <input> element with the "type" attribute value set to "checkbox"*/
 ```
+
+You can specify that you want to filter by only a part of the attribute value.
+
+<small>\* *__word__ has to be either alone, or followed by a hyphen ( - )*</small>
