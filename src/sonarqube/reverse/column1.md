@@ -1,19 +1,44 @@
-# Issue life cycle
-
-- **Opened** : Issue opened by SonarQube during an analysis when a part of code break a rule
-- **Confirmed** : State set manually by the user, that validated the problem
-- **False positive** : State set manually by the user. In the project context, the issue is not a problem
-  **Requires Administer Issues permission** on the project.
-- **Won't fix** : State set manually by the user. The issue is a valid issue but due to project context there is no need to fix it actually. It represents **accepted technical debt**. <br/>
-  **Requires Administer Issues permission** on the project.
-- **Change severity** : State set manually by the user. The issue is a valid issue but it's not as bad as set in the rule's default severity 
-  **Requires Administer Issues permission** on the project.
-- **Resolved** : State set manually by the user. If the fix is right SonarQube will close the issue during the next analysis otherwise the issue will be re-opened
-
-![gitZone](../assets/images/sonarqube-issue-wflw.png)
 
 
+# Main metrics
 
+- <u>**Quality Gate Status**</u> : State of the quality gate associated to the project. Possible values: ERROR, WARN, OK 
+- <u>**Reliability**</u> : Number of bugs, number of new bugs, etc... Reliability rating: A = 0 bug, B = at least **1 Minor** bug,
+   C = at least 1 **Major** bug, D = at least **1 critical** bug, E = at least **1 Blocker** bug
+- <u>**Security**</u> : Number of vulnerabilities, number of new vulnerabilities, etc... Reliability rating: A = 0 vulnerability, B = at least **1 Minor** bug,
+   C = at least 1 **Major** bug, D = at least **1 critical** bug, E = at least **1 Blocker** bug
+- <u>**Complexity**</u> Cyclomatic complexity is used up to version 6.3. 
+It's measured on choices and branches i.e. numbers of if, else, while, switch/case
+It is recommended to have at least a cyclomatic complexity of 12 in a method. Each method add 1 to the complexity.
+In the example below the cyclomatic complexity is 3
 
+```
+String getMonth (int monthNumber) {//+1            
+  switch (monthNumber) {                                
+    case 1:                        //+1                 
+      return "January";                                   
+    case 2:                        //+1                    
+      return "February";                                                                   
+    default:                                           
+      return "Error";                                 
+  }                                                                        
+}                                                  
+                          
+``` 
 
-# Metrics
+- <u>**Metric**</u> : Number of classes, files, lines, lines of code,methods, projects, statements ....
+- <u>**Duplications**</u> : duplicated blocks, files, lines
+- <u>**Maintainability**</u> : Number of code smells, technical debt i.e effort to fix all maintainability issues.<br/>Maintainability raiting:
+- <u>**Tests**</u> : Condition coverage, line coverage, etc .
+
+```
+Condition coverage = (conditions that have been evaluated to true at least once + conditions that have been evaluated to false at least once ) / (2* total number of conditions)
+boolean a = false;
+boolean b = true;
+boolean c = false;
+
+if(a && (b || c) ){
+  //... 
+}
+Condition coverage =  (2 + 1) / (2*3) = 0.5 
+``` 

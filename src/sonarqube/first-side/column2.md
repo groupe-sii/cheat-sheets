@@ -1,18 +1,24 @@
-# Analysis parameters
+# Main concepts
 
- 
- | Parameter  | Description | Default value   | Mandatory   |
- |---|---|---|---|
- | sonar.host.url  | Server URL  | http://localhost:9000   | true   |
- | sonar.project.key  | The project key that is unique for each project.|  When using maven it's set to <br/> <groupId\>:<artifactId\>   | false  |
- | sonar.sources  | Comma-separated paths to directories containing source files.  | Compatible with Maven  |  false |
- | sonar.projectName  | Name of the project that will be displayed on the web interface.  | If not set, sonar.project.key is used  |  false |
- | sonar.login  | The login of a SonarQube user with Execute Analysis permission.  |   | false  |
- | sonar.password  | The password that goes with sonar.login.  |   | false  |
- | sonar.language  | Set the language of the source code to analyse  | If not set multi-language analysis will be triggered  | false  |
- | sonar.tests  | Comma-separated paths to directories containing tests files.  | Not compatible with Maven  | false  |
- | sonar.exclusions  | Comma-delimited list of file pattern to be excluded from analysis.  |  | false  |
- | sonar.inclusions  | Comma-delimited list of file pattern to be included in analysis. Only files matching pattern will be included  |  | false  |
- | sonar.test.exclusions  | Comma-delimited list of test file pattern to be excluded from analysis.  |  | false  |
- | sonar.test.inclusions  | Comma-delimited list of test file pattern to be included in analysis. Only files matching pattern will be included  |  | false  |
+<u>**Issue**</u> : SonarQube raise an issue every time a piece of code breaks a code rule.
+Issue severities:
 
+- BLOCKER: memory leak, not closing a socket... The code **MUST** be fixed immediately.
+- CRITICAL: SQL Injection, NullPointerException: The code **MUST** be reviewed immediately.
+- MAJOR: duplicated blocks, unused parameters, too complex methods ...
+- MINOR: naming convention, lines too long,...
+- INFO
+
+# Issue life cycle
+
+- **Opened** : Issue opened by SonarQube during an analysis when a part of code break a rule
+- **Confirmed** : State set manually by the user, that validated the problem
+- **False positive** : State set manually by the user. In the project context, the issue is not a problem
+  **Requires Administer Issues permission** on the project.
+- **Won't fix** : State set manually by the user. The issue is a valid issue but due to project context there is no need to fix it actually. It represents **accepted technical debt**. <br/>
+  **Requires Administer Issues permission** on the project.
+- **Change severity** : State set manually by the user. The issue is a valid issue but it's not as bad as set in the rule's default severity 
+  **Requires Administer Issues permission** on the project.
+- **Resolved** : State set manually by the user. If the fix is right SonarQube will close the issue during the next analysis otherwise the issue will be re-opened
+
+![gitZone](../assets/images/sonarqube-issue-wflw-green-10.png)
