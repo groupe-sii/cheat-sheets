@@ -36,10 +36,5 @@ Each language has a default profile
 
 <u>**Metric**</u> : A type of measurement. Examples: number of lines of code, number of duplicated blocks, complexity etc.
 
-<u>**Measure**</u> : The value of a metric for a given module at a given time
-
 <u>**Reliability**</u> : code that can produce operational risks or unexpected behavior at runtime. Must of time it's the consequence of lack of compliance with best practice 
-
-<u>**Maintainability**</u> : modularity, understandability, changeability, testability and reusability of a code, module.
-
 
