@@ -1,0 +1,27 @@
+<p> SonarQube version: <strong>6.3+</strong> - Date: <strong>February 2018</strong></p>
+<h1 id="main-concepts">Main concepts</h1>
+<p><u><strong>Quality Gates</strong></u> : Set of boolean conditions based on measure thresholds 
+<strong>against which projects are measured during a period</strong>. </p>
+<pre><code>Blocker Issues equals 0
+Code Coverage is greater than 80%
+</code></pre><p><u><strong>Rules</strong></u>: rules are executed on source to generate issues. Three basic types of rules: <strong>Reliability</strong>, <strong>Maintainability</strong> and <strong>Security</strong>
+Rule definition:</p>
+<ul>
+<li>Language</li>
+<li>Type: bug, vulnerability, code smell</li>
+<li>Tag</li>
+<li>Repository</li>
+<li>Status: beta, deprecated, ready</li>
+</ul>
+<p>Example:</p>
+<pre><code>&quot;.equals()&quot; should not be used to test the values of &quot;Atomic&quot; classes
+Language: Java
+Type: bug
+Tag: multi-threading
+Repository: N/A
+Status: ready
+</code></pre><p><u><strong>Quality profiles</strong></u> : Collections of rules to apply during an analysis.
+Each language has a default profile</p>
+<p><u><strong>Leak period</strong></u> :  period (generally last release) in which newly added code is analysed against specified criteria.</p>
+<p><u><strong>Metric</strong></u> : A type of measurement. Examples: number of lines of code, number of duplicated blocks, complexity etc.</p>
+<p><u><strong>Reliability</strong></u> : code that can produce operational risks or unexpected behavior at runtime. Must of time it&#39;s the consequence of lack of compliance with best practice </p>
