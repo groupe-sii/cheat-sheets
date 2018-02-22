@@ -1,15 +1,15 @@
 # Analysis parameters
 
- 
- | Parameter  | Description | Default value   | 
- |---|---|---|
- | sonar.host.url  | Server URL  | http://localhost:9000   | 
- | sonar.project.key  | The project key that is unique for each project.|  When using maven it's set to <br/> <groupId\>:<artifactId\>   | 
- | sonar.login  | The login of a SonarQube user with Execute Analysis permission.  |   | 
- | sonar.password  | The password that goes with sonar.login.  |   | 
- | sonar.language  | Set the language of the source code to analyse  | If not set multi-language analysis will be triggered  | 
- 
-
+df = default value
+   
+   | Parameter  | Description | 
+   |---|---|
+   | sonar.host.url  | Server URL,  df = http://SONAR_SERVER_IP:9000   | 
+   | sonar.project.key  | The project key that is unique for each project.  When using maven df = <groupId\>:<artifactId\>   | 
+   | sonar.login  | The login of a SonarQube user with Execute Analysis permission.  | 
+   | sonar.password  | The password that goes with sonar.login.  | 
+   | sonar.language  | Set the language of the source code to analyse. If not set multi-language analysis will be triggered  | 
+  
 
 # Tools
 

@@ -10,7 +10,7 @@ Blocker Issues equals 0
 Code Coverage is greater than 80%
 ```
 
-<u>**Rules**</u>: rules are executed on source to generate issues. Three basic types of rules: Reliability, Maintainability and security
+<u>**Rules**</u>: rules are executed on source to generate issues. Three basic types of rules: **Reliability**, **Maintainability** and **Security**
 Rule definition:
 
 - Language
