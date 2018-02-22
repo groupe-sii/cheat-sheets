@@ -9,16 +9,16 @@ It's measured on choices and branches i.e. numbers of if, else, while, switch/ca
 It is recommended to have at least a cyclomatic complexity of 12 in a method. Each method add 1 to the complexity.
 
 ```
-String getMonth (int monthNumber) {//+1            
-  switch (monthNumber) {                                
-    case 1:                        //+1                 
-      return "January";                                   
-    case 2:                        //+1                    
-      return "February";                                                                   
-    default:                                           
-      return "Error";                                 
-  }                                                                        
-}                                                                  
+String getMonth (int monthNumber) {//+1
+   switch (monthNumber) {
+    case 1:                        //+1
+       return "January";
+    case 2:                       //+1
+       return "February";
+    default:
+    return "Error";
+  }
+}
 ``` 
 
 - <u>**Metric**</u> : Number of classes, files, lines, lines of code,methods, projects, statements ....
