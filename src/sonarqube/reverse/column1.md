@@ -1,6 +1,6 @@
 # Main metrics
 
-- <u>**Quality Gate Status**</u> : State of the quality gate associated to the project. Possible values: ERROR, WARN, OK 
+- <u>**Quality Gate Status**</u> : State of the quality gate associated to the project. Possible values: ERROR, WARN, OK. It changes after each scan. 
 - <u>**Reliability**</u> : Number of bugs, number of new bugs, etc... Reliability rating: A = 0 bug, B = at least **1 Minor** bug,
    C = at least 1 **Major** bug, D = at least **1 critical** bug, E = at least **1 Blocker** bug
 - <u>**Security**</u> : Number of vulnerabilities, number of new vulnerabilities, etc... Reliability rating same as Reliability rating

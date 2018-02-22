@@ -13,4 +13,6 @@ Issue severities:
 
 # Issue life cycle
 
+Except Opened state, the others statuses can be set manually.It **requires administer issues permission** on the project
+
 ![gitZone](../assets/images/sonarqube-issue-wflw-green-100.png)
