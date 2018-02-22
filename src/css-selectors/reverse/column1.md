@@ -4,5 +4,8 @@
 ```css
 * { } /*targets every element in the DOM*/
 div * { } /*targets every element inside a <div> element*/
-.myClass * { } /*targets every element inside elements with "myClass" class*/
 ```
+|         |         |
+|---------|---------|
+|<span class="inline-img">![WARNING : ](../assets/images/warning-icon.png)</span> | <small>*Don't use it too much, be precise in elements selection, your browser and collegues will thank you...*</small>|
+

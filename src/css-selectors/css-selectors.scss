@@ -9,5 +9,16 @@ body {
     img {
       height: 230px;
     }
+
+    .inline-img {
+      display: inline-block;
+      padding: 0 .5em;
+
+
+      img {
+        display: inline-block;
+        height: auto;
+      }
+    }
   }
 }
