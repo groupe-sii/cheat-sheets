@@ -27,7 +27,7 @@ String getMonth (int monthNumber) {//+1
 - <u>**Tests**</u> : Condition coverage, line coverage, etc...
 
 ```
-Condition coverage = (conditions evaluated to true at least once + conditions tevaluated to false at least once ) / (2* total number of conditions)
+Condition coverage = (conditions evaluated to true at least once + conditions evaluated to false at least once ) / (2* total number of conditions)
 boolean a = false;
 boolean b = true;
 boolean c = false;
