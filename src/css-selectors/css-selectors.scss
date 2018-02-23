@@ -7,7 +7,7 @@ body {
 
   main div {
     img {
-      height: 230px;
+      width: 100%;
     }
 
     .inline-img {
@@ -16,7 +16,7 @@ body {
 
       img {
         display: inline-block;
-        height: auto;
+        width: auto;
       }
     }
 
