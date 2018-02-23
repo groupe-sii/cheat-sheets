@@ -15,4 +15,4 @@ Issue severities:
 
 Except Opened state, the others statuses can be set manually.It **requires administer issues permission** on the project
 
-![gitZone](../assets/images/sonarqube-issue-wflw-green.png)
+![gitZone](../assets/images/sonarqube-issue-wflw.png)
