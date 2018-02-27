@@ -11,7 +11,7 @@ Code Coverage is greater than 80%
 ```
 
 <span class="concept">Rules</span>: rules are executed on source to generate issues. Three basic types of rules: **Reliability**, **Maintainability** and **Security**
-<p>Rule definition</p>:
+<p>Rule definition:</p>
 
 - Language
 - Type: bug, vulnerability, code smell
