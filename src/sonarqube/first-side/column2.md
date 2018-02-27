@@ -1,8 +1,8 @@
 # Main concepts
 
-<u>**Maintainability**</u> : modularity, understandability, changeability, testability and reusability of a module.
+<span class="concept">Maintainability</span> : modularity, understandability, changeability, testability and reusability of a module.
 
-<u>**Issue**</u> : SonarQube raise an issue every time a piece of code breaks a code rule.
+<span class="concept">Issue</span> : SonarQube raise an issue every time a piece of code breaks a code rule.
 Issue severities:
 
 - BLOCKER: memory leak, not closing a socket... The code **MUST** be fixed immediately.

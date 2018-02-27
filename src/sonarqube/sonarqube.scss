@@ -13,13 +13,13 @@ body {
   table {
     border:2px solid #000000;
     border-collapse:collapse;
-	font-size:10px;
+	  font-size:12px;
   }
 
   th {
     border-bottom:2px solid #000000;
     border-right:2px solid #000000;
-    background-color: blue;
+    background-color: #005AA2;
     color: white;
   }
 
@@ -29,10 +29,10 @@ body {
   td {
     border-right:2px solid #000000;
   }
-  
-  concept{
-	color:blue;
-	font-weight:bold;
+
+  .concept{
+	  color:#005AA2;
+	  font-weight:bold;
   }
 
 }
