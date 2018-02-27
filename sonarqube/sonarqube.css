@@ -6,13 +6,17 @@ body {
     height: 230px; }
   body table {
     border: 2px solid #000000;
-    border-collapse: collapse; }
+    border-collapse: collapse;
+    font-size: 12px; }
   body th {
     border-bottom: 2px solid #000000;
     border-right: 2px solid #000000;
-    background-color: #4c8bbd;
+    background-color: #005AA2;
     color: white; }
   body tr {
     border-bottom: 2px solid #000000; }
   body td {
     border-right: 2px solid #000000; }
+  body .concept {
+    color: #005AA2;
+    font-weight: bold; }
