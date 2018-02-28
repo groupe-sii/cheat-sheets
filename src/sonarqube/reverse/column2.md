@@ -27,7 +27,7 @@ df = default value
     <li>Available as a plugin for Eclipse IDE</li>
     <li>[EclEmma web site](http://www.eclemma.org/)</li>
   </ul>
-   <br/>
+  <br/>
 <li> <span class="concept">Jscpd:</span> </li>
   <ul>
     <li>Allows to detect copy/paste code </li>
