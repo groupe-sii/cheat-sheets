@@ -13,20 +13,24 @@ df = default value
 
 # Tools
 
-- <span class="concept">Sonarlint:</span>
+<ul>
+<li>  <span class="concept">Sonarlint:</span></li>
+    <ul>
+      <li >Allows  to fix issues on the fly and when code changes</li>
+      <li >Available as a plugin for IDE
+      <li >[sonarlint web site](https://www.sonarlint.org/)
+    </ul>
+    <br/>
+<li>  <span class="concept">EclEmma:</span> </li>
   <ul>
-    <li>Allows  to fix issues on the fly and when code changes</li>
-    <li>Available as a plugin for IDE</li>
-    <li>[sonarlint web site](https://www.sonarlint.org/)</li>
-  </ul>
-- <span class="concept">EclEmma:</span> 
-  <ul>
-    <li>Allows to check coverage code by unit tests. It's based on JaCoCo library </li>
+    <li>Allows to check coverage code by unit tests. It's based on JaCoCo library 
     <li>Available as a plugin for Eclipse IDE</li>
     <li>[EclEmma web site](http://www.eclemma.org/)</li>
   </ul>
-- <span class="concept">Jscpd:</span> 
+   <br/>
+<li> <span class="concept">Jscpd:</span> </li>
   <ul>
     <li>Allows to detect copy/paste code </li>
     <li>[Jscpd web site](https://github.com/kucherenko/jscpd)</li>
   </ul>
+</ul>
