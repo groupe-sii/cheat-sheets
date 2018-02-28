@@ -32,8 +32,6 @@ Status: ready
 <span class="concept">Quality profiles</span> : Collections of rules to apply during an analysis.
 Each language has a default profile
 
-<span class="concept">Leak period</span> :  period (generally last release) in which newly added code is analysed against specified criteria.
-
 <span class="concept">Metric</span> : A type of measurement. Examples: number of lines of code, number of duplicated blocks, complexity etc.
 
 <span class="concept">Reliability</span> : code that can produce operational risks or unexpected behavior at runtime. Must of time it's the consequence of lack of compliance with best practice 

@@ -1,5 +1,7 @@
 # Main concepts
 
+<span class="concept">Leak period</span> :  period (generally last release) in which newly added code is analysed against specified criteria.
+
 <span class="concept">Maintainability</span> : modularity, understandability, changeability, testability and reusability of a module.
 
 <span class="concept">Issue</span> : SonarQube raise an issue every time a piece of code breaks a code rule.
