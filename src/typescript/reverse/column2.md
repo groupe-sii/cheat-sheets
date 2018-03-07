@@ -3,14 +3,14 @@
 _validation.ts_
 
 ```
-export interface StringValidator {
-    isAcceptable(s: string): boolean;
+export abstract class StringValidator {
+    abstract isAcceptable(s: string): boolean;
 }
 
 let lettersRegexp = /^[A-Za-z]+$/,
     numberRegexp = /^[0-9]+$/;
 
-export class Letters implements StringValidator {
+export class Letters extends StringValidator {
     isAcceptable(s: string) {
         return lettersRegexp.test(s);
     }
