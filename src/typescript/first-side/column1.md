@@ -30,7 +30,7 @@ let myNumber: number = 1;
 
 Boolean
 ```
-let mybool: bool = true;
+let mybool: boolean = true;
 ```
 
 # Arrays
