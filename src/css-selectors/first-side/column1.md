@@ -2,7 +2,7 @@ Date : __Feb 2018__
 
 # Element
 
-Used to apply style on all the elements targeted by their __tag__.
+Used to apply style on all the elements targeted by their __tag__ name.
 
 ```css
 div { } /*targets all <div> elements*/
@@ -11,7 +11,7 @@ input { } /*targets all <input> elements*/
 ```
 # Class
 
-"__.__" is a __class__ selector. It targets every element with a specific class attribute.
+`.` is a __class__ selector. It targets every element with a specific class attribute.
 
 ```css
 .myClass { } /*targets every element with the "myClass" class*/
@@ -19,7 +19,7 @@ div.myClass { } /*targets every div with "myClass" class*/
 ```
 # Id
 
-"__#__" is the __id__ selector. It targets every element with a specific id attribute.
+`#` is the __id__ selector. It targets every element with a specific id attribute.
 
 (note that an id should be unique and applied to only one element but the css will be applied anyway on every element with the same id attribute ! )
 

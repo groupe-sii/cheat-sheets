@@ -10,7 +10,7 @@ a[href*="www"] { } /*targets every <a> element with a "href" attribute value con
 
 # Pseudo-class
 
-A __pseudo-class__ selector is a selector preceded by "__:__" or "__::__". 
+A __pseudo-class__ selector is a selector preceded by `:` or `::`. 
 
 Some are used to apply style on a specific __state__ of an element.
 
@@ -23,12 +23,12 @@ a:visited { } /*targets the <a> elements the user has visited*/
 Others are used to targets specific elements by their __position__ in the DOM.
 
 ```css
-div p:last-child { } /*targets the last <p> in my <div> element*/
-div p:first-child { } /*targets the first <p> in my <div> element*/
-div p:nth-child {even} /*targets all the even <p> elements in my <div> (even, odd, 1n, 2n, 2n+1, ...)
+div p:last-child { } /*targets the last <p> in a <div> element*/
+div p:first-child { } /*targets the first <p> in a <div> element*/
+div p:nth-child {even} /*targets all the even <p> elements in a <div> (even, odd, 1n, 2n, 2n+1, ...)
 ```
 
-__:not()__ pseudo-class can be used to __avoid__ applying style on specific elements.
+`:not()` pseudo-class can be used to __avoid__ applying style on specific elements.
 
 It takes every selector type as argument.
 
