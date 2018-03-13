@@ -16,21 +16,21 @@ div * { } /*targets every element inside a <div> element*/
 Using multiple selectors without space, you target every element that fullfills all the conditions.
 
 ```css
-button#myId.myClass
+button#my-id.my-class
 ```
 
 ## Child combinators
 
-You can target an element that is a child of another element with the `space` combinator :
+You can target an element that is a child of another element with the `space` combinator.
 
 ```css
-#parentId  .childClass
+#parent-id  .child-class
 ```
 
-You can target an element that is a **direct** child of another element with the `>` combinator :
+You can target an element that is a **direct** child of another element with the `>` combinator.
 
 ```css
-#parentId > .directChildClass
+#parent-id > .direct-child-class
 ```
 
 ## Adjacent combinator
@@ -38,13 +38,13 @@ You can target an element that is a **direct** child of another element with the
 The `~` combinator is used to target an element that shares its direct parent with another element and is preceded by this element.
 ```html
 <div class="parent">
-  <div class="myClass"></div>
-  <div id="myID"></div>
+  <div class="my-class"></div>
+  <div id="my-iD"></div>
   <div class="separator"></div>
-  <div class="myClass"></div>
+  <div class="my-class"></div>
 </div>
 ```
 ```css
-#myId ~ .myClass /*here we are targeting the second ".myClass" element above*/
+#my-id ~ .my-class /*here we are targeting the second ".my-class" element above*/
 ```
 

@@ -3,13 +3,13 @@
 The `+` combinator is used to select an element that shares its direct parent with another element and is **directly** preceded by this element.
 ```html
 <div class="parent">
-  <div id="myID"></div>
-  <div class="myClass"></div>
+  <div id="my-iD"></div>
+  <div class="my-class"></div>
 </div>
 ```
 
 ```css
-#myId + .myClass
+#my-id + .my-class
 ```
 
 # Priority rules
