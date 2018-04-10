@@ -1,0 +1,222 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Droid+Sans:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="../common/lib/atom-one-light.css">
+    <link rel="stylesheet" href="./css-selectors.css">
+  </head>
+  <body>
+    <input type="checkbox" id="showPreview"/>
+    <div class="first-side">
+      <div class="cutter">
+<div class="cut cut-top-left">&nbsp;</div>
+<div class="cut cut-bottom-left">&nbsp;</div>
+<div class="cut cut-top-right">&nbsp;</div>
+<div class="cut cut-bottom-right">&nbsp;</div>
+</div>
+<header>
+    <div class="home-button no-print">
+        <a href="../" title="back to home cheat Sheet"><i class="material-icons">home</i></a>
+        <label for="showPreview"><i class="material-icons">visibility</i></label>
+    </div>
+    <div class="header-center">
+        <div class="description-content">
+            <div class="title">css cheat sheet</div>
+            <div class="sub-title">Selectors and Specificities</div>
+        </div>
+
+        <div class="logo-container">
+            <img src="../assets/images/css-selectors.png">
+        </div>
+    </div>
+    <div class="logo-category no-print">
+        <i class="material-icons" onclick="printLarge()">print</i>
+    </div>
+</header>
+
+
+
+      <main>
+        <div class="column1">
+          <p>Date : <strong>Feb 2018</strong></p>
+<h1 id="element">Element</h1>
+<p>Used to apply style on all the elements targeted by their <strong>tag</strong> name :</p>
+<pre><code class="lang-css">div { } /*targets all &lt;div&gt; elements*/
+span { } /*targets all &lt;span&gt; elements*/
+input { } /*targets all &lt;input&gt; elements*/
+</code></pre>
+<h1 id="class">Class</h1>
+<p><code>.</code> is a <strong>class</strong> selector. It targets every element with a specific class attribute :</p>
+<pre><code class="lang-css">.my-class { } /*targets every element with the &quot;my-class&quot; class*/
+div.my-class { } /*targets every div with &quot;my-class&quot; class*/
+</code></pre>
+<h1 id="id">Id</h1>
+<p><code>#</code> is the <strong>id</strong> selector. It targets every element with a specific id attribute :</p>
+<pre><code class="lang-css">#my-id { } /*targets every element with the &quot;my-id&quot; id*/
+</code></pre>
+<p><small>(note that an id should be unique and applied to only one element but the css will be applied anyway on every element with the same id attribute ! )</small></p>
+<h1 id="attributes">Attributes</h1>
+<p>You can target an element by any of its attributes and attributes value :</p>
+<pre><code class="lang-css">[alt] { } /*targets every element with an alt attribute */
+input[type=&quot;checkbox&quot;] { } /*targets every &lt;input&gt; element with the &quot;type&quot; attribute value set to &quot;checkbox&quot;*/
+</code></pre>
+<p>You can also use regex in your attribute selector :</p>
+<pre><code class="lang-css">a[href*=&quot;www&quot;] { } /*targets every &lt;a&gt; element with a &quot;href&quot; attribute value containing &quot;www&quot;*/
+</code></pre>
+
+        </div>
+        <div class="column2">
+          <pre><code class="lang-css">a[href^=&quot;https://&quot;] { } /*targets every &lt;a&gt; element with a &quot;href&quot; attribute value beginning with &quot;https://&quot;*/
+
+a[href$=&quot;.com&quot;] { } /*targets every &lt;a&gt; element with a &quot;href&quot; attribute value ending with &quot;.com&quot;*/
+
+a[href~=&quot;example&quot;] { } /*targets every &lt;a&gt; element where &quot;href&quot; attribute value is a space-separated list containing the word &quot;example&quot;*/
+
+a[href|=&quot;example&quot;] { } /*targets every &lt;a&gt; element where &quot;href&quot; attribute value is a dash-separated list beginning with the word &quot;example&quot;*/
+
+</code></pre>
+<h1 id="pseudo-class">Pseudo-class</h1>
+<p>A <strong>pseudo-class</strong> selector is a selector preceded by <code>:</code> or <code>::</code>. </p>
+<p>Some are used to apply style on a specific <strong>state</strong> of an element.</p>
+<pre><code class="lang-css">button:hover { } /*the style will apply on a button when the user&#39;s mouse hovers it*/
+button:disabled { } /*the style will apply on every button with &quot;disabled&quot; attribute*/
+a:visited { } /*targets the &lt;a&gt; elements the user has visited*/
+</code></pre>
+<p>Others are used to target specific elements by their <strong>position</strong> in the DOM.</p>
+<pre><code class="lang-css">div p:last-child { } /*targets the last &lt;p&gt; in a &lt;div&gt; element*/
+div p:first-child { } /*targets the first &lt;p&gt; in a &lt;div&gt; element*/
+div p:nth-child(even) { } /*targets all the even &lt;p&gt; elements in a &lt;div&gt; (even, odd, 1n, 2n, 2n+1, ...)
+</code></pre>
+<p><code>:not()</code> pseudo-class can be used to <strong>avoid</strong> applying style on specific elements.</p>
+<p>It takes every selector type as argument.</p>
+<pre><code class="lang-css">div:not(.my-class) { } /* targets every &lt;div&gt; that doesn&#39;t have the &quot;my-class&quot; class attribute.*/
+div p:not(:last-child) { } /*targets all &lt;p&gt; elements in my &lt;div&gt; except the last one*/
+input:not([type=&quot;checkbox&quot;]) { } /*targets all &lt;input&gt; elements that are not checkboxes type*/
+</code></pre>
+
+        </div>
+      </main>
+
+      <footer class="print-only">
+  <a href="https://groupe-sii.github.io/cheat-sheets">groupe-sii.github.io/cheat-sheets</a>
+  <a href="http://www.groupe-sii.com">www.groupe-sii.com</a>
+  <a href="https://blog.groupe-sii.com">blog.groupe-sii.com</a>
+  <img src="../assets/images/logoSII-white.svg">
+</footer>
+
+
+    </div>
+
+    <hr class="no-print"/>
+
+    <div class="reverse">
+      <header class="print-only">
+    <div class="header-center">
+        <div class="description-content">
+            <div class="title">css cheat sheet</div>
+        </div>
+        <div class="logo-container">
+            <img src="../assets/images/css-selectors.png" >
+        </div>
+    </div>
+</header>
+
+
+      <main>
+        <div class="column1">
+          <h1 id="universal-selector">Universal selector</h1>
+<p><code>*</code> is used to apply style on <strong>EVERY</strong> element. He is called <strong>universal selector</strong>.</p>
+<pre><code class="lang-css">* { } /*targets every element in the DOM*/
+div * { } /*targets every element inside a &lt;div&gt; element*/
+</code></pre>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="inline-img"><img src="../assets/images/warning-icon.png" alt="WARNING : "></span></td>
+<td><small><em>Don&#39;t use it too much, your browser and collegues will thank you...</em></small></td>
+</tr>
+</tbody>
+</table>
+<h1 id="combinators">Combinators</h1>
+<h2 id="multiple-selectors">Multiple selectors</h2>
+<p>Using multiple selectors without space, you target every element that fullfills all the conditions.</p>
+<pre><code class="lang-css">button#my-id.my-class
+</code></pre>
+<h2 id="child-combinators">Child combinators</h2>
+<p>You can target an element that is a child of another element with the <code>space</code> combinator.</p>
+<pre><code class="lang-css">#parent-id  .child-class
+</code></pre>
+<p>You can target an element that is a <strong>direct</strong> child of another element with the <code>&gt;</code> combinator.</p>
+<pre><code class="lang-css">#parent-id &gt; .direct-child-class
+</code></pre>
+<h2 id="adjacent-combinator">Adjacent combinator</h2>
+<p>The <code>~</code> combinator is used to target an element that shares its direct parent with another element and is preceded by this element.</p>
+<pre><code class="lang-html">&lt;div class=&quot;parent&quot;&gt;
+  &lt;div class=&quot;my-class&quot;&gt;&lt;/div&gt;
+  &lt;div id=&quot;my-iD&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;separator&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;my-class&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="lang-css">#my-id ~ .my-class /*here we are targeting the second &quot;.my-class&quot; element above*/
+</code></pre>
+
+        </div>
+        <div class="column2">
+          <h2 id="siblings-combinator">Siblings combinator</h2>
+<p>The <code>+</code> combinator is used to select an element that shares its direct parent with another element and is <strong>directly</strong> preceded by this element.</p>
+<pre><code class="lang-html">&lt;div class=&quot;parent&quot;&gt;
+  &lt;div id=&quot;my-iD&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;my-class&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="lang-css">#my-id + .my-class
+</code></pre>
+<h1 id="priority-rules">Priority rules</h1>
+<h2 id="specificity">Specificity</h2>
+<p>If an element is targeted twice, the style defined with the most <strong>specific</strong> selector will override the others.
+Two classes with a combinator are more specific than a single class, but a single ID is more specific than mutliple classes, respecting this pattern : inline style &gt; id &gt; class, attribute and pseudo-class &gt; element and pseudo-element.</p>
+<p>In the picture below, the second example is more specific than the first.</p>
+<p><img src="../assets/images/css-selectors-specificity.png" alt="specificity"></p>
+<p><small><strong>source : </strong> <a href="https://specificity.keegan.st/"> https://specificity.keegan.st/</a></small></p>
+<h2 id="chronology">Chronology</h2>
+<p>If a property is defined twice for the same element and with equal specificity, the last occurence in the stylesheet will override the first.</p>
+<h2 id="but-">But...</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="inline-img"><img src="../assets/images/warning-icon.png" alt="WARNING : "></span></td>
+<td><small><em>Don&#39;t use <code>!important</code> it will break everything said above</em></small></td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+      </main>
+
+      <footer class="@@class">
+  <a href="https://groupe-sii.github.io/cheat-sheets">groupe-sii.github.io/cheat-sheets</a>
+  <a href="http://www.groupe-sii.com">www.groupe-sii.com</a>
+  <a href="https://blog.groupe-sii.com">blog.groupe-sii.com</a>
+  <img src="../assets/images/logoSII-white.svg">
+</footer>
+
+    </div>
+
+    <script src="../common/lib/highlight.pack.js"></script>
+    <script src="../common/script.js"></script>
+  </body>
+</html>

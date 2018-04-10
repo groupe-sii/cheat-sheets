@@ -1,0 +1,42 @@
+<h1 id="universal-selector">Universal selector</h1>
+<p><code>*</code> is used to apply style on <strong>EVERY</strong> element. He is called <strong>universal selector</strong>.</p>
+<pre><code class="lang-css">* { } /*targets every element in the DOM*/
+div * { } /*targets every element inside a &lt;div&gt; element*/
+</code></pre>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="inline-img"><img src="../assets/images/warning-icon.png" alt="WARNING : "></span></td>
+<td><small><em>Don&#39;t use it too much, your browser and collegues will thank you...</em></small></td>
+</tr>
+</tbody>
+</table>
+<h1 id="combinators">Combinators</h1>
+<h2 id="multiple-selectors">Multiple selectors</h2>
+<p>Using multiple selectors without space, you target every element that fullfills all the conditions.</p>
+<pre><code class="lang-css">button#my-id.my-class
+</code></pre>
+<h2 id="child-combinators">Child combinators</h2>
+<p>You can target an element that is a child of another element with the <code>space</code> combinator.</p>
+<pre><code class="lang-css">#parent-id  .child-class
+</code></pre>
+<p>You can target an element that is a <strong>direct</strong> child of another element with the <code>&gt;</code> combinator.</p>
+<pre><code class="lang-css">#parent-id &gt; .direct-child-class
+</code></pre>
+<h2 id="adjacent-combinator">Adjacent combinator</h2>
+<p>The <code>~</code> combinator is used to target an element that shares its direct parent with another element and is preceded by this element.</p>
+<pre><code class="lang-html">&lt;div class=&quot;parent&quot;&gt;
+  &lt;div class=&quot;my-class&quot;&gt;&lt;/div&gt;
+  &lt;div id=&quot;my-iD&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;separator&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;my-class&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="lang-css">#my-id ~ .my-class /*here we are targeting the second &quot;.my-class&quot; element above*/
+</code></pre>
