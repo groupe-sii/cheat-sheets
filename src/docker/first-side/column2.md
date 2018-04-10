@@ -1,7 +1,7 @@
 # Manage images
 
 Build an image from a Dockerfile  
-`docker build -t IMAGE:TAG -f PATH`
+`docker build -t IMAGE:TAG -f PATH .`
 
 Search an image on Dockerhub  
 `docker search IMAGE`
@@ -33,5 +33,5 @@ Save container state to an image
 Export an image  
 `docker save -o PATH.tar IMAGE[:TAG]`
 
-Import an image  
-`docker load PATH.tar`
+Import an image
+`docker load -i PATH.tar`

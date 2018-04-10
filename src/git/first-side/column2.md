@@ -31,7 +31,7 @@ Delete a local branch
 - Limit the subject line to 50 characters
 - Do not end the subject with a period
 - Use the imperative mood in the subject line
-- User the body to explain *what*, *why* and *how*
+- Use the body to explain *what*, *why* and *how*
 
 Tips: Separate subject from body with a blank line. From de command line you can use:
 `git commit -m 'subject' -m 'body'`
