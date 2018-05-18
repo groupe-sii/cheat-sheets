@@ -35,4 +35,6 @@ You can quicly search official documnentation via:
 
 # Add capability
 
-`ng add @angular/pwa` - Turn your application into a PWA
+For example, turn your application into a PWA
+
+`ng add @angular/pwa`
