@@ -1,4 +1,4 @@
- current version: __1.2.1__ - Date: __July 2017__
+ current version: __3.0.2__ - Date: __May 2018__
 # Test
 
 Running unit tests
