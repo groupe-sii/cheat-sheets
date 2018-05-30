@@ -28,3 +28,13 @@ You can deploy your apps quickly via:
 # searching anuglar documentation
 You can quicly search official documnentation via:
 `ng doc <keyword>`
+
+# Update your dependencies
+
+`ng update <package>`
+
+# Add capability
+
+For example, turn your application into a PWA
+
+`ng add @angular/pwa`
