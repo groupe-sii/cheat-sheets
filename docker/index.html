@@ -57,7 +57,7 @@
         </div>
         <div class="column2">
           <h1 id="manage-images">Manage images</h1>
-<p>Build an image from a Dockerfile<br><code>docker build -t IMAGE:TAG -f PATH .</code></p>
+<p>Build an image from a Dockerfile<br><code>docker build -t IMAGE[:TAG] .</code></p>
 <p>Search an image on Dockerhub<br><code>docker search IMAGE</code></p>
 <p>Pull an image from Dockerhub<br><code>docker pull [options] IMAGE[:TAG]</code></p>
 <p>List all local images<br><code>docker images</code></p>
@@ -118,7 +118,7 @@
 
         </div>
         <div class="column2">
-          <p>Mount a local folder at container startup<br><code>docker run --volume /local/path:/container/path IMAGE [COMMAND]</code></p>
+          <p>Mount a local folder at container startup<br><code>docker run --mount type=bind,source=/local/path,target=/container/path IMAGE [COMMAND]</code></p>
 <h1 id="tools">Tools</h1>
 <p>Run a command in a running container<br><code>docker exec [options] CONTAINER COMMAND</code></p>
 <p>Fetch the logs of a container<br><code>docker logs [options] CONTAINER</code></p>

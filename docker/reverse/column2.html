@@ -1,4 +1,4 @@
-<p>Mount a local folder at container startup<br><code>docker run --volume /local/path:/container/path IMAGE [COMMAND]</code></p>
+<p>Mount a local folder at container startup<br><code>docker run --mount type=bind,source=/local/path,target=/container/path IMAGE [COMMAND]</code></p>
 <h1 id="tools">Tools</h1>
 <p>Run a command in a running container<br><code>docker exec [options] CONTAINER COMMAND</code></p>
 <p>Fetch the logs of a container<br><code>docker logs [options] CONTAINER</code></p>
