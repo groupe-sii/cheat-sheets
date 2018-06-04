@@ -1,5 +1,5 @@
 Mount a local folder at container startup  
-`docker run --volume /local/path:/container/path IMAGE [COMMAND]`
+`docker run --mount type=bind,source=/local/path,target=/container/path IMAGE [COMMAND]`
 
 # Tools
 
