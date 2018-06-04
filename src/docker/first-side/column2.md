@@ -1,7 +1,7 @@
 # Manage images
 
 Build an image from a Dockerfile  
-`docker build -t IMAGE:TAG -f PATH .`
+`docker build -t IMAGE[:TAG] .`
 
 Search an image on Dockerhub  
 `docker search IMAGE`
