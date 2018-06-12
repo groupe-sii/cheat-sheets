@@ -19,7 +19,7 @@ Remove a stack
 
 Create a secret from a file or STDIN  
 `Docker secret create SECRET-NAME FILE-PATH`
-`echo STRING |docker secret create SECRET-NAME`
+`echo STRING |docker secret create SECRET-NAME -`
 
 List all secrets  
 `Docker secret ls`
