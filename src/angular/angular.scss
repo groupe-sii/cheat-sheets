@@ -10,4 +10,23 @@ body {
       height: 230px;
     }
   }
+
+  th {
+    background-color: lighten(#D64B13,  20%);
+  }
+
+  tr:nth-child(even) {background: #CCC}
+  tr:nth-child(odd) {background: #FFF}
+
+  tr:nth-child(even) > td:first-child{
+    background-color: lighten(#D64B13,  40%);
+  }
+
+  tr:nth-child(odd) > td:first-child{
+    background-color: lighten(#D64B13,  50%);
+  }
+
+  table {
+    width: 100%;
+  }
 }

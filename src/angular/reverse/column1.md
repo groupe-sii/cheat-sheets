@@ -1,40 +1,40 @@
-# Built-in directives
+# Template syntax
+
+
+| Data direction | Syntax | 
+| ----------|-------------|
+| **DataSource => Target**   | {{*expression*}} |
+| **DataSource => Target**   | [target]="*expression*" |
+| **DataSource => Target**   | bind-target="*expression*" |
+| **Target => DataSource**   | (target)="*statement*" |
+| **Target => DataSource**   | on-target="*statement*" |
+| **Two-way**                | [(target)]="*expression*" |
+| **Two-way**                | bindon-target="*expression*" |
+
+
+
+## [ngIf](https://angular.io/api/common/NgIf)
+
+```html
+
+<span *ngIf="hero">{{ hero.name }} exists !</span>
 
 ```
-import { CommonModule } from '@angular/common';
+
+## [ngFor](https://angular.io/api/common/NgForOf)
+
+```html
+
+<span *ngFor="let hero of heroes; let i=index">{{ hero.name }} is at index {{ i }}</span>
+
 ```
 
-Removes or recreates a portion of the DOM tree based on the showSection expression.
-```
-<section *ngIf="showSection">
-```
+## [ngSwitch](https://angular.io/api/common/NgSwitch)
 
-Turns the li element and its contents into a template, and uses that to instantiate a view for each item in list.
-```
-<li *ngFor="let item of list">
-```
-
-Conditionally swaps the contents of the div by selecting one of the embedded templates based on the current value of __conditionExpression__.
-```
-<div [ngSwitch]="conditionExpression">
-  <template [ngSwitchCase]="case1Exp">...</template>
-  <template ngSwitchCase="case2Str">...</template>
-  <template ngSwitchDefault>...</template>
+```html
+<div [ngSwitch]="hero.class">
+  <span *ngSwitchCase="'knight'">You are strong</span>
+  <span *ngSwitchCase="'mage'">You are intelligent</span>
+  <span *ngSwitchDefault>You are special</span>
 </div>
-```
-
-Binds the presence of CSS classes on the element to the truthiness of the associated map values. The right-hand expression should return {class-name: true/false} map.
-```
-<div [ngClass]="{active: isActive,
-                disabled: isDisabled}">
-```
-
-# Forms
-
-Provides two-way data-binding, parsing, and validation for form controls.
-
-```
-import { FormsModule } from '@angular/forms';
-
-<input [(ngModel)]="userName">
 ```
