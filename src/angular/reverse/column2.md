@@ -42,7 +42,8 @@ sequence.subscribe({next: ...});
 
 # Sources
 
-**Angular module:** http://www.learn-angular.fr/les-modules-angular/
+**Complete docs RxJS** https://www.learnrxjs.io/
 
-**Template syntax:** https://angular.io/guide/template-syntax
-
+**Angular RXJS** https://angular.io/guide/observables
+<!-- 
+**For ES5 component syntax** https://blog.thoughtram.io/angular/2015/05/09/writing-angular-2-code-in-es5.html -->

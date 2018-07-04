@@ -41,9 +41,6 @@
 
 # Sources
 
-**Complete docs RxJS** https://www.learnrxjs.io/
+**Angular module:** http://www.learn-angular.fr/les-modules-angular/
 
-**Angular RXJS** https://angular.io/guide/observables
-
-<!-- 
-**For ES5 component syntax** https://blog.thoughtram.io/angular/2015/05/09/writing-angular-2-code-in-es5.html -->
+**Template syntax:** https://angular.io/guide/template-syntax
