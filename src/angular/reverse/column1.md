@@ -38,3 +38,12 @@
   <span *ngSwitchDefault>You are special</span>
 </div>
 ```
+
+# Sources
+
+**For ES5 component syntax** https://blog.thoughtram.io/angular/2015/05/09/writing-angular-2-code-in-es5.html
+
+**Complete docs RxJS** https://www.learnrxjs.io/
+
+<!-- 
+**Angular RXJS** https://angular.io/guide/observables -->

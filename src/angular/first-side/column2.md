@@ -34,8 +34,21 @@ class MyService() {}
 ```
 
 Add *{providedIn: root}* option **for create singleton**
-# Sources
 
-**Angular module:** http://www.learn-angular.fr/les-modules-angular/
+# Component interaction
 
-**Template syntax:** https://angular.io/guide/template-syntax
+## [Input](https://angular.io/guide/component-interaction#component-interaction) and [Output](https://angular.io/guide/component-interaction#parent-listens-for-child-event)
+
+```js
+export class InventoryComponent {
+  @Input() hero: Hero;
+  @Input('newItem') itemToInsert: Item;
+
+  @Output() itemSelectionned = 
+    new EventEmitter<Item>();
+
+    onClickHero(item: Item) {
+        this.itemSelectionned.emit(item);
+    }
+}
+```
