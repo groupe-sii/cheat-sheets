@@ -13,7 +13,7 @@ class MyComponent() {}
 ## [Directive](https://angular.io/guide/dynamic-component-loader)
 ```js
 @Directive({
-    selector: 'app-my',
+    selector: ['appMy'],
     templateUrl: './my.directive.html',
     styleUrls: ['./my.directive.css']
 })
