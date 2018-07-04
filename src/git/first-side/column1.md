@@ -10,13 +10,20 @@ Show changes between commits, commit and working tree
 ![gitDiff](../assets/images/gitDiff.png)
 
 Show the working tree status
-`git status`
+
+```bash
+git status
+```
 
 Add <file> contents to the index
-`git add <file>`
 
-Add current contents of the index in a new commit
-`git commit -m 'subject' -m 'body'`
+```bash
+git add <file> # Add file in the content
+git commit -m 'subject' -m 'body' # Commit the actual content
+```
 
 Who changed what in <file>
-`git blame <file>`
+
+```bash
+git blame <file>
+```

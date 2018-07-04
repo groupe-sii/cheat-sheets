@@ -1,19 +1,29 @@
 # Proxy
 
 Add proxy on your global configuration
-`git config --global http.proxy http://proxy.com:1234`
+```bash
+git config --global http.proxy http://proxy.com:1234
+```
 
 Unset the global proxy
-`git config --global --unset http.proxy`
+```bash
+git config --global --unset http.proxy
+```
 
 Add proxy on your current project directory
-`git config http.proxy http://proxy.com:1234`
+```bash
+git config http.proxy http://proxy.com:1234
+```
 
 Check your global proxy
-`git config --global --get http.proxy`
+```bash
+git config --global --get http.proxy
+```
 
 Check your local proxy
-`git config --get http.proxy`
+```bash
+git config --get http.proxy
+```
 
 # Commit rules
 
@@ -25,7 +35,11 @@ Check your local proxy
 # default client
 
 Visualize git tree
-`gitk --all`
+```bash
+gitk --all
+```
 
 Graphical git operations
-`git gui`
+```bash
+git gui
+```

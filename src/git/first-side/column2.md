@@ -1,30 +1,47 @@
 # Remote
 
 List all remotes repositories
-`git remote -v`
+
+```bash
+git remote -v
+```
 
 Show information about remote
-`git remote show <remote>`
+
+```bash
+git remote show <remote>
+```
 
 Add new remote repository
-`git remote add <remote> <url>`
+
+```bash
+git remote add <remote> <url>
+```
 
 Dowload all changes from <remote>
-`git fetch <remote>`
+
+```bash
+git fetch <remote>
+```
 
 Download changes and integrate into HEAD
-`git pull <remote> <branch>`
+
+```bash
+git pull <remote> <branch>
+```
 
 Publish changes on a remote
-`git push  <remote> <branch>`
+
+```bash
+git push  <remote> <branch>
+```
 
 # Branch
 
-Create a new local branch and switch HEAD branch
-`git checkout -b newBranch`
-
-Delete a local branch
-`git branch -d <branch>`
+```bash
+git checkout -b <branch> # Create branch and switch them
+git branch -d <branch> # Delete branch
+```
 
 # Commit messages
 
@@ -33,5 +50,9 @@ Delete a local branch
 - Use the imperative mood in the subject line
 - Use the body to explain *what*, *why* and *how*
 
-Tips: Separate subject from body with a blank line. From de command line you can use:
-`git commit -m 'subject' -m 'body'`
+**Tips:** Separate subject from body with a blank line. From de command line you can use:
+
+```bash
+git commit -m 'subject' -m 'body'
+```
+

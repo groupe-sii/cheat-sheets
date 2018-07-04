@@ -3,9 +3,9 @@
 # Getting Started
 **Installation** (example on RedHat environnement) : 
 ```
-$ sudo yum -y install epel-release
-$ sudo yum -y update
-$ sudo yum -y install ansible
+sudo yum -y install epel-release
+sudo yum -y update
+sudo yum -y install ansible
 ```
 
 ** Doc link : http://docs.ansible.com/ansible/latest/**

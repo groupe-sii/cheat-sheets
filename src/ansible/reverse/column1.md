@@ -1,5 +1,5 @@
 **Handlers and Notify** :
-```
+```yml
 tasks:
  - name: Install Apache
    yum: name=httpd state=present
@@ -13,7 +13,7 @@ handlers:
 Handlers by default get executed at the end of the playbook.
 
 **Conditionnals** :
-```
+```yml
 - name: Analyse 'my_file'
   shell: cat "my_file"
   register: my_file_contents
@@ -33,7 +33,7 @@ Limit a playbook on tags :
 ```ansible-playbook <playbook.yml> -i ./hosts --tag <mytag> ```
 
 **Loops over items** :
-```
+```yml
 - name: Add a list of users
   user: name={{ item }} state=present
   with_items:
@@ -45,8 +45,7 @@ Limit a playbook on tags :
 ## Example (Installation and conf. of Apache server):
 
 ./playbook-deploy-apache.yml
-```
----
+```yml
 - hosts: web
   roles:
     - { role: demo-install-apache }

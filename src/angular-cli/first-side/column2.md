@@ -1,29 +1,53 @@
- current version: __3.0.2__ - Date: __May 2018__
+ current version: __3.0.3__ - Date: __July 2018__
 # Test
 
-Running unit tests
-`ng test`
+```bash
+ng test     # Running unit tests
 
-Running end-to-end tests
-`ng e2e`
+ng e2e      # Test end to end
+```
 
 # Generating Components, Directives, Pipes and Services
 
-You can use the __ng generate__ (or just __ng g__) command to generate :
+__ng generate__ (or just __ng g__) command to generate :
 
 Components
-`ng g component my-new-component`
+
+```bash
+ng g component my-new-component
+```
 Directive
-`ng g directive my-new-directive`
+
+```bash
+ng g directive my-new-directive
+```
 Pipe
-`ng g pipe my-new-pipe`
+
+```bash
+ng g pipe my-new-pipe
+```
 Service
-`ng g service my-new-service`
+
+```bash
+ng g service my-new-service
+```
 Interface
-`ng g interface my-new-interface`
+
+```bash
+ng g interface my-new-interface
+```
 Enum
-`ng g enum my-new-enum`
+
+```bash
+ng g enum my-new-enum
+```
 Module
-`ng g module my-new-module`
+
+```bash
+ng g module my-new-module
+```
 Module with module routes
-`ng g module my-new-module --routing`
+
+```bash
+ng g module my-new-module --routing
+```

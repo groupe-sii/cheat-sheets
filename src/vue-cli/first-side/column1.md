@@ -2,17 +2,26 @@ Vue CLI need __Node 4++ (6.x prefered)__ with __NPM 3++__
 
 # Installation
 
-`npm install -g vue-cli`
-`yarn global add vue-cli`
+```npm
+npm install -g vue-cli
+yarn global add vue-cli
+```
 
 # Usage
 
 Generatin a Vue.js project
-`vue init <template-name> <project-name>`
+
+```npm
+vue init <template-name> <project-name>
+```
+
 
 you can see the <template-name> available via:
 
-`vue list`
+```npm
+vue list
+```
+
 
 Current available templates include:
 
@@ -26,6 +35,8 @@ Current available templates include:
 
 To get started:
 
-`cd <dest-dir-name>`
-`npm install`
-`npm run dev`
+```npm
+cd <dest-dir-name>
+npm install
+npm run dev
+```
