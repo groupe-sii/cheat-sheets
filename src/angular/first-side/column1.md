@@ -23,7 +23,7 @@ import { NgModule } from '@angular/core';
         MyComponent, 
         MyDirective, 
         MyPipe],
-    imports: [MyModule, npmModule],
+    imports: [MyModule, NpmModule],
     exports: [MyComponent],
     providers: [MyService],
     bootstrap: [MyRootComponent] // Only root module
