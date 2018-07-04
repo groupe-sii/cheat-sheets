@@ -1,40 +1,49 @@
 
 # Linting code
 
-`ng lint`
-
+```bash
+ng lint`
+```
 # Help
 
-`ng help`
-
+```bash
+ng help`
+```
 # Prepocessor integration
 
 Angular CLI supports all major CSS preprocessors: __sass/css__, __less__, __stylus__
 
 When generating a new project you can also define which extension you want for style files:
 
-`ng new <project> --style=<scss|sass|less|stylus>`
-
+```bash
+ng new <project> --style=<scss|sass|less|stylus>`
+```
 Or set default style on existing project:
 
-`ng set defaults.styleExt <scss|sass|less|stylus>`
-
+```bash
+ng set defaults.styleExt <scss|sass|less|stylus>`
+```
 # Deploying the app via GitHub Pages
 
 You can deploy your apps quickly via:
 
-`ng github-pages:deploy --message "Optional commit message"`
-
+```bash
+ng github-pages:deploy --message "Optional commit message"`
+```
 # searching anuglar documentation
 You can quicly search official documnentation via:
-`ng doc <keyword>`
-
+```bash
+ng doc <keyword>`
+```
 # Update your dependencies
 
-`ng update <package>`
-
+```npm
+ng update <package>`
+```
 # Add capability
 
 For example, turn your application into a PWA
 
-`ng add @angular/pwa`
+```npm
+ng add @angular/pwa
+```

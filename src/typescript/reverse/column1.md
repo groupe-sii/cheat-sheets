@@ -2,20 +2,20 @@
 
 A tuple is a finite ordered list of elements. A tuple in TypeScript is much like a typed list except that it is immutable (unchangeable) once created.
 
-```
+```ts
 type keyValuePair = [number, string];
 let list: keyValuePair = [123, 'abc']
 ```
 
 # Union types
 
-```
+```ts
 let myUnionVariable: number | string;
 ```
 
 # Classes
 
-```
+```ts
 class CodeLock {
     id: number; // implicitly public
     public manufacturer: string;

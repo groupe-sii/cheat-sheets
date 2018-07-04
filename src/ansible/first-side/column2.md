@@ -1,17 +1,22 @@
 # Playbooks
 
 Execute a playbook :
-```ansible-playbook <playbook.yml> -i ./hosts```
+```bash
+ansible-playbook <playbook.yml> -i ./hosts
+```
 
 Test a playbook (don't make any changes on servers) :
-```ansible-playbook <playbook.yml> --check```
+```bash
+ansible-playbook <playbook.yml> --check
+```
 
 Limit a playbook on a host :
-```ansible-playbook <playbook.yml> --limit <host>```
+```bash
+ansible-playbook <playbook.yml> --limit <host>
+```
 
 **Tasks** : 
-```
----
+```yml
 - hosts: web
   tasks:
    - name: Installation of Apache Package
@@ -26,7 +31,7 @@ Limit a playbook on a host :
 
 **Roles** (use to structure a list of Tasks):
 - Directory structure :
-```
+```tree
 .
 ├── ansible.cfg
 ├── hosts

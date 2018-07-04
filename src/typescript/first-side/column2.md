@@ -1,7 +1,7 @@
 # Named types
 
 Enum
-```
+```ts
 enum Size {
     S = 'small',
     L = 'large',
@@ -10,7 +10,7 @@ enum Size {
 ```
 
 Interface
-```
+```ts
 interface IPerson {
     firstname: string;
     age?: number; //optional
@@ -20,7 +20,7 @@ interface IPerson {
 ```
 
 Class
-```
+```ts
 class Person implement IPerson {
     firstname: string;
     age: number;
@@ -35,21 +35,21 @@ class Person implement IPerson {
 # Object type literals
 
 Object with implicit properties
-```
+```ts
 { foo: 'hello'; bar: 5 } or { foo; 'hello'; }
 ```
 
 Object with optional property
-```
+```ts
 { required: boolean; optional?: number; }
 ```
 
 Hash map
-```
+```ts
 { [key: string]: Type; }
 ```
 
 Indexable types
-```
+```ts
 { [id: number]: Type; }
 ```

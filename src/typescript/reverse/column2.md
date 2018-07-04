@@ -1,8 +1,8 @@
 # Modules
 
-_validation.ts_
+> _validation.ts_
 
-```
+```ts
 export abstract class StringValidator {
     abstract isAcceptable(s: string): boolean;
 }
@@ -17,9 +17,9 @@ export class Letters extends StringValidator {
 }
 ```
 
-_random.ts_
+> _random.ts_
 
-```
+```ts
 export default function random() {
     return Math.random();
 }
@@ -27,9 +27,9 @@ export default function random() {
 
 # Module import
 
-_hello-world.ts_
+> _hello-world.ts_
 
-```
+```ts
 import { StringValidator, Letters } from './validation'
 
 import random from './hello-world'

@@ -1,6 +1,6 @@
 # CRUD Operations
 <span class="concept">Create</span>
-```javascript
+```js
 db.collection.insertOne() 
 db.collection.insertMany()
 ```

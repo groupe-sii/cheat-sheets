@@ -1,6 +1,5 @@
 ./roles/demo-configure-apache/vars/main.yml
-```
----
+```yml
 apache_listen_port: 8081
 app_directory: /var/www/html
 app_user: apache
@@ -8,8 +7,7 @@ app_group: apache
 ```
 
 ./roles/demo-configure-apache/handlers/main.yml
-```
----
+```yml
  - name: Reload Apache
      service:
        name: httpd
@@ -17,8 +15,7 @@ app_group: apache
 ```
 
 ./roles/demo-install-apache/tasks/main.yml
-```
----
+```yml
    - name: Installation of Apache Package
      yum:
        name: httpd
@@ -30,8 +27,7 @@ app_group: apache
 ```
 
 ./roles/demo-configure-apache/tasks/main.yml
-```
----
+```yml
    - name: Modify permission of directory {{ app_directory }}
      file:
        dest: '{{ app_directory }}'

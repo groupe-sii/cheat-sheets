@@ -4,32 +4,50 @@ current version: __2.8.1__ - Date: __Jan. 2017__
 # Build
 
 Creating a build : the artifacts will be stored in the _dist/_ directory.
-` npm run build`
+```npm
+npm run build
+```
 
 Build targets and environment, the mapping used can be found in _angular-cli.json_ :
-`npm run build --prod`
+```npm
+npm run build --prod
+```
 
 Build component without manually create a Vue instance for it:
-`vue build <Component.vue>`
+```npm
+vue build <Component.vue>
+```
 
 Watch mode (as development mode but does not add hot-reloading support):
-`vue build index.js --watch`
+```npm
+vue build index.js --watch
+```
 
 Need help:
-`vue build -h`
+```npm
+vue build -h
+```
 
 # Test
 
 Running unit tests
-`npm run test`
+```npm
+npm run test
+```
 
 Running end-to-end tests
-`npm run e2e`
+```npm
+npm run e2e
+```
 
 # Linting code
 
-`npm run lint`
+```npm
+npm run lint
+```
 
 # Help
 
-`vue help`
+```npm
+vue help
+```
