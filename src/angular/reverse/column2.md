@@ -2,7 +2,7 @@
 
 | Function | Effect | 
 | ----------|-------------|
-| **take**(fn(Int))   | Event only int event |
+| **take**(fn(Int))   | Event only if int value result |
 | **map**(fn(value))   | Affect value on each event |
 | **filter**(fn(value))   | Ignore event when return false |
 | **reduce**(fn(oldValue), value)   | Compact event |
