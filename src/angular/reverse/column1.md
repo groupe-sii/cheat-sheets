@@ -5,13 +5,8 @@
 | ----------|-------------|
 | **DataSource => Target**   | {{*expression*}} |
 | **DataSource => Target**   | [target]="*expression*" |
-| **DataSource => Target**   | bind-target="*expression*" |
 | **Target => DataSource**   | (target)="*statement*" |
-| **Target => DataSource**   | on-target="*statement*" |
 | **Two-way**                | [(target)]="*expression*" |
-| **Two-way**                | bindon-target="*expression*" |
-
-
 
 ## [ngIf](https://angular.io/api/common/NgIf)
 
@@ -37,6 +32,16 @@
   <span *ngSwitchCase="'mage'">You are intelligent</span>
   <span *ngSwitchDefault>You are special</span>
 </div>
+```
+
+# Basic HTTP Request
+
+```ts
+import {Http} from "@angular/http";
+import "rxjs/add/operator/map";
+
+this.http.post(environment.apiAddress + "/api-method", myJsonData)
+      .map(resp=>resp.json());
 ```
 
 # Sources
