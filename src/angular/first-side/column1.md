@@ -19,14 +19,14 @@ import { NgModule } from '@angular/core';
 
 @NgModule({
     declarations: [
-        myRootComponent, 
-        myComponent, 
-        myDirective, 
-        myPipe],
-    imports: [myModule, npmModule],
-    exports: [myComponent],
-    providers: [myService],
-    bootstrap: [myRootComponent] // Only root module
+        MyRootComponent, 
+        MyComponent, 
+        MyDirective, 
+        MyPipe],
+    imports: [MyModule, NpmModule],
+    exports: [MyComponent],
+    providers: [MyService],
+    bootstrap: [MyRootComponent] // Only root module
 })
 class MyModule {}
 ```
