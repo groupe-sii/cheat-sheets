@@ -1,68 +1,49 @@
-<!--# Routing and navigation
+# Observable
 
-BIG
+| Function | Effect | 
+| ----------|-------------|
+| **take**(fn(Int))   | Event only if int value result |
+| **map**(fn(value))   | Affect value on each event |
+| **filter**(fn(value))   | Ignore event when return false |
+| **reduce**(fn(oldValue), value)   | Compact event |
 
-# Dependency injection configuration
+## Simple observable with external observer
 
-MINI
-
-# Directive and component change detection and lifecycle hooks
-
-MOYEN
-
-# Class field decorators for directives and components
-
-Moyen
-
-# Component configuration
-
-little
-
--->
-
-# Directive configuration
-
-```
-@Directive({ property1: value1, ... })
+```js
+const myObservable = Observable.of(1, 2, 3);
+ 
+// Create observer object
+const myObserver = {
+  next: x => console.log('Observer got a next value: ' + x),
+  error: err => console.error('Observer got an error: ' + err),
+  complete: () => console.log('Observer got a complete notification'),
+};
+ 
+// Execute with the observer object
+myObservable.subscribe(myObserver);
 ```
 
-Specifies a CSS selector that identifies this directive within a template. Supported selectors include element, [attribute], .class, and :not().
-Does not support parent-child relationship selectors.
-```
-selector: '.cool-button:not(a)'
+## Personalised observable function
+
+```js
+const sequence = new Observable((observer) => {
+  // synchronously deliver 1, 2, and 3, then complete
+  observer.next(1);
+  observer.next(2);
+  observer.complete();
+ 
+  // unsubscribe function doesn't need to do anything in this
+  // because values are delivered synchronously
+  return {unsubscribe() {}};
+});
+
+sequence.subscribe({next: ...});
 ```
 
-List of dependency injection providers for this directive and its children.
-```
-providers: [MyService, { provide: ... }]
-```
+# Sources
 
-# Class decorators
+**Complete docs RxJS** https://www.learnrxjs.io/
 
-```
-import { Directive, ... } from '@angular/core';
-```
-
-Declares that a class is a component and provides metadata about the component.
-```
-@Component({...})
-class MyComponent() {}
-```
-
-Declares that a class is a directive and provides metadata about the directive.
-```
-@Directive({...})
-class MyDirective() {}
-```
-
-Declares that a class is a pipe and provides metadata about the pipe.
-```
-@Pipe({...})
-class MyPipe() {}
-```
-
-Declares that a class has dependencies that should be injected into the constructor when the dependency injector is creating an instance of this class.
-```
-@Injectable()
-class MyService() {}
-```
+**Angular RXJS** https://angular.io/guide/observables
+<!-- 
+**For ES5 component syntax** https://blog.thoughtram.io/angular/2015/05/09/writing-angular-2-code-in-es5.html -->
