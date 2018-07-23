@@ -2,7 +2,7 @@
 
 Bootstraps the app, using the root component from the specified __NgModule__.
 
-```
+```js
 import { platformBrowserDynamic }
     from '@angular/platform-browser-dynamic';
 
@@ -12,27 +12,30 @@ platformBrowserDynamic()
 
 # NgModule
 
-Defines a module that contains components, directives, pipes, and providers.
+**Defines a module** that contains components, directives, pipes, and providers.
 
-```
+```js
 import { NgModule } from '@angular/core';
 
 @NgModule({
-    declarations: ...,
-    imports: ...,
-    exports: ...,
-    providers: ...,
-    bootstrap: ...
+    declarations: [
+        MyRootComponent, 
+        MyComponent, 
+        MyDirective, 
+        MyPipe],
+    imports: [MyModule, NpmModule],
+    exports: [MyComponent],
+    providers: [MyService],
+    bootstrap: [MyRootComponent] // Only root module
 })
 class MyModule {}
 ```
+| Parameter | Function |
+|--------------------|-------------------------------------------------------------------------------|
+| **declarations** |  Components to this module |
+| **imports** |  Modules to import into this module |
+| **exports** |  Components visible to another module |
+| **providers** |  Dependency injection providers |
+| **bootstrap** | The root component of module |
 
-__declarations__ : List of components, directives, and pipes that belong to this module.
-
-__imports__ : List of modules to import into this module. Everything from the imported modules is available to __declarations__ of this module.
-
-__exports__ : List of components, directives, and pipes visible to modules that import this module.
-
-__declarations__ : List of dependency injection providers visible both to the contents of this module and to importers of this module.
-
-__bootstrap__ : List of components to bootstrap when this module is bootstrapped.
+The **pipes** and **directive** is declared as **components**
