@@ -1,43 +1,59 @@
-<!--# Routing and navigation
+<h1 id="observable">Observable</h1>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>take</strong>(fn(Int))</td>
+<td>Event only if int value result</td>
+</tr>
+<tr>
+<td><strong>map</strong>(fn(value))</td>
+<td>Affect value on each event</td>
+</tr>
+<tr>
+<td><strong>filter</strong>(fn(value))</td>
+<td>Ignore event when return false</td>
+</tr>
+<tr>
+<td><strong>reduce</strong>(fn(oldValue), value)</td>
+<td>Compact event</td>
+</tr>
+</tbody>
+</table>
+<h2 id="simple-observable-with-external-observer">Simple observable with external observer</h2>
+<pre><code class="lang-js">const myObservable = Observable.of(1, 2, 3);
 
-BIG
+// Create observer object
+const myObserver = {
+  next: x =&gt; console.log(&#39;Observer got a next value: &#39; + x),
+  error: err =&gt; console.error(&#39;Observer got an error: &#39; + err),
+  complete: () =&gt; console.log(&#39;Observer got a complete notification&#39;),
+};
 
-# Dependency injection configuration
-
-MINI
-
-# Directive and component change detection and lifecycle hooks
-
-MOYEN
-
-# Class field decorators for directives and components
-
-Moyen
-
-# Component configuration
-
-little
-
--->
-<h1 id="directive-configuration">Directive configuration</h1>
-<pre><code>@Directive({ property1: value1, ... })
-</code></pre><p>Specifies a CSS selector that identifies this directive within a template. Supported selectors include element, [attribute], .class, and :not().
-Does not support parent-child relationship selectors.</p>
-<pre><code>selector: &#39;.cool-button:not(a)&#39;
-</code></pre><p>List of dependency injection providers for this directive and its children.</p>
-<pre><code>providers: [MyService, { provide: ... }]
-</code></pre><h1 id="class-decorators">Class decorators</h1>
-<pre><code>import { Directive, ... } from &#39;@angular/core&#39;;
-</code></pre><p>Declares that a class is a component and provides metadata about the component.</p>
-<pre><code>@Component({...})
-class MyComponent() {}
-</code></pre><p>Declares that a class is a directive and provides metadata about the directive.</p>
-<pre><code>@Directive({...})
-class MyDirective() {}
-</code></pre><p>Declares that a class is a pipe and provides metadata about the pipe.</p>
-<pre><code>@Pipe({...})
-class MyPipe() {}
-</code></pre><p>Declares that a class has dependencies that should be injected into the constructor when the dependency injector is creating an instance of this class.</p>
-<pre><code>@Injectable()
-class MyService() {}
+// Execute with the observer object
+myObservable.subscribe(myObserver);
 </code></pre>
+<h2 id="personalised-observable-function">Personalised observable function</h2>
+<pre><code class="lang-js">const sequence = new Observable((observer) =&gt; {
+  // synchronously deliver 1, 2, and 3, then complete
+  observer.next(1);
+  observer.next(2);
+  observer.complete();
+
+  // unsubscribe function doesn&#39;t need to do anything in this
+  // because values are delivered synchronously
+  return {unsubscribe() {}};
+});
+
+sequence.subscribe({next: ...});
+</code></pre>
+<h1 id="sources">Sources</h1>
+<p><strong>Complete docs RxJS</strong> <a href="https://www.learnrxjs.io/">https://www.learnrxjs.io/</a></p>
+<p><strong>Angular RXJS</strong> <a href="https://angular.io/guide/observables">https://angular.io/guide/observables</a>
+<!-- 
+**For ES5 component syntax** https://blog.thoughtram.io/angular/2015/05/09/writing-angular-2-code-in-es5.html --></p>

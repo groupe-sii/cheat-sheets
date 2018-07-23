@@ -22,7 +22,7 @@
     </div>
     <div class="header-center">
         <div class="description-content">
-            <div class="title">Angular cheat sheet</div>
+            <div class="title">Angular (TS) cheat sheet</div>
             <div class="sub-title">One framework. Mobile & desktop.</div>
         </div>
 
@@ -41,32 +41,103 @@
         <div class="column1">
           <h1 id="bootstrapping">Bootstrapping</h1>
 <p>Bootstraps the app, using the root component from the specified <strong>NgModule</strong>.</p>
-<pre><code>import { platformBrowserDynamic }
+<pre><code class="lang-js">import { platformBrowserDynamic }
     from &#39;@angular/platform-browser-dynamic&#39;;
 
 platformBrowserDynamic()
     .bootstrapModule(AppModule);
-</code></pre><h1 id="ngmodule">NgModule</h1>
-<p>Defines a module that contains components, directives, pipes, and providers.</p>
-<pre><code>import { NgModule } from &#39;@angular/core&#39;;
+</code></pre>
+<h1 id="ngmodule">NgModule</h1>
+<p><strong>Defines a module</strong> that contains components, directives, pipes, and providers.</p>
+<pre><code class="lang-js">import { NgModule } from &#39;@angular/core&#39;;
 
 @NgModule({
-    declarations: ...,
-    imports: ...,
-    exports: ...,
-    providers: ...,
-    bootstrap: ...
+    declarations: [
+        MyRootComponent, 
+        MyComponent, 
+        MyDirective, 
+        MyPipe],
+    imports: [MyModule, NpmModule],
+    exports: [MyComponent],
+    providers: [MyService],
+    bootstrap: [MyRootComponent] // Only root module
 })
 class MyModule {}
-</code></pre><p><strong>declarations</strong> : List of components, directives, and pipes that belong to this module.</p>
-<p><strong>imports</strong> : List of modules to import into this module. Everything from the imported modules is available to <strong>declarations</strong> of this module.</p>
-<p><strong>exports</strong> : List of components, directives, and pipes visible to modules that import this module.</p>
-<p><strong>declarations</strong> : List of dependency injection providers visible both to the contents of this module and to importers of this module.</p>
-<p><strong>bootstrap</strong> : List of components to bootstrap when this module is bootstrapped.</p>
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>declarations</strong></td>
+<td>Components to this module</td>
+</tr>
+<tr>
+<td><strong>imports</strong></td>
+<td>Modules to import into this module</td>
+</tr>
+<tr>
+<td><strong>exports</strong></td>
+<td>Components visible to another module</td>
+</tr>
+<tr>
+<td><strong>providers</strong></td>
+<td>Dependency injection providers</td>
+</tr>
+<tr>
+<td><strong>bootstrap</strong></td>
+<td>The root component of module</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>pipes</strong> and <strong>directive</strong> is declared as <strong>components</strong></p>
 
         </div>
         <div class="column2">
-          <h1 id="template-syntax">Template syntax</h1>
+          <h1 id="class-type">Class Type</h1>
+<h2 id="component"><a href="https://angular.io/guide/component-styles">Component</a></h2>
+<pre><code class="lang-js">@Component({
+    selector: &#39;app-my&#39;,
+    templateUrl: &#39;./my.component.html&#39;,
+    styleUrls: [&#39;./my.component.css&#39;]
+})
+class MyComponent() {}
+</code></pre>
+<h2 id="directive"><a href="https://angular.io/guide/dynamic-component-loader">Directive</a></h2>
+<pre><code class="lang-js">@Directive({
+    selector: [&#39;appMy&#39;],
+    templateUrl: &#39;./my.directive.html&#39;,
+    styleUrls: [&#39;./my.directive.css&#39;]
+})
+class MyDirective() {}
+</code></pre>
+<h2 id="pipe"><a href="https://angular.io/guide/pipes">Pipe</a></h2>
+<pre><code class="lang-js">@Pipe({name: &#39;myPipe&#39;})
+class MyPipe() {}
+</code></pre>
+<h2 id="provider"><a href="https://angular.io/guide/singleton-services">Provider</a></h2>
+<pre><code class="lang-js">@Injectable()
+class MyService() {}
+</code></pre>
+<p>Add <em>{providedIn: root}</em> option <strong>for create singleton</strong></p>
+<h1 id="component-interaction">Component interaction</h1>
+<h2 id="input-and-output"><a href="https://angular.io/guide/component-interaction#component-interaction">Input</a> and <a href="https://angular.io/guide/component-interaction#parent-listens-for-child-event">Output</a></h2>
+<pre><code class="lang-js">export class InventoryComponent {
+  @Input() hero: Hero;
+  @Input(&#39;newItem&#39;) itemToInsert: Item;
+
+  @Output() itemSelectionned = 
+    new EventEmitter&lt;Item&gt;();
+
+    onClickHero(item: Item) {
+        this.itemSelectionned.emit(item);
+    }
+}
+</code></pre>
 
         </div>
       </main>
@@ -99,72 +170,123 @@ class MyModule {}
 
       <main>
         <div class="column1">
-          <h1 id="built-in-directives">Built-in directives</h1>
-<pre><code>import { CommonModule } from &#39;@angular/common&#39;;
-</code></pre><p>Removes or recreates a portion of the DOM tree based on the showSection expression.</p>
-<pre><code>&lt;section *ngIf=&quot;showSection&quot;&gt;
-</code></pre><p>Turns the li element and its contents into a template, and uses that to instantiate a view for each item in list.</p>
-<pre><code>&lt;li *ngFor=&quot;let item of list&quot;&gt;
-</code></pre><p>Conditionally swaps the contents of the div by selecting one of the embedded templates based on the current value of <strong>conditionExpression</strong>.</p>
-<pre><code>&lt;div [ngSwitch]=&quot;conditionExpression&quot;&gt;
-  &lt;template [ngSwitchCase]=&quot;case1Exp&quot;&gt;...&lt;/template&gt;
-  &lt;template ngSwitchCase=&quot;case2Str&quot;&gt;...&lt;/template&gt;
-  &lt;template ngSwitchDefault&gt;...&lt;/template&gt;
-&lt;/div&gt;
-</code></pre><p>Binds the presence of CSS classes on the element to the truthiness of the associated map values. The right-hand expression should return {class-name: true/false} map.</p>
-<pre><code>&lt;div [ngClass]=&quot;{active: isActive,
-                disabled: isDisabled}&quot;&gt;
-</code></pre><h1 id="forms">Forms</h1>
-<p>Provides two-way data-binding, parsing, and validation for form controls.</p>
-<pre><code>import { FormsModule } from &#39;@angular/forms&#39;;
+          <h1 id="template-syntax">Template syntax</h1>
+<table>
+<thead>
+<tr>
+<th>Data direction</th>
+<th>Syntax</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DataSource =&gt; Target</strong></td>
+<td>{{<em>expression</em>}}</td>
+</tr>
+<tr>
+<td><strong>DataSource =&gt; Target</strong></td>
+<td>[target]=&quot;<em>expression</em>&quot;</td>
+</tr>
+<tr>
+<td><strong>Target =&gt; DataSource</strong></td>
+<td>(target)=&quot;<em>statement</em>&quot;</td>
+</tr>
+<tr>
+<td><strong>Two-way</strong></td>
+<td>[(target)]=&quot;<em>expression</em>&quot;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ngif"><a href="https://angular.io/api/common/NgIf">ngIf</a></h2>
+<pre><code class="lang-html">
+&lt;span *ngIf=&quot;hero&quot;&gt;{{ hero.name }} exists !&lt;/span&gt;
 
-&lt;input [(ngModel)]=&quot;userName&quot;&gt;
 </code></pre>
+<h2 id="ngfor"><a href="https://angular.io/api/common/NgForOf">ngFor</a></h2>
+<pre><code class="lang-html">
+&lt;span *ngFor=&quot;let hero of heroes; let i=index&quot;&gt;{{ hero.name }} is at index {{ i }}&lt;/span&gt;
+
+</code></pre>
+<h2 id="ngswitch"><a href="https://angular.io/api/common/NgSwitch">ngSwitch</a></h2>
+<pre><code class="lang-html">&lt;div [ngSwitch]=&quot;hero.class&quot;&gt;
+  &lt;span *ngSwitchCase=&quot;&#39;knight&#39;&quot;&gt;You are strong&lt;/span&gt;
+  &lt;span *ngSwitchCase=&quot;&#39;mage&#39;&quot;&gt;You are intelligent&lt;/span&gt;
+  &lt;span *ngSwitchDefault&gt;You are special&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+<h1 id="basic-http-request">Basic HTTP Request</h1>
+<pre><code class="lang-ts">import {Http} from &quot;@angular/http&quot;;
+import &quot;rxjs/add/operator/map&quot;;
+
+this.http.post(environment.apiAddress + &quot;/api-method&quot;, myJsonData)
+      .map(resp=&gt;resp.json());
+</code></pre>
+<h1 id="sources">Sources</h1>
+<p><strong>Angular module:</strong> <a href="http://www.learn-angular.fr/les-modules-angular/">http://www.learn-angular.fr/les-modules-angular/</a></p>
+<p><strong>Template syntax:</strong> <a href="https://angular.io/guide/template-syntax">https://angular.io/guide/template-syntax</a></p>
+
         </div>
         <div class="column2">
-          <!--# Routing and navigation
+          <h1 id="observable">Observable</h1>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>take</strong>(fn(Int))</td>
+<td>Event only if int value result</td>
+</tr>
+<tr>
+<td><strong>map</strong>(fn(value))</td>
+<td>Affect value on each event</td>
+</tr>
+<tr>
+<td><strong>filter</strong>(fn(value))</td>
+<td>Ignore event when return false</td>
+</tr>
+<tr>
+<td><strong>reduce</strong>(fn(oldValue), value)</td>
+<td>Compact event</td>
+</tr>
+</tbody>
+</table>
+<h2 id="simple-observable-with-external-observer">Simple observable with external observer</h2>
+<pre><code class="lang-js">const myObservable = Observable.of(1, 2, 3);
 
-BIG
+// Create observer object
+const myObserver = {
+  next: x =&gt; console.log(&#39;Observer got a next value: &#39; + x),
+  error: err =&gt; console.error(&#39;Observer got an error: &#39; + err),
+  complete: () =&gt; console.log(&#39;Observer got a complete notification&#39;),
+};
 
-# Dependency injection configuration
-
-MINI
-
-# Directive and component change detection and lifecycle hooks
-
-MOYEN
-
-# Class field decorators for directives and components
-
-Moyen
-
-# Component configuration
-
-little
-
--->
-<h1 id="directive-configuration">Directive configuration</h1>
-<pre><code>@Directive({ property1: value1, ... })
-</code></pre><p>Specifies a CSS selector that identifies this directive within a template. Supported selectors include element, [attribute], .class, and :not().
-Does not support parent-child relationship selectors.</p>
-<pre><code>selector: &#39;.cool-button:not(a)&#39;
-</code></pre><p>List of dependency injection providers for this directive and its children.</p>
-<pre><code>providers: [MyService, { provide: ... }]
-</code></pre><h1 id="class-decorators">Class decorators</h1>
-<pre><code>import { Directive, ... } from &#39;@angular/core&#39;;
-</code></pre><p>Declares that a class is a component and provides metadata about the component.</p>
-<pre><code>@Component({...})
-class MyComponent() {}
-</code></pre><p>Declares that a class is a directive and provides metadata about the directive.</p>
-<pre><code>@Directive({...})
-class MyDirective() {}
-</code></pre><p>Declares that a class is a pipe and provides metadata about the pipe.</p>
-<pre><code>@Pipe({...})
-class MyPipe() {}
-</code></pre><p>Declares that a class has dependencies that should be injected into the constructor when the dependency injector is creating an instance of this class.</p>
-<pre><code>@Injectable()
-class MyService() {}
+// Execute with the observer object
+myObservable.subscribe(myObserver);
 </code></pre>
+<h2 id="personalised-observable-function">Personalised observable function</h2>
+<pre><code class="lang-js">const sequence = new Observable((observer) =&gt; {
+  // synchronously deliver 1, 2, and 3, then complete
+  observer.next(1);
+  observer.next(2);
+  observer.complete();
+
+  // unsubscribe function doesn&#39;t need to do anything in this
+  // because values are delivered synchronously
+  return {unsubscribe() {}};
+});
+
+sequence.subscribe({next: ...});
+</code></pre>
+<h1 id="sources">Sources</h1>
+<p><strong>Complete docs RxJS</strong> <a href="https://www.learnrxjs.io/">https://www.learnrxjs.io/</a></p>
+<p><strong>Angular RXJS</strong> <a href="https://angular.io/guide/observables">https://angular.io/guide/observables</a>
+<!-- 
+**For ES5 component syntax** https://blog.thoughtram.io/angular/2015/05/09/writing-angular-2-code-in-es5.html --></p>
+
         </div>
       </main>
 
