@@ -9,3 +9,7 @@ public class Test extends AbstractTest implements ITest {
   }
 }
 ```
+
+# Pour aller plus loin
+
+* https://spring.io/guides
