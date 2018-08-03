@@ -2,7 +2,7 @@ Spring **5.x** - Date : **Août 2018**
 
 # Qu'est-ce que Spring ?
 
-Aise à la construction d'applications Java d'entreprise :
+Aide à la construction d'applications Java d'entreprise :
 * **Open source** (Licence Apache 2, sources sur [github](https://github.com/spring-projects/spring-framework))
 * **Léger**
   * N'oblige pas d'utiliser un serveur applicatif
