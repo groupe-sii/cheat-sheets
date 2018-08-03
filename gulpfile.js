@@ -55,9 +55,6 @@ gulp.task('build', ['copy', 'js', 'markdown-build', 'build-sass' ,'assets'], () 
           basepath: '@file',
           context: {
             folder: projectFolder.toLowerCase()
-          },
-          defaults: {
-           relativeImagePath: ''
           }
         }))
         .pipe(gulp.dest('./dist/'));
