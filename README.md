@@ -1,4 +1,4 @@
-# Cheat Sheet Generator
+# Cheat Sheet Generator [![Build Status](https://travis-ci.com/LoicC04/cheat-sheets.svg?branch=develop)](https://travis-ci.com/LoicC04/cheat-sheets)
 
 ## Hosted on github pages
 
