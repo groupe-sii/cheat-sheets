@@ -1,11 +1,5 @@
-# Column 1
+# Factory beans
 
-an exemple
-```Java
-public class Test extends AbstractTest implements ITest {
+# Spring container
 
-  public Test() {
-    System.out.println("Un test");
-  }
-}
-```
+# Tests

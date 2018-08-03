@@ -2,20 +2,24 @@ Spring **5.x** - Date : **Août 2018**
 
 # Qu'est-ce que Spring ?
 
-Aide à la construction d'applications Java d'entreprise :
 * **Open source** (Licence Apache 2, sources sur [github](https://github.com/spring-projects/spring-framework))
 * **Léger**
   * N'oblige pas d'utiliser un serveur applicatif
-  * N'est pas invasif (n'oblige pas étendre des classes de Spring)
-  * JARs légers
+  * N'est pas invasif
 * **Conteneur**
   * Les objets de l'application n'ont pas besoin de chercher à se connecter aux autres
-  * Instancie et injecte les objets dont l'application a besoin
   * Gère le cycle de vie des objets
 * **Framework**
   *	Facilite l’intégration et la communication avec des librairies tiers
 
-==> Facilite la configuration et le développement
+# Dépendance minimale
+
+```xml
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+</dependency>
+```
 
 # Configuration d'une appli
 
@@ -23,10 +27,23 @@ Aide à la construction d'applications Java d'entreprise :
 * Annotations
 * XML (toujours possible mais verbeux)
 
-# Injection de dépendances
+```Java
+@ComponentScan("fr.sii.cheatsheet.spring")
+public class MyApp {
 
-# Factory beans
+    public static void main(String[] args) {
+        ApplicationContext app = new AnnotationConfigApplicationContext(MyApp.class);
 
-# Spring container
+        DummyService helloWorld = app.getBean(DummyService.class);
+        helloWorld.getMessage();
+    }
+}
+```
 
-# Tests
+Préférez l'utilisation d'une classe de configuration
+```Java
+@Configuration
+public class MyAppConfig {
+  // @Bean, ...
+}
+```

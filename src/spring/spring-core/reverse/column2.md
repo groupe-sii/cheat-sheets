@@ -13,3 +13,5 @@ public class Test extends AbstractTest implements ITest {
 # Pour aller plus loin
 
 * https://spring.io/guides
+* https://spring.io/projects/spring-framework
+* [Spring Boot sheet cheat](../spring-boot/index.html)
