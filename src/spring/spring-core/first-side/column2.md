@@ -1,13 +1,6 @@
 # Injection de dépendances
 
-* Définir un bean : **@Component** ou **@Bean**
-  - Spécialisations *@Component* : **@Service**, **@Repository** et **@Controller**
-* Récupérer un bean défini par **injection de dépendance** : **@Autowired**
-  - Via une propriété de classe
-  - Via un setter
-  - Via le constructeur *(à préférer pour faciliter de test)*
-
-```Java
+## Définir un bean : **@Bean**
 ```Java
 @Configuration
 public class MyAppConfig {
@@ -16,37 +9,47 @@ public class MyAppConfig {
     return new DummyServiceImpl();
   }
 }
-// OU
-@Component
-public class DummyService {
-}
+```
 
+## Définir un bean : **@Component**
+
+Spécialisations *@Component* : **@Service**, **@Repository** et **@Controller**
+
+```Java
 @Component
-public class FooService {
+public class DummyServiceImpl {
+}
+```
+
+## Injection de dépendance : **@Autowired**
+
+* Via une propriété de classe
+* Via un setter
+* Via le constructeur *(à préférer pour faciliter de test)*
+
+```Java
+@Component
+public class FooServiceImpl {
 
   @Autowired
   private DummyService service;
 
-	public String myFooCall() {
-		return service.myDummyServiceCall();
-	}
 }
 ```
 
 # Les propriétés
 
-* Déclarer le fichier : **@PropertySource("classpath:foo.properties")** 
-* Utiliser une propriété : **@Value("${message}")** 
-
 ```Java
 @Configuration
 @PropertySource("classpath:foo.properties")
 public class MyAppConfig {
+  // Fichier 'foo.properties' chargé par Spring
 }
+``` 
 
-@Component
-public class MyServiceImpl implements MyService {
-  @Value("${message:Message par défaut}")
-  private String message;
-}
+Utiliser une propriété : **@Value("${message}")** 
+
+```Java
+@Value("${message:Message par défaut}")
+private String message;
 ```
