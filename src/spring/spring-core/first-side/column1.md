@@ -1,18 +1,18 @@
 Spring **5.x** - Date : **Août 2018**
 
-# Qu'est-ce que Spring ?
+# What is Spring ?
 
-* **Open source** (Licence Apache 2, sources sur [github](https://github.com/spring-projects/spring-framework))
-* **Léger**
-  * N'oblige pas d'utiliser un serveur applicatif
-  * N'est pas invasif
-* **Conteneur**
-  * Les objets de l'application n'ont pas besoin de chercher à se connecter aux autres
-  * Gère le cycle de vie des objets
+* **Open source** (Apache 2 licence, sources on [github](https://github.com/spring-projects/spring-framework))
+* **Light**
+  * Doesn't force to use an application server
+  * Not invasive
+* **Container**
+  * Application objects doesn't have to look for their dependencies
+  * Handles objects life cycle
 * **Framework**
-  *	Facilite l’intégration et la communication avec des librairies tiers
+  * Ease integration and communication with third-party libraries
 
-# Dépendance minimale
+# Minimal dependencies
 
 ```xml
 <dependency>
@@ -21,11 +21,11 @@ Spring **5.x** - Date : **Août 2018**
 </dependency>
 ```
 
-# Configuration d'une appli
+# Application configuration
 
 * Java
 * Annotations
-* XML (toujours possible mais verbeux)
+* XML (still available but heavy)
 
 ```Java
 @ComponentScan("fr.sii.cheatsheet.spring")
@@ -40,7 +40,7 @@ public class MyApp {
 }
 ```
 
-Préférez l'utilisation d'une classe de configuration
+Prefer use of a configuration class
 ```Java
 @Configuration
 public class MyAppConfig {

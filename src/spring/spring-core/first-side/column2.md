@@ -1,6 +1,6 @@
-# Injection de dépendances
+# Dependency injection
 
-## Définir un bean : **@Bean**
+## Define a bean : **@Bean**
 ```Java
 @Configuration
 public class MyAppConfig {
@@ -11,9 +11,9 @@ public class MyAppConfig {
 }
 ```
 
-## Définir un bean : **@Component**
+## Define a bean : **@Component**
 
-Spécialisations *@Component* : **@Service**, **@Repository** et **@Controller**
+*@Component* specializations : **@Service**, **@Repository** et **@Controller**
 
 ```Java
 @Component
@@ -21,11 +21,11 @@ public class DummyServiceImpl {
 }
 ```
 
-## Injection de dépendance : **@Autowired**
+## Dependency injection : **@Autowired**
 
-* Via une propriété de classe
-* Via un setter
-* Via le constructeur *(à préférer pour faciliter de test)*
+* Via a class field
+* Via a setter
+* Via the constructor *(prefer for easy test)*
 
 ```Java
 @Component
@@ -37,19 +37,19 @@ public class FooServiceImpl {
 }
 ```
 
-# Les propriétés
+# Properties
 
 ```Java
 @Configuration
 @PropertySource("classpath:foo.properties")
 public class MyAppConfig {
-  // Fichier 'foo.properties' chargé par Spring
+  // File 'foo.properties' loaded by Spring
 }
 ``` 
 
-Utiliser une propriété : **@Value("${message}")** 
+Use a property : **@Value("${message}")** 
 
 ```Java
-@Value("${message:Message par défaut}")
+@Value("${message:Default message}")
 private String message;
 ```
