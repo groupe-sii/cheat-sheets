@@ -1,16 +1,30 @@
-# Column 2
+# Properties
 
-an exemple
 ```Java
-public class Test extends AbstractTest implements ITest {
+/**
+ * File 'foo.properties' loaded by Spring
+ */
+@Configuration
+@PropertySource("classpath:foo.properties")
+public class MyAppConfig {
 
-  public Test() {
-    System.out.println("Un test");
-  }
+  /**
+   * Property max in file foo.properties.
+   */
+  private Integer max;
+  
 }
+``` 
+
+Use a property : **@Value("${message}")** 
+
+```Java
+@Value("${message:Default message}")
+private String message;
 ```
 
-# Pour aller plus loin
+
+# Go deeper
 
 * https://spring.io/guides
 * https://spring.io/projects/spring-framework

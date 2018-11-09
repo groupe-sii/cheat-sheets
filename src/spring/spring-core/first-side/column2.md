@@ -17,7 +17,7 @@ public class MyAppConfig {
 
 ```Java
 @Component
-public class DummyServiceImpl {
+public class DummyServiceImpl implements DummyService {
 }
 ```
 
@@ -29,27 +29,20 @@ public class DummyServiceImpl {
 
 ```Java
 @Component
-public class FooServiceImpl {
+public class FooServiceImpl implements FooService {
 
   @Autowired
   private DummyService service;
+  
+  @Autowired
+  public FooServiceImpl(DummyService dummyservice) {
+    this.service = dummyService;
+  }
+  
+  @Autowired
+  public DummyService setDummyService(DummyService dummyService) {
+    this.service = dummyService;
+  }
 
 }
-```
-
-# Properties
-
-```Java
-@Configuration
-@PropertySource("classpath:foo.properties")
-public class MyAppConfig {
-  // File 'foo.properties' loaded by Spring
-}
-``` 
-
-Use a property : **@Value("${message}")** 
-
-```Java
-@Value("${message:Default message}")
-private String message;
 ```
