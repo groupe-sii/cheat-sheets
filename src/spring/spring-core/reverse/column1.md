@@ -21,7 +21,7 @@
 @PreDestroy
 ```
 
-# SpEL
+# SpEL : Spring Expression Language
 
 ## Access a system properties
 ```Java

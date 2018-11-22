@@ -13,7 +13,11 @@ public class MyAppConfig {
 
 ## Define a bean : **@Component**
 
-*@Component* specializations : **@Service**, **@Repository** et **@Controller**
+*@Component* specializations :
+
+* **@Service** : Heart of an app
+* **@Repository** : Handles data persistence
+* **@Controller** : Handles requests and reponses
 
 ```Java
 @Component

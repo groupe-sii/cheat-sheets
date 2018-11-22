@@ -1,4 +1,4 @@
-Spring Boot **2.1.x** - Date : **Novembre 2018**
+Spring Boot **2.1.x** - Date : **November 2018**
 
 # What is Spring Boot ?
 

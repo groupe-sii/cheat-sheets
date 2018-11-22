@@ -1,4 +1,4 @@
-Spring **5.x** - Date : **Août 2018**
+Spring **5.x** - Date : **August 2018**
 
 # What is Spring ?
 
