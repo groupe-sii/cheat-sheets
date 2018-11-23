@@ -6,9 +6,9 @@ var exec = require('child_process').exec,
 // Shell gitCommands
 var gitCommands = {
     currentBranch:  "git branch | grep \\* | cut -d ' ' -f2",
-    clone:          "git clone -b gh-pages https://${GH_TOKEN}@github.com/LoicC04/cheat-sheets.git gh-pages",
+    clone:          "git clone -b gh-pages https://github.com/groupe-sii/cheatSheets.git gh-pages",
     configUser:     "git config user.name \"Travis-CI\"",
-    configEmail:    "git config user.email \"lcarney@sii.fr\"",
+    configEmail:    "git config user.email \"mbrechet@sii.fr\"",
     add:            "git add --all",
     commit:         "git commit -am \"Automatic build from Travis-CI\"",
     push:           "git push \"https://${GH_TOKEN}@github.com/LoicC04/cheat-sheets.git\" gh-pages:gh-pages"
