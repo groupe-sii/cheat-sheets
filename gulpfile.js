@@ -45,7 +45,7 @@ const getColor = (category) =>{
  * default task, export html pages
  */
 gulp.task('build', ['copy', 'js', 'markdown-build', 'build-sass' ,'assets'], () => {
-  return gulp.src(['./src/common/**/*.html', './src/**/*.html','./src/**/*.html', '!./src/templates/**'], {base: './src/'})
+  return gulp.src(['./src/common/**/*.html', './src/spring/**/*.html','./src/**/*.html', '!./src/templates/**'], {base: './src/'})
     .pipe(tap(function(file) {
       let projectFolder = file.relative.replace(/\\/g,'/');
       projectFolder = projectFolder.substr(0, projectFolder.indexOf('/'));
