@@ -1,7 +1,7 @@
 # Best practices
 
 <div style="border:solid 1px orange;border-radius: 5px;background:	rgb(255, 236, 179);padding:3px;display:flex;align-items: center;">
-  <img alt="Warning :" src="/assets/images/warning.png" style="height:2em;display:inline;margin-right:2px;"/> <span style="flex:1;">Don't use the **default** package. Prefer using the Java convention *com.example.project*</span>
+  <img alt="Warning :" src="../../assets/images/warning.png" style="height:2em;display:inline;margin-right:2px;"/> <span style="flex:1;">Don't use the **default** package. Prefer using the Java convention *com.example.project*</span>
 </div>
 
 
