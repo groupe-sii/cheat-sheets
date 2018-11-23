@@ -1,0 +1,59 @@
+<h1 id="beans-scopes">Beans scopes</h1>
+<table>
+<thead>
+<tr>
+<th>Scope</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>singleton</strong></td>
+<td>(default)  A single bean instance</td>
+</tr>
+<tr>
+<td><strong>prototype</strong></td>
+<td>A bean instance per usage</td>
+</tr>
+<tr>
+<td><strong>request</strong></td>
+<td>A bean instance per <strong>HTTP request</strong></td>
+</tr>
+<tr>
+<td><strong>session</strong></td>
+<td>A bean instance per <strong>HTTP session</strong></td>
+</tr>
+<tr>
+<td><strong>application</strong></td>
+<td>A bean instance per Servlet Context</td>
+</tr>
+<tr>
+<td><strong>websocket</strong></td>
+<td>A bean instance per WebSocket</td>
+</tr>
+</tbody>
+</table>
+<h1 id="customizing-a-bean">Customizing a bean</h1>
+<h2 id="initialization-method">Initialization method</h2>
+<pre><code class="lang-Java">@PostConstruct
+</code></pre>
+<h2 id="destroy-method">Destroy method</h2>
+<pre><code class="lang-Java">@PreDestroy
+</code></pre>
+<h1 id="spel-spring-expression-language">SpEL : Spring Expression Language</h1>
+<h2 id="access-a-system-properties">Access a system properties</h2>
+<pre><code class="lang-Java">@Value(&quot;#{ systemProperties[&#39;user.home&#39;] }&quot;)
+private String defaultHome;
+</code></pre>
+<h2 id="access-a-bean-property">Access a bean property</h2>
+<pre><code class="lang-Java">@Value(&quot;#{myBean.myValue}&quot;)
+private String myValue;
+</code></pre>
+<h2 id="parse-a-string">Parse a string</h2>
+<pre><code class="lang-Java">@Value(&quot;#{myBean.myValue.substring(0,1)}&quot;)
+private String myValue;
+</code></pre>
+<h2 id="operations">Operations</h2>
+<pre><code class="lang-Java">@Value(&quot;#{myBean.myValue.length() &gt; 2}&quot;)
+private String myValue;
+</code></pre>

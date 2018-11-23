@@ -1,0 +1,37 @@
+<h1 id="best-practices">Best practices</h1>
+<div style="border:solid 1px orange;border-radius: 5px;background:    rgb(255, 236, 179);padding:3px;display:flex;align-items: center;">
+  <img alt="Warning :" src="/assets/images/warning.png" style="height:2em;display:inline;margin-right:2px;"/> <span style="flex:1;">Don&#39;t use the <strong>default</strong> package. Prefer using the Java convention <em>com.example.project</em></span>
+</div>
+
+
+<h2 id="code-structure">Code structure</h2>
+<pre><code class="lang-Java">com
+  + example
+  |  + project
+  |  |  - MyApp.java
+  |  |  |
+  |  |  + player
+  |  |  |  - Player.java
+  |  |  |  - PlayerService.java
+</code></pre>
+<h2 id="configuration">Configuration</h2>
+<p>Properties files in folder <em>src/main/resources/</em> are loaded automatically</p>
+<ul>
+<li><strong>YAML</strong> : <code>**/application*.yml</code> or <code>**/application*.yaml</code></li>
+<li><strong>Properties</strong> : <code>**/application*.properties</code></li>
+</ul>
+<h2 id="auto-configuration">Auto-configuration</h2>
+<ul>
+<li>Enabled by <code>@SpringBootApplication</code> or <code>@EnableAutoConfiguration</code></li>
+<li>Spring Boot scans all libs on the classpath and auto-configures them (<strong>if you didn&#39;t manually</strong>)</li>
+</ul>
+<p>Display Spring Boot Autoconfigure report</p>
+<pre><code class="lang-sh">java -jar myapp.jar --debug
+</code></pre>
+<p>Disabling an auto-configuration class with Java conf</p>
+<pre><code class="lang-Java">@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
+</code></pre>
+<p>Disabling an auto-configuration class with properties</p>
+<pre><code>spring.autoconfigure.exclude= \
+org.springframework.boot.autoconfigure.XXXX
+</code></pre>
