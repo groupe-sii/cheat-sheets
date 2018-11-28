@@ -28,6 +28,7 @@
     "gulp-tap": "^1.0.1",
     "gulp-template": "^4.0.0",
     "merge-stream": "^1.0.1",
+    "node-sass": "^4.10.0",
     "yargs": "^8.0.2"
   },
   "engines": {
