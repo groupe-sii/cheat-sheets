@@ -23,7 +23,8 @@ let toCopy = [
 const CATEGORY = {
   TOOLS:'tools',
   FRAMEWORKS:'frameworks',
-  LANGUAGES:'languages'
+  LANGUAGES:'languages',
+  AGILE:'agile'
 };
 
 let name = '';
@@ -131,11 +132,11 @@ gulp.task('move-templates', () => {
   category = argv.category;
 
   if (!name || !category) {
-    throw new Error('usage is "gulp create-new-cheat-sheet --name <name> --category <tools|frameworks|languages>');
+    throw new Error('usage is "gulp create-new-cheat-sheet --name <name> --category <tools|frameworks|languages|agile>');
   }
 
-  if(category !== CATEGORY.TOOLS && category !== CATEGORY.FRAMEWORKS && category !== CATEGORY.LANGUAGES){
-    throw new Error('"category must be any of these values  : tools | frameworks | languages');
+  if(category !== CATEGORY.TOOLS && category !== CATEGORY.FRAMEWORKS && category !== CATEGORY.LANGUAGES && category !== CATEGORY.AGILE){
+    throw new Error('"category must be any of these values  : tools | frameworks | languages | agile');
   }
 
   return gulp.src('./src/templates/**/*')
