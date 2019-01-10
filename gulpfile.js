@@ -2,7 +2,7 @@ const gulp = require('gulp'),
   fileinclude = require('gulp-file-include'),
   markdown = require('gulp-markdown'),
   sass = require('gulp-sass'),
-  argv  = require('yargs').argv,
+  argv = require('yargs').argv,
   template = require('gulp-template'),
   inject = require('gulp-inject-string'),
   rename = require('gulp-rename'),
@@ -21,17 +21,17 @@ let toCopy = [
  */
 
 const CATEGORY = {
-  TOOLS:'tools',
-  FRAMEWORKS:'frameworks',
-  LANGUAGES:'languages',
-  AGILE:'agile'
+  TOOLS: 'tools',
+  FRAMEWORKS: 'frameworks',
+  LANGUAGES: 'languages',
+  AGILE: 'agile'
 };
 
 let name = '';
 let category = '';
 
-const getColor = (category) =>{
-  switch(category){
+const getColor = (category) => {
+  switch (category) {
     case CATEGORY.FRAMEWORKS:
       return 'green';
     case CATEGORY.LANGUAGES:
@@ -45,12 +45,16 @@ const getColor = (category) =>{
 /**
  * default task, export html pages
  */
-gulp.task('build', ['copy', 'js', 'markdown-build', 'build-sass' ,'assets'], () => {
-  return gulp.src(['./src/common/**/*.html', './src/spring/**/*.html','./src/**/*.html', '!./src/templates/**'], {base: './src/'})
+gulp.task('build', ['copy', 'js', 'markdown-build', 'build-sass', 'assets'], () => {
+  return gulp.src(['./src/common/**/*.html', './src/spring/**/*.html', './src/**/*.html', '!./src/templates/**'], {
+      base: './src/'
+    })
     .pipe(tap(function(file) {
-      let projectFolder = file.relative.replace(/\\/g,'/');
+      let projectFolder = file.relative.replace(/\\/g, '/');
       projectFolder = projectFolder.substr(0, projectFolder.indexOf('/'));
-      return gulp.src(file.path, {base: file.base})
+      return gulp.src(file.path, {
+          base: file.base
+        })
         .pipe(fileinclude({
           prefix: '@@',
           basepath: '@file',
@@ -67,7 +71,7 @@ gulp.task('build', ['copy', 'js', 'markdown-build', 'build-sass' ,'assets'], () 
  * Converts sass to css
  */
 gulp.task('build-sass', ['assets'], () => {
-  return gulp.src(['./src/**/*.scss','!./src/templates/**/*'])
+  return gulp.src(['./src/**/*.scss', '!./src/templates/**/*'])
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./dist'))
 });
@@ -87,7 +91,7 @@ gulp.task('markdown-build', () => {
 gulp.task('connect', ['build'], () => {
   connect.server({
     root: 'dist',
-    port: process.env.PORT || 8080
+    port: process.env.PORT || 8484
   });
 });
 
@@ -100,7 +104,7 @@ gulp.task('copy', () => {
 /**
  * Watch all files in src/ folder then run build task and reload server
  */
-gulp.task('watch', ['build', 'connect'], function () {
+gulp.task('watch', ['build', 'connect'], function() {
   gulpLivereload.listen();
 
   gulp.watch(['./src/**'], ['build'], (file) => {
@@ -135,12 +139,15 @@ gulp.task('move-templates', () => {
     throw new Error('usage is "gulp create-new-cheat-sheet --name <name> --category <tools|frameworks|languages|agile>');
   }
 
-  if(category !== CATEGORY.TOOLS && category !== CATEGORY.FRAMEWORKS && category !== CATEGORY.LANGUAGES && category !== CATEGORY.AGILE){
+  if (category !== CATEGORY.TOOLS && category !== CATEGORY.FRAMEWORKS && category !== CATEGORY.LANGUAGES && category !== CATEGORY.AGILE) {
     throw new Error('"category must be any of these values  : tools | frameworks | languages | agile');
   }
 
   return gulp.src('./src/templates/**/*')
-    .pipe(template({name: name, category:category}))
+    .pipe(template({
+      name: name,
+      category: category
+    }))
     .pipe(gulp.dest('./src/' + name));
 });
 
@@ -174,7 +181,7 @@ gulp.task('add-item-on-index', ['move-templates'], () => {
     .pipe(gulp.dest('./src/'));
 });
 
-gulp.task('clean-styles.scss', ['move-templates', 'rename-css'],  () => {
+gulp.task('clean-styles.scss', ['move-templates', 'rename-css'], () => {
   console.log('Put the svg logo in assets/images folder');
   console.log('Put your commands or codes on src/' + name + '/first-side/column1.md, ' +
     'src/' + name + '/first-side/column2.md,' +
