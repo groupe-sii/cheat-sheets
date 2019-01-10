@@ -5,7 +5,6 @@ Declare an attribute for the outside, not directly mutable from the inside.
 ```js
 import { Prop } from '@stencil/core';
 
-...
 export class TodoList {
   @Prop() color: string;
   @Prop() favoriteNumber: number;
@@ -42,3 +41,11 @@ export class TodoList {
   }
 }
 ```
+
+## Update an array
+
+this.names = [ ...this.names, 'Larry' ]
+
+## Update an object
+
+this.options = { ...this.options, show: true }
