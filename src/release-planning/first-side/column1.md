@@ -17,7 +17,7 @@ Tous les 3 à 6 mois
 
 # Rôle du Scrum master
  
-`Aller à l'essentiel pour permettre l'initialisatsion ou la mise à jour de la roadmap produit`
+`Aller à l'essentiel pour permettre l'initialisation ou la mise à jour de la roadmap produit`
 `Sensibiliser les acteurs sur l'atelier`
 Le release plan n'est pas un engagement.  
 C'est un plan initial qui sera revu régulièrement.
