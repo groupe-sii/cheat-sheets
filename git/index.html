@@ -39,7 +39,7 @@
 
       <main>
         <div class="column1">
-          <p> git version: <strong>2.9+</strong> - Date: <strong>March 2017</strong></p>
+          <p> git version: <strong>2.20</strong> - Date: <strong>December 2018</strong></p>
 <h1 id="local-git-state-and-changes">Local Git State and changes</h1>
 <p><img src="../assets/images/gitZone.png" alt="gitZone"></p>
 <h1 id="manage-local-changes">Manage local changes</h1>
@@ -47,8 +47,10 @@
 <img src="../assets/images/gitDiff.png" alt="gitDiff"></p>
 <p>Show the working tree status
 <code>git status</code></p>
-<p>Add <file> contents to the index
+<p>Add &lt;file&gt; contents to the index
 <code>git add &lt;file&gt;</code></p>
+<p>Remove &lt;file&gt; from the index
+<code>git reset &lt;file&gt;</code></p>
 <p>Add current contents of the index in a new commit
 <code>git commit -m &#39;subject&#39; -m &#39;body&#39;</code></p>
 <p>Who changed what in <file>
@@ -69,20 +71,30 @@
 <code>git pull &lt;remote&gt; &lt;branch&gt;</code></p>
 <p>Publish changes on a remote
 <code>git push  &lt;remote&gt; &lt;branch&gt;</code></p>
-<h1 id="branch">Branch</h1>
-<p>Create a new local branch and switch HEAD branch
-<code>git checkout -b newBranch</code></p>
-<p>Delete a local branch
-<code>git branch -d &lt;branch&gt;</code></p>
 <h1 id="commit-messages">Commit messages</h1>
 <ul>
-<li>Limit the subject line to 50 characters</li>
+<li>Limit the subject line to 50 characters: <code>&lt;type&gt;(&lt;scope&gt;): &lt;summary&gt;</code><ul>
+<li>&lt;type&gt;: <em>chore, docs, feat, fix, refactor, style, or test</em>.</li>
+<li>&lt;scope&gt;: optional</li>
+<li>&lt;summary&gt; present tense, imperative mood.</li>
+</ul>
+</li>
 <li>Do not end the subject with a period</li>
-<li>Use the imperative mood in the subject line</li>
 <li>Use the body to explain <em>what</em>, <em>why</em> and <em>how</em></li>
 </ul>
-<p>Tips: Separate subject from body with a blank line. From de command line you can use:
+<p>Tip: Separate subject from body with a blank line.
 <code>git commit -m &#39;subject&#39; -m &#39;body&#39;</code></p>
+<h1 id="commit-rules">Commit rules</h1>
+<ul>
+<li>One commit for one task: if you have 2 tasks in one file
+you can use <em>git add -p</em> to chose which chunk to add</li>
+<li>Try to commit as often as possible</li>
+<li>Do not commit a half-done work.</li>
+<li>Commit a stable version: tests should not failed</li>
+</ul>
+<h1 id="tag">Tag</h1>
+<p>Tag a commit
+<code>git tag &lt;tag-name&gt;</code></p>
 
         </div>
       </main>
@@ -115,13 +127,17 @@
 
       <main>
         <div class="column1">
-          <h1 id="tag">Tag</h1>
-<p>Tag a commit
-<code>git tag &lt;tag-name&gt;</code></p>
+          <h1 id="branch">Branch</h1>
+<p>Create a new local branch and switch HEAD branch
+<code>git checkout -b newBranch</code></p>
+<p>List local branches
+<code>git branch</code></p>
+<p>Delete a local branch
+<code>git branch -d &lt;branch&gt;</code></p>
 <h1 id="merge">Merge</h1>
-<p>Merge <branch> on your current branch
+<p>Merge &lt;branch&gt; on your current branch
 <code>git merge &lt;branch&gt;</code></p>
-<p>Reapply commits (of the <branch>) on top of you current branch
+<p>Reapply commits (of &lt;branch&gt;) on top of current branch
 <code>git rebase &lt;branch&gt;</code></p>
 <h1 id="undo">Undo</h1>
 <p>List all operations on repository
@@ -135,10 +151,8 @@
 <p>Change the last commit
 <code>git commit --amend</code>
 <strong>Be careful: don&#39;t amend a published commit!</strong></p>
-<h1 id="settings">Settings</h1>
-<p>Some commands to change the default git behavior
-<code>git config --global pull. rebase true</code>
-<code>git config --global rerere.enabled 1</code></p>
+<p>Remove from repository but not on disk
+<code>git rm --cached &lt;file&gt;</code></p>
 
         </div>
         <div class="column2">
@@ -153,18 +167,21 @@
 <code>git config --global --get http.proxy</code></p>
 <p>Check your local proxy
 <code>git config --get http.proxy</code></p>
-<h1 id="commit-rules">Commit rules</h1>
-<ul>
-<li>One commit for one task: if you have 2 tasks written in one file you can use <em>git add -p</em> and chose which chunk you need to add at your commit</li>
-<li>Try to commit as often as possible</li>
-<li>Do not commit a half-done work. You should only commit code when it&#39;s completed.</li>
-<li>Commit a stable version of your work: the tests should not failed</li>
-</ul>
 <h1 id="default-client">default client</h1>
 <p>Visualize git tree
 <code>gitk --all</code></p>
 <p>Graphical git operations
 <code>git gui</code></p>
+<h1 id="settings">Settings</h1>
+<p>Add <em>--global</em> flag if you want to apply the setting to all off your local repositories
+<code>git config user.name &quot;your-user-name&quot;</code>
+<code>git config user.email &quot;your-email-addr&quot;</code></p>
+<p>Rebase by default when doing git pull
+<code>git config pull. rebase true</code></p>
+<p>Fix conflicts only once
+<code>git config rerere.enabled 1</code></p>
+<p>Store and remember credentials
+<code>git config credential.helper store</code></p>
 
         </div>
       </main>

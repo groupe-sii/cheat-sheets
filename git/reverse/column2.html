@@ -9,15 +9,18 @@
 <code>git config --global --get http.proxy</code></p>
 <p>Check your local proxy
 <code>git config --get http.proxy</code></p>
-<h1 id="commit-rules">Commit rules</h1>
-<ul>
-<li>One commit for one task: if you have 2 tasks written in one file you can use <em>git add -p</em> and chose which chunk you need to add at your commit</li>
-<li>Try to commit as often as possible</li>
-<li>Do not commit a half-done work. You should only commit code when it&#39;s completed.</li>
-<li>Commit a stable version of your work: the tests should not failed</li>
-</ul>
 <h1 id="default-client">default client</h1>
 <p>Visualize git tree
 <code>gitk --all</code></p>
 <p>Graphical git operations
 <code>git gui</code></p>
+<h1 id="settings">Settings</h1>
+<p>Add <em>--global</em> flag if you want to apply the setting to all off your local repositories
+<code>git config user.name &quot;your-user-name&quot;</code>
+<code>git config user.email &quot;your-email-addr&quot;</code></p>
+<p>Rebase by default when doing git pull
+<code>git config pull. rebase true</code></p>
+<p>Fix conflicts only once
+<code>git config rerere.enabled 1</code></p>
+<p>Store and remember credentials
+<code>git config credential.helper store</code></p>
