@@ -1,4 +1,4 @@
- git version: __2.9+__ - Date: __March 2017__
+ git version: __2.20__ - Date: __December 2018__
  
 # Local Git State and changes
 
@@ -12,8 +12,11 @@ Show changes between commits, commit and working tree
 Show the working tree status
 `git status`
 
-Add <file> contents to the index
+Add &lt;file&gt; contents to the index
 `git add <file>`
+
+Remove &lt;file&gt; from the index
+`git reset <file>`
 
 Add current contents of the index in a new commit
 `git commit -m 'subject' -m 'body'`
