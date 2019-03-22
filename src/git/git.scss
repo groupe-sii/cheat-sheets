@@ -4,9 +4,28 @@
 body {
   --currentColor: var(--blue);
 
-  main div {
-    img {
-      height: 224px;
+  .first-side {
+    main div {
+      img {
+        height: 224px;
+      }
+      p {
+        margin: 0.4em 0 0.2em 0;
+      }
+      ul {
+        margin: 0.3em 0;
+        font-size: 0.9em;
+      }
+      code {
+        margin: 0.3em 0;
+      }
+    }
+  }
+  .reverse {
+    main div {
+      p {
+        margin: 0.7em 0 0.4em 0;
+      }
     }
   }
 }

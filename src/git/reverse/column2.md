@@ -15,12 +15,6 @@ Check your global proxy
 Check your local proxy
 `git config --get http.proxy`
 
-# Commit rules
-
-- One commit for one task: if you have 2 tasks written in one file you can use *git add -p* and chose which chunk you need to add at your commit
-- Try to commit as often as possible
-- Do not commit a half-done work. You should only commit code when it's completed.
-- Commit a stable version of your work: the tests should not failed
 
 # default client
 
@@ -29,3 +23,17 @@ Visualize git tree
 
 Graphical git operations
 `git gui`
+
+# Settings
+Add *--global* flag if you want to apply the setting to all off your local repositories
+`git config user.name "your-user-name"`
+`git config user.email "your-email-addr"`
+
+Rebase by default when doing git pull
+`git config pull. rebase true`
+
+Fix conflicts only once
+`git config rerere.enabled 1`
+
+Store and remember credentials
+`git config credential.helper store`
