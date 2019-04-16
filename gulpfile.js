@@ -24,7 +24,8 @@ const CATEGORY = {
   TOOLS: 'tools',
   FRAMEWORKS: 'frameworks',
   LANGUAGES: 'languages',
-  AGILE: 'agile'
+  AGILE: 'agile',
+  PRACTICES: 'best-practices'
 };
 
 let name = '';
@@ -136,11 +137,11 @@ gulp.task('move-templates', () => {
   category = argv.category;
 
   if (!name || !category) {
-    throw new Error('usage is "gulp create-new-cheat-sheet --name <name> --category <tools|frameworks|languages|agile>');
+    throw new Error('usage is "gulp create-new-cheat-sheet --name <name> --category <tools|frameworks|languages|agile|best-practices>');
   }
 
-  if (category !== CATEGORY.TOOLS && category !== CATEGORY.FRAMEWORKS && category !== CATEGORY.LANGUAGES && category !== CATEGORY.AGILE) {
-    throw new Error('"category must be any of these values  : tools | frameworks | languages | agile');
+  if (category !== CATEGORY.TOOLS && category !== CATEGORY.FRAMEWORKS && category !== CATEGORY.LANGUAGES && category !== CATEGORY.AGILE && category !== CATEGORY.PRACTICES) {
+    throw new Error('"category must be any of these values  : tools | frameworks | languages | agile | best-practices');
   }
 
   return gulp.src('./src/templates/**/*')
