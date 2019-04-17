@@ -1,11 +1,10 @@
 # S'informer
 
-**Top 10 OWASP**
+**Top 10 OWASP ([owasp.org - Top Ten](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project))**
 
-Liste des 10 vulnérabilités les plus critiques pour les applications web.
+10 vulnérabilités les plus critiques des applications web
 
-[owasp.org : Top Ten](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
-
+Pour plus de détail : [GitHub - CheatSheetSeries](https://github.com/OWASP/CheatSheetSeries/tree/master/cheatsheets)
 
 1. **Injection** : Injection de commandes SQL, shell, LDAP, etc. (Serveur)
 
@@ -31,4 +30,4 @@ Liste des 10 vulnérabilités les plus critiques pour les applications web.
 
 Liste de principes de sécurité utilisables par des développeurs, des architectes ou des testeurs.
 
-[owasp.org : Application Security Verification Standard](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
+[owasp.org - Application Security Verification Standard](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
