@@ -12,7 +12,7 @@ Le serveur sécurise tout ce qui entre :
 * Valider les chemins d'accès aux ressources
 * Utiliser un ORM ou des requêtes SQL paramétrées
 
-Le front-end n'a pas accès aux jeton d'authentification
+Le front-end n'a pas accès aux jetons d'authentification
 * Cookies http-only et secure
 
 ## Les données peuvent être corrompues
