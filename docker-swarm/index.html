@@ -134,7 +134,7 @@
 <code>echo STRING |docker secret create SECRET-NAME -</code></p>
 <p>List all secrets<br><code>Docker secret ls</code></p>
 <p>Use a secret in a compose file  </p>
-<pre><code class="lang-dockerfile">version: &quot;3.1&quot;
+<pre><code class="language-dockerfile">version: &quot;3.1&quot;
 services:
   web:
     image: secrets_web
@@ -142,8 +142,7 @@ services:
       - mysql-password
 secrets:
   mysql-password:
-    external: true
-</code></pre>
+    external: true</code></pre>
 
         </div>
       </main>

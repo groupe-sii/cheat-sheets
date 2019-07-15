@@ -18,18 +18,17 @@
 </li>
 </ul>
 <h1 id="minimal-dependencies">Minimal dependencies</h1>
-<pre><code class="lang-xml">&lt;dependency&gt;
+<pre><code class="language-xml">&lt;dependency&gt;
     &lt;groupId&gt;org.springframework&lt;/groupId&gt;
     &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</code></pre>
+&lt;/dependency&gt;</code></pre>
 <h1 id="application-configuration">Application configuration</h1>
 <ul>
 <li>Java</li>
 <li>Annotations</li>
 <li>XML (still available but heavy)</li>
 </ul>
-<pre><code class="lang-Java">@ComponentScan(&quot;fr.sii.cheatsheet.spring&quot;)
+<pre><code class="language-Java">@ComponentScan(&quot;fr.sii.cheatsheet.spring&quot;)
 public class MyApp {
 
     public static void main(String[] args) {
@@ -38,11 +37,9 @@ public class MyApp {
         DummyService helloWorld = app.getBean(DummyService.class);
         helloWorld.getMessage();
     }
-}
-</code></pre>
+}</code></pre>
 <p>Prefer use of a configuration class</p>
-<pre><code class="lang-Java">@Configuration
+<pre><code class="language-Java">@Configuration
 public class MyAppConfig {
   // @Bean, ...
-}
-</code></pre>
+}</code></pre>

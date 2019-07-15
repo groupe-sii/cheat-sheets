@@ -1,25 +1,20 @@
 <p>Date : <strong>Feb 2018</strong></p>
 <h1 id="element">Element</h1>
 <p>Used to apply style on all the elements targeted by their <strong>tag</strong> name :</p>
-<pre><code class="lang-css">div { } /*targets all &lt;div&gt; elements*/
+<pre><code class="language-css">div { } /*targets all &lt;div&gt; elements*/
 span { } /*targets all &lt;span&gt; elements*/
-input { } /*targets all &lt;input&gt; elements*/
-</code></pre>
+input { } /*targets all &lt;input&gt; elements*/</code></pre>
 <h1 id="class">Class</h1>
 <p><code>.</code> is a <strong>class</strong> selector. It targets every element with a specific class attribute :</p>
-<pre><code class="lang-css">.my-class { } /*targets every element with the &quot;my-class&quot; class*/
-div.my-class { } /*targets every div with &quot;my-class&quot; class*/
-</code></pre>
+<pre><code class="language-css">.my-class { } /*targets every element with the &quot;my-class&quot; class*/
+div.my-class { } /*targets every div with &quot;my-class&quot; class*/</code></pre>
 <h1 id="id">Id</h1>
 <p><code>#</code> is the <strong>id</strong> selector. It targets every element with a specific id attribute :</p>
-<pre><code class="lang-css">#my-id { } /*targets every element with the &quot;my-id&quot; id*/
-</code></pre>
+<pre><code class="language-css">#my-id { } /*targets every element with the &quot;my-id&quot; id*/</code></pre>
 <p><small>(note that an id should be unique and applied to only one element but the css will be applied anyway on every element with the same id attribute ! )</small></p>
 <h1 id="attributes">Attributes</h1>
 <p>You can target an element by any of its attributes and attributes value :</p>
-<pre><code class="lang-css">[alt] { } /*targets every element with an alt attribute */
-input[type=&quot;checkbox&quot;] { } /*targets every &lt;input&gt; element with the &quot;type&quot; attribute value set to &quot;checkbox&quot;*/
-</code></pre>
+<pre><code class="language-css">[alt] { } /*targets every element with an alt attribute */
+input[type=&quot;checkbox&quot;] { } /*targets every &lt;input&gt; element with the &quot;type&quot; attribute value set to &quot;checkbox&quot;*/</code></pre>
 <p>You can also use regex in your attribute selector :</p>
-<pre><code class="lang-css">a[href*=&quot;www&quot;] { } /*targets every &lt;a&gt; element with a &quot;href&quot; attribute value containing &quot;www&quot;*/
-</code></pre>
+<pre><code class="language-css">a[href*=&quot;www&quot;] { } /*targets every &lt;a&gt; element with a &quot;href&quot; attribute value containing &quot;www&quot;*/</code></pre>

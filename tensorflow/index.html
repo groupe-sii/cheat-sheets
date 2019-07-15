@@ -44,11 +44,10 @@
 <p>TensorFlow is a Machine Learning framework developed by Google Inc. It includes different binding : C++, Java, Golang, Python, Javascript ...
 Python API is the most used by developpers</p>
 <h1 id="import">Import</h1>
-<pre><code class="lang-python">import tensorflow as tf
-</code></pre>
+<pre><code class="language-python">import tensorflow as tf</code></pre>
 <h1 id="module-tf">Module tf</h1>
 <p>Bring in all of the public TensorFlow interface.</p>
-<pre><code class="lang-python">#Classes:
+<pre><code class="language-python">#Classes:
 
 tf.Graph() &#39;&#39;&#39;A TensorFlow computation, represented as a dataflow graph.&#39;&#39;&#39;
 
@@ -71,16 +70,15 @@ example: for a 2D tensor, axis=1 refers to rows&#39;&#39;&#39;
 c = tf.argmax(input, axis=None,name=None)
 
 &#39;&#39;&#39;Computes square root of x element-wise.&#39;&#39;&#39;
-d = tf.sqrt(x, name=None)
-</code></pre>
+d = tf.sqrt(x, name=None)</code></pre>
 <p>More functions are available on the following link :
     <a href="https://www.tensorflow.org/api_docs/python/tf">https://www.tensorflow.org/api_docs/python/tf</a></p>
 
         </div>
         <div class="column2">
-          <h1 id="module-tf-data">Module tf.data</h1>
+          <h1 id="module-tfdata">Module tf.data</h1>
 <p>This module contains different class used to manipulate data. Different files format are supported. It also introduces special classes fitted to TensorFlow for encoding/decoding data.</p>
-<pre><code class="lang-python"># Load the training data into two NumPy arrays, for example using `np.load()`.
+<pre><code class="language-python"># Load the training data into two NumPy arrays, for example using `np.load()`.
 with np.load(&quot;/var/data/training_data.npy&quot;) as data:
   features = data[&quot;features&quot;]
   labels = data[&quot;labels&quot;]
@@ -88,27 +86,23 @@ with np.load(&quot;/var/data/training_data.npy&quot;) as data:
 # Assume that each row of `features` corresponds to the same row as `labels`.
 assert features.shape[0] == labels.shape[0]
 
-dataset = tf.data.Dataset.from_tensor_slices((features, labels))
-</code></pre>
+dataset = tf.data.Dataset.from_tensor_slices((features, labels))</code></pre>
 <p>If you choose tfrecord format for encoding your data, you can use the following way to read (parse) your file(s):</p>
-<pre><code class="lang-python"># It accepts one or more filenames.
+<pre><code class="language-python"># It accepts one or more filenames.
 filenames = [&quot;/var/data/file1.tfrecord&quot;, &quot;/var/data/file2.tfrecord&quot;]
 dataset = tf.data.TFRecordDataset(filenames)
 #Apply a transformation function to your data
-dataset = dataset.map(func) 
-</code></pre>
+dataset = dataset.map(func) </code></pre>
 <p>If your data is contained in text files, you can use the following way to read (parse) it:</p>
-<pre><code class="lang-python"># It accepts one or more filenames.
+<pre><code class="language-python"># It accepts one or more filenames.
 filenames = [&quot;/var/data/file1.txt&quot;, &quot;/var/data/file2.txt&quot;]
-dataset = tf.data.TextLineDataset(filenames)
-</code></pre>
+dataset = tf.data.TextLineDataset(filenames)</code></pre>
 <p>In order to iterate over the dataset, TensorFlow provides the Iterator class:</p>
-<pre><code class="lang-python"># The returned iterator will be in an uninitialized state, and you must run the iterator.initializer operation before using it:
+<pre><code class="language-python"># The returned iterator will be in an uninitialized state, and you must run the iterator.initializer operation before using it:
 iterator = dataset.make_initializable_iterator()
 tf.Session().run(iterator.initializer)
 #Or use one_shot iterator that will be automatically initialized:
-iterator = dataset.make_one_shot_iterator()
-</code></pre>
+iterator = dataset.make_one_shot_iterator()</code></pre>
 
         </div>
       </main>
@@ -141,55 +135,48 @@ iterator = dataset.make_one_shot_iterator()
 
       <main>
         <div class="column1">
-          <h1 id="module-tf-nn">Module tf.nn</h1>
+          <h1 id="module-tfnn">Module tf.nn</h1>
 <p>This module introduces basic functions for computer vision and sequential data (ex : text)</p>
-<pre><code class="lang-python"># Build a graph:
+<pre><code class="language-python"># Build a graph:
 input_img = tf.placeholder(tf.float32, [batch_size, height, width, channels])
 filter_img = tf.Variable(tf.random_uniform([7,7,3,target_channels]))
 
 #strides: , padding can take the values &quot;SAME&quot; to maintain  the same dimension of the input or &quot;VALID&quot;
-net = tf.nn.conv2d(input_img, filter_img, strides=[1,2,2,1], padding=&quot;SAME&quot;)
-</code></pre>
+net = tf.nn.conv2d(input_img, filter_img, strides=[1,2,2,1], padding=&quot;SAME&quot;)</code></pre>
 <p>More functions are available on the following link :
             <a href="https://www.tensorflow.org/api_docs/python/tf/nn">https://www.tensorflow.org/api_docs/python/tf/nn</a></p>
-<h1 id="module-tf-metrics">Module tf.metrics</h1>
+<h1 id="module-tfmetrics">Module tf.metrics</h1>
 <p>In order to evaluate your model, TensorFlow provides you with different functions that you can call during the computation graph. For each target response, we compare it with the value predicted by the model:</p>
-<pre><code class="lang-python">accuracy = tf.metrics.accuracy(labels,predictions)
-</code></pre>
+<pre><code class="language-python">accuracy = tf.metrics.accuracy(labels,predictions)</code></pre>
 <p>Calculates how often predictions matches labels. The accuracy function creates two local variables, total and count that are used to compute the frequency with which predictions matches labels. This frequency is ultimately returned as accuracy: an idempotent operation that simply divides total by count.
 <img src="../assets/images/precision_recall.png" width="400"/></p>
-<pre><code class="lang-python">precision = tf.metrics.precision(labels,predictions)
-</code></pre>
+<pre><code class="language-python">precision = tf.metrics.precision(labels,predictions)</code></pre>
 
         </div>
         <div class="column2">
-          <pre><code class="lang-python">recall = tf.metrics.recall(labels,predictions)
-</code></pre>
+          <pre><code class="language-python">recall = tf.metrics.recall(labels,predictions)</code></pre>
 <p>Most of the functions provided can be applied for a classification task
 More functions are available on the following link :
 <a href="https://www.tensorflow.org/api_docs/python/tf/metrics">https://www.tensorflow.org/api_docs/python/tf/metrics</a></p>
-<h1 id="module-tf-train">Module tf.train</h1>
+<h1 id="module-tftrain">Module tf.train</h1>
 <p>This module introduces basic classes and functions to monitor your training.
 In order to train your model, you need to use an optimizer that will handle the backpropagation algorithm. TensorFlow provides many implemantations of famous optimizers:</p>
-<pre><code class="lang-python">#We suppose that we have defined the loss function
+<pre><code class="language-python">#We suppose that we have defined the loss function
 your_learning_rate = value
 optimizer = tf.train.AdamOptimizer(
             learning_rate = your_learning_rate
             )
 
 #Define the training operation:
-train_op = optimizer.minimize(loss)
-</code></pre>
+train_op = optimizer.minimize(loss)</code></pre>
 <p>Below a list of the different optimizers, that you can find in the following link:
 <a href="https://www.tensorflow.org/api_docs/python/tf/train">https://www.tensorflow.org/api_docs/python/tf/train</a></p>
-<pre><code class="lang-python">tf.train.AdadeltaOptimizer #M. D. Zeiler
+<pre><code class="language-python">tf.train.AdadeltaOptimizer #M. D. Zeiler
 tf.train.AdagradDAOptimizer #John Duchi, Elad Hazan, Yoram Singer
-tf.train.MomentumOptimizer
-</code></pre>
+tf.train.MomentumOptimizer</code></pre>
 <p>The tf.train module also come with different Session types, that will manage running your operation graph, and provides live information about your training like the number of step, the actual value of your loss function and the actual value(s) of the metric(s) you have chosen. Below an exaustive list:</p>
-<pre><code class="lang-python">tf.train.MonitoredSession 
-tf.train.SessionManager 
-</code></pre>
+<pre><code class="language-python">tf.train.MonitoredSession 
+tf.train.SessionManager </code></pre>
 <p>Finally, the tf.train module regroup classes and functions to define distributed training over a cluster, and provides tools to monitor it.</p>
 
         </div>

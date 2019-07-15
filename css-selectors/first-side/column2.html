@@ -1,27 +1,23 @@
-<pre><code class="lang-css">a[href^=&quot;https://&quot;] { } /*targets every &lt;a&gt; element with a &quot;href&quot; attribute value beginning with &quot;https://&quot;*/
+<pre><code class="language-css">a[href^=&quot;https://&quot;] { } /*targets every &lt;a&gt; element with a &quot;href&quot; attribute value beginning with &quot;https://&quot;*/
 
 a[href$=&quot;.com&quot;] { } /*targets every &lt;a&gt; element with a &quot;href&quot; attribute value ending with &quot;.com&quot;*/
 
 a[href~=&quot;example&quot;] { } /*targets every &lt;a&gt; element where &quot;href&quot; attribute value is a space-separated list containing the word &quot;example&quot;*/
 
 a[href|=&quot;example&quot;] { } /*targets every &lt;a&gt; element where &quot;href&quot; attribute value is a dash-separated list beginning with the word &quot;example&quot;*/
-
 </code></pre>
 <h1 id="pseudo-class">Pseudo-class</h1>
 <p>A <strong>pseudo-class</strong> selector is a selector preceded by <code>:</code> or <code>::</code>. </p>
 <p>Some are used to apply style on a specific <strong>state</strong> of an element.</p>
-<pre><code class="lang-css">button:hover { } /*the style will apply on a button when the user&#39;s mouse hovers it*/
+<pre><code class="language-css">button:hover { } /*the style will apply on a button when the user&#39;s mouse hovers it*/
 button:disabled { } /*the style will apply on every button with &quot;disabled&quot; attribute*/
-a:visited { } /*targets the &lt;a&gt; elements the user has visited*/
-</code></pre>
+a:visited { } /*targets the &lt;a&gt; elements the user has visited*/</code></pre>
 <p>Others are used to target specific elements by their <strong>position</strong> in the DOM.</p>
-<pre><code class="lang-css">div p:last-child { } /*targets the last &lt;p&gt; in a &lt;div&gt; element*/
+<pre><code class="language-css">div p:last-child { } /*targets the last &lt;p&gt; in a &lt;div&gt; element*/
 div p:first-child { } /*targets the first &lt;p&gt; in a &lt;div&gt; element*/
-div p:nth-child(even) { } /*targets all the even &lt;p&gt; elements in a &lt;div&gt; (even, odd, 1n, 2n, 2n+1, ...)
-</code></pre>
+div p:nth-child(even) { } /*targets all the even &lt;p&gt; elements in a &lt;div&gt; (even, odd, 1n, 2n, 2n+1, ...)</code></pre>
 <p><code>:not()</code> pseudo-class can be used to <strong>avoid</strong> applying style on specific elements.</p>
 <p>It takes every selector type as argument.</p>
-<pre><code class="lang-css">div:not(.my-class) { } /* targets every &lt;div&gt; that doesn&#39;t have the &quot;my-class&quot; class attribute.*/
+<pre><code class="language-css">div:not(.my-class) { } /* targets every &lt;div&gt; that doesn&#39;t have the &quot;my-class&quot; class attribute.*/
 div p:not(:last-child) { } /*targets all &lt;p&gt; elements in my &lt;div&gt; except the last one*/
-input:not([type=&quot;checkbox&quot;]) { } /*targets all &lt;input&gt; elements that are not checkboxes type*/
-</code></pre>
+input:not([type=&quot;checkbox&quot;]) { } /*targets all &lt;input&gt; elements that are not checkboxes type*/</code></pre>

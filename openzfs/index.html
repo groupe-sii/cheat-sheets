@@ -39,7 +39,7 @@
 
       <main>
         <div class="column1">
-          <h1 id="zpool-configure-zfs-storage-pools">zpool – configure ZFS storage pools</h1>
+          <h1 id="zpool--configure-zfs-storage-pools">zpool – configure ZFS storage pools</h1>
 <p><strong><em>A ZFS storage pool is a logical collection of devices that provide space for datasets.</em></strong></p>
 <p>List pool health status and space usage
 <code>zpool list</code></p>
@@ -65,7 +65,7 @@
 
         </div>
         <div class="column2">
-          <h1 id="zfs-configure-zfs-file-systems">zfs – configure ZFS file systems</h1>
+          <h1 id="zfs--configure-zfs-file-systems">zfs – configure ZFS file systems</h1>
 <p><strong><em>A ZFS dataset of type filesystem can be mounted.</em></strong></p>
 <p>List the property information for the fs-type datasets
 <code>zfs list</code></p>
@@ -82,7 +82,7 @@
 <code>zfs set refquota=&lt;size&gt; &lt;pool&gt;/&lt;dataset&gt;</code></p>
 <p>Guaranty minimum amount of space to a dataset
 <code>zfs set refreservation=&lt;size&gt; &lt;pool&gt;/&lt;dataset&gt;</code></p>
-<h1 id="zfs-configure-zfs-volumes">zfs – configure ZFS volumes</h1>
+<h1 id="zfs--configure-zfs-volumes">zfs – configure ZFS volumes</h1>
 <p><strong><em>A ZFS dataset of type volume is a logical volume exported as a raw or block device.</em></strong></p>
 <p>Create a volume with reservation (thick)
 <code>zfs create -V &lt;size&gt; &lt;volume&gt;</code></p>
@@ -120,7 +120,7 @@
 
       <main>
         <div class="column1">
-          <h1 id="zfs-configure-zfs-snapshots">zfs – configure ZFS snapshots</h1>
+          <h1 id="zfs--configure-zfs-snapshots">zfs – configure ZFS snapshots</h1>
 <p><strong><em>A snapshot is a read-only copy of a file system.</em></strong></p>
 <p><em>File system snapshots can be accessed under the .zfs/snapshot directory in the root of the file system.</em></p>
 <p>List snapshots
@@ -133,11 +133,11 @@
 <code>zfs destroy &lt;pool&gt;/&lt;dataset&gt;@&lt;snapshot&gt;</code></p>
 <p>Remove a snapshot and his descendent snapshots
 <code>zfs destroy -r &lt;pool&gt;/&lt;dataset&gt;@&lt;snapshot&gt;</code></p>
-<h1 id="zfs-configure-zfs-clones">zfs – configure ZFS CLONES</h1>
+<h1 id="zfs--configure-zfs-clones">zfs – configure ZFS CLONES</h1>
 <p><strong><em>A clone is a writable volume or file system whose initial contents are the same as the original dataset.</em></strong></p>
 <p>Create a clone
 <code>zfs clone &lt;snapshot&gt; &lt;filesystem&gt;|&lt;volume&gt;</code></p>
-<h1 id="zfs-configure-backup-and-restore">zfs – configure backup and restore</h1>
+<h1 id="zfs--configure-backup-and-restore">zfs – configure backup and restore</h1>
 <p><strong><em>ZFS implements data protection feature</em></strong></p>
 <p>Backup a snapshot in a file
 <code>zfs send &lt;pool&gt;/&lt;dataset&gt;@&lt;snapshot&gt;  &gt;  &lt;file&gt;</code></p>
@@ -154,7 +154,7 @@
 <code>zfs send &lt;pool&gt;/&lt;dataset&gt;@&lt;snapshot&gt; | zfs recv &lt;pool&gt;/&lt;other_dataset&gt;</code></p>
 <p>Duplicate a snapshot on a different host
 <code>zfs send &lt;pool&gt;/&lt;dataset&gt;@&lt;snapshot&gt; | ssh &lt;host&gt; zfs recv &lt;pool&gt;/&lt;dataset&gt;</code></p>
-<h1 id="zfs-set-zfs-file-systems-properties">zfs – set ZFS file systems properties</h1>
+<h1 id="zfs--set-zfs-file-systems-properties">zfs – set ZFS file systems properties</h1>
 <p><strong><em>Properties control ZFS behaviour.</em></strong></p>
 <p>List properties of a dataset
 <code>zfs get all &lt;pool&gt;/&lt;dataset&gt;</code></p>

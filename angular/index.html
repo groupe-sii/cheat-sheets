@@ -41,15 +41,14 @@
         <div class="column1">
           <h1 id="bootstrapping">Bootstrapping</h1>
 <p>Bootstraps the app, using the root component from the specified <strong>NgModule</strong>.</p>
-<pre><code class="lang-js">import { platformBrowserDynamic }
+<pre><code class="language-js">import { platformBrowserDynamic }
     from &#39;@angular/platform-browser-dynamic&#39;;
 
 platformBrowserDynamic()
-    .bootstrapModule(AppModule);
-</code></pre>
+    .bootstrapModule(AppModule);</code></pre>
 <h1 id="ngmodule">NgModule</h1>
 <p><strong>Defines a module</strong> that contains components, directives, pipes, and providers.</p>
-<pre><code class="lang-js">import { NgModule } from &#39;@angular/core&#39;;
+<pre><code class="language-js">import { NgModule } from &#39;@angular/core&#39;;
 
 @NgModule({
     declarations: [
@@ -62,8 +61,7 @@ platformBrowserDynamic()
     providers: [MyService],
     bootstrap: [MyRootComponent] // Only root module
 })
-class MyModule {}
-</code></pre>
+class MyModule {}</code></pre>
 <table>
 <thead>
 <tr>
@@ -71,8 +69,7 @@ class MyModule {}
 <th>Function</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>declarations</strong></td>
 <td>Components to this module</td>
 </tr>
@@ -92,41 +89,36 @@ class MyModule {}
 <td><strong>bootstrap</strong></td>
 <td>The root component of module</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>The <strong>pipes</strong> and <strong>directive</strong> is declared as <strong>components</strong></p>
 
         </div>
         <div class="column2">
           <h1 id="class-type">Class Type</h1>
 <h2 id="component"><a href="https://angular.io/guide/component-styles">Component</a></h2>
-<pre><code class="lang-js">@Component({
+<pre><code class="language-js">@Component({
     selector: &#39;app-my&#39;,
     templateUrl: &#39;./my.component.html&#39;,
     styleUrls: [&#39;./my.component.css&#39;]
 })
-class MyComponent() {}
-</code></pre>
+class MyComponent() {}</code></pre>
 <h2 id="directive"><a href="https://angular.io/guide/dynamic-component-loader">Directive</a></h2>
-<pre><code class="lang-js">@Directive({
+<pre><code class="language-js">@Directive({
     selector: [&#39;appMy&#39;],
     templateUrl: &#39;./my.directive.html&#39;,
     styleUrls: [&#39;./my.directive.css&#39;]
 })
-class MyDirective() {}
-</code></pre>
+class MyDirective() {}</code></pre>
 <h2 id="pipe"><a href="https://angular.io/guide/pipes">Pipe</a></h2>
-<pre><code class="lang-js">@Pipe({name: &#39;myPipe&#39;})
-class MyPipe() {}
-</code></pre>
+<pre><code class="language-js">@Pipe({name: &#39;myPipe&#39;})
+class MyPipe() {}</code></pre>
 <h2 id="provider"><a href="https://angular.io/guide/singleton-services">Provider</a></h2>
-<pre><code class="lang-js">@Injectable()
-class MyService() {}
-</code></pre>
+<pre><code class="language-js">@Injectable()
+class MyService() {}</code></pre>
 <p>Add <em>{providedIn: root}</em> option <strong>for create singleton</strong></p>
 <h1 id="component-interaction">Component interaction</h1>
 <h2 id="input-and-output"><a href="https://angular.io/guide/component-interaction#component-interaction">Input</a> and <a href="https://angular.io/guide/component-interaction#parent-listens-for-child-event">Output</a></h2>
-<pre><code class="lang-js">export class InventoryComponent {
+<pre><code class="language-js">export class InventoryComponent {
   @Input() hero: Hero;
   @Input(&#39;newItem&#39;) itemToInsert: Item;
 
@@ -136,8 +128,7 @@ class MyService() {}
     onClickHero(item: Item) {
         this.itemSelectionned.emit(item);
     }
-}
-</code></pre>
+}</code></pre>
 
         </div>
       </main>
@@ -178,8 +169,7 @@ class MyService() {}
 <th>Syntax</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>DataSource =&gt; Target</strong></td>
 <td>{{<em>expression</em>}}</td>
 </tr>
@@ -195,32 +185,27 @@ class MyService() {}
 <td><strong>Two-way</strong></td>
 <td>[(target)]=&quot;<em>expression</em>&quot;</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h2 id="ngif"><a href="https://angular.io/api/common/NgIf">ngIf</a></h2>
-<pre><code class="lang-html">
+<pre><code class="language-html">
 &lt;span *ngIf=&quot;hero&quot;&gt;{{ hero.name }} exists !&lt;/span&gt;
-
 </code></pre>
 <h2 id="ngfor"><a href="https://angular.io/api/common/NgForOf">ngFor</a></h2>
-<pre><code class="lang-html">
+<pre><code class="language-html">
 &lt;span *ngFor=&quot;let hero of heroes; let i=index&quot;&gt;{{ hero.name }} is at index {{ i }}&lt;/span&gt;
-
 </code></pre>
 <h2 id="ngswitch"><a href="https://angular.io/api/common/NgSwitch">ngSwitch</a></h2>
-<pre><code class="lang-html">&lt;div [ngSwitch]=&quot;hero.class&quot;&gt;
+<pre><code class="language-html">&lt;div [ngSwitch]=&quot;hero.class&quot;&gt;
   &lt;span *ngSwitchCase=&quot;&#39;knight&#39;&quot;&gt;You are strong&lt;/span&gt;
   &lt;span *ngSwitchCase=&quot;&#39;mage&#39;&quot;&gt;You are intelligent&lt;/span&gt;
   &lt;span *ngSwitchDefault&gt;You are special&lt;/span&gt;
-&lt;/div&gt;
-</code></pre>
+&lt;/div&gt;</code></pre>
 <h1 id="basic-http-request">Basic HTTP Request</h1>
-<pre><code class="lang-ts">import {Http} from &quot;@angular/http&quot;;
+<pre><code class="language-ts">import {Http} from &quot;@angular/http&quot;;
 import &quot;rxjs/add/operator/map&quot;;
 
 this.http.post(environment.apiAddress + &quot;/api-method&quot;, myJsonData)
-      .map(resp=&gt;resp.json());
-</code></pre>
+      .map(resp=&gt;resp.json());</code></pre>
 <h1 id="sources">Sources</h1>
 <p><strong>Angular module:</strong> <a href="http://www.learn-angular.fr/les-modules-angular/">http://www.learn-angular.fr/les-modules-angular/</a></p>
 <p><strong>Template syntax:</strong> <a href="https://angular.io/guide/template-syntax">https://angular.io/guide/template-syntax</a></p>
@@ -235,8 +220,7 @@ this.http.post(environment.apiAddress + &quot;/api-method&quot;, myJsonData)
 <th>Effect</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>take</strong>(fn(Int))</td>
 <td>Event only if int value result</td>
 </tr>
@@ -252,10 +236,9 @@ this.http.post(environment.apiAddress + &quot;/api-method&quot;, myJsonData)
 <td><strong>reduce</strong>(fn(oldValue), value)</td>
 <td>Compact event</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h2 id="simple-observable-with-external-observer">Simple observable with external observer</h2>
-<pre><code class="lang-js">const myObservable = Observable.of(1, 2, 3);
+<pre><code class="language-js">const myObservable = Observable.of(1, 2, 3);
 
 // Create observer object
 const myObserver = {
@@ -265,10 +248,9 @@ const myObserver = {
 };
 
 // Execute with the observer object
-myObservable.subscribe(myObserver);
-</code></pre>
+myObservable.subscribe(myObserver);</code></pre>
 <h2 id="personalised-observable-function">Personalised observable function</h2>
-<pre><code class="lang-js">const sequence = new Observable((observer) =&gt; {
+<pre><code class="language-js">const sequence = new Observable((observer) =&gt; {
   // synchronously deliver 1, 2, and 3, then complete
   observer.next(1);
   observer.next(2);
@@ -279,13 +261,12 @@ myObservable.subscribe(myObserver);
   return {unsubscribe() {}};
 });
 
-sequence.subscribe({next: ...});
-</code></pre>
+sequence.subscribe({next: ...});</code></pre>
 <h1 id="sources">Sources</h1>
 <p><strong>Complete docs RxJS</strong> <a href="https://www.learnrxjs.io/">https://www.learnrxjs.io/</a></p>
-<p><strong>Angular RXJS</strong> <a href="https://angular.io/guide/observables">https://angular.io/guide/observables</a>
+<p><strong>Angular RXJS</strong> <a href="https://angular.io/guide/observables">https://angular.io/guide/observables</a></p>
 <!-- 
-**For ES5 component syntax** https://blog.thoughtram.io/angular/2015/05/09/writing-angular-2-code-in-es5.html --></p>
+**For ES5 component syntax** https://blog.thoughtram.io/angular/2015/05/09/writing-angular-2-code-in-es5.html -->
 
         </div>
       </main>

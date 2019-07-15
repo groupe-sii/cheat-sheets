@@ -45,21 +45,14 @@
 <p><code>&gt; tsc hello-world.ts</code></p>
 <h1 id="primitives-types">Primitives types</h1>
 <p>Any type (explicitly untyped)</p>
-<pre><code>let whatever: any = &quot;anything&quot;;
-</code></pre><p>Void type (null or undefined, use for function returns only)</p>
-<pre><code>function nothing(): void {}
-</code></pre><p>String</p>
-<pre><code>let myString: string = &quot;hello&quot;;
-</code></pre><p>Number</p>
-<pre><code>let myNumber: number = 1;
-</code></pre><p>Boolean</p>
-<pre><code>let mybool: boolean = true;
-</code></pre><h1 id="arrays">Arrays</h1>
+<pre><code>let whatever: any = &quot;anything&quot;;</code></pre><p>Void type (null or undefined, use for function returns only)</p>
+<pre><code>function nothing(): void {}</code></pre><p>String</p>
+<pre><code>let myString: string = &quot;hello&quot;;</code></pre><p>Number</p>
+<pre><code>let myNumber: number = 1;</code></pre><p>Boolean</p>
+<pre><code>let mybool: boolean = true;</code></pre><h1 id="arrays">Arrays</h1>
 <p>Array of strings</p>
-<pre><code>string[] or Array&lt;string&gt;
-</code></pre><p>Array of functions that return boolean</p>
-<pre><code>{(): boolean;}[] or Array&lt;()=&gt;boolean&gt;
-</code></pre>
+<pre><code>string[] or Array&lt;string&gt;</code></pre><p>Array of functions that return boolean</p>
+<pre><code>{(): boolean;}[] or Array&lt;()=&gt;boolean&gt;</code></pre>
         </div>
         <div class="column2">
           <h1 id="named-types">Named types</h1>
@@ -68,15 +61,13 @@
     S = &#39;small&#39;,
     L = &#39;large&#39;,
     XL = &#39;xlarge&#39;
-};
-</code></pre><p>Interface</p>
+};</code></pre><p>Interface</p>
 <pre><code>interface IPerson {
     firstname: string;
     age?: number; //optional
     sayHello(): void;
     size?: Size;
-}
-</code></pre><p>Class</p>
+}</code></pre><p>Class</p>
 <pre><code>class Person implement IPerson {
     firstname: string;
     age: number;
@@ -85,17 +76,12 @@
     constructor() {}
 
     sayHello(): void {};
-}
-</code></pre><h1 id="object-type-literals">Object type literals</h1>
+}</code></pre><h1 id="object-type-literals">Object type literals</h1>
 <p>Object with implicit properties</p>
-<pre><code>{ foo: &#39;hello&#39;; bar: 5 } or { foo; &#39;hello&#39;; }
-</code></pre><p>Object with optional property</p>
-<pre><code>{ required: boolean; optional?: number; }
-</code></pre><p>Hash map</p>
-<pre><code>{ [key: string]: Type; }
-</code></pre><p>Indexable types</p>
-<pre><code>{ [id: number]: Type; }
-</code></pre>
+<pre><code>{ foo: &#39;hello&#39;; bar: 5 } or { foo; &#39;hello&#39;; }</code></pre><p>Object with optional property</p>
+<pre><code>{ required: boolean; optional?: number; }</code></pre><p>Hash map</p>
+<pre><code>{ [key: string]: Type; }</code></pre><p>Indexable types</p>
+<pre><code>{ [id: number]: Type; }</code></pre>
         </div>
       </main>
 
@@ -130,10 +116,8 @@
           <h1 id="tuples">Tuples</h1>
 <p>A tuple is a finite ordered list of elements. A tuple in TypeScript is much like a typed list except that it is immutable (unchangeable) once created.</p>
 <pre><code>type keyValuePair = [number, string];
-let list: keyValuePair = [123, &#39;abc&#39;]
-</code></pre><h1 id="union-types">Union types</h1>
-<pre><code>let myUnionVariable: number | string;
-</code></pre><h1 id="classes">Classes</h1>
+let list: keyValuePair = [123, &#39;abc&#39;]</code></pre><h1 id="union-types">Union types</h1>
+<pre><code>let myUnionVariable: number | string;</code></pre><h1 id="classes">Classes</h1>
 <pre><code>class CodeLock {
     id: number; // implicitly public
     public manufacturer: string;
@@ -147,18 +131,14 @@ let list: keyValuePair = [123, &#39;abc&#39;]
 console.log(CodeLock.brand); // no instance
 new CodeLock(1, &quot;x&quot;, &quot;secret&quot;).id; // ok
 new CodeLock(1, &quot;x&quot;, &quot;secret&quot;).manufacturer; // ok
-new CodeLock(1, &quot;x&quot;, &quot;secret&quot;).code; // warning
-</code></pre><h1 id="generics">Generics</h1>
+new CodeLock(1, &quot;x&quot;, &quot;secret&quot;).code; // warning</code></pre><h1 id="generics">Generics</h1>
 <p>Function using type parameters</p>
-<pre><code>&lt;T&gt;(items:T[], callback:(item:T) =&gt; T):T[]
-</code></pre><p>Interface with multiple types</p>
+<pre><code>&lt;T&gt;(items:T[], callback:(item:T) =&gt; T):T[]</code></pre><p>Interface with multiple types</p>
 <pre><code>interface Pair&lt;T1, T2&gt; {
   first:T1;
   second:T2;
-}
-</code></pre><p>Constrained type parameter</p>
-<pre><code>&lt;T extends ConstrainedType&gt;():T
-</code></pre>
+}</code></pre><p>Constrained type parameter</p>
+<pre><code>&lt;T extends ConstrainedType&gt;():T</code></pre>
         </div>
         <div class="column2">
           <h1 id="modules">Modules</h1>
@@ -174,18 +154,15 @@ export class Letters extends StringValidator {
     isAcceptable(s: string) {
         return lettersRegexp.test(s);
     }
-}
-</code></pre><p><em>random.ts</em></p>
+}</code></pre><p><em>random.ts</em></p>
 <pre><code>export default function random() {
     return Math.random();
-}
-</code></pre><h1 id="module-import">Module import</h1>
+}</code></pre><h1 id="module-import">Module import</h1>
 <p><em>hello-world.ts</em></p>
 <pre><code>import { StringValidator, Letters } from &#39;./validation&#39;
 
 import random from &#39;./hello-world&#39;
-import { random as RD } from &#39;./hello-world&#39;
-</code></pre>
+import { random as RD } from &#39;./hello-world&#39;</code></pre>
         </div>
       </main>
 

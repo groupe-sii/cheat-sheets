@@ -40,10 +40,11 @@
       <main>
         <div class="column1">
           <h1 id="component-lifecycle">Component Lifecycle</h1>
-<p><img src="../assets/images/stencil-lifecycle.png" width="400" height="473"></p>
+<img src="../assets/images/stencil-lifecycle.png" width="400" height="473">
+
 <h1 id="decorators">Decorators</h1>
-<h2 id="-component">@Component</h2>
-<pre><code class="lang-ts">import { Component } from &#39;@stencil/core&#39;;
+<h2 id="component">@Component</h2>
+<pre><code class="language-ts">import { Component } from &#39;@stencil/core&#39;;
 
 @Component({
   tag: &#39;todo-list&#39;,
@@ -54,14 +55,13 @@
 })
 export class TodoList {
   ...
-}
-</code></pre>
+}</code></pre>
 
         </div>
         <div class="column2">
-          <h2 id="-prop">@Prop</h2>
+          <h2 id="prop">@Prop</h2>
 <p>Declare an attribute for the outside, not directly mutable from the inside.</p>
-<pre><code class="lang-js">import { Prop } from &#39;@stencil/core&#39;;
+<pre><code class="language-js">import { Prop } from &#39;@stencil/core&#39;;
 
 export class TodoList {
   @Prop() color: string;
@@ -72,14 +72,12 @@ export class TodoList {
   componentDidLoad() {
     this.name = &#39;Stencil 0.7.0&#39;;
   }
-}
-</code></pre>
-<pre><code class="lang-html">/* in HTML */
+}</code></pre>
+<pre><code class="language-html">/* in HTML */
 &lt;todo-list color=&quot;blue&quot; favorite-number=&quot;24&quot; is-selected=&quot;true&quot;&gt;&lt;/todo-list&gt;
 /* in JSX */
-&lt;todo-list color=&quot;blue&quot; favoriteNumber={24} isSelected=&quot;true&quot;&gt;&lt;/todo-list&gt;
-</code></pre>
-<h2 id="-state">@State</h2>
+&lt;todo-list color=&quot;blue&quot; favoriteNumber={24} isSelected=&quot;true&quot;&gt;&lt;/todo-list&gt;</code></pre>
+<h2 id="state">@State</h2>
 <p>Declare an internal state only for the inside.</p>
 <pre><code>import { State } from &#39;@stencil/core&#39;;
 
@@ -91,8 +89,7 @@ export class TodoList {
     /* This will cause our render function to be called again */
     this.completedTodos = [...this.completedTodos, todo];
   }
-}
-</code></pre><h2 id="update-an-array">Update an array</h2>
+}</code></pre><h2 id="update-an-array">Update an array</h2>
 <p>this.names = [ ...this.names, &#39;Larry&#39; ]</p>
 <h2 id="update-an-object">Update an object</h2>
 <p>this.options = { ...this.options, show: true }</p>
@@ -129,30 +126,27 @@ export class TodoList {
       <main>
         <div class="column1">
           <h1 id="decorators">Decorators</h1>
-<h2 id="-watch-">@Watch()</h2>
+<h2 id="watch">@Watch()</h2>
 <p>Watch a property, useful for validating props or handling side effects.</p>
 <pre><code>@Prop() activated: boolean;
 
 @Watch(&#39;activated&#39;)
 watchHandler(newValue: boolean, oldValue: boolean) {
   console.log(&#39;New value is: &#39;, newValue);
-}
-</code></pre><h2 id="-method-">@Method()</h2>
+}</code></pre><h2 id="method">@Method()</h2>
 <p>Used to expose methods on the public API. It should be async or returning a promise.</p>
 <pre><code>@Method()
 showPrompt() {
   /* show a prompt */
 }
 
-todoListElement.showPrompt();
-</code></pre><h2 id="-element-">@Element()</h2>
+todoListElement.showPrompt();</code></pre><h2 id="element">@Element()</h2>
 <p>Get access to the host element within the class instance. This returns an instance of an HTMLElement, so standard DOM methods/events can be used here.</p>
 <pre><code>@Element() todoListEl: HTMLElement;
 
 addClass(){
   this.todoListEl.classList.add(&#39;active&#39;);
-}
-</code></pre><h2 id="-event-">@Event()</h2>
+}</code></pre><h2 id="event">@Event()</h2>
 <p>Dispatch Custom DOM events for the outside world.</p>
 <pre><code>@Event() todoCompleted: EventEmitter;
 
@@ -160,11 +154,10 @@ todoCompletedHandler(todo: Todo) {
   this.todoCompleted.emit(todo);
 }
 
-todoListElement.addEventListener(&#39;todoCompleted&#39;, () =&gt; {});
-</code></pre>
+todoListElement.addEventListener(&#39;todoCompleted&#39;, () =&gt; {});</code></pre>
         </div>
         <div class="column2">
-          <h2 id="-listen-">@Listen()</h2>
+          <h2 id="listen">@Listen()</h2>
 <p>Listen to events dispatched from @Events.</p>
 <pre><code>@Listen(&#39;todoCompleted&#39;)
 @Listen(&#39;window:scroll&#39;)
@@ -175,8 +168,7 @@ handler(event: CustomEvent) {
 
 @Event() todoCompleted: EventEmitter;
 
-&lt;todo-list onTodoCompleted={ev =&gt; this.someMethod(ev)} /&gt;
-</code></pre><h1 id="styling">Styling</h1>
+&lt;todo-list onTodoCompleted={ev =&gt; this.someMethod(ev)} /&gt;</code></pre><h1 id="styling">Styling</h1>
 <ul>
 <li><p>style your component with Shadow DOM in mind</p>
 </li>
@@ -185,20 +177,15 @@ handler(event: CustomEvent) {
 </ul>
 <h1 id="integration">Integration</h1>
 <pre><code>&lt;script src=&quot;https://unpkg.com/test-components/latest/dist/test-components.js&quot;&gt;&lt;/script&gt;
-&lt;test-component&gt;&lt;/test-component&gt;
-</code></pre><h1 id="cli">CLI</h1>
+&lt;test-component&gt;&lt;/test-component&gt;</code></pre><h1 id="cli">CLI</h1>
 <h2 id="serve">Serve</h2>
-<pre><code class="lang-bash">stencil build --dev --watch --serve
-</code></pre>
+<pre><code class="language-bash">stencil build --dev --watch --serve</code></pre>
 <h2 id="build">Build</h2>
-<pre><code class="lang-bash">stencil build
-</code></pre>
+<pre><code class="language-bash">stencil build</code></pre>
 <h2 id="build-pre-rendered">Build pre-rendered</h2>
-<pre><code class="lang-bash">stencil build --prerender
-</code></pre>
-<h2 id="test-jest-puppeteer-inside-">Test (Jest + Puppeteer inside)</h2>
-<pre><code class="lang-bash">stencil test --spec or --e2e
-</code></pre>
+<pre><code class="language-bash">stencil build --prerender</code></pre>
+<h2 id="test-jest--puppeteer-inside">Test (Jest + Puppeteer inside)</h2>
+<pre><code class="language-bash">stencil test --spec or --e2e</code></pre>
 
         </div>
       </main>

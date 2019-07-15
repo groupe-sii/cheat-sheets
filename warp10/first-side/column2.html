@@ -6,8 +6,7 @@
 <th></th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>.sum</td>
 <td>.max</td>
 </tr>
@@ -33,13 +32,12 @@
 </tr>
 <tr>
 <td>.median</td>
+<td></td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>Syntaxe: <strong>[ [GTS] <em>bucketizer</em> <em>lastbucket</em> <em>bucketspan</em> <em>bucketcount</em> ] BUCKETIZE</strong></p>
 <p>Ex: <em>return 100 meaning datapoints from the previous GeoTimeSeries®</em></p>
-<pre><code>[ SWAP bucketizer.mean 0 0 100 ] BUCKETIZE
-</code></pre><h1 id="reducer">Reducer</h1>
+<pre><code>[ SWAP bucketizer.mean 0 0 100 ] BUCKETIZE</code></pre><h1 id="reducer">Reducer</h1>
 <table>
 <thead>
 <tr>
@@ -47,8 +45,7 @@
 <th></th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>.argmax</td>
 <td>.argmin</td>
 </tr>
@@ -100,9 +97,7 @@
 <td>.sum.forbid-nulls</td>
 <td>.var</td>
 </tr>
-</tbody>
-</table>
-<p>Syntaxe: <strong>[ [GTS]...[GTS] [<em>labels</em>] <em>reducer</em> ] REDUCE</strong></p>
+</tbody></table>
+<p>Syntaxe: <strong>[ [GTS]...[GTS] [<em>labels*] *reducer</em> ] REDUCE</strong></p>
 <p>Ex: <em>return a sum of aggregated GeoTimeSerie® from the previous GeoTimeSerie®</em></p>
-<pre><code>[ SWAP [ &#39;label1&#39;] reducer.sum ] REDUCE
-</code></pre>
+<pre><code>[ SWAP [ &#39;label1&#39;] reducer.sum ] REDUCE</code></pre>

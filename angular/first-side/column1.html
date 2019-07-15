@@ -1,14 +1,13 @@
 <h1 id="bootstrapping">Bootstrapping</h1>
 <p>Bootstraps the app, using the root component from the specified <strong>NgModule</strong>.</p>
-<pre><code class="lang-js">import { platformBrowserDynamic }
+<pre><code class="language-js">import { platformBrowserDynamic }
     from &#39;@angular/platform-browser-dynamic&#39;;
 
 platformBrowserDynamic()
-    .bootstrapModule(AppModule);
-</code></pre>
+    .bootstrapModule(AppModule);</code></pre>
 <h1 id="ngmodule">NgModule</h1>
 <p><strong>Defines a module</strong> that contains components, directives, pipes, and providers.</p>
-<pre><code class="lang-js">import { NgModule } from &#39;@angular/core&#39;;
+<pre><code class="language-js">import { NgModule } from &#39;@angular/core&#39;;
 
 @NgModule({
     declarations: [
@@ -21,8 +20,7 @@ platformBrowserDynamic()
     providers: [MyService],
     bootstrap: [MyRootComponent] // Only root module
 })
-class MyModule {}
-</code></pre>
+class MyModule {}</code></pre>
 <table>
 <thead>
 <tr>
@@ -30,8 +28,7 @@ class MyModule {}
 <th>Function</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>declarations</strong></td>
 <td>Components to this module</td>
 </tr>
@@ -51,6 +48,5 @@ class MyModule {}
 <td><strong>bootstrap</strong></td>
 <td>The root component of module</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>The <strong>pipes</strong> and <strong>directive</strong> is declared as <strong>components</strong></p>

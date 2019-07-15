@@ -1,5 +1,5 @@
 <h1 id="functions">Functions</h1>
-<pre><code class="lang-go">func SpamHello(ntimes int) (ok bool) {
+<pre><code class="language-go">func SpamHello(ntimes int) (ok bool) {
     for i:=0; i&lt;n;i++ {
         fmt.Println(&quot;Hello&quot;)
     }
@@ -17,10 +17,9 @@ func WriteData(data []byte, filepath string) error {
     }
 
     return nil
-}
-</code></pre>
+}</code></pre>
 <h1 id="structs-and-pointers">Structs and Pointers</h1>
-<pre><code class="lang-go">type Book struct {
+<pre><code class="language-go">type Book struct {
     Name string
     Author string
     Rating float64
@@ -32,10 +31,9 @@ var HarryPotterP1 Book = Book{
 }
 // Pointers
 var mypointer *Book = &amp;Book{Name: &quot;LAMBDA&quot;}
-var mypointer2 *Book = &amp;HarryPotterP1
-</code></pre>
+var mypointer2 *Book = &amp;HarryPotterP1</code></pre>
 <h1 id="methods">Methods</h1>
-<pre><code class="lang-go">func (b Book) Description() string {
+<pre><code class="language-go">func (b Book) Description() string {
     return b.Name + &quot; &quot; + b.Author
 }
 
@@ -48,5 +46,4 @@ func main() {
     b := &amp;Book{}
     b.IncrRating(0.99)
     fmt.Println(b.Rating)
-}
-</code></pre>
+}</code></pre>

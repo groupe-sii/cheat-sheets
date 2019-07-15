@@ -1,5 +1,5 @@
 <h1 id="handling-exceptions">Handling exceptions</h1>
-<pre><code class="lang-Java">@ControllerAdvice
+<pre><code class="language-Java">@ControllerAdvice
 public class ErrorController {
   ...
   @ExceptionHandler(AccessDeniedException.class)
@@ -7,11 +7,10 @@ public class ErrorController {
   @ResponseStatus(HttpStatus.FORBIDDEN)
   public ErrorResponse accessDenied(AccessDeniedException e) {
   }
-}
-</code></pre>
+}</code></pre>
 <h1 id="asynchronous-request-processing">Asynchronous request processing</h1>
 <p>It is possible to use the Servlet 3.0 asynchronous request processing feature in Spring:</p>
-<pre><code class="lang-Java">@RequestMapping(method=RequestMethod.POST)
+<pre><code class="language-Java">@RequestMapping(method=RequestMethod.POST)
 public Callable&lt;String&gt; processUpload(final MultipartFile file) {
   return new Callable&lt;String&gt;() {
       public String call() throws Exception {
@@ -19,10 +18,9 @@ public Callable&lt;String&gt; processUpload(final MultipartFile file) {
         return &quot;someView&quot;;
         }
   }
-}
-</code></pre>
+}</code></pre>
 <p>Or using DefferedResult</p>
-<pre><code class="lang-Java">@RequestMapping(&quot;/quotes&quot;)
+<pre><code class="language-Java">@RequestMapping(&quot;/quotes&quot;)
 @ResponseBody
 public DeferredResult&lt;String&gt; quotes() {
   DeferredResult&lt;String&gt; deferredResult = new DeferredResult&lt;String&gt;();
@@ -30,5 +28,4 @@ public DeferredResult&lt;String&gt; quotes() {
   return deferredResult;
 }
 // In some other thread...
-deferredResult.setResult(data);
-</code></pre>
+deferredResult.setResult(data);</code></pre>

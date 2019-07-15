@@ -41,52 +41,41 @@
         <div class="column1">
           <h1 id="npm-package-managment">NPM package managment</h1>
 <h2 id="install-package-via-npm">Install package via NPM</h2>
-<pre><code class="lang-npm">npm install &lt;modulename&gt; --save
+<pre><code class="language-npm">npm install &lt;modulename&gt; --save
 npm install &lt;modulename&gt;@&lt;version&gt; --save
 # install globally :
-npm install --global &lt;modulename&gt;
-</code></pre>
+npm install --global &lt;modulename&gt;</code></pre>
 <h2 id="install-dev-package-via-npm">Install dev package via NPM</h2>
-<pre><code class="lang-npm">npm install &lt;modulename&gt; --save-dev
-</code></pre>
-<h2 id="add-default-save-to-config">Add default &#39;--save&#39; to config</h2>
-<pre><code class="lang-npm">npm config set save true
-</code></pre>
+<pre><code class="language-npm">npm install &lt;modulename&gt; --save-dev</code></pre>
+<h2 id="add-default---save-to-config">Add default &#39;--save&#39; to config</h2>
+<pre><code class="language-npm">npm config set save true</code></pre>
 <h2 id="install-package-from-git-repo">Install package from git repo</h2>
-<pre><code class="lang-npm">npm install git://github.com/my/dep.git
-</code></pre>
+<pre><code class="language-npm">npm install git://github.com/my/dep.git</code></pre>
 <h2 id="uninstall-package">Uninstall package</h2>
-<pre><code class="lang-npm">npm uninstall &lt;module_name&gt;
-</code></pre>
+<pre><code class="language-npm">npm uninstall &lt;module_name&gt;</code></pre>
 <h1 id="npm-project-initialization">NPM project initialization</h1>
-<pre><code class="lang-npm">npm init
-</code></pre>
+<pre><code class="language-npm">npm init</code></pre>
 <h1 id="npm-configuration">NPM configuration</h1>
 <h2 id="get-configuration">get configuration</h2>
-<pre><code class="lang-npm">npm config ls -l
+<pre><code class="language-npm">npm config ls -l
 npm config list
-npm config get &lt;conf-key&gt;
-</code></pre>
+npm config get &lt;conf-key&gt;</code></pre>
 <h2 id="edit-configuration">edit configuration</h2>
-<pre><code class="lang-npm">npm config set &lt;conf-key&gt;=value
+<pre><code class="language-npm">npm config set &lt;conf-key&gt;=value
 npm config edit
 npm config set proxy=proxy.dns.fr:3128
-npm config set https-proxy=proxy.dns.fr:3128
-</code></pre>
+npm config set https-proxy=proxy.dns.fr:3128</code></pre>
 
         </div>
         <div class="column2">
           <h1 id="update-global-version">Update global version</h1>
-<pre><code class="lang-npm">npm update npm -g
-</code></pre>
+<pre><code class="language-npm">npm update npm -g</code></pre>
 <h1 id="npm-scripts">NPM scripts</h1>
-<pre><code class="lang-json">&lt;package.json&gt;
-&quot;scripts&quot; : {&quot;the-script&quot; : &quot;node testfile.js&quot;}
-</code></pre>
+<pre><code class="language-json">&lt;package.json&gt;
+&quot;scripts&quot; : {&quot;the-script&quot; : &quot;node testfile.js&quot;}</code></pre>
 <p>Run known or custom script :</p>
-<pre><code class="lang-npm">npm test
-npm run my-custom-script
-</code></pre>
+<pre><code class="language-npm">npm test
+npm run my-custom-script</code></pre>
 <ul>
 <li><strong>prepublish, publish, postpublish</strong></li>
 </ul>
@@ -116,10 +105,9 @@ npm run my-custom-script
 </ul>
 <p>Run by the npm restart command (if no &#39;restart&#39; script, run &#39;stop&#39; and &#39;start&#39;)</p>
 <h1 id="publish">Publish</h1>
-<pre><code class="lang-npm">npm adduser [--registy=&lt;registry&gt;]
+<pre><code class="language-npm">npm adduser [--registy=&lt;registry&gt;]
 npm login [--registy=&lt;registry&gt;]
-npm publish [--registy=&lt;registry&gt;]
-</code></pre>
+npm publish [--registy=&lt;registry&gt;]</code></pre>
 
         </div>
       </main>
@@ -153,65 +141,48 @@ npm publish [--registy=&lt;registry&gt;]
       <main>
         <div class="column1">
           <h1 id="list-outdated-package">List outdated package</h1>
-<pre><code class="lang-npm">npm outdated
-</code></pre>
+<pre><code class="language-npm">npm outdated</code></pre>
 <h1 id="linking">Linking</h1>
-<pre><code class="lang-npm">npm link
-</code></pre>
+<pre><code class="language-npm">npm link</code></pre>
 <p>Link allow to create a globally-installed package that is in development (or not in registries).</p>
 <p>But you can also link your package in other <strong>node_modules</strong> directory :</p>
-<pre><code class="lang-npm">cd my-lib/
+<pre><code class="language-npm">cd my-lib/
 npm link
 cd ../my-project-that-use-lib/
-npm link my-lib
-</code></pre>
+npm link my-lib</code></pre>
 <p>Or in only one step :</p>
-<pre><code class="lang-npm">cd my-project-that-use-lib/
-npm link ../my-lib
-</code></pre>
+<pre><code class="language-npm">cd my-project-that-use-lib/
+npm link ../my-lib</code></pre>
 <h1 id="cache-clean">Cache clean</h1>
-<pre><code class="lang-npm">npm cache clean
-</code></pre>
+<pre><code class="language-npm">npm cache clean</code></pre>
 <h1 id="install-in-production">Install in production</h1>
 <p>This command don&#39;t install dev dependencies</p>
-<pre><code class="lang-npm">npm install --production
-</code></pre>
+<pre><code class="language-npm">npm install --production</code></pre>
 <h1 id="yarn-package-managment">Yarn package managment</h1>
 <p>Yarn is a faster package manager than NPM.</p>
 <h2 id="equivalent-to-npm-command">Equivalent to npm command</h2>
-<pre><code class="lang-npm">yarn = npm install
-</code></pre>
-<pre><code class="lang-npm">yarn add &lt;package&gt; = npm install &lt;package&gt; --save
-</code></pre>
+<pre><code class="language-npm">yarn = npm install</code></pre>
+<pre><code class="language-npm">yarn add &lt;package&gt; = npm install &lt;package&gt; --save</code></pre>
 
         </div>
         <div class="column2">
-          <pre><code class="lang-npm">yarn remove &lt;package&gt; = npm uninstall &lt;package&gt; --save
-</code></pre>
-<pre><code class="lang-npm">yarn add &lt;package&gt; --dev = npm install &lt;package&gt; --save-dev
-</code></pre>
-<pre><code class="lang-npm">yarn update = npm update --save
-</code></pre>
-<pre><code class="lang-npm">yarn global add &lt;package&gt; = npm install &lt;package&gt; --global
-</code></pre>
-<pre><code class="lang-npm">yarn cache clean = npm cache clean
-</code></pre>
-<pre><code class="lang-npm">yarn --production = npm install --production
-</code></pre>
-<pre><code class="lang-npm">yarn link = npm link
-</code></pre>
-<h1 id="same-command-as-npm-s">Same command as NPM&#39;s</h1>
-<pre><code class="lang-npm">yarn init
+          <pre><code class="language-npm">yarn remove &lt;package&gt; = npm uninstall &lt;package&gt; --save</code></pre>
+<pre><code class="language-npm">yarn add &lt;package&gt; --dev = npm install &lt;package&gt; --save-dev</code></pre>
+<pre><code class="language-npm">yarn update = npm update --save</code></pre>
+<pre><code class="language-npm">yarn global add &lt;package&gt; = npm install &lt;package&gt; --global</code></pre>
+<pre><code class="language-npm">yarn cache clean = npm cache clean</code></pre>
+<pre><code class="language-npm">yarn --production = npm install --production</code></pre>
+<pre><code class="language-npm">yarn link = npm link</code></pre>
+<h1 id="same-command-as-npms">Same command as NPM&#39;s</h1>
+<pre><code class="language-npm">yarn init
 yarn outdated
 yarn publish
 yarn run
 yarn login
-yarn test
-</code></pre>
-<h1 id="things-yarn-has-that-npm-doesn-t">Things yarn has that NPM doesn’t</h1>
+yarn test</code></pre>
+<h1 id="things-yarn-has-that-npm-doesnt">Things yarn has that NPM doesn’t</h1>
 <p>Allow selective upgrade</p>
-<pre><code class="lang-npm">yarn upgrade-interactive
-</code></pre>
+<pre><code class="language-npm">yarn upgrade-interactive</code></pre>
 <p><img src="../assets/images/yarn-interactive.png" alt="yarnInteractive"></p>
 
         </div>

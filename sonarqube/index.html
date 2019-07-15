@@ -44,8 +44,7 @@
 <p><span class="concept">Quality Gates</span> : Set of boolean conditions based on measure thresholds 
 <strong>against which projects are measured during a period</strong>. </p>
 <pre><code>Blocker Issues equals 0
-Code Coverage is greater than 80%
-</code></pre><p><span class="concept">Rules</span>: rules are executed on source to generate issues. Three basic types of rules: <strong>Reliability</strong>, <strong>Maintainability</strong> and <strong>Security</strong></p>
+Code Coverage is greater than 80%</code></pre><p><span class="concept">Rules</span>: rules are executed on source to generate issues. Three basic types of rules: <strong>Reliability</strong>, <strong>Maintainability</strong> and <strong>Security</strong></p>
 <p>Rule definition:</p>
 
 <ul>
@@ -61,8 +60,7 @@ Language: Java
 Type: bug
 Tag: multi-threading
 Repository: N/A
-Status: ready
-</code></pre><p><span class="concept">Quality profiles</span> : Collections of rules to apply during an analysis.
+Status: ready</code></pre><p><span class="concept">Quality profiles</span> : Collections of rules to apply during an analysis.
 Each language has a default profile</p>
 <p><span class="concept">Metric</span> : A type of measurement. Examples: number of lines of code, number of duplicated blocks, complexity etc.</p>
 <p><span class="concept">Reliability</span> : code that can produce operational risks or unexpected behavior at runtime. Must of time it&#39;s the consequence of lack of compliance with best practice </p>
@@ -119,23 +117,25 @@ Issue severities:</p>
           <h1 id="main-metrics">Main metrics</h1>
 <ul>
 <li class="limetrics"> <span class="concept">Quality Gate Status</span> : State of the quality gate associated to the project. Possible values: ERROR, WARN, OK. It changes after each scan. </li>
-<li class="limetrics"> <span class="concept">Reliability</span> : Number of bugs, number of new bugs, etc... Reliability rating: A = 0 bug, B = at least <strong>1 Minor</strong> bug,
-   C = at least 1 <strong>Major</strong> bug, D = at least <strong>1 critical</strong> bug, E = at least <strong>1 Blocker</strong> bug</li>
+<li class="limetrics"> <span class="concept">Reliability</span> : Number of bugs, number of new bugs, etc... Reliability rating: A = 0 bug, B = at least **1 Minor** bug,
+   C = at least 1 **Major** bug, D = at least **1 critical** bug, E = at least **1 Blocker** bug</li>
 <li class="limetrics"> <span class="concept">Security</span> : Number of vulnerabilities, number of new vulnerabilities, etc... Reliability rating same as Reliability rating</li>
 <li class="limetrics"> <span class="concept">Complexity</span> Cyclomatic complexity is used up to version 6.3. 
-It&#39;s measured on choices and branches i.e. numbers of if, else, while, switch/case
+It's measured on choices and branches i.e. numbers of if, else, while, switch/case
 It is recommended to have at least a cyclomatic complexity of 12 in a method. Each method add 1 to the complexity.</li>
 </ul>
-<code>String getMonth (int monthNumber) {//+1
+```
+String getMonth (int monthNumber) {//+1
    switch (monthNumber) {
     case 1:                        //+1
-       return &quot;January&quot;;
+       return "January";
     case 2:                       //+1
-       return &quot;February&quot;;
+       return "February";
     default:
-    return &quot;Error&quot;;
+    return "Error";
   }
-}</code> 
+}
+``` 
 <ul>
 <li class="limetrics"> <span class="concept">Metric</span> : Number of classes, files, lines, lines of code,methods, projects, statements ....</li>
 <li class="limetrics"> <span class="concept">Duplications</span> : duplicated blocks, files, lines</li>
@@ -150,8 +150,7 @@ boolean c = false;
 
 if(a &amp;&amp; (b || c) ){ ...}
 
-Condition coverage =  (2 + 1) / (2*3) = 0.5 
-</code></pre>
+Condition coverage =  (2 + 1) / (2*3) = 0.5 </code></pre>
         </div>
         <div class="column2">
           <h1 id="analysis-parameters">Analysis parameters</h1>
@@ -163,14 +162,13 @@ Condition coverage =  (2 + 1) / (2*3) = 0.5
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>sonar.host.url</td>
 <td>Server URL,  df = <a href="http://SONAR_SERVER_IP:9000">http://SONAR_SERVER_IP:9000</a></td>
 </tr>
 <tr>
 <td>sonar.project.key</td>
-<td>The project key that is unique for each project.  When using maven df = &lt;groupId>:&lt;artifactId></td>
+<td>The project key that is unique for each project.  When using maven df = &lt;groupId&gt;:&lt;artifactId&gt;</td>
 </tr>
 <tr>
 <td>sonar.login</td>
@@ -184,28 +182,27 @@ Condition coverage =  (2 + 1) / (2*3) = 0.5
 <td>sonar.language</td>
 <td>Set the language of the source code to analyse. If not set multi-language analysis will be triggered</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h1 id="tools">Tools</h1>
 <ul>
 <li>  <span class="concept">Sonarlint:</span></li>
     <ul>
       <li >Allows  to fix issues on the fly and when code changes</li>
       <li >Available as a plugin for IDE
-      <li ><a href="https://www.sonarlint.org/">sonarlint web site</a>
+      <li >[sonarlint web site](https://www.sonarlint.org/)
     </ul>
     <br/>
 <li>  <span class="concept">EclEmma:</span> </li>
   <ul>
-    <li>Allows to check coverage code by unit tests. It&#39;s based on JaCoCo library 
+    <li>Allows to check coverage code by unit tests. It's based on JaCoCo library 
     <li>Available as a plugin for Eclipse IDE</li>
-    <li><a href="http://www.eclemma.org/">EclEmma web site</a></li>
+    <li>[EclEmma web site](http://www.eclemma.org/)</li>
   </ul>
   <br/>
 <li> <span class="concept">Jscpd:</span> </li>
   <ul>
     <li>Allows to detect copy/paste code </li>
-    <li><a href="https://github.com/kucherenko/jscpd">Jscpd web site</a></li>
+    <li>[Jscpd web site](https://github.com/kucherenko/jscpd)</li>
   </ul>
 </ul>
 

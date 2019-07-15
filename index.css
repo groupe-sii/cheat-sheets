@@ -1,4 +1,6 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box; }
 
 body {
@@ -31,6 +33,7 @@ body {
     margin: 5px 0 0 0; }
   body main {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     padding-top: 108px;
     padding-bottom: 80px; }
