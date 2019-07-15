@@ -1,7 +1,7 @@
 # Grands principes à suivre
 
 ## Défense en profondeur
-Plusieurs modes de sécurisations pour un même risque
+Plusieurs modes de sécurisation pour un même risque
 
 *Ex : ORM + compte lecture seule + valider les entrées*
 
@@ -23,12 +23,12 @@ Le front-end sécurise la page affichée :
 Utiliser des librairies reconnues pour :
 * Les fonctions d'authentification
 * La gestion de sessions
-* Le chiffrement (mot de passes et autres données)
+* Le chiffrement (mots de passe et autres données)
 
-Pour hasher vos mots de passes, choisissez parmi Argon2, PBKDF2, Scrypt et Bcrypt
+Pour hasher vos mots de passe, choisissez parmi Argon2, PBKDF2, Scrypt et Bcrypt
 
 ## Se tenir à jour
-Mettre à jour fréquemment les Frameworks et bibliothèques utilisées
+Mettre à jour fréquemment les frameworks et bibliothèques utilisés
 
 Pour savoir si cela est nécessaire, vérifier les vulnérabilités connues avec des outils dédiés
    * Checkmarx

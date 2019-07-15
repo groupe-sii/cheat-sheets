@@ -10,4 +10,11 @@ body {
       height: 230px;
     }
   }
+
+  footer a:first-child:before {
+    content: "R3-0169-01_Cheatsheet_Dev_Web_sécurisé";
+    position: absolute;
+    margin-top: 20px;
+  }
+
 }
