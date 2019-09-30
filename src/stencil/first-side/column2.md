@@ -9,7 +9,7 @@ export class TodoList {
   @Prop() color: string;
   @Prop() favoriteNumber: number;
   @Prop() isSelected: boolean;
-  @Prop({ mutable: true, reflectToAttr: true }) name: string = 'Stencil';
+  @Prop({ mutable: true, reflect: true }) name: string = 'Stencil';
 
   componentDidLoad() {
     this.name = 'Stencil 0.7.0';
@@ -21,7 +21,7 @@ export class TodoList {
 /* in HTML */
 <todo-list color="blue" favorite-number="24" is-selected="true"></todo-list>
 /* in JSX */
-<todo-list color="blue" favoriteNumber={24} isSelected="true"></todo-list>
+<todo-list color="blue" favoriteNumber="{24}" isSelected="true"></todo-list>
 ```
 
 ## @State
