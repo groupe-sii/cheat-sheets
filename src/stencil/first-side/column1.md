@@ -3,10 +3,11 @@
 <img src="../assets/images/stencil-lifecycle.png" width="400" height="473">
 
 # Decorators
+
 ## @Component
 
 ```ts
-import { Component } from '@stencil/core';
+import { Component, h } from '@stencil/core';
 
 @Component({
   tag: 'todo-list',
