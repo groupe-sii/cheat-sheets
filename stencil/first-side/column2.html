@@ -6,7 +6,7 @@ export class TodoList {
   @Prop() color: string;
   @Prop() favoriteNumber: number;
   @Prop() isSelected: boolean;
-  @Prop({ mutable: true, reflectToAttr: true }) name: string = &#39;Stencil&#39;;
+  @Prop({ mutable: true, reflect: true }) name: string = &#39;Stencil&#39;;
 
   componentDidLoad() {
     this.name = &#39;Stencil 0.7.0&#39;;
@@ -15,7 +15,7 @@ export class TodoList {
 <pre><code class="language-html">/* in HTML */
 &lt;todo-list color=&quot;blue&quot; favorite-number=&quot;24&quot; is-selected=&quot;true&quot;&gt;&lt;/todo-list&gt;
 /* in JSX */
-&lt;todo-list color=&quot;blue&quot; favoriteNumber={24} isSelected=&quot;true&quot;&gt;&lt;/todo-list&gt;</code></pre>
+&lt;todo-list color=&quot;blue&quot; favoriteNumber=&quot;{24}&quot; isSelected=&quot;true&quot;&gt;&lt;/todo-list&gt;</code></pre>
 <h2 id="state">@State</h2>
 <p>Declare an internal state only for the inside.</p>
 <pre><code>import { State } from &#39;@stencil/core&#39;;
