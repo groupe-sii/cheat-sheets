@@ -1,0 +1,46 @@
+<h1 id="patron-de-conception-créateur">Patron de conception Créateur</h1>
+<h2 id="singleton">Singleton</h2>
+<p> Avoir une seule instance de l&#39;objet toujours appelée</p>
+<pre><code class="language-Java">public class MySingleton {
+  private static MySingleton instance;
+  private MySingleton(){}
+
+  public final static MySingleton getInstance(){
+      if (instance == null){
+          return new MySingleton();
+      }
+      return instance;
+  }  
+}</code></pre>
+<h2 id="factory">Factory</h2>
+<p>Exposer une interface unique pour créer des objets de la même famille </p>
+<pre><code class="language-Java">public interface Animal {
+    void sound();
+}
+public class Dog implements Animal {
+    @Override
+    public void sound(){
+        System.out.println(&quot;bark&quot;);
+    }
+}
+public class Cat implements Animal {
+    @Override
+    public void sound(){
+        System.out.println(&quot;meow&quot;);
+    }
+}
+public class AnimalFactory{
+    Animal getAnimal(String animal){
+        return animal.equalsIgnoreCase(&quot;DOG&quot;)? 
+            new Dog(): new Cat();
+    }
+}
+public class DemoFactory {
+    AnimalFactory factory = new AnimalFactory();
+    public static void main(String[] args) {
+        Animal animal = factory.getAnimal(&quot;DOG&quot;);
+        Animal animal2 = factory.getAnimal(&quot;CAT&quot;);
+        animal.sound(); // bark
+        animal2.sound(); // meow
+    }
+}</code></pre>

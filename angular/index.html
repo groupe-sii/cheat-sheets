@@ -39,7 +39,8 @@
 
       <main>
         <div class="column1">
-          <h1 id="bootstrapping">Bootstrapping</h1>
+          <p>current version: <strong>12</strong> - Date: <strong>Oct 2021</strong></p>
+<h1 id="bootstrapping">Bootstrapping</h1>
 <p>Bootstraps the app, using the root component from the specified <strong>NgModule</strong>.</p>
 <pre><code class="language-js">import { platformBrowserDynamic }
     from &#39;@angular/platform-browser-dynamic&#39;;
@@ -188,8 +189,8 @@ class MyService() {}</code></pre>
 </tbody></table>
 <h2 id="ngif"><a href="https://angular.io/api/common/NgIf">ngIf</a></h2>
 <pre><code class="language-html">
-&lt;span *ngIf=&quot;hero&quot;&gt;{{ hero.name }} exists !&lt;/span&gt;
-</code></pre>
+&lt;span *ngIf=&quot;hero; else noHero&quot;&gt;{{ hero.name }} exists !&lt;/span&gt;
+&lt;ng-template #noHero&gt;No hero found :&#39;(&lt;/ng-template&gt;</code></pre>
 <h2 id="ngfor"><a href="https://angular.io/api/common/NgForOf">ngFor</a></h2>
 <pre><code class="language-html">
 &lt;span *ngFor=&quot;let hero of heroes; let i=index&quot;&gt;{{ hero.name }} is at index {{ i }}&lt;/span&gt;
@@ -201,6 +202,7 @@ class MyService() {}</code></pre>
   &lt;span *ngSwitchDefault&gt;You are special&lt;/span&gt;
 &lt;/div&gt;</code></pre>
 <h1 id="basic-http-request">Basic HTTP Request</h1>
+<p>HTTP request need to import <strong>ONLY ONE TIME</strong> <code>HttpClientModule</code>. </p>
 <pre><code class="language-ts">import {Http} from &quot;@angular/http&quot;;
 import &quot;rxjs/add/operator/map&quot;;
 
@@ -261,7 +263,7 @@ myObservable.subscribe(myObserver);</code></pre>
   return {unsubscribe() {}};
 });
 
-sequence.subscribe({next: ...});</code></pre>
+sequence.subscribe((value) =&gt; {...});</code></pre>
 <h1 id="sources">Sources</h1>
 <p><strong>Complete docs RxJS</strong> <a href="https://www.learnrxjs.io/">https://www.learnrxjs.io/</a></p>
 <p><strong>Angular RXJS</strong> <a href="https://angular.io/guide/observables">https://angular.io/guide/observables</a></p>

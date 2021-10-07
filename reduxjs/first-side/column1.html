@@ -1,0 +1,17 @@
+<p>Redux version: <strong>4.0.5</strong> - Date <strong>April 2020</strong></p>
+<h1 id="general-guideline">GENERAL GUIDELINE</h1>
+<p><strong>Why Redux?:</strong> With Redux we manage a single one global store at our application and with this we can deal with the communication&#39;s limitation of unidirectional flux between father and child components.</p>
+<p><strong>Single source of truth:</strong> only one state <br/>
+<strong>State is immutable (read-only):</strong> only an action can trigger a change, you can&#39;t do it directly  <br/>
+<strong>Changes are made with pure functions:</strong> only the reducers can transform the state  <br/></p>
+<h1 id="redux-flow-concept">Redux Flow Concept</h1>
+<p><img src="../assets/images/redux-flow.png" alt="gitZone"></p>
+<div class='definitions-flow'>
+
+<ul>
+<li><span class='color-block'>State</span> Data that you will consume to manipulate your interface (UI)</li>
+<li><span class='color-block'>UI (View)</span> Interface that will be modified according to your state</li>
+<li><span class='color-block'>Actions (Dispatch)</span> Every action that calls your reducer to mutate your state</li>
+<li><span class='color-block'>Reducer</span> A function (or group of functions) that will mutate the data and send the new data to the store</li>
+<li><span class='color-block'>Store</span> Holds the whole state tree of your application</div></li>
+</ul>

@@ -1,0 +1,96 @@
+/* put your all custom css rules here */
+/* you must not change other scss files */
+body main div img, body main div .definitions-flow ul li {
+  transition: all .25s; }
+  body main div img:hover, body main div .definitions-flow ul li:hover {
+    transform: scale(1.1); }
+
+body {
+  --currentColor: var(--purple); }
+  body h1 {
+    line-height: 1em; }
+  body strong {
+    color: var(--purple); }
+  body .logo-container img {
+    filter: brightness(4); }
+  body main div img {
+    max-width: 100%;
+    height: auto; }
+  @media print {
+    body main div a {
+      display: none; } }
+  body main div .definitions-flow ul {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; }
+    body main div .definitions-flow ul li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #e6e6e6;
+      margin: .5em;
+      padding: .56em .5em;
+      border-radius: .5em;
+      text-align: center;
+      width: calc(50% - 1em); }
+      @media print {
+        body main div .definitions-flow ul li {
+          width: 100%;
+          margin: .25em 0;
+          padding: .55em .5em; }
+          body main div .definitions-flow ul li .color-block {
+            padding: .25em 1em; } }
+      body main div .definitions-flow ul li:hover {
+        background-color: #d7cef1; }
+      body main div .definitions-flow ul li:first-child {
+        margin-left: 0; }
+      body main div .definitions-flow ul li:last-child {
+        margin-right: 0; }
+  body main div .color-block {
+    background-color: #a593e0;
+    color: white;
+    padding: .5em 1em;
+    border-radius: 5px; }
+  body main div .alert-message {
+    background-color: lightcoral;
+    color: white;
+    border-radius: .5em .5em 0 0;
+    padding: .5em 1em;
+    display: inline-flex;
+    align-items: center;
+    font-size: .9em;
+    line-height: 1em; }
+    body main div .alert-message .icon {
+      min-width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: white;
+      color: lightcoral;
+      text-align: center;
+      margin: 0 .5em 0 0;
+      font-weight: bolder;
+      font-size: 1.3em;
+      transition: transform .5s;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+    body main div .alert-message:hover .icon {
+      transform: scale(1.2) rotate(25deg); }
+    body main div .alert-message + pre {
+      margin-top: 0; }
+      body main div .alert-message + pre code {
+        margin-top: 0; }
+  body main div table {
+    width: 100%;
+    font-size: 1em; }
+    body main div table th, body main div table td {
+      padding: .5em; }
+    body main div table thead tr th {
+      text-align: left;
+      background-color: #a593e0;
+      color: white; }
+    body main div table tbody tr {
+      background-color: #e6e6e6; }
+    body main div table tbody tr:nth-child(odd) {
+      background-color: #f3f3f3; }
