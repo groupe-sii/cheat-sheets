@@ -1,4 +1,4 @@
-# Modules
+# Inheritance
 
 _validation.ts_
 
@@ -17,6 +17,8 @@ export class Letters extends StringValidator {
 }
 ```
 
+# Module import
+
 _random.ts_
 
 ```
@@ -25,8 +27,6 @@ export default function random() {
 }
 ```
 
-# Module import
-
 _hello-world.ts_
 
 ```
@@ -34,4 +34,12 @@ import { StringValidator, Letters } from './validation'
 
 import random from './hello-world'
 import { random as RD } from './hello-world'
+```
+
+# Elvis operator
+Test existence of an element :
+```
+let x = foo?.bar;
+// is equivalent to
+let x = foo === null || foo === undefined ? undefined : foo.bar;
 ```

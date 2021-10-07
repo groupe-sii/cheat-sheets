@@ -1,3 +1,4 @@
+current version: __3.7__ - Date: __Oct 2021__
 # Named types
 
 Enum

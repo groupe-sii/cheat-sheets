@@ -37,7 +37,7 @@ const sequence = new Observable((observer) => {
   return {unsubscribe() {}};
 });
 
-sequence.subscribe({next: ...});
+sequence.subscribe((value) => {...});
 ```
 
 # Sources
