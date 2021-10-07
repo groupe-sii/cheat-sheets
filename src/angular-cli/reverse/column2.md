@@ -14,9 +14,7 @@ Local project package:
 
 ```shell
 rm -rf node_modules dist # use rmdir on Windows
-npm install --save-dev @angular/cli@latest
-npm install
-ng init
+ng update @angular/cli @angular/core
 ```
 # 3rd Party Library Installation
 

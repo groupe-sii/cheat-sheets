@@ -1,3 +1,4 @@
+current version: __12__ - Date: __Oct 2021__
 # Bootstrapping
 
 Bootstraps the app, using the root component from the specified __NgModule__.

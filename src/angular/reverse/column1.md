@@ -12,8 +12,8 @@
 
 ```html
 
-<span *ngIf="hero">{{ hero.name }} exists !</span>
-
+<span *ngIf="hero; else noHero">{{ hero.name }} exists !</span>
+<ng-template #noHero>No hero found :'(</ng-template>
 ```
 
 ## [ngFor](https://angular.io/api/common/NgForOf)
@@ -35,6 +35,8 @@
 ```
 
 # Basic HTTP Request
+
+HTTP request need to import **ONLY ONE TIME** `HttpClientModule`. 
 
 ```ts
 import {Http} from "@angular/http";
