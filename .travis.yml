@@ -1,10 +1,15 @@
 language: node_js
 node_js:
-- 14
+  - 14
 install:
-- npm install
+  - npm install
 script:
-- npm run build
-after_success:
-- npm run deploy
-
+  - npm run build
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GH_TOKEN
+  keep_history: true
+  local_dir: dist
+  on:
+    branch: master
