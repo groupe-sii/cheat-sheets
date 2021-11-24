@@ -1,8 +1,6 @@
 language: node_js
 node_js:
-- stable
-before_install:
-- npm install -g gulp
+- 14
 install:
 - npm install
 script:
