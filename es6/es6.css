@@ -1,6 +1,0 @@
-/* put your all custom css rules here */
-/* you must not change other scss files */
-body {
-  --currentColor: var(--green); }
-  body main div img {
-    height: 230px; }
