@@ -1,0 +1,53 @@
+<p>current version: <strong>12</strong> - Date: <strong>Oct 2021</strong></p>
+<h1 id="bootstrapping">Bootstrapping</h1>
+<p>Bootstraps the app, using the root component from the specified <strong>NgModule</strong>.</p>
+<pre><code class="language-js">import { platformBrowserDynamic }
+    from &#39;@angular/platform-browser-dynamic&#39;;
+
+platformBrowserDynamic()
+    .bootstrapModule(AppModule);</code></pre>
+<h1 id="ngmodule">NgModule</h1>
+<p><strong>Defines a module</strong> that contains components, directives, pipes, and providers.</p>
+<pre><code class="language-js">import { NgModule } from &#39;@angular/core&#39;;
+
+@NgModule({
+    declarations: [
+        MyRootComponent, 
+        MyComponent, 
+        MyDirective, 
+        MyPipe],
+    imports: [MyModule, NpmModule],
+    exports: [MyComponent],
+    providers: [MyService],
+    bootstrap: [MyRootComponent] // Only root module
+})
+class MyModule {}</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>declarations</strong></td>
+<td>Components to this module</td>
+</tr>
+<tr>
+<td><strong>imports</strong></td>
+<td>Modules to import into this module</td>
+</tr>
+<tr>
+<td><strong>exports</strong></td>
+<td>Components visible to another module</td>
+</tr>
+<tr>
+<td><strong>providers</strong></td>
+<td>Dependency injection providers</td>
+</tr>
+<tr>
+<td><strong>bootstrap</strong></td>
+<td>The root component of module</td>
+</tr>
+</tbody></table>
+<p>The <strong>pipes</strong> and <strong>directive</strong> is declared as <strong>components</strong></p>

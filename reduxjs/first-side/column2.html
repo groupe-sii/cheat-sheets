@@ -1,0 +1,35 @@
+<p><strong>Updated</strong> 23 April 2020</p>
+<h1 id="installation">Installation</h1>
+<p><code>npm install redux</code></p>
+<p>If you work into a React App, react-redux provides an easy integration. <a target='_blank' href='https://react-redux.js.org'>Take a look.</a>
+<code>npm install react-redux</code></p>
+<h1 id="creating-a-new-store">Creating a new store</h1>
+<div class='alert-message'>
+    <span class='icon'>!</span>The store is always a global var
+</div>
+
+<pre><code class="language-js">import { createStore } from &#39;redux&#39;; 
+const store = createStore();</code></pre>
+<h1 id="creating-reducers-and-state">Creating reducers and state</h1>
+<p>The reducer will validate the action&#39;s type and then will return the new state</p>
+<div class='alert-message'>
+    <span class='icon'>!</span>You should have an initial state when we define the reducer
+</div>
+
+<pre><code class="language-js">function yourReducer(state = &#39;Sii-Canada&#39; , action){
+    switch(action.type){
+        case &#39;UPPERCASE&#39;:
+            return state.toUpperCase(); //SII-CANADA
+        case &#39;LOWERCASE&#39;:
+            return state.toLowerCase(); //sii-canada
+        default:
+            return state
+    }
+}
+const store = createStore(yourReducer);</code></pre>
+<h1 id="creating-actions-and-getting-updated-data">Creating actions and getting updated data</h1>
+<p>An action is a generic object that by convention has the following props: <br/>
+<strong>type:</strong> the function type, commonly is a string. <br/>
+<strong>payload:</strong> data that we can use to update the state, here you can pass anything.</p>
+<pre><code class="language-js">store.dispatch({type: &#39;UPPERCASE&#39;, payload:...}) //our action
+store.subscribe(() =&gt; console.log(store.getState())) //our new data -&gt; SII-CANADA</code></pre>

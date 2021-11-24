@@ -1,0 +1,41 @@
+<h1 id="api---createstore">API - createStore()</h1>
+<p><strong>Why</strong>: it&#39;s the base method <br/>
+<strong>Return</strong>: a store object</p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Reducer</strong></td>
+<td>your reducer function / combineReducers</td>
+</tr>
+<tr>
+<td><strong>[state]</strong></td>
+<td>your initial state, if you don&#39;t set it here, you must set it as a default value into your reducer declaration (optional)</td>
+</tr>
+<tr>
+<td><strong>[enhancer]</strong></td>
+<td>a middleware function (optional)</td>
+</tr>
+</tbody></table>
+<pre><code class="language-js">const store = createStore(reducer,state,enhancer)</code></pre>
+<h1 id="api---combinereducers">API - combineReducers()</h1>
+<p><strong>Why</strong>: to combine various reducers <br/>
+<strong>Arguments</strong>: object with at least two reducers <br/>
+<strong>Return</strong>: one reducer to rule them all <br /></p>
+<pre><code class="language-js">const rootReducer = combineReducers({reducerA, reducerB, reducerC})</code></pre>
+<h1 id="api---applymiddleware">API - applyMiddleware()</h1>
+<p><strong>Why</strong>: to be able to deal with async data<br/>
+<strong>Arguments</strong>: a middleWare function <br/>
+<strong>Return</strong>: a store enhancer</p>
+<!-- * We can create a custom middleware to keep it simple. <a target='_blank' href='https://redux.js.org/api/applymiddleware#example-custom-logger-middleware'> Exemple</a> -->
+
+<pre><code class="language-js">const store = createStore(reducer,state, applyMiddleware(yourMiddleware))</code></pre>
+<h1 id="api---bindactioncreators">API - bindActionCreators()</h1>
+<p><strong>Why</strong>: to pass action creators to a component that isn&#39;t aware of Redux and you don&#39;t want to pass dispatch <br/>
+<strong>Arguments</strong>: an action creator and a dispatch function avaible on the store <br/>
+<strong>Return</strong>: a dispatch function mutated with the passeds action creators</p>
+<pre><code class="language-js">bindActionCreators(YoursActionsCreators, dispatch)</code></pre>

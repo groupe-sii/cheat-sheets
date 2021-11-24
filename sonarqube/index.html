@@ -1,0 +1,224 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Droid+Sans:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="../common/lib/atom-one-light.css">
+    <link rel="stylesheet" href="./sonarqube.css">
+  </head>
+  <body>
+    <input type="checkbox" id="showPreview"/>
+    <div class="first-side">
+      <div class="cutter">
+<div class="cut cut-top-left">&nbsp;</div>
+<div class="cut cut-bottom-left">&nbsp;</div>
+<div class="cut cut-top-right">&nbsp;</div>
+<div class="cut cut-bottom-right">&nbsp;</div>
+</div>
+<header>
+    <div class="home-button no-print">
+        <a href="../" title="back to home cheat Sheet"><i class="material-icons">home</i></a>
+        <label for="showPreview"><i class="material-icons">visibility</i></label>
+    </div>
+    <div class="header-center">
+        <div class="description-content">
+            <div class="title">SonarQube cheat sheet</div>
+            <div class="sub-title">Main concepts & metrics.</div>
+        </div>
+
+        <div class="logo-container">
+            <img src="../assets/images/sonarqube.png">
+        </div>
+    </div>
+    <div class="logo-category no-print">
+        <i class="material-icons" onclick="printLarge()">print</i>
+    </div>
+</header>
+
+
+
+      <main>
+        <div class="column1">
+          <p> SonarQube version: <strong>6.3+</strong> - Date: <strong>February 2018</strong></p>
+<h1 id="main-concepts">Main concepts</h1>
+<p><span class="concept">Quality Gates</span> : Set of boolean conditions based on measure thresholds 
+<strong>against which projects are measured during a period</strong>. </p>
+<pre><code>Blocker Issues equals 0
+Code Coverage is greater than 80%</code></pre><p><span class="concept">Rules</span>: rules are executed on source to generate issues. Three basic types of rules: <strong>Reliability</strong>, <strong>Maintainability</strong> and <strong>Security</strong></p>
+<p>Rule definition:</p>
+
+<ul>
+<li>Language</li>
+<li>Type: bug, vulnerability, code smell</li>
+<li>Tag</li>
+<li>Repository</li>
+<li>Status: beta, deprecated, ready</li>
+</ul>
+<p>Example:</p>
+<pre><code>&quot;.equals()&quot; should not be used to test the values of &quot;Atomic&quot; classes
+Language: Java
+Type: bug
+Tag: multi-threading
+Repository: N/A
+Status: ready</code></pre><p><span class="concept">Quality profiles</span> : Collections of rules to apply during an analysis.
+Each language has a default profile</p>
+<p><span class="concept">Metric</span> : A type of measurement. Examples: number of lines of code, number of duplicated blocks, complexity etc.</p>
+<p><span class="concept">Reliability</span> : code that can produce operational risks or unexpected behavior at runtime. Must of time it&#39;s the consequence of lack of compliance with best practice </p>
+
+        </div>
+        <div class="column2">
+          <h1 id="main-concepts">Main concepts</h1>
+<p><span class="concept">Leak period</span> :  period (generally last release) in which newly added code is analysed against specified criteria.</p>
+<p><span class="concept">Maintainability</span> : modularity, understandability, changeability, testability and reusability of a module.</p>
+<p><span class="concept">Issue</span> : SonarQube raise an issue every time a piece of code breaks a code rule.
+Issue severities:</p>
+<ul>
+<li>BLOCKER: memory leak, not closing a socket... The code <strong>MUST</strong> be fixed immediately.</li>
+<li>CRITICAL: SQL Injection, NullPointerException: The code <strong>MUST</strong> be reviewed immediately.</li>
+<li>MAJOR: duplicated blocks, unused parameters</li>
+<li>MINOR: naming convention, lines too long,...</li>
+<li>INFO</li>
+</ul>
+<h1 id="issue-life-cycle">Issue life cycle</h1>
+<p>Except Opened state, the others statuses can be set manually.It <strong>requires administer issues permission</strong> on the project</p>
+<p><img src="../assets/images/sonarqube-issue-wflw.png" alt="gitZone"></p>
+
+        </div>
+      </main>
+
+      <footer class="print-only">
+  <a href="https://groupe-sii.github.io/cheat-sheets">groupe-sii.github.io/cheat-sheets</a>
+  <a href="https://sii-group.com">sii-group.com</a>
+  <a href="https://blog.groupe-sii.com">blog.groupe-sii.com</a>
+  <img src="../assets/images/logoSII-white.svg">
+</footer>
+
+
+
+    </div>
+
+    <hr class="no-print"/>
+
+    <div class="reverse">
+      <header class="print-only">
+    <div class="header-center">
+        <div class="description-content">
+            <div class="title">sonarqube cheat sheet</div>
+        </div>
+        <div class="logo-container">
+            <img src="../assets/images/sonarqube.png" >
+        </div>
+    </div>
+</header>
+
+
+      <main>
+        <div class="column1">
+          <h1 id="main-metrics">Main metrics</h1>
+<ul>
+<li class="limetrics"> <span class="concept">Quality Gate Status</span> : State of the quality gate associated to the project. Possible values: ERROR, WARN, OK. It changes after each scan. </li>
+<li class="limetrics"> <span class="concept">Reliability</span> : Number of bugs, number of new bugs, etc... Reliability rating: A = 0 bug, B = at least **1 Minor** bug,
+   C = at least 1 **Major** bug, D = at least **1 critical** bug, E = at least **1 Blocker** bug</li>
+<li class="limetrics"> <span class="concept">Security</span> : Number of vulnerabilities, number of new vulnerabilities, etc... Reliability rating same as Reliability rating</li>
+<li class="limetrics"> <span class="concept">Complexity</span> Cyclomatic complexity is used up to version 6.3. 
+It's measured on choices and branches i.e. numbers of if, else, while, switch/case
+It is recommended to have at least a cyclomatic complexity of 12 in a method. Each method add 1 to the complexity.</li>
+</ul>
+```
+String getMonth (int monthNumber) {//+1
+   switch (monthNumber) {
+    case 1:                        //+1
+       return "January";
+    case 2:                       //+1
+       return "February";
+    default:
+    return "Error";
+  }
+}
+``` 
+<ul>
+<li class="limetrics"> <span class="concept">Metric</span> : Number of classes, files, lines, lines of code,methods, projects, statements ....</li>
+<li class="limetrics"> <span class="concept">Duplications</span> : duplicated blocks, files, lines</li>
+<li class="limetrics"> <span class="concept">Maintainability</span> : Number of code smells, technical debt i.e effort to fix all maintainability issues.</li>
+<li class="limetrics"> <span class="concept">Tests</span> : Condition coverage, line coverage, etc...</li>
+</ul>
+
+<pre><code>Condition coverage = (conditions evaluated to true at least once + conditions evaluated to false at least once ) / (2* total number of conditions)
+boolean a = false;
+boolean b = true;
+boolean c = false;
+
+if(a &amp;&amp; (b || c) ){ ...}
+
+Condition coverage =  (2 + 1) / (2*3) = 0.5 </code></pre>
+        </div>
+        <div class="column2">
+          <h1 id="analysis-parameters">Analysis parameters</h1>
+<p>df = default value</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sonar.host.url</td>
+<td>Server URL,  df = <a href="http://SONAR_SERVER_IP:9000">http://SONAR_SERVER_IP:9000</a></td>
+</tr>
+<tr>
+<td>sonar.project.key</td>
+<td>The project key that is unique for each project.  When using maven df = &lt;groupId&gt;:&lt;artifactId&gt;</td>
+</tr>
+<tr>
+<td>sonar.login</td>
+<td>The login of a SonarQube user with Execute Analysis permission.</td>
+</tr>
+<tr>
+<td>sonar.password</td>
+<td>The password that goes with sonar.login.</td>
+</tr>
+<tr>
+<td>sonar.language</td>
+<td>Set the language of the source code to analyse. If not set multi-language analysis will be triggered</td>
+</tr>
+</tbody></table>
+<h1 id="tools">Tools</h1>
+<ul>
+<li>  <span class="concept">Sonarlint:</span></li>
+    <ul>
+      <li >Allows  to fix issues on the fly and when code changes</li>
+      <li >Available as a plugin for IDE
+      <li >[sonarlint web site](https://www.sonarlint.org/)
+    </ul>
+    <br/>
+<li>  <span class="concept">EclEmma:</span> </li>
+  <ul>
+    <li>Allows to check coverage code by unit tests. It's based on JaCoCo library 
+    <li>Available as a plugin for Eclipse IDE</li>
+    <li>[EclEmma web site](http://www.eclemma.org/)</li>
+  </ul>
+  <br/>
+<li> <span class="concept">Jscpd:</span> </li>
+  <ul>
+    <li>Allows to detect copy/paste code </li>
+    <li>[Jscpd web site](https://github.com/kucherenko/jscpd)</li>
+  </ul>
+</ul>
+
+        </div>
+      </main>
+
+      <footer class="@@class">
+  <a href="https://groupe-sii.github.io/cheat-sheets">groupe-sii.github.io/cheat-sheets</a>
+  <a href="https://sii-group.com">sii-group.com</a>
+  <a href="https://blog.groupe-sii.com">blog.groupe-sii.com</a>
+  <img src="../assets/images/logoSII-white.svg">
+</footer>
+
+    </div>
+
+    <script src="../common/lib/highlight.pack.js"></script>
+    <script src="../common/script.js"></script>
+  </body>
+</html>

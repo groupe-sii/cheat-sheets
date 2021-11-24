@@ -1,0 +1,288 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Droid+Sans:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="../common/lib/atom-one-light.css">
+    <link rel="stylesheet" href="./angular.css">
+  </head>
+  <body>
+    <input type="checkbox" id="showPreview"/>
+    <div class="first-side">
+      <div class="cutter">
+<div class="cut cut-top-left">&nbsp;</div>
+<div class="cut cut-bottom-left">&nbsp;</div>
+<div class="cut cut-top-right">&nbsp;</div>
+<div class="cut cut-bottom-right">&nbsp;</div>
+</div>
+<header>
+    <div class="home-button no-print">
+        <a href="../" title="back to home cheat Sheet"><i class="material-icons">home</i></a>
+        <label for="showPreview"><i class="material-icons">visibility</i></label>
+    </div>
+    <div class="header-center">
+        <div class="description-content">
+            <div class="title">Angular (TS) cheat sheet</div>
+            <div class="sub-title">One framework. Mobile & desktop.</div>
+        </div>
+
+        <div class="logo-container">
+            <img src="../assets/images/angular.png">
+        </div>
+    </div>
+    <div class="logo-category no-print">
+        <i class="material-icons" onclick="printLarge()">print</i>
+    </div>
+</header>
+
+
+
+      <main>
+        <div class="column1">
+          <p>current version: <strong>12</strong> - Date: <strong>Oct 2021</strong></p>
+<h1 id="bootstrapping">Bootstrapping</h1>
+<p>Bootstraps the app, using the root component from the specified <strong>NgModule</strong>.</p>
+<pre><code class="language-js">import { platformBrowserDynamic }
+    from &#39;@angular/platform-browser-dynamic&#39;;
+
+platformBrowserDynamic()
+    .bootstrapModule(AppModule);</code></pre>
+<h1 id="ngmodule">NgModule</h1>
+<p><strong>Defines a module</strong> that contains components, directives, pipes, and providers.</p>
+<pre><code class="language-js">import { NgModule } from &#39;@angular/core&#39;;
+
+@NgModule({
+    declarations: [
+        MyRootComponent, 
+        MyComponent, 
+        MyDirective, 
+        MyPipe],
+    imports: [MyModule, NpmModule],
+    exports: [MyComponent],
+    providers: [MyService],
+    bootstrap: [MyRootComponent] // Only root module
+})
+class MyModule {}</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>declarations</strong></td>
+<td>Components to this module</td>
+</tr>
+<tr>
+<td><strong>imports</strong></td>
+<td>Modules to import into this module</td>
+</tr>
+<tr>
+<td><strong>exports</strong></td>
+<td>Components visible to another module</td>
+</tr>
+<tr>
+<td><strong>providers</strong></td>
+<td>Dependency injection providers</td>
+</tr>
+<tr>
+<td><strong>bootstrap</strong></td>
+<td>The root component of module</td>
+</tr>
+</tbody></table>
+<p>The <strong>pipes</strong> and <strong>directive</strong> is declared as <strong>components</strong></p>
+
+        </div>
+        <div class="column2">
+          <h1 id="class-type">Class Type</h1>
+<h2 id="component"><a href="https://angular.io/guide/component-styles">Component</a></h2>
+<pre><code class="language-js">@Component({
+    selector: &#39;app-my&#39;,
+    templateUrl: &#39;./my.component.html&#39;,
+    styleUrls: [&#39;./my.component.css&#39;]
+})
+class MyComponent() {}</code></pre>
+<h2 id="directive"><a href="https://angular.io/guide/dynamic-component-loader">Directive</a></h2>
+<pre><code class="language-js">@Directive({
+    selector: [&#39;appMy&#39;],
+    templateUrl: &#39;./my.directive.html&#39;,
+    styleUrls: [&#39;./my.directive.css&#39;]
+})
+class MyDirective() {}</code></pre>
+<h2 id="pipe"><a href="https://angular.io/guide/pipes">Pipe</a></h2>
+<pre><code class="language-js">@Pipe({name: &#39;myPipe&#39;})
+class MyPipe() {}</code></pre>
+<h2 id="provider"><a href="https://angular.io/guide/singleton-services">Provider</a></h2>
+<pre><code class="language-js">@Injectable()
+class MyService() {}</code></pre>
+<p>Add <em>{providedIn: root}</em> option <strong>for create singleton</strong></p>
+<h1 id="component-interaction">Component interaction</h1>
+<h2 id="input-and-output"><a href="https://angular.io/guide/component-interaction#component-interaction">Input</a> and <a href="https://angular.io/guide/component-interaction#parent-listens-for-child-event">Output</a></h2>
+<pre><code class="language-js">export class InventoryComponent {
+  @Input() hero: Hero;
+  @Input(&#39;newItem&#39;) itemToInsert: Item;
+
+  @Output() itemSelectionned = 
+    new EventEmitter&lt;Item&gt;();
+
+    onClickHero(item: Item) {
+        this.itemSelectionned.emit(item);
+    }
+}</code></pre>
+
+        </div>
+      </main>
+
+      <footer class="print-only">
+  <a href="https://groupe-sii.github.io/cheat-sheets">groupe-sii.github.io/cheat-sheets</a>
+  <a href="https://sii-group.com">sii-group.com</a>
+  <a href="https://blog.groupe-sii.com">blog.groupe-sii.com</a>
+  <img src="../assets/images/logoSII-white.svg">
+</footer>
+
+
+
+    </div>
+
+    <hr class="no-print"/>
+
+    <div class="reverse">
+      <header class="print-only">
+    <div class="header-center">
+        <div class="description-content">
+            <div class="title">Angular cheat sheet</div>
+        </div>
+        <div class="logo-container">
+            <img src="../assets/images/angular.png" >
+        </div>
+    </div>
+</header>
+
+
+      <main>
+        <div class="column1">
+          <h1 id="template-syntax">Template syntax</h1>
+<table>
+<thead>
+<tr>
+<th>Data direction</th>
+<th>Syntax</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>DataSource =&gt; Target</strong></td>
+<td>{{<em>expression</em>}}</td>
+</tr>
+<tr>
+<td><strong>DataSource =&gt; Target</strong></td>
+<td>[target]=&quot;<em>expression</em>&quot;</td>
+</tr>
+<tr>
+<td><strong>Target =&gt; DataSource</strong></td>
+<td>(target)=&quot;<em>statement</em>&quot;</td>
+</tr>
+<tr>
+<td><strong>Two-way</strong></td>
+<td>[(target)]=&quot;<em>expression</em>&quot;</td>
+</tr>
+</tbody></table>
+<h2 id="ngif"><a href="https://angular.io/api/common/NgIf">ngIf</a></h2>
+<pre><code class="language-html">
+&lt;span *ngIf=&quot;hero; else noHero&quot;&gt;{{ hero.name }} exists !&lt;/span&gt;
+&lt;ng-template #noHero&gt;No hero found :&#39;(&lt;/ng-template&gt;</code></pre>
+<h2 id="ngfor"><a href="https://angular.io/api/common/NgForOf">ngFor</a></h2>
+<pre><code class="language-html">
+&lt;span *ngFor=&quot;let hero of heroes; let i=index&quot;&gt;{{ hero.name }} is at index {{ i }}&lt;/span&gt;
+</code></pre>
+<h2 id="ngswitch"><a href="https://angular.io/api/common/NgSwitch">ngSwitch</a></h2>
+<pre><code class="language-html">&lt;div [ngSwitch]=&quot;hero.class&quot;&gt;
+  &lt;span *ngSwitchCase=&quot;&#39;knight&#39;&quot;&gt;You are strong&lt;/span&gt;
+  &lt;span *ngSwitchCase=&quot;&#39;mage&#39;&quot;&gt;You are intelligent&lt;/span&gt;
+  &lt;span *ngSwitchDefault&gt;You are special&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+<h1 id="basic-http-request">Basic HTTP Request</h1>
+<p>HTTP request need to import <strong>ONLY ONE TIME</strong> <code>HttpClientModule</code>. </p>
+<pre><code class="language-ts">import {Http} from &quot;@angular/http&quot;;
+import &quot;rxjs/add/operator/map&quot;;
+
+this.http.post(environment.apiAddress + &quot;/api-method&quot;, myJsonData)
+      .map(resp=&gt;resp.json());</code></pre>
+<h1 id="sources">Sources</h1>
+<p><strong>Angular module:</strong> <a href="http://www.learn-angular.fr/les-modules-angular/">http://www.learn-angular.fr/les-modules-angular/</a></p>
+<p><strong>Template syntax:</strong> <a href="https://angular.io/guide/template-syntax">https://angular.io/guide/template-syntax</a></p>
+
+        </div>
+        <div class="column2">
+          <h1 id="observable">Observable</h1>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>take</strong>(fn(Int))</td>
+<td>Event only if int value result</td>
+</tr>
+<tr>
+<td><strong>map</strong>(fn(value))</td>
+<td>Affect value on each event</td>
+</tr>
+<tr>
+<td><strong>filter</strong>(fn(value))</td>
+<td>Ignore event when return false</td>
+</tr>
+<tr>
+<td><strong>reduce</strong>(fn(oldValue), value)</td>
+<td>Compact event</td>
+</tr>
+</tbody></table>
+<h2 id="simple-observable-with-external-observer">Simple observable with external observer</h2>
+<pre><code class="language-js">const myObservable = Observable.of(1, 2, 3);
+
+// Create observer object
+const myObserver = {
+  next: x =&gt; console.log(&#39;Observer got a next value: &#39; + x),
+  error: err =&gt; console.error(&#39;Observer got an error: &#39; + err),
+  complete: () =&gt; console.log(&#39;Observer got a complete notification&#39;),
+};
+
+// Execute with the observer object
+myObservable.subscribe(myObserver);</code></pre>
+<h2 id="personalised-observable-function">Personalised observable function</h2>
+<pre><code class="language-js">const sequence = new Observable((observer) =&gt; {
+  // synchronously deliver 1, 2, and 3, then complete
+  observer.next(1);
+  observer.next(2);
+  observer.complete();
+
+  // unsubscribe function doesn&#39;t need to do anything in this
+  // because values are delivered synchronously
+  return {unsubscribe() {}};
+});
+
+sequence.subscribe((value) =&gt; {...});</code></pre>
+<h1 id="sources">Sources</h1>
+<p><strong>Complete docs RxJS</strong> <a href="https://www.learnrxjs.io/">https://www.learnrxjs.io/</a></p>
+<p><strong>Angular RXJS</strong> <a href="https://angular.io/guide/observables">https://angular.io/guide/observables</a></p>
+<!-- 
+**For ES5 component syntax** https://blog.thoughtram.io/angular/2015/05/09/writing-angular-2-code-in-es5.html -->
+
+        </div>
+      </main>
+
+      <footer class="@@class">
+  <a href="https://groupe-sii.github.io/cheat-sheets">groupe-sii.github.io/cheat-sheets</a>
+  <a href="https://sii-group.com">sii-group.com</a>
+  <a href="https://blog.groupe-sii.com">blog.groupe-sii.com</a>
+  <img src="../assets/images/logoSII-white.svg">
+</footer>
+
+    </div>
+
+    <script src="../common/lib/highlight.pack.js"></script>
+    <script src="../common/script.js"></script>
+  </body>
+</html>
