@@ -7,16 +7,16 @@ Search an image on Dockerhub
 `docker search IMAGE`
 
 Pull an image from Dockerhub  
-`docker pull [options] IMAGE[:TAG]`
+`docker pull IMAGE[:TAG]`
 
 List all local images  
-`docker images`
+`docker image ls`
 
-Remove an image  
-`docker rmi [options] [IMAGE]`
+Remove a local image 
+`docker image rm IMAGE[:TAG]`
 
 Remove all images  
-`docker rmi $(docker images -q)`
+`docker image rm $(docker image ls -q)`
 
 Login to a registry  
 `docker login [options] [SERVER]`
@@ -27,8 +27,8 @@ Pull an image from a registry
 Push an image to a registry  
 `docker push SERVER/NAME[:TAG]`
 
-Save container state to an image  
-`docker commit [options] CONTAINER [REPOSITORY[:TAG]]`
+Save container state to a new image  
+`docker commit CONTAINER IMAGE[:TAG]`
 
 Export an image  
 `docker save -o PATH.tar IMAGE[:TAG]`
