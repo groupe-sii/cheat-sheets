@@ -1,20 +1,20 @@
- docker version: __17.09+__ - Date: __October 2017__
+ docker version: __20.10+__ - Date: __December 2021__
  
 # Installation
 
-From Linux shell  
-`curl -fsSL https://get.docker.com/ | sh`
+Documentation  
+`https://docs.docker.com/engine/install/`
 
-Show the Docker version information  
-`docker version`
+Show the Docker version / information  
+`docker version` / `docker info`
 
 # Start containers
 
 Run a container  
 `docker run [options] IMAGE [COMMAND]`
 
-Run a container in background  
-`docker run -d IMAGE [COMMAND]`
+Run a httpd container in background  
+`docker run -d httpd`
 
 # Manage containers
 
@@ -24,14 +24,14 @@ List running containers
 List all containers  
 `docker ps -a`
 
-Restart container  
-`docker restart [options] CONTAINER`
-
 Stop a running container  
 `docker stop CONTAINER`
 
+Start a stopped container  
+`docker start [options] CONTAINER`
+
 Remove a container  
-`docker rm CONTAINER`
+`docker rm [-f] CONTAINER`
 
 Remove all containers  
 `docker rm $(docker ps -a -q)`
