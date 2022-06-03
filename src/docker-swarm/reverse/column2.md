@@ -18,11 +18,11 @@ Remove a stack
 # Manage secrets
 
 Create a secret from a file or STDIN  
-`Docker secret create SECRET-NAME FILE-PATH`
-`echo STRING |docker secret create SECRET-NAME -`
+`docker secret create SECRET-NAME FILE-PATH`
+`echo STRING | docker secret create SECRET-NAME -`
 
 List all secrets  
-`Docker secret ls`
+`docker secret ls`
 
 Use a secret in a compose file  
 ```dockerfile

@@ -1,4 +1,4 @@
- kubernetes version: __1.8__ - Date: __October 2017__
+ kubernetes version: __1.22__ - Date: __June 2022__
  
 # Kubectl Autocomplete
 
@@ -18,19 +18,16 @@ Set the default context (cluster)
 # Creating Objects
 
 Create resource(s)
-`kubectl create -f FILE.yaml [FILE2.yaml]`
+`kubectl apply -f FILE.yaml [FILE2.yaml]`
 
-  * Create _app-v1_ from a file:
-  `kubectl create -f app-v1.yaml`
-
-Create resource(s) in all manifest files in a directory
-`kubectl create -f PATH/DIR/`
+Create resource(s) from a directory
+`kubectl apply -f PATH/DIR/`
 
 Create resource(s) from url
-`kubectl create -f https://URL`
+`kubectl apply -f https://URL`
 
-Run a single instance (pod)
-`kubectl run NAME ARGS`
+Run a single pod
+`kubectl run NAME --image=IMAGE`
 
-  * Start a single instance (pod) of nginx
-  `kubectl run nginx --image=nginx`
+Run a single pod and connect into it  
+`kubectl run --ti NAME --image=IMAGE`
