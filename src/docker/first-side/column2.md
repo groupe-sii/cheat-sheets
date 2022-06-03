@@ -12,11 +12,8 @@ Pull an image from Dockerhub
 List all local images  
 `docker image ls`
 
-Remove a local image 
+Remove a local image  
 `docker image rm IMAGE[:TAG]`
-
-Remove all images  
-`docker image rm $(docker image ls -q)`
 
 Login to a registry  
 `docker login [options] [SERVER]`
