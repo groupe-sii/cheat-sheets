@@ -1,4 +1,4 @@
- docker version: __17.09+__ - Date: __October 2017__
+ docker version: __20.10+__ - Date: __June 2022__
 
 # Cluster initialization
 
