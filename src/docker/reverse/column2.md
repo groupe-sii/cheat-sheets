@@ -1,5 +1,5 @@
 Mount a volume at container startup  
-`docker run --mount source=[VOLUME],target=/container/path IMAGE [COMMAND]`
+`docker run --mount source=[VOLUME], target=/container/path IMAGE [COMMAND]`
 
 Mount a local folder at container startup  
 `docker run --mount type=bind,source=/local/path,target=/container/path IMAGE [COMMAND]`
@@ -23,9 +23,6 @@ Show the history of an image
 
 Return low-level information on Docker objects  
 `docker OBJECT_TYPE inspect OBJECT_NAME`
-
-Attach local standard input, output, and error streams to a running container  
-`docker attach [options] CONTAINER`
 
 Copy files between local system and container  
 `docker cp /local/path CONTAINER:/container/path`
