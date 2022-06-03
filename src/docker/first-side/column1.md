@@ -1,4 +1,4 @@
- docker version: __20.10+__ - Date: __December 2021__
+ docker version: __20.10+__ - Date: __June 2022__
  
 # Installation
 
