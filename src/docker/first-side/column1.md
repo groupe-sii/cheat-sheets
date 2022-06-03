@@ -6,9 +6,9 @@ Documentation
 `https://docs.docker.com/engine/install/`
 
 Show the Docker version / information  
-`docker version` / `docker info`
+`docker version / info`
 
-# Start containers
+# Create a container
 
 Run a container  
 `docker run [options] IMAGE [COMMAND]`
