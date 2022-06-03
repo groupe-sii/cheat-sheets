@@ -39,7 +39,7 @@
 
       <main>
         <div class="column1">
-          <p> kubernetes version: <strong>1.8</strong> - Date: <strong>October 2017</strong></p>
+          <p> kubernetes version: <strong>1.22</strong> - Date: <strong>June 2022</strong></p>
 <h1 id="kubectl-autocomplete">Kubectl Autocomplete</h1>
 <p>Setup autocomplete in bash
 <code>apt install bash-completion</code>
@@ -51,21 +51,14 @@
 <code>kubectl config use-context CLUSTER-NAME</code></p>
 <h1 id="creating-objects">Creating Objects</h1>
 <p>Create resource(s)
-<code>kubectl create -f FILE.yaml [FILE2.yaml]</code></p>
-<ul>
-<li>Create <em>app-v1</em> from a file:
-<code>kubectl create -f app-v1.yaml</code></li>
-</ul>
-<p>Create resource(s) in all manifest files in a directory
-<code>kubectl create -f PATH/DIR/</code></p>
+<code>kubectl apply -f FILE.yaml [FILE2.yaml]</code></p>
+<p>Create resource(s) from a directory
+<code>kubectl apply -f PATH/DIR/</code></p>
 <p>Create resource(s) from url
-<code>kubectl create -f https://URL</code></p>
-<p>Run a single instance (pod)
-<code>kubectl run NAME ARGS</code></p>
-<ul>
-<li>Start a single instance (pod) of nginx
-<code>kubectl run nginx --image=nginx</code></li>
-</ul>
+<code>kubectl apply -f https://URL</code></p>
+<p>Run a single pod
+<code>kubectl run NAME --image=IMAGE</code></p>
+<p>Run a single pod and connect into it<br><code>kubectl run --ti NAME --image=IMAGE</code></p>
 
         </div>
         <div class="column2">

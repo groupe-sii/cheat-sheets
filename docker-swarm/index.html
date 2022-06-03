@@ -39,7 +39,7 @@
 
       <main>
         <div class="column1">
-          <p> docker version: <strong>17.09+</strong> - Date: <strong>October 2017</strong></p>
+          <p> docker version: <strong>20.10+</strong> - Date: <strong>June 2022</strong></p>
 <h1 id="cluster-initialization">Cluster initialization</h1>
 <h2 id="on-the-first-manager-node">On the first Manager node</h2>
 <p>Initialize the cluster<br><code>docker swarm init --advertise-addr MANAGER-IP</code></p>
@@ -130,9 +130,9 @@
 <p>List the tasks of a stack<br><code>docker stack ps STACK</code></p>
 <p>Remove a stack<br><code>docker stack rm STACK</code></p>
 <h1 id="manage-secrets">Manage secrets</h1>
-<p>Create a secret from a file or STDIN<br><code>Docker secret create SECRET-NAME FILE-PATH</code>
-<code>echo STRING |docker secret create SECRET-NAME -</code></p>
-<p>List all secrets<br><code>Docker secret ls</code></p>
+<p>Create a secret from a file or STDIN<br><code>docker secret create SECRET-NAME FILE-PATH</code>
+<code>echo STRING | docker secret create SECRET-NAME -</code></p>
+<p>List all secrets<br><code>docker secret ls</code></p>
 <p>Use a secret in a compose file  </p>
 <pre><code class="language-dockerfile">version: &quot;3.1&quot;
 services:
