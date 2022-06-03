@@ -1,4 +1,4 @@
- docker version: __20.10+__ - Date: __December 2021__
+ docker version: __20.10+__ - Date: __June 2022__
  
 # Installation
 
@@ -6,9 +6,9 @@ Documentation
 `https://docs.docker.com/engine/install/`
 
 Show the Docker version / information  
-`docker version` / `docker info`
+`docker version / info`
 
-# Start containers
+# Create a container
 
 Run a container  
 `docker run [options] IMAGE [COMMAND]`
