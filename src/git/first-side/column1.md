@@ -1,4 +1,4 @@
- git version: __2.20__ - Date: __December 2018__
+ git version: __2.25__ - Date: __June 2022__
  
 # Local Git State and changes
 
