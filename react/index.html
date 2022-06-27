@@ -87,7 +87,9 @@ root.render(&lt;HelloWorld /&gt;);</code></pre>
   }
 }
 
-ReactDOM.render(&lt;HelloMessage msg={&#39;SII CANADA&#39;}/&gt;, document.getElementById(&#39;root&#39;))</code></pre>
+const root = ReactDOM.createRoot(document.getElementById(&#39;root&#39;));
+root.render(&lt;HelloMessage msg={&#39;SII&#39;}/&gt;);
+</code></pre>
 <pre><code class="language-js">const HelloMessage = (props) =&gt; (
   &lt;div&gt;Hello {props.msg}&lt;/div&gt;
 )</code></pre>
@@ -202,15 +204,17 @@ const Routes = () =&gt; {
   return (
     &lt;Router&gt;
       &lt;Switch&gt;
-        &lt;Route exact path=&quot;/&quot; component={Home} /&gt;
-        &lt;Route path=&quot;/about&quot; component={About} /&gt;
-        &lt;Route path=&quot;/404&quot; component={Page404} /&gt;
+        &lt;Route exact path=&quot;/&quot; element={Home} /&gt;
+        &lt;Route path=&quot;/about&quot; element={About} /&gt;
+        &lt;Route path=&quot;/404&quot; element={Page404} /&gt;
         &lt;Redirect to=&quot;/404&quot; /&gt;
       &lt;/Switch&gt;
     &lt;/Router&gt;
   )
 }
-ReactDOM.render(&lt;Routes /&gt;, document.getElementById(&#39;root&#39;))</code></pre>
+
+const root = ReactDOM.createRoot(document.getElementById(&quot;root&quot;));
+root.render(&lt;Routes /&gt;)</code></pre>
 
         </div>
       </main>
