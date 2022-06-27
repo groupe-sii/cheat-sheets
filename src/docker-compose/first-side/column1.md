@@ -1,4 +1,4 @@
- docker-compose version: __1.16.1__ - Date: __October 2017__
+ docker-compose version: __1.27.0__ - Date: __June 2022__
  
 # Info
 
