@@ -35,6 +35,7 @@ const Routes = () => {
   )
 }
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Routes />)
+const node = document.getElementById('root')
+const root = ReactDOM.createRoot(node);
+root.render(<Routes />);
 ```
