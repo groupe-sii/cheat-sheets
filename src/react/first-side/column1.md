@@ -8,7 +8,8 @@ We call this a “root” DOM node because everything inside it will be managed 
 
 ```js
 const element = <h1>Hello, world</h1>
-ReactDOM.createRoot(document.getElementById('root'));
+const node = document.getElementById('root')
+ReactDOM.createRoot(node);
 ```
 
 # React Element
@@ -20,14 +21,13 @@ React components extends React.Component.
 class HelloWorld extends React.Component {
   render() {
     return (
-      <div>
-        Hello World
-      </div>
+      <div>Hello World</div>
     )
   }
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const node = document.getElementById('root')
+const root = ReactDOM.createRoot(node);
 root.render(<HelloWorld />);
 ```
 
@@ -38,12 +38,11 @@ A stateless component can be replace by a simple function.
 ```js
 const HelloWorld = () => {
   return (
-    <div>
-      Hello World
-    </div>
+    <div>Hello World</div>
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const node = document.getElementById('root')
+const root = ReactDOM.createRoot(node);
 root.render(<HelloWorld />);
 ```
