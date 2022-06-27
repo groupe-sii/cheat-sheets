@@ -6,16 +6,14 @@ Input data that is passed into the component can be accessed via this.props in a
 class HelloMessage extends React.Component {
   render() {
     return (
-      <div>
-        Hello {this.props.msg}
-      </div>
+      <div>Hello {this.props.msg}</div>
     )
   }
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<HelloMessage msg={'SII'}/>);
-
+const node = document.getElementById('root')
+const root = ReactDOM.createRoot(node);
+root.render(<HelloWorld />);
 ```
 
 ```js
