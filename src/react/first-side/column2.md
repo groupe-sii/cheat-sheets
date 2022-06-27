@@ -13,7 +13,9 @@ class HelloMessage extends React.Component {
   }
 }
 
-ReactDOM.render(<HelloMessage msg={'SII CANADA'}/>, document.getElementById('root'))
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<HelloMessage msg={'SII'}/>);
+
 ```
 
 ```js
