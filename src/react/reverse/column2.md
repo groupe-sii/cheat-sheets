@@ -26,13 +26,15 @@ const Routes = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/404" component={Page404} />
+        <Route exact path="/" element={Home} />
+        <Route path="/about" element={About} />
+        <Route path="/404" element={Page404} />
         <Redirect to="/404" />
       </Switch>
     </Router>
   )
 }
-ReactDOM.render(<Routes />, document.getElementById('root'))
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<Routes />)
 ```
