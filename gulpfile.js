@@ -1,18 +1,20 @@
-const gulp = require('gulp'),
-  fileinclude = require('gulp-file-include'),
-  markdown = require('gulp-markdown'),
-  sass = require('gulp-sass'),
-  argv = require('yargs').argv,
-  template = require('gulp-template'),
-  inject = require('gulp-inject-string'),
-  rename = require('gulp-rename'),
-  clean = require('gulp-clean'),
-  connect = require('gulp-connect'),
-  gulpLivereload = require('gulp-livereload'),
-  tap = require('gulp-tap'),
-  replace = require('gulp-replace');
+import gulp from 'gulp';
+import markdown from 'gulp-markdown';
+import dartSass from 'sass';
+import gulpSass from 'gulp-sass';
+const sass = gulpSass(dartSass);
+import fileinclude from 'gulp-file-include';
+import argv from 'yargs';
+import template from 'gulp-template';
+import inject from 'gulp-inject-string';
+import rename from 'gulp-rename';
+import clean from 'gulp-clean';
+import connect from 'gulp-connect';
+import gulpLivereload from 'gulp-livereload';
+import replace from 'gulp-replace';
+import tap from 'gulp-tap';
 
-const { series, task } = require('gulp');
+const { series, task } = gulp;
 
 let toCopy = ['node_modules/highlight.js/build/highlight.pack.js'];
 
