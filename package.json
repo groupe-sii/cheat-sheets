@@ -24,11 +24,11 @@
     "gulp-markdown": "^4.0.0",
     "gulp-rename": "^1.4.0",
     "gulp-replace": "^1.0.0",
-    "gulp-sass": "^4.0.2",
+    "gulp-sass": "^5.1.0",
     "gulp-tap": "^1.0.1",
     "gulp-template": "^5.0.0",
     "merge-stream": "^2.0.0",
-    "node-sass": "^4.10.0",
+    "node-sass": "^8.0.0",
     "yargs": "^13.2.4"
   },
   "engines": {
