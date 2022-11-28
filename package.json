@@ -2,7 +2,6 @@
   "name": "cheat-sheet-markdown",
   "version": "0.1.0",
   "main": "index.js",
-  "author": "Kevin Grandemange <kgrandemange@sii.fr>",
   "scripts": {
     "build": "gulp build",
     "deploy": "node deploy.js",
