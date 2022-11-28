@@ -103,6 +103,3 @@ yarn.lock
 dist/
 
 .vscode/
-
-# Fix #22 by removing hard coded fixed version of dependencies
-package-lock.json
