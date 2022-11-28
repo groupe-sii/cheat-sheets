@@ -1,7 +1,8 @@
 <p>Strings</p>
 <pre><code class="language-go">s1 := &quot;SII&quot;
 var s2 = s1 + &quot; ROCKS !&quot;
-fmt.Println(s2) // Will print &quot;SII ROCKS !&quot;</code></pre>
+fmt.Println(s2) // Will print &quot;SII ROCKS !&quot;
+</code></pre>
 <p>Arrays</p>
 <pre><code class="language-go">// Syntax: []type
 var a []int // nil array
@@ -11,7 +12,8 @@ fmt.Println(b[1]) // Will print: 20
 
 // Allocation
 a := make([]int, 4, 10) // lenght: 4, capacity: 10
-fmt.Println(a) // Print: [0, 0, 0, 0]</code></pre>
+fmt.Println(a) // Print: [0, 0, 0, 0]
+</code></pre>
 <p>Maps</p>
 <pre><code class="language-go">// Syntax: map[keys_type]values_type
 var m map[string]int // nil map
@@ -21,13 +23,15 @@ fmt.Println(m[&quot;score&quot;]) // Print 5000
 m = make(map[string]int, 10) // Capacity: 10
 m[&quot;score&quot;] = 5000
 m[&quot;year&quot;] = 2018
-m[&quot;hello&quot;] = &quot;world&quot; // Will panic and exit</code></pre>
+m[&quot;hello&quot;] = &quot;world&quot; // Will panic and exit
+</code></pre>
 <h1 id="conditions">Conditions</h1>
 <pre><code class="language-go">if 30 &gt; 10{
     fmt.Println(&quot;true&quot;)
 } else if true == false{ 
     fmt.Println(&quot;false&quot;)
-}</code></pre>
+}
+</code></pre>
 <h1 id="loops">Loops</h1>
 <pre><code class="language-go">for i:=0;i&lt;10;i++ { // loop in range [0:10[
     fmt.Println(&quot;Hello&quot;)
@@ -41,4 +45,5 @@ for index, element := range array {
 m := []map[int]bool{0: true, 10, false}
 for key, value := range m {
     fmt.Println(key, value)
-}</code></pre>
+}
+</code></pre>

@@ -9,7 +9,8 @@
 </div>
 
 <pre><code class="language-js">import { createStore } from &#39;redux&#39;; 
-const store = createStore();</code></pre>
+const store = createStore();
+</code></pre>
 <h1 id="creating-reducers-and-state">Creating reducers and state</h1>
 <p>The reducer will validate the action&#39;s type and then will return the new state</p>
 <div class='alert-message'>
@@ -26,10 +27,12 @@ const store = createStore();</code></pre>
             return state
     }
 }
-const store = createStore(yourReducer);</code></pre>
+const store = createStore(yourReducer);
+</code></pre>
 <h1 id="creating-actions-and-getting-updated-data">Creating actions and getting updated data</h1>
 <p>An action is a generic object that by convention has the following props: <br/>
 <strong>type:</strong> the function type, commonly is a string. <br/>
 <strong>payload:</strong> data that we can use to update the state, here you can pass anything.</p>
 <pre><code class="language-js">store.dispatch({type: &#39;UPPERCASE&#39;, payload:...}) //our action
-store.subscribe(() =&gt; console.log(store.getState())) //our new data -&gt; SII-CANADA</code></pre>
+store.subscribe(() =&gt; console.log(store.getState())) //our new data -&gt; SII-CANADA
+</code></pre>

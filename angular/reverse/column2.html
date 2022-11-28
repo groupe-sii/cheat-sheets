@@ -25,29 +25,31 @@
 </tbody></table>
 <h2 id="simple-observable-with-external-observer">Simple observable with external observer</h2>
 <pre><code class="language-js">const myObservable = Observable.of(1, 2, 3);
-
+ 
 // Create observer object
 const myObserver = {
   next: x =&gt; console.log(&#39;Observer got a next value: &#39; + x),
   error: err =&gt; console.error(&#39;Observer got an error: &#39; + err),
   complete: () =&gt; console.log(&#39;Observer got a complete notification&#39;),
 };
-
+ 
 // Execute with the observer object
-myObservable.subscribe(myObserver);</code></pre>
+myObservable.subscribe(myObserver);
+</code></pre>
 <h2 id="personalised-observable-function">Personalised observable function</h2>
 <pre><code class="language-js">const sequence = new Observable((observer) =&gt; {
   // synchronously deliver 1, 2, and 3, then complete
   observer.next(1);
   observer.next(2);
   observer.complete();
-
+ 
   // unsubscribe function doesn&#39;t need to do anything in this
   // because values are delivered synchronously
   return {unsubscribe() {}};
 });
 
-sequence.subscribe((value) =&gt; {...});</code></pre>
+sequence.subscribe((value) =&gt; {...});
+</code></pre>
 <h1 id="sources">Sources</h1>
 <p><strong>Complete docs RxJS</strong> <a href="https://www.learnrxjs.io/">https://www.learnrxjs.io/</a></p>
 <p><strong>Angular RXJS</strong> <a href="https://angular.io/guide/observables">https://angular.io/guide/observables</a></p>

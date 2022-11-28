@@ -7,7 +7,8 @@ public class ErrorController {
   @ResponseStatus(HttpStatus.FORBIDDEN)
   public ErrorResponse accessDenied(AccessDeniedException e) {
   }
-}</code></pre>
+}
+</code></pre>
 <h1 id="asynchronous-request-processing">Asynchronous request processing</h1>
 <p>It is possible to use the Servlet 3.0 asynchronous request processing feature in Spring:</p>
 <pre><code class="language-Java">@RequestMapping(method=RequestMethod.POST)
@@ -18,7 +19,8 @@ public Callable&lt;String&gt; processUpload(final MultipartFile file) {
         return &quot;someView&quot;;
         }
   }
-}</code></pre>
+}
+</code></pre>
 <p>Or using DefferedResult</p>
 <pre><code class="language-Java">@RequestMapping(&quot;/quotes&quot;)
 @ResponseBody
@@ -28,4 +30,5 @@ public DeferredResult&lt;String&gt; quotes() {
   return deferredResult;
 }
 // In some other thread...
-deferredResult.setResult(data);</code></pre>
+deferredResult.setResult(data);
+</code></pre>

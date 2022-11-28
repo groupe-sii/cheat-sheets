@@ -43,15 +43,18 @@
 <p>The CLI requires NodeJS &gt;= 6.9.0 and NPM 3 or higher.</p>
 <pre><code class="language-clea">clea help
 # or
-clea help [command]</code></pre>
+clea help [command]
+</code></pre>
 <h1 id="how-to-start-">How to start ?</h1>
 <pre><code class="language-clea">clea new &lt;app-name&gt; # Generate a new project
 cd &lt;app-name&gt;
-clea serve # Serve it</code></pre>
+clea serve # Serve it
+</code></pre>
 <p>Go to <a href="http://localhost:8080/">http://localhost:8080/</a>. Hot reload is active by default.</p>
 <h1 id="ui-framework">UI Framework</h1>
 <p>Pre-configure a default UI Framework:</p>
-<pre><code class="language-clea">clea new &lt;app-name&gt; --ui-framework &lt;type&gt;</code></pre>
+<pre><code class="language-clea">clea new &lt;app-name&gt; --ui-framework &lt;type&gt;
+</code></pre>
 <p>Available types:</p>
 <ul>
 <li><strong>material</strong>: for AngularJS Material</li>
@@ -59,7 +62,8 @@ clea serve # Serve it</code></pre>
 </ul>
 <h1 id="make-it-progressive">Make it Progressive</h1>
 <p>Generate the basics of a Progressive Web App with the following:</p>
-<pre><code class="language-clea">clea new &lt;app-name&gt; --make-it-progressive</code></pre>
+<pre><code class="language-clea">clea new &lt;app-name&gt; --make-it-progressive
+</code></pre>
 <p>Generated files:</p>
 <ul>
 <li><strong>sw.conf.js</strong>: sw-precache and sw-toolbox configuration file.</li>
@@ -73,17 +77,20 @@ clea serve # Serve it</code></pre>
         <div class="column2">
           <h1 id="serve">Serve</h1>
 <p>Change the host and port to listen to:</p>
-<pre><code class="language-clea">clea serve --port 4000 --host 0.0.0.0</code></pre>
+<pre><code class="language-clea">clea serve --port 4000 --host 0.0.0.0
+</code></pre>
 <p>Merge or override the webpack configuration:</p>
 <pre><code class="language-clea"># Merge with Clea webpack configuration
 clea --merge-config webpack.config.js
 
 # Override Clea webpack configuration
-clea --override-config webpack.config.js</code></pre>
+clea --override-config webpack.config.js
+</code></pre>
 <p><span class="no-print"><a href="https://github.com/groupe-sii/clea-cli/blob/master/docs/serve.md">More details</a></span></p>
 <h1 id="mock-your-api">Mock your API</h1>
 <p>Easily mock a REST API with JSON Server:</p>
-<pre><code class="language-clea">clea serve --api</code></pre>
+<pre><code class="language-clea">clea serve --api
+</code></pre>
 <h2 id="options">Options</h2>
 <p><strong>--api [db]</strong> enable the mock API on the specified database JSON file (defaults to: <strong>db.json</strong>)</p>
 <p><strong>--api-custom-routes [config]</strong> add custom Express routes if you want something more than just a RESTFul API (defaults to: <strong>api.conf.js</strong>)</p>
@@ -91,13 +98,15 @@ clea --override-config webpack.config.js</code></pre>
 <p><span class="no-print"><a href="https://github.com/groupe-sii/clea-cli/blob/master/docs/more/api.md">More details</a></span></p>
 <h1 id="environments">Environments</h1>
 <p>You can target an environment with the following:</p>
-<pre><code class="language-clea">clea serve|build --target=&lt;environment&gt;</code></pre>
+<pre><code class="language-clea">clea serve|build --target=&lt;environment&gt;
+</code></pre>
 <p>Environments mapping is made in the <strong>.clea-cli.json</strong> file:</p>
 <pre><code class="language-json">environmentSource: &quot;config/config.json&quot;,
 environments: {
   development: &quot;config/config.dev.json&quot;,
   production: &quot;config/config.prod.json&quot;
-}</code></pre>
+}
+</code></pre>
 <p><span class="no-print"><a href="https://github.com/groupe-sii/clea-cli/blob/master/docs/more/environments.md">More details</a></span></p>
 
         </div>
@@ -139,9 +148,11 @@ environments: {
     &quot;target&quot;: &quot;http://localhost:3000&quot;,
     &quot;secure&quot;: false
   }
-}</code></pre>
+}
+</code></pre>
 <p>Then launch:</p>
-<pre><code class="language-clea">clea serve --proxy-config proxy.conf.json</code></pre>
+<pre><code class="language-clea">clea serve --proxy-config proxy.conf.json
+</code></pre>
 <p>It will redirect each call to <a href="http://localhost:8080/api">http://localhost:8080/api</a> to the targeted server.</p>
 <p><span class="no-print"><a href="https://github.com/groupe-sii/clea-cli/blob/master/docs/more/proxy.md">More details</a></span></p>
 <h1 id="code-analysis">Code analysis</h1>
@@ -149,16 +160,19 @@ environments: {
 <pre><code class="language-clea">clea lint
 
 # Will attempt to fix lint errors
-clea lint --fix</code></pre>
+clea lint --fix
+</code></pre>
 <p><span class="no-print"><a href="https://github.com/groupe-sii/clea-cli/blob/master/docs/lint.md">More details</a></span></p>
 <h1 id="testing">Testing</h1>
 <p>Launch unit tests with Karma &amp; Jasmine</p>
-<pre><code class="language-clea">clea test</code></pre>
+<pre><code class="language-clea">clea test
+</code></pre>
 <p><span class="no-print"><a href="https://github.com/groupe-sii/clea-cli/blob/master/docs/test.md">More details</a></span></p>
 <h1 id="sonarqube-reporter">SonarQube reporter</h1>
 <p>Use <strong>sonar-web-frontend-reporters</strong> to generate understandable reporters for SonarQube.</p>
 <p>Launch the following command to regenerate reporters under the <strong>reports</strong> folder:</p>
-<pre><code class="language-npm">npm run sonar:reporters</code></pre>
+<pre><code class="language-npm">npm run sonar:reporters
+</code></pre>
 <p><span class="no-print"><a href="https://github.com/groupe-sii/clea-cli/blob/master/docs/more/sonarqube-reporters.md">More details</a></span></p>
 
         </div>
@@ -178,7 +192,8 @@ clea generate [entity] my-new-entity
 # and launch:
 clea generate [entity] ../my-newer-entity
 # Your entity will be generated in the
-# src/app/my-newer-entity folder</code></pre>
+# src/app/my-newer-entity folder
+</code></pre>
 <p>Available entities:</p>
 <pre><code class="language-clea"># Component
 clea generate component my-new-component
@@ -199,13 +214,16 @@ clea generate module my-module
 clea generate module my-module --lazy-load
 
 # Generate a component for the new module
-clea generate module my-module --with-component</code></pre>
+clea generate module my-module --with-component
+</code></pre>
 <p><span class="no-print"><a href="https://github.com/groupe-sii/clea-cli/blob/master/docs/generate.md">More details</a></span></p>
 <h1 id="build">Build</h1>
 <p>Compiles the application into an output directory</p>
-<pre><code class="language-clea">clea build</code></pre>
+<pre><code class="language-clea">clea build
+</code></pre>
 <p>Target <strong>production</strong> environment, generate the <strong>doc</strong> and the <strong>sourcemaps</strong> (for debugging purpose).</p>
-<pre><code class="language-clea">clea build --target=production --doc --sourcemap</code></pre>
+<pre><code class="language-clea">clea build --target=production --doc --sourcemap
+</code></pre>
 
         </div>
       </main>

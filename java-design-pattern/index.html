@@ -82,7 +82,8 @@
       }
       return instance;
   }  
-}</code></pre>
+}
+</code></pre>
 <h2 id="factory">Factory</h2>
 <p>Exposer une interface unique pour créer des objets de la même famille </p>
 <pre><code class="language-Java">public interface Animal {
@@ -114,7 +115,8 @@ public class DemoFactory {
         animal.sound(); // bark
         animal2.sound(); // meow
     }
-}</code></pre>
+}
+</code></pre>
 
         </div>
       </main>
@@ -187,14 +189,15 @@ public class StoreFacade {
 
       return perfectPC;
   }
-
+  
 }
 public class DemoFacade {
     public static void main(String[] args) {
       StoreFacade storeFacade = new StoreFacade();
       storeFacade.buildPerfectPC();
     }
-}</code></pre>
+}
+</code></pre>
 
         </div>
         <div class="column2">
@@ -233,10 +236,10 @@ public class Context {
 
 public class StrategyPatternDemo {
    public static void main(String[] args) {
-      Context context = new Context(new OperationAdd());        
+      Context context = new Context(new OperationAdd());		
       context.executeStrategy(10, 5); // 15
 
-      context = new Context(new OperationSubstract());        
+      context = new Context(new OperationSubstract());		
       context.executeStrategy(10, 5); // 5
 </code></pre>
 <p>Exemple de librairie qui utilise le patron de conception : Dans le JDK, Collections.sort() </p>

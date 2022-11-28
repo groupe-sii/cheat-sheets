@@ -62,7 +62,8 @@
 <pre><code class="language-xml">&lt;dependency&gt;
     &lt;groupId&gt;org.springframework&lt;/groupId&gt;
     &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
-&lt;/dependency&gt;</code></pre>
+&lt;/dependency&gt;
+</code></pre>
 <h1 id="application-configuration">Application configuration</h1>
 <ul>
 <li>Java</li>
@@ -78,12 +79,14 @@ public class MyApp {
         DummyService helloWorld = app.getBean(DummyService.class);
         helloWorld.getMessage();
     }
-}</code></pre>
+}
+</code></pre>
 <p>Prefer use of a configuration class</p>
 <pre><code class="language-Java">@Configuration
 public class MyAppConfig {
   // @Bean, ...
-}</code></pre>
+}
+</code></pre>
 
         </div>
         <div class="column2">
@@ -95,7 +98,8 @@ public class MyAppConfig {
   public DummyService dummyService(){
     return new DummyServiceImpl();
   }
-}</code></pre>
+}
+</code></pre>
 <h2 id="define-a-bean--component">Define a bean : <strong>@Component</strong></h2>
 <p><em>@Component</em> specializations :</p>
 <ul>
@@ -105,7 +109,8 @@ public class MyAppConfig {
 </ul>
 <pre><code class="language-Java">@Component
 public class DummyServiceImpl implements DummyService {
-}</code></pre>
+}
+</code></pre>
 <h2 id="dependency-injection--autowired">Dependency injection : <strong>@Autowired</strong></h2>
 <ul>
 <li>Via a class field</li>
@@ -117,18 +122,19 @@ public class FooServiceImpl implements FooService {
 
   @Autowired
   private DummyService service;
-
+  
   @Autowired
   public FooServiceImpl(DummyService dummyservice) {
     this.service = dummyService;
   }
-
+  
   @Autowired
   public DummyService setDummyService(DummyService dummyService) {
     this.service = dummyService;
   }
 
-}</code></pre>
+}
+</code></pre>
 
         </div>
       </main>
@@ -196,22 +202,28 @@ public class FooServiceImpl implements FooService {
 </tbody></table>
 <h1 id="customizing-a-bean">Customizing a bean</h1>
 <h2 id="initialization-method">Initialization method</h2>
-<pre><code class="language-Java">@PostConstruct</code></pre>
+<pre><code class="language-Java">@PostConstruct
+</code></pre>
 <h2 id="destroy-method">Destroy method</h2>
-<pre><code class="language-Java">@PreDestroy</code></pre>
+<pre><code class="language-Java">@PreDestroy
+</code></pre>
 <h1 id="spel--spring-expression-language">SpEL : Spring Expression Language</h1>
 <h2 id="access-a-system-properties">Access a system properties</h2>
 <pre><code class="language-Java">@Value(&quot;#{ systemProperties[&#39;user.home&#39;] }&quot;)
-private String defaultHome;</code></pre>
+private String defaultHome;
+</code></pre>
 <h2 id="access-a-bean-property">Access a bean property</h2>
 <pre><code class="language-Java">@Value(&quot;#{myBean.myValue}&quot;)
-private String myValue;</code></pre>
+private String myValue;
+</code></pre>
 <h2 id="parse-a-string">Parse a string</h2>
 <pre><code class="language-Java">@Value(&quot;#{myBean.myValue.substring(0,1)}&quot;)
-private String myValue;</code></pre>
+private String myValue;
+</code></pre>
 <h2 id="operations">Operations</h2>
 <pre><code class="language-Java">@Value(&quot;#{myBean.myValue.length() &gt; 2}&quot;)
-private String myValue;</code></pre>
+private String myValue;
+</code></pre>
 
         </div>
         <div class="column2">
@@ -227,11 +239,13 @@ public class MyAppConfig {
    * Property max in file foo.properties.
    */
   private Integer max;
-
-}</code></pre>
+  
+}
+</code></pre>
 <p>Use a property : <strong>@Value(&quot;${message}&quot;)</strong> </p>
 <pre><code class="language-Java">@Value(&quot;${message:Default message}&quot;)
-private String message;</code></pre>
+private String message;
+</code></pre>
 <h1 id="go-deeper">Go deeper</h1>
 <ul>
 <li><a href="https://spring.io/guides">https://spring.io/guides</a></li>

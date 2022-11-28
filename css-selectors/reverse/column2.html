@@ -3,15 +3,17 @@
 <pre><code class="language-html">&lt;div class=&quot;parent&quot;&gt;
   &lt;div id=&quot;my-iD&quot;&gt;&lt;/div&gt;
   &lt;div class=&quot;my-class&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-<pre><code class="language-css">#my-id + .my-class</code></pre>
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css">#my-id + .my-class
+</code></pre>
 <h1 id="priority-rules">Priority rules</h1>
 <h2 id="specificity">Specificity</h2>
 <p>If an element is targeted twice, the style defined with the most <strong>specific</strong> selector will override the others.
 Two classes with a combinator are more specific than a single class, but a single ID is more specific than mutliple classes, respecting this pattern : inline style &gt; id &gt; class, attribute and pseudo-class &gt; element and pseudo-element.</p>
 <p>In the picture below, the second example is more specific than the first.</p>
 <p><img src="../assets/images/css-selectors-specificity.png" alt="specificity"></p>
-<p><small>*<em>source : *</em> <a href="https://specificity.keegan.st/"> https://specificity.keegan.st/</a></small></p>
+<p><small>**source : ** <a href="https://specificity.keegan.st/"> https://specificity.keegan.st/</a></small></p>
 <h2 id="chronology">Chronology</h2>
 <p>If a property is defined twice for the same element and with equal specificity, the last occurence in the stylesheet will override the first.</p>
 <h2 id="but">But...</h2>

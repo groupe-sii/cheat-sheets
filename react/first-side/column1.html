@@ -1,10 +1,12 @@
 <h1 id="rendering-an-element-into-the-dom-reactdom">Rendering an Element into the DOM (ReactDom)</h1>
 <p>Let’s say there is a &lt; div &gt; somewhere in your HTML file:</p>
-<pre><code class="language-html">&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;</code></pre>
+<pre><code class="language-html">&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+</code></pre>
 <p>We call this a “root” DOM node because everything inside it will be managed by React DOM.</p>
 <pre><code class="language-js">const element = &lt;h1&gt;Hello, world&lt;/h1&gt;
 const node = document.getElementById(&#39;root&#39;)
-ReactDOM.createRoot(node);</code></pre>
+ReactDOM.createRoot(node);
+</code></pre>
 <h1 id="react-element">React Element</h1>
 <h2 id="a-simple-component">A Simple Component</h2>
 <p>React components extends React.Component.</p>
@@ -18,7 +20,8 @@ ReactDOM.createRoot(node);</code></pre>
 
 const node = document.getElementById(&#39;root&#39;)
 const root = ReactDOM.createRoot(node);
-root.render(&lt;HelloWorld /&gt;);</code></pre>
+root.render(&lt;HelloWorld /&gt;);
+</code></pre>
 <h2 id="a-simple-function">A Simple function</h2>
 <p>A stateless component can be replace by a simple function.</p>
 <pre><code class="language-js">const HelloWorld = () =&gt; {
@@ -29,4 +32,5 @@ root.render(&lt;HelloWorld /&gt;);</code></pre>
 
 const node = document.getElementById(&#39;root&#39;)
 const root = ReactDOM.createRoot(node);
-root.render(&lt;HelloWorld /&gt;);</code></pre>
+root.render(&lt;HelloWorld /&gt;);
+</code></pre>

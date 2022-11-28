@@ -2,7 +2,8 @@
 <p>A React component that subscribes to context changes. This lets you subscribe to a context within a function component.</p>
 <pre><code class="language-js">&lt;Consumer&gt;
   {value =&gt; /* render something based on the context value */}
-&lt;/Consumer&gt;</code></pre>
+&lt;/Consumer&gt;
+</code></pre>
 <p>Requires a function as a child. The function receives the current context value and returns a React node. The value argument passed to the function will be equal to the value prop of the closest Provider for this context above in the tree. If there is no Provider for this context above, the value argument will be equal to the defaultValue that was passed to createContext().</p>
 <h1 id="routing">Routing</h1>
 <p>React Router allow you to route your application easily</p>
@@ -33,4 +34,5 @@ const Routes = () =&gt; {
 
 const node = document.getElementById(&#39;root&#39;)
 const root = ReactDOM.createRoot(node);
-root.render(&lt;Routes /&gt;);</code></pre>
+root.render(&lt;Routes /&gt;);
+</code></pre>

@@ -56,7 +56,8 @@ import &quot;fmt&quot;
 // This is a comment
 func main() {
     fmt.Println(&quot;Hello World ! 你好，世界 ! 😊&quot;)
-}</code></pre>
+}
+</code></pre>
 <p>Running your program</p>
 <pre><code class="language-sh"># Compiling binaries only
 &gt; go build -o hello main.go &amp;&amp; ./hello
@@ -64,14 +65,16 @@ func main() {
 &gt; go run main.go
 
 # Output
-Hello World ! 你好，世界 ! 😊</code></pre>
+Hello World ! 你好，世界 ! 😊
+</code></pre>
 <p>Cross compilation</p>
 <pre><code class="language-sh"># GOOS=operating_system GOARCH=architecture
 
 &gt; GOOS=windows GOARCH=i386 go build -o hello.exe main.go
 &gt; GOOS=linux GOARCH=amd64 go build -o hello main.go
 
-# If not specified, go will detect/use the current system and compile for it</code></pre>
+# If not specified, go will detect/use the current system and compile for it
+</code></pre>
 
         </div>
         <div class="column2">
@@ -81,12 +84,14 @@ Hello World ! 你好，世界 ! 😊</code></pre>
 myconstant = 5 // program will panic and exit
 
 const LOGLEVEL = 0 // type auto detection 
-// LOGLEVEL is of type int32 under 32bit systems, int64 under 64bit systems</code></pre>
+// LOGLEVEL is of type int32 under 32bit systems, int64 under 64bit systems
+</code></pre>
 <p>Variable</p>
 <pre><code class="language-go">var a int // default value for int is 0
 a = 2 + 5
 fmt.Println(a) // Will print 7
-var a = &quot;hello&quot; // Will panic and exit. Changing type isn&#39;t possible.</code></pre>
+var a = &quot;hello&quot; // Will panic and exit. Changing type isn&#39;t possible.
+</code></pre>
 <p>multiple variables</p>
 <pre><code class="language-go">const (
     PATH = &quot;/etc&quot;
@@ -96,7 +101,8 @@ var (
     a = 1
     b = a + 9 // b = 10
     anotherCONFIG = PATH + &quot;/myconfig.ini&quot;
-)</code></pre>
+)
+</code></pre>
 <h1 id="go-builtin-types">Go builtin types</h1>
 <p>Integers and floats</p>
 <pre><code class="language-go">// Integers
@@ -104,13 +110,15 @@ const a uint = 1 // uint8 uint16 uint32 uint64
 const b int = 2 // int8 int16 int32 int64
 // floats
 const c float = 31 // float32 float64
-// int, uint, float are respectivly aliases to uint64, int64, float64 in 64 bit systems</code></pre>
+// int, uint, float are respectivly aliases to uint64, int64, float64 in 64 bit systems
+</code></pre>
 <p>Bytes</p>
 <pre><code class="language-go">const a byte = &#39;a&#39;
 const b byte = 97
 fmt.Println(a==b) // will print &quot;true&quot;
 // In go byte is an alias to uint8 (values from 0 to 255)
-const c byte = 256 // error</code></pre>
+const c byte = 256 // error
+</code></pre>
 
         </div>
       </main>
@@ -146,7 +154,8 @@ const c byte = 256 // error</code></pre>
           <p>Strings</p>
 <pre><code class="language-go">s1 := &quot;SII&quot;
 var s2 = s1 + &quot; ROCKS !&quot;
-fmt.Println(s2) // Will print &quot;SII ROCKS !&quot;</code></pre>
+fmt.Println(s2) // Will print &quot;SII ROCKS !&quot;
+</code></pre>
 <p>Arrays</p>
 <pre><code class="language-go">// Syntax: []type
 var a []int // nil array
@@ -156,7 +165,8 @@ fmt.Println(b[1]) // Will print: 20
 
 // Allocation
 a := make([]int, 4, 10) // lenght: 4, capacity: 10
-fmt.Println(a) // Print: [0, 0, 0, 0]</code></pre>
+fmt.Println(a) // Print: [0, 0, 0, 0]
+</code></pre>
 <p>Maps</p>
 <pre><code class="language-go">// Syntax: map[keys_type]values_type
 var m map[string]int // nil map
@@ -166,13 +176,15 @@ fmt.Println(m[&quot;score&quot;]) // Print 5000
 m = make(map[string]int, 10) // Capacity: 10
 m[&quot;score&quot;] = 5000
 m[&quot;year&quot;] = 2018
-m[&quot;hello&quot;] = &quot;world&quot; // Will panic and exit</code></pre>
+m[&quot;hello&quot;] = &quot;world&quot; // Will panic and exit
+</code></pre>
 <h1 id="conditions">Conditions</h1>
 <pre><code class="language-go">if 30 &gt; 10{
     fmt.Println(&quot;true&quot;)
 } else if true == false{ 
     fmt.Println(&quot;false&quot;)
-}</code></pre>
+}
+</code></pre>
 <h1 id="loops">Loops</h1>
 <pre><code class="language-go">for i:=0;i&lt;10;i++ { // loop in range [0:10[
     fmt.Println(&quot;Hello&quot;)
@@ -186,7 +198,8 @@ for index, element := range array {
 m := []map[int]bool{0: true, 10, false}
 for key, value := range m {
     fmt.Println(key, value)
-}</code></pre>
+}
+</code></pre>
 
         </div>
         <div class="column2">
@@ -202,14 +215,15 @@ func WriteData(data []byte, filepath string) error {
     if len(data) &lt; 5 {
         return fmt.Errorf(&quot;data is too short %v&quot;, data)
     }
-
+    
     err := WriteFile(data, path)
     if err != nil {
         return fmt.Errorf(&quot;error: %v&quot;, err)
     }
 
     return nil
-}</code></pre>
+}
+</code></pre>
 <h1 id="structs-and-pointers">Structs and Pointers</h1>
 <pre><code class="language-go">type Book struct {
     Name string
@@ -223,7 +237,8 @@ var HarryPotterP1 Book = Book{
 }
 // Pointers
 var mypointer *Book = &amp;Book{Name: &quot;LAMBDA&quot;}
-var mypointer2 *Book = &amp;HarryPotterP1</code></pre>
+var mypointer2 *Book = &amp;HarryPotterP1
+</code></pre>
 <h1 id="methods">Methods</h1>
 <pre><code class="language-go">func (b Book) Description() string {
     return b.Name + &quot; &quot; + b.Author
@@ -238,7 +253,8 @@ func main() {
     b := &amp;Book{}
     b.IncrRating(0.99)
     fmt.Println(b.Rating)
-}</code></pre>
+}
+</code></pre>
 
         </div>
       </main>

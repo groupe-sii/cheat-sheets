@@ -10,10 +10,12 @@
 
 const node = document.getElementById(&#39;root&#39;)
 const root = ReactDOM.createRoot(node);
-root.render(&lt;HelloWorld /&gt;);</code></pre>
+root.render(&lt;HelloWorld /&gt;);
+</code></pre>
 <pre><code class="language-js">const HelloMessage = (props) =&gt; (
   &lt;div&gt;Hello {props.msg}&lt;/div&gt;
-)</code></pre>
+)
+</code></pre>
 <h1 id="state">State</h1>
 <p>Every component can have an internal state.</p>
 <h2 id="initialize">Initialize</h2>
@@ -22,9 +24,12 @@ When we override the constructor, you have to pass the props to the parents.</p>
 <pre><code class="language-js">constructor(props) {
     super(props);
     this.state = {firstName: &#39;John&#39;, lastName: &#39;Doe&#39;, age: 20};
-  }</code></pre>
+  }
+</code></pre>
 <h2 id="modify">Modify</h2>
 <p>To modify the state you have to use the this.setState function. Only the specific change will affect.</p>
-<pre><code class="language-js">this.setState({firstName: &#39;Johnny&#39;})</code></pre>
+<pre><code class="language-js">this.setState({firstName: &#39;Johnny&#39;})
+</code></pre>
 <p>If you have to use precedent state, you should give to setState a function.</p>
-<pre><code class="language-js">this.setState((state) =&gt; ({ age: state.age + 1 })</code></pre>
+<pre><code class="language-js">this.setState((state) =&gt; ({ age: state.age + 1 })
+</code></pre>

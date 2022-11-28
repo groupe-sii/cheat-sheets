@@ -5,34 +5,43 @@
 <code>ansible-playbook &lt;playbook.yml&gt; --check</code></p>
 <p>Limit a playbook on a host :
 <code>ansible-playbook &lt;playbook.yml&gt; --limit &lt;host&gt;</code></p>
-<p><strong>Tasks</strong> : </p>
-<pre><code>---
-- hosts: web
-  tasks:
-   - name: Installation of Apache Package
-     yum:
-       name: httpd
-       state: present
-       update_cache: yes
-
-   - name: Ensure Apache is running (and enable it at boot)
-     service: name=httpd state=started enabled=yes</code></pre><p><strong>Roles</strong> (use to structure a list of Tasks):</p>
+<h2 id="tasks---"><strong>Tasks</strong> : 
+```</h2>
 <ul>
-<li>Directory structure :<pre><code>.
+<li>hosts: web
+tasks:<ul>
+<li><p>name: Installation of Apache Package
+yum:
+  name: httpd
+  state: present
+  update_cache: yes</p>
+</li>
+<li><p>name: Ensure Apache is running (and enable it at boot)
+service: name=httpd state=started enabled=yes</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>
+**Roles** (use to structure a list of Tasks):
+- Directory structure :
+</code></pre>
+<p>.
 ├── ansible.cfg
 ├── hosts
 └── roles
-  └── myrole
-      ├── defaults
-      │   └── main.yml
-      ├── files
-      │   └── myfile
-      ├── handlers
-      │   └── main.yml
-      ├── tasks
-      │   └── main.yml
-      ├── templates
-      │   └── mytemplate.j2
-      └── vars
-          └── main.yml</code></pre></li>
-</ul>
+    └── myrole
+        ├── defaults
+        │   └── main.yml
+        ├── files
+        │   └── myfile
+        ├── handlers
+        │   └── main.yml
+        ├── tasks
+        │   └── main.yml
+        ├── templates
+        │   └── mytemplate.j2
+        └── vars
+            └── main.yml</p>
+<pre><code>
+</code></pre>

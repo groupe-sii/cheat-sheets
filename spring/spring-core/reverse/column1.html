@@ -33,19 +33,25 @@
 </tbody></table>
 <h1 id="customizing-a-bean">Customizing a bean</h1>
 <h2 id="initialization-method">Initialization method</h2>
-<pre><code class="language-Java">@PostConstruct</code></pre>
+<pre><code class="language-Java">@PostConstruct
+</code></pre>
 <h2 id="destroy-method">Destroy method</h2>
-<pre><code class="language-Java">@PreDestroy</code></pre>
+<pre><code class="language-Java">@PreDestroy
+</code></pre>
 <h1 id="spel--spring-expression-language">SpEL : Spring Expression Language</h1>
 <h2 id="access-a-system-properties">Access a system properties</h2>
 <pre><code class="language-Java">@Value(&quot;#{ systemProperties[&#39;user.home&#39;] }&quot;)
-private String defaultHome;</code></pre>
+private String defaultHome;
+</code></pre>
 <h2 id="access-a-bean-property">Access a bean property</h2>
 <pre><code class="language-Java">@Value(&quot;#{myBean.myValue}&quot;)
-private String myValue;</code></pre>
+private String myValue;
+</code></pre>
 <h2 id="parse-a-string">Parse a string</h2>
 <pre><code class="language-Java">@Value(&quot;#{myBean.myValue.substring(0,1)}&quot;)
-private String myValue;</code></pre>
+private String myValue;
+</code></pre>
 <h2 id="operations">Operations</h2>
 <pre><code class="language-Java">@Value(&quot;#{myBean.myValue.length() &gt; 2}&quot;)
-private String myValue;</code></pre>
+private String myValue;
+</code></pre>

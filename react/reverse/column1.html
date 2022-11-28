@@ -10,7 +10,8 @@
       }
     &lt;/div&gt;
   );
-}</code></pre>
+}
+</code></pre>
 <p>JSX understand null and doesnt display anything il necessary</p>
 <pre><code class="language-js">render() {
   const isLoggedIn = this.state.isLoggedIn;
@@ -22,11 +23,13 @@
       }
     &lt;/div&gt;
   );
-}</code></pre>
+}
+</code></pre>
 <h1 id="context">Context</h1>
 <p>Create the context once</p>
 <pre><code class="language-js">const defaultValue = { ... }
-export const { Provider, Consumer } = React.createContext(defaultValue);</code></pre>
+export const { Provider, Consumer } = React.createContext(defaultValue);
+</code></pre>
 <h2 id="provider">Provider</h2>
 <p>Wrap your application with the provider</p>
 <pre><code class="language-js">render() {
@@ -35,4 +38,5 @@ export const { Provider, Consumer } = React.createContext(defaultValue);</code><
       &lt;App /&gt;
     &lt;/Provider&gt;
   )
-}</code></pre>
+}
+</code></pre>

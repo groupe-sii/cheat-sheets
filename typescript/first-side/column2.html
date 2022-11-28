@@ -5,13 +5,17 @@
     S = &#39;small&#39;,
     L = &#39;large&#39;,
     XL = &#39;xlarge&#39;
-};</code></pre><p>Interface</p>
+};
+</code></pre>
+<p>Interface</p>
 <pre><code>interface IPerson {
     firstname: string;
     age?: number; //optional
     sayHello(): void;
     size?: Size;
-}</code></pre><p>Class</p>
+}
+</code></pre>
+<p>Class</p>
 <pre><code>class Person implement IPerson {
     firstname: string;
     age: number;
@@ -20,9 +24,18 @@
     constructor() {}
 
     sayHello(): void {};
-}</code></pre><h1 id="object-type-literals">Object type literals</h1>
+}
+</code></pre>
+<h1 id="object-type-literals">Object type literals</h1>
 <p>Object with implicit properties</p>
-<pre><code>{ foo: &#39;hello&#39;; bar: 5 } or { foo; &#39;hello&#39;; }</code></pre><p>Object with optional property</p>
-<pre><code>{ required: boolean; optional?: number; }</code></pre><p>Hash map</p>
-<pre><code>{ [key: string]: Type; }</code></pre><p>Indexable types</p>
-<pre><code>{ [id: number]: Type; }</code></pre>
+<pre><code>{ foo: &#39;hello&#39;; bar: 5 } or { foo; &#39;hello&#39;; }
+</code></pre>
+<p>Object with optional property</p>
+<pre><code>{ required: boolean; optional?: number; }
+</code></pre>
+<p>Hash map</p>
+<pre><code>{ [key: string]: Type; }
+</code></pre>
+<p>Indexable types</p>
+<pre><code>{ [id: number]: Type; }
+</code></pre>

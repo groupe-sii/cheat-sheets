@@ -15,7 +15,8 @@ import &quot;fmt&quot;
 // This is a comment
 func main() {
     fmt.Println(&quot;Hello World ! 你好，世界 ! 😊&quot;)
-}</code></pre>
+}
+</code></pre>
 <p>Running your program</p>
 <pre><code class="language-sh"># Compiling binaries only
 &gt; go build -o hello main.go &amp;&amp; ./hello
@@ -23,11 +24,13 @@ func main() {
 &gt; go run main.go
 
 # Output
-Hello World ! 你好，世界 ! 😊</code></pre>
+Hello World ! 你好，世界 ! 😊
+</code></pre>
 <p>Cross compilation</p>
 <pre><code class="language-sh"># GOOS=operating_system GOARCH=architecture
 
 &gt; GOOS=windows GOARCH=i386 go build -o hello.exe main.go
 &gt; GOOS=linux GOARCH=amd64 go build -o hello main.go
 
-# If not specified, go will detect/use the current system and compile for it</code></pre>
+# If not specified, go will detect/use the current system and compile for it
+</code></pre>

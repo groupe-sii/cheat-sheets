@@ -6,7 +6,8 @@ public class MyAppConfig {
   public DummyService dummyService(){
     return new DummyServiceImpl();
   }
-}</code></pre>
+}
+</code></pre>
 <h2 id="define-a-bean--component">Define a bean : <strong>@Component</strong></h2>
 <p><em>@Component</em> specializations :</p>
 <ul>
@@ -16,7 +17,8 @@ public class MyAppConfig {
 </ul>
 <pre><code class="language-Java">@Component
 public class DummyServiceImpl implements DummyService {
-}</code></pre>
+}
+</code></pre>
 <h2 id="dependency-injection--autowired">Dependency injection : <strong>@Autowired</strong></h2>
 <ul>
 <li>Via a class field</li>
@@ -28,15 +30,16 @@ public class FooServiceImpl implements FooService {
 
   @Autowired
   private DummyService service;
-
+  
   @Autowired
   public FooServiceImpl(DummyService dummyservice) {
     this.service = dummyService;
   }
-
+  
   @Autowired
   public DummyService setDummyService(DummyService dummyService) {
     this.service = dummyService;
   }
 
-}</code></pre>
+}
+</code></pre>

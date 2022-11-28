@@ -44,7 +44,9 @@
 <p><strong>Installation</strong> (example on RedHat environnement) : </p>
 <pre><code>$ sudo yum -y install epel-release
 $ sudo yum -y update
-$ sudo yum -y install ansible</code></pre><p>** Doc link : <a href="http://docs.ansible.com/ansible/latest/">http://docs.ansible.com/ansible/latest/</a>**</p>
+$ sudo yum -y install ansible
+</code></pre>
+<p>** Doc link : <a href="http://docs.ansible.com/ansible/latest/">http://docs.ansible.com/ansible/latest/</a>**</p>
 <h1 id="inventory-files">Inventory files</h1>
 <p>The default file is <strong>/etc/ansible/hosts</strong> :</p>
 <pre><code>[web]
@@ -56,8 +58,12 @@ db1.sii-ouest.fr ansible_ssh_host=192.168.0.100
 
 [production:children]
 web
-db</code></pre><h2 id="hostname-ranges">Hostname ranges</h2>
-<pre><code>www[01:50].example.com, db-[a:f].example.com</code></pre><h1 id="variable-files">Variable files</h1>
+db
+</code></pre>
+<h2 id="hostname-ranges">Hostname ranges</h2>
+<pre><code>www[01:50].example.com, db-[a:f].example.com
+</code></pre>
+<h1 id="variable-files">Variable files</h1>
 <ul>
 <li><strong>./group_vars/web</strong> : variable definitions for all members of group &#39;web&#39;</li>
 <li><strong>./host_vars/web1.sii-ouest.fr</strong> : variable definitions for &#39;web1.sii-ouest.fr&#39;</li>
@@ -65,7 +71,9 @@ db</code></pre><h2 id="hostname-ranges">Hostname ranges</h2>
 <h1 id="ad-hoc-commands">Ad-Hoc commands</h1>
 <p><code>ansible &lt;pattern&gt; -m &lt;module&gt; -a &lt;params&gt;</code></p>
 <p>Execute reboot on all servers in a group (example on production, in 10 parallel forks) :</p>
-<pre><code>$ ansible production -i ./hosts all -m command -a &quot;/sbin/reboot&quot; -f 10</code></pre>
+<pre><code>$ ansible production -i ./hosts all -m command -a &quot;/sbin/reboot&quot; -f 10
+</code></pre>
+
         </div>
         <div class="column2">
           <h1 id="playbooks">Playbooks</h1>
@@ -75,37 +83,46 @@ db</code></pre><h2 id="hostname-ranges">Hostname ranges</h2>
 <code>ansible-playbook &lt;playbook.yml&gt; --check</code></p>
 <p>Limit a playbook on a host :
 <code>ansible-playbook &lt;playbook.yml&gt; --limit &lt;host&gt;</code></p>
-<p><strong>Tasks</strong> : </p>
-<pre><code>---
-- hosts: web
-  tasks:
-   - name: Installation of Apache Package
-     yum:
-       name: httpd
-       state: present
-       update_cache: yes
-
-   - name: Ensure Apache is running (and enable it at boot)
-     service: name=httpd state=started enabled=yes</code></pre><p><strong>Roles</strong> (use to structure a list of Tasks):</p>
+<h2 id="tasks---"><strong>Tasks</strong> : 
+```</h2>
 <ul>
-<li>Directory structure :<pre><code>.
+<li>hosts: web
+tasks:<ul>
+<li><p>name: Installation of Apache Package
+yum:
+  name: httpd
+  state: present
+  update_cache: yes</p>
+</li>
+<li><p>name: Ensure Apache is running (and enable it at boot)
+service: name=httpd state=started enabled=yes</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>
+**Roles** (use to structure a list of Tasks):
+- Directory structure :
+</code></pre>
+<p>.
 ├── ansible.cfg
 ├── hosts
 └── roles
-  └── myrole
-      ├── defaults
-      │   └── main.yml
-      ├── files
-      │   └── myfile
-      ├── handlers
-      │   └── main.yml
-      ├── tasks
-      │   └── main.yml
-      ├── templates
-      │   └── mytemplate.j2
-      └── vars
-          └── main.yml</code></pre></li>
-</ul>
+    └── myrole
+        ├── defaults
+        │   └── main.yml
+        ├── files
+        │   └── myfile
+        ├── handlers
+        │   └── main.yml
+        ├── tasks
+        │   └── main.yml
+        ├── templates
+        │   └── mytemplate.j2
+        └── vars
+            └── main.yml</p>
+<pre><code>
+</code></pre>
 
         </div>
       </main>
@@ -146,7 +163,9 @@ db</code></pre><h2 id="hostname-ranges">Hostname ranges</h2>
 
 handlers:
  - name: Start Apache
-   service: name=httpd state=started</code></pre><p>Handlers by default get executed at the end of the playbook.</p>
+   service: name=httpd state=started
+</code></pre>
+<p>Handlers by default get executed at the end of the playbook.</p>
 <p><strong>Conditionnals</strong> :</p>
 <pre><code>- name: Analyse &#39;my_file&#39;
   shell: cat &quot;my_file&quot;
@@ -154,7 +173,9 @@ handlers:
 
 - name: Show results
   shell: echo &quot;find &lt;toto&gt; pattern&quot;
-  when: my_file_contents.stdout.find(&#39;toto&#39;) != -1</code></pre><p><strong>Template</strong> : Jinja Templating</p>
+  when: my_file_contents.stdout.find(&#39;toto&#39;) != -1
+</code></pre>
+<p><strong>Template</strong> : Jinja Templating</p>
 <ul>
 <li><strong>{% ... %}</strong> for control statements</li>
 <li><strong>{{ ... }}</strong> for expressions</li>
@@ -162,57 +183,86 @@ handlers:
 </ul>
 <p><strong>Tags</strong> :
 Limit a playbook on tags :
-<code>ansible-playbook &lt;playbook.yml&gt; -i ./hosts --tag &lt;mytag&gt;</code></p>
+<code>ansible-playbook &lt;playbook.yml&gt; -i ./hosts --tag &lt;mytag&gt; </code></p>
 <p><strong>Loops over items</strong> :</p>
 <pre><code>- name: Add a list of users
   user: name={{ item }} state=present
   with_items:
    - testuser1
    - testuser2
-   - testuser3</code></pre><h2 id="example-installation-and-conf-of-apache-server">Example (Installation and conf. of Apache server):</h2>
-<p>./playbook-deploy-apache.yml</p>
-<pre><code>---
-- hosts: web
-  roles:
-    - { role: demo-install-apache }
-    - { role: demo-configure-apache }</code></pre>
+   - testuser3
+</code></pre>
+<h2 id="example-installation-and-conf-of-apache-server">Example (Installation and conf. of Apache server):</h2>
+<h2 id="playbook-deploy-apacheyml-">./playbook-deploy-apache.yml
+```</h2>
+<ul>
+<li>hosts: web
+roles:<ul>
+<li>{ role: demo-install-apache }</li>
+<li>{ role: demo-configure-apache }</li>
+</ul>
+</li>
+</ul>
+<pre><code>
+</code></pre>
+
         </div>
         <div class="column2">
-          <p>./roles/demo-configure-apache/vars/main.yml</p>
-<pre><code>---
-apache_listen_port: 8081
+          <h2 id="rolesdemo-configure-apachevarsmainyml-">./roles/demo-configure-apache/vars/main.yml
+```</h2>
+<p>apache_listen_port: 8081
 app_directory: /var/www/html
 app_user: apache
-app_group: apache</code></pre><p>./roles/demo-configure-apache/handlers/main.yml</p>
-<pre><code>---
- - name: Reload Apache
-     service:
-       name: httpd
-       state: reloaded</code></pre><p>./roles/demo-install-apache/tasks/main.yml</p>
-<pre><code>---
-   - name: Installation of Apache Package
-     yum:
-       name: httpd
-       state: present
-       update_cache: yes
+app_group: apache</p>
+<pre><code>
+./roles/demo-configure-apache/handlers/main.yml
+</code></pre>
+<hr>
+<ul>
+<li>name: Reload Apache
+  service:
+name: httpd
+state: reloaded</li>
+</ul>
+<pre><code>
+./roles/demo-install-apache/tasks/main.yml
+</code></pre>
+<hr>
+<ul>
+<li><p>name: Installation of Apache Package
+yum:
+  name: httpd
+  state: present
+  update_cache: yes</p>
+</li>
+<li><p>name: Ensure Apache is running (and enable it at boot)
+service: name=httpd state=started enabled=yes</p>
+</li>
+</ul>
+<pre><code>
+./roles/demo-configure-apache/tasks/main.yml
+</code></pre>
+<hr>
+<ul>
+<li><p>name: Modify permission of directory {{ app_directory }}
+file:
+  dest: &#39;{{ app_directory }}&#39;
+  mode: 0755
+  owner: &#39;{{ app_user }}&#39;
+  group: &#39;{{ app_group }}&#39;
+  recurse: yes</p>
+</li>
+<li><p>name: Modify Apache configuration
+lineinfile:
+  dest: /etc/httpd/conf/httpd.conf
+  regexp: &#39;^Listen &#39;
+  line: &#39;Listen {{ apache_listen_port }}&#39;
+notify: Reload Apache</p>
+</li>
+</ul>
+<pre><code>
+</code></pre>
 
-   - name: Ensure Apache is running (and enable it at boot)
-     service: name=httpd state=started enabled=yes</code></pre><p>./roles/demo-configure-apache/tasks/main.yml</p>
-<pre><code>---
-   - name: Modify permission of directory {{ app_directory }}
-     file:
-       dest: &#39;{{ app_directory }}&#39;
-       mode: 0755
-       owner: &#39;{{ app_user }}&#39;
-       group: &#39;{{ app_group }}&#39;
-       recurse: yes
-
-   - name: Modify Apache configuration
-     lineinfile:
-       dest: /etc/httpd/conf/httpd.conf
-       regexp: &#39;^Listen &#39;
-       line: &#39;Listen {{ apache_listen_port }}&#39;
-     notify: Reload Apache</code></pre>
         </div>
       </main>
 

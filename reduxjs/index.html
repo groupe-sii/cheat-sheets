@@ -71,7 +71,8 @@
 </div>
 
 <pre><code class="language-js">import { createStore } from &#39;redux&#39;; 
-const store = createStore();</code></pre>
+const store = createStore();
+</code></pre>
 <h1 id="creating-reducers-and-state">Creating reducers and state</h1>
 <p>The reducer will validate the action&#39;s type and then will return the new state</p>
 <div class='alert-message'>
@@ -88,13 +89,15 @@ const store = createStore();</code></pre>
             return state
     }
 }
-const store = createStore(yourReducer);</code></pre>
+const store = createStore(yourReducer);
+</code></pre>
 <h1 id="creating-actions-and-getting-updated-data">Creating actions and getting updated data</h1>
 <p>An action is a generic object that by convention has the following props: <br/>
 <strong>type:</strong> the function type, commonly is a string. <br/>
 <strong>payload:</strong> data that we can use to update the state, here you can pass anything.</p>
 <pre><code class="language-js">store.dispatch({type: &#39;UPPERCASE&#39;, payload:...}) //our action
-store.subscribe(() =&gt; console.log(store.getState())) //our new data -&gt; SII-CANADA</code></pre>
+store.subscribe(() =&gt; console.log(store.getState())) //our new data -&gt; SII-CANADA
+</code></pre>
 
         </div>
       </main>
@@ -150,24 +153,28 @@ store.subscribe(() =&gt; console.log(store.getState())) //our new data -&gt; SII
 <td>a middleware function (optional)</td>
 </tr>
 </tbody></table>
-<pre><code class="language-js">const store = createStore(reducer,state,enhancer)</code></pre>
+<pre><code class="language-js">const store = createStore(reducer,state,enhancer)
+</code></pre>
 <h1 id="api---combinereducers">API - combineReducers()</h1>
 <p><strong>Why</strong>: to combine various reducers <br/>
 <strong>Arguments</strong>: object with at least two reducers <br/>
 <strong>Return</strong>: one reducer to rule them all <br /></p>
-<pre><code class="language-js">const rootReducer = combineReducers({reducerA, reducerB, reducerC})</code></pre>
+<pre><code class="language-js">const rootReducer = combineReducers({reducerA, reducerB, reducerC})
+</code></pre>
 <h1 id="api---applymiddleware">API - applyMiddleware()</h1>
 <p><strong>Why</strong>: to be able to deal with async data<br/>
 <strong>Arguments</strong>: a middleWare function <br/>
 <strong>Return</strong>: a store enhancer</p>
 <!-- * We can create a custom middleware to keep it simple. <a target='_blank' href='https://redux.js.org/api/applymiddleware#example-custom-logger-middleware'> Exemple</a> -->
 
-<pre><code class="language-js">const store = createStore(reducer,state, applyMiddleware(yourMiddleware))</code></pre>
+<pre><code class="language-js">const store = createStore(reducer,state, applyMiddleware(yourMiddleware))
+</code></pre>
 <h1 id="api---bindactioncreators">API - bindActionCreators()</h1>
 <p><strong>Why</strong>: to pass action creators to a component that isn&#39;t aware of Redux and you don&#39;t want to pass dispatch <br/>
 <strong>Arguments</strong>: an action creator and a dispatch function avaible on the store <br/>
 <strong>Return</strong>: a dispatch function mutated with the passeds action creators</p>
-<pre><code class="language-js">bindActionCreators(YoursActionsCreators, dispatch)</code></pre>
+<pre><code class="language-js">bindActionCreators(YoursActionsCreators, dispatch)
+</code></pre>
 
         </div>
         <div class="column2">
@@ -178,12 +185,14 @@ store.subscribe(() =&gt; console.log(store.getState())) //our new data -&gt; SII
 <pre><code class="language-js">const store = createStore(
   reducer,
   compose(applyMiddleware(thunk), DevTools.instrument()) //example with redux-thunk as middleware and developer tools from redux-devtools
-)</code></pre>
+)
+</code></pre>
 <h1 id="store-api---getstate">Store API - getState()</h1>
 <p><strong>Why</strong>: to have access to the current data<br/>
 <strong>Arguments</strong>: none <br/>
 <strong>Return</strong>: your state data</p>
-<pre><code class="language-js">const myState = store.getState();</code></pre>
+<pre><code class="language-js">const myState = store.getState();
+</code></pre>
 <h1 id="store-api---dispatch">Store API - dispatch()</h1>
 <p><strong>Why</strong>: to inform your reducer that you need to mutate the state<br/>
 <strong>Arguments</strong>: action object <br/>
@@ -192,7 +201,8 @@ store.subscribe(() =&gt; console.log(store.getState())) //our new data -&gt; SII
     <span class='icon'>!</span>Every action must have a type property.
 </div>
 
-<pre><code class="language-js">store.dispatch({type: &#39;UPPERCASE&#39;, payload: &#39;&#39;})</code></pre>
+<pre><code class="language-js">store.dispatch({type: &#39;UPPERCASE&#39;, payload: &#39;&#39;})
+</code></pre>
 <h1 id="store-api---subscribe">Store API - subscribe()</h1>
 <p><strong>Why</strong>: to know when there is a new data<br/>
 <strong>Arguments</strong>: a listener function <br/>
@@ -201,7 +211,8 @@ store.subscribe(() =&gt; console.log(store.getState())) //our new data -&gt; SII
     /*here we get the new data with store.getState()*/
 }
 const unsubscribe = store.subscribe(handler);
-unsubscribe()</code></pre>
+unsubscribe()
+</code></pre>
 
         </div>
       </main>

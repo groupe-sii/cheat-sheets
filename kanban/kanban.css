@@ -4,21 +4,27 @@
   .landscape {
     transform: rotate(90deg) translateX(164px) translateY(164px);
     width: 29.7cm;
-    height: 21cm; } }
-
+    height: 21cm;
+  }
+}
 body {
-  --currentColor: var(--orange); }
-  body #showPreview:checked ~ .reverse .landscape {
-    transform: rotate(90deg) translateX(164px) translateY(164px);
-    width: 29.7cm;
-    height: 21cm; }
-  body .reverse header {
-    height: 15px; }
-  body .reverse main {
-    height: 708px; }
-    body .reverse main img.sketchnote {
-      height: 100%;
-      width: auto;
-      padding: 1px;
-      margin: 0px auto;
-      display: block; }
+  --currentColor: var(--orange);
+}
+body #showPreview:checked ~ .reverse .landscape {
+  transform: rotate(90deg) translateX(164px) translateY(164px);
+  width: 29.7cm;
+  height: 21cm;
+}
+body .reverse header {
+  height: 15px;
+}
+body .reverse main {
+  height: 708px;
+}
+body .reverse main img.sketchnote {
+  height: 100%;
+  width: auto;
+  padding: 1px;
+  margin: 0px auto;
+  display: block;
+}

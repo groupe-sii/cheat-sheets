@@ -6,7 +6,9 @@
     age: 77,
     nets: [ &quot;expert&quot;, &quot;developer&quot;, &quot;superhero&quot; ],
     lastExp: { name: &quot;Full-Stack Lead Developer&quot;, duration: 10.5 }
-}</code></pre><p>Note : each document requires a unique <span class="concept">_id</span> field (uses the ObjectId BSON type) that acts as a primary key. The MongoDB driver generates it if omitted.</p>
+}
+</code></pre>
+<p>Note : each document requires a unique <span class="concept">_id</span> field (uses the ObjectId BSON type) that acts as a primary key. The MongoDB driver generates it if omitted.</p>
 <p><span class="concept">Collection</span> : A grouping of MongoDB documents. A collection is the equivalent of an RDBMS table. Collections do not enforce a schema by default. Documents within a collection can have different fields but should have a similar or related purpose. </p>
 <h1 id="bson-types">BSON types</h1>
 <p>Each value of a field/value pair is recorded as a BSON type. BSON is a binary serialization format. The most used and useful BSON types in MongoDB are (each BSON type has both integer and string identifiers) :</p>

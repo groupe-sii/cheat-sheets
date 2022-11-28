@@ -46,7 +46,8 @@
     from &#39;@angular/platform-browser-dynamic&#39;;
 
 platformBrowserDynamic()
-    .bootstrapModule(AppModule);</code></pre>
+    .bootstrapModule(AppModule);
+</code></pre>
 <h1 id="ngmodule">NgModule</h1>
 <p><strong>Defines a module</strong> that contains components, directives, pipes, and providers.</p>
 <pre><code class="language-js">import { NgModule } from &#39;@angular/core&#39;;
@@ -62,7 +63,8 @@ platformBrowserDynamic()
     providers: [MyService],
     bootstrap: [MyRootComponent] // Only root module
 })
-class MyModule {}</code></pre>
+class MyModule {}
+</code></pre>
 <table>
 <thead>
 <tr>
@@ -102,20 +104,24 @@ class MyModule {}</code></pre>
     templateUrl: &#39;./my.component.html&#39;,
     styleUrls: [&#39;./my.component.css&#39;]
 })
-class MyComponent() {}</code></pre>
+class MyComponent() {}
+</code></pre>
 <h2 id="directive"><a href="https://angular.io/guide/dynamic-component-loader">Directive</a></h2>
 <pre><code class="language-js">@Directive({
     selector: [&#39;appMy&#39;],
     templateUrl: &#39;./my.directive.html&#39;,
     styleUrls: [&#39;./my.directive.css&#39;]
 })
-class MyDirective() {}</code></pre>
+class MyDirective() {}
+</code></pre>
 <h2 id="pipe"><a href="https://angular.io/guide/pipes">Pipe</a></h2>
 <pre><code class="language-js">@Pipe({name: &#39;myPipe&#39;})
-class MyPipe() {}</code></pre>
+class MyPipe() {}
+</code></pre>
 <h2 id="provider"><a href="https://angular.io/guide/singleton-services">Provider</a></h2>
 <pre><code class="language-js">@Injectable()
-class MyService() {}</code></pre>
+class MyService() {}
+</code></pre>
 <p>Add <em>{providedIn: root}</em> option <strong>for create singleton</strong></p>
 <h1 id="component-interaction">Component interaction</h1>
 <h2 id="input-and-output"><a href="https://angular.io/guide/component-interaction#component-interaction">Input</a> and <a href="https://angular.io/guide/component-interaction#parent-listens-for-child-event">Output</a></h2>
@@ -129,7 +135,8 @@ class MyService() {}</code></pre>
     onClickHero(item: Item) {
         this.itemSelectionned.emit(item);
     }
-}</code></pre>
+}
+</code></pre>
 
         </div>
       </main>
@@ -190,7 +197,8 @@ class MyService() {}</code></pre>
 <h2 id="ngif"><a href="https://angular.io/api/common/NgIf">ngIf</a></h2>
 <pre><code class="language-html">
 &lt;span *ngIf=&quot;hero; else noHero&quot;&gt;{{ hero.name }} exists !&lt;/span&gt;
-&lt;ng-template #noHero&gt;No hero found :&#39;(&lt;/ng-template&gt;</code></pre>
+&lt;ng-template #noHero&gt;No hero found :&#39;(&lt;/ng-template&gt;
+</code></pre>
 <h2 id="ngfor"><a href="https://angular.io/api/common/NgForOf">ngFor</a></h2>
 <pre><code class="language-html">
 &lt;span *ngFor=&quot;let hero of heroes; let i=index&quot;&gt;{{ hero.name }} is at index {{ i }}&lt;/span&gt;
@@ -200,14 +208,16 @@ class MyService() {}</code></pre>
   &lt;span *ngSwitchCase=&quot;&#39;knight&#39;&quot;&gt;You are strong&lt;/span&gt;
   &lt;span *ngSwitchCase=&quot;&#39;mage&#39;&quot;&gt;You are intelligent&lt;/span&gt;
   &lt;span *ngSwitchDefault&gt;You are special&lt;/span&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
 <h1 id="basic-http-request">Basic HTTP Request</h1>
 <p>HTTP request need to import <strong>ONLY ONE TIME</strong> <code>HttpClientModule</code>. </p>
 <pre><code class="language-ts">import {Http} from &quot;@angular/http&quot;;
 import &quot;rxjs/add/operator/map&quot;;
 
 this.http.post(environment.apiAddress + &quot;/api-method&quot;, myJsonData)
-      .map(resp=&gt;resp.json());</code></pre>
+      .map(resp=&gt;resp.json());
+</code></pre>
 <h1 id="sources">Sources</h1>
 <p><strong>Angular module:</strong> <a href="http://www.learn-angular.fr/les-modules-angular/">http://www.learn-angular.fr/les-modules-angular/</a></p>
 <p><strong>Template syntax:</strong> <a href="https://angular.io/guide/template-syntax">https://angular.io/guide/template-syntax</a></p>
@@ -241,29 +251,31 @@ this.http.post(environment.apiAddress + &quot;/api-method&quot;, myJsonData)
 </tbody></table>
 <h2 id="simple-observable-with-external-observer">Simple observable with external observer</h2>
 <pre><code class="language-js">const myObservable = Observable.of(1, 2, 3);
-
+ 
 // Create observer object
 const myObserver = {
   next: x =&gt; console.log(&#39;Observer got a next value: &#39; + x),
   error: err =&gt; console.error(&#39;Observer got an error: &#39; + err),
   complete: () =&gt; console.log(&#39;Observer got a complete notification&#39;),
 };
-
+ 
 // Execute with the observer object
-myObservable.subscribe(myObserver);</code></pre>
+myObservable.subscribe(myObserver);
+</code></pre>
 <h2 id="personalised-observable-function">Personalised observable function</h2>
 <pre><code class="language-js">const sequence = new Observable((observer) =&gt; {
   // synchronously deliver 1, 2, and 3, then complete
   observer.next(1);
   observer.next(2);
   observer.complete();
-
+ 
   // unsubscribe function doesn&#39;t need to do anything in this
   // because values are delivered synchronously
   return {unsubscribe() {}};
 });
 
-sequence.subscribe((value) =&gt; {...});</code></pre>
+sequence.subscribe((value) =&gt; {...});
+</code></pre>
 <h1 id="sources">Sources</h1>
 <p><strong>Complete docs RxJS</strong> <a href="https://www.learnrxjs.io/">https://www.learnrxjs.io/</a></p>
 <p><strong>Angular RXJS</strong> <a href="https://angular.io/guide/observables">https://angular.io/guide/observables</a></p>

@@ -1,4 +1,5 @@
-<pre><code class="language-python">recall = tf.metrics.recall(labels,predictions)</code></pre>
+<pre><code class="language-python">recall = tf.metrics.recall(labels,predictions)
+</code></pre>
 <p>Most of the functions provided can be applied for a classification task
 More functions are available on the following link :
 <a href="https://www.tensorflow.org/api_docs/python/tf/metrics">https://www.tensorflow.org/api_docs/python/tf/metrics</a></p>
@@ -12,13 +13,16 @@ optimizer = tf.train.AdamOptimizer(
             )
 
 #Define the training operation:
-train_op = optimizer.minimize(loss)</code></pre>
+train_op = optimizer.minimize(loss)
+</code></pre>
 <p>Below a list of the different optimizers, that you can find in the following link:
 <a href="https://www.tensorflow.org/api_docs/python/tf/train">https://www.tensorflow.org/api_docs/python/tf/train</a></p>
 <pre><code class="language-python">tf.train.AdadeltaOptimizer #M. D. Zeiler
 tf.train.AdagradDAOptimizer #John Duchi, Elad Hazan, Yoram Singer
-tf.train.MomentumOptimizer</code></pre>
+tf.train.MomentumOptimizer
+</code></pre>
 <p>The tf.train module also come with different Session types, that will manage running your operation graph, and provides live information about your training like the number of step, the actual value of your loss function and the actual value(s) of the metric(s) you have chosen. Below an exaustive list:</p>
 <pre><code class="language-python">tf.train.MonitoredSession 
-tf.train.SessionManager </code></pre>
+tf.train.SessionManager 
+</code></pre>
 <p>Finally, the tf.train module regroup classes and functions to define distributed training over a cluster, and provides tools to monitor it.</p>

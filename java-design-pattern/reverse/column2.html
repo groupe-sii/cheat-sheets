@@ -33,10 +33,10 @@ public class Context {
 
 public class StrategyPatternDemo {
    public static void main(String[] args) {
-      Context context = new Context(new OperationAdd());        
+      Context context = new Context(new OperationAdd());		
       context.executeStrategy(10, 5); // 15
 
-      context = new Context(new OperationSubstract());        
+      context = new Context(new OperationSubstract());		
       context.executeStrategy(10, 5); // 5
 </code></pre>
 <p>Exemple de librairie qui utilise le patron de conception : Dans le JDK, Collections.sort() </p>

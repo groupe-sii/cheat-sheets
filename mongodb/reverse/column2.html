@@ -1,21 +1,25 @@
 <h1 id="indexes">Indexes</h1>
 <p>Appropriate indexes (and index orderings) are essential for efficient queries execution.</p>
-<pre><code class="language-javascript">db.collection.createIndex()</code></pre>
+<pre><code class="language-javascript">db.collection.createIndex()
+</code></pre>
 <pre><code class="language-javascript">db.users.createIndex( { age: -1 } )
-db.users.createIndex( { name: 1, surname: 1 } )</code></pre>
+db.users.createIndex( { name: 1, surname: 1 } )
+</code></pre>
 <p>Note: <span class="concept">_id</span> field is a unique index for every collection.</p>
 <h1 id="aggregation-pipeline">Aggregation pipeline</h1>
 <p>Aggregation operations process data records, can perform a variety of operations, and return computed results. Documents pass through the stages of the pipeline in sequence.</p>
-<pre><code class="language-javascript">db.collection.aggregate([ { operation: {  } }, ... ])</code></pre>
+<pre><code class="language-javascript">db.collection.aggregate([ { operation: {  } }, ... ])
+</code></pre>
 <pre><code class="language-javascript">db.users.aggregate([
     { $group: { _id: &quot;$nets&quot;, age: { $avg: &quot;$age&quot;} } },
     { $match: { age: { $gt: 35 } } }
-])</code></pre>
+])
+</code></pre>
 <p>Note : map-reduce function is an alternative way for aggregation. You will want to use aggregation pipeline.</p>
 <h1 id="wanna-become-expert-">Wanna become expert ?</h1>
 <ul>
 <li><strong>Reporting</strong> : mongostat, and many more utilities</li>
-<li><strong>Replication</strong> : redundancy and high availability    </li>
+<li><strong>Replication</strong> : redundancy and high availability	</li>
 <li><strong>Sharding</strong> : data distribution and horizontal scaling for high query rates and exhausted CPU </li>
 <li><strong>Bulk Write</strong> : for multiple ordered rows loads</li>
 <li><strong>Change Streams</strong> : access real-time data changes</li>

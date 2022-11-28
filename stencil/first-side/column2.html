@@ -11,11 +11,13 @@ export class TodoList {
   componentDidLoad() {
     this.name = &#39;Stencil 0.7.0&#39;;
   }
-}</code></pre>
+}
+</code></pre>
 <pre><code class="language-html">/* in HTML */
 &lt;todo-list color=&quot;blue&quot; favorite-number=&quot;24&quot; is-selected=&quot;true&quot;&gt;&lt;/todo-list&gt;
 /* in JSX */
-&lt;todo-list color=&quot;blue&quot; favoriteNumber=&quot;{24}&quot; isSelected=&quot;true&quot;&gt;&lt;/todo-list&gt;</code></pre>
+&lt;todo-list color=&quot;blue&quot; favoriteNumber=&quot;{24}&quot; isSelected=&quot;true&quot;&gt;&lt;/todo-list&gt;
+</code></pre>
 <h2 id="state">@State</h2>
 <p>Declare an internal state only for the inside.</p>
 <pre><code>import { State } from &#39;@stencil/core&#39;;
@@ -28,7 +30,9 @@ export class TodoList {
     /* This will cause our render function to be called again */
     this.completedTodos = [...this.completedTodos, todo];
   }
-}</code></pre><h2 id="update-an-array">Update an array</h2>
+}
+</code></pre>
+<h2 id="update-an-array">Update an array</h2>
 <p>this.names = [ ...this.names, &#39;Larry&#39; ]</p>
 <h2 id="update-an-object">Update an object</h2>
 <p>this.options = { ...this.options, show: true }</p>

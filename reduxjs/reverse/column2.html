@@ -5,12 +5,14 @@
 <pre><code class="language-js">const store = createStore(
   reducer,
   compose(applyMiddleware(thunk), DevTools.instrument()) //example with redux-thunk as middleware and developer tools from redux-devtools
-)</code></pre>
+)
+</code></pre>
 <h1 id="store-api---getstate">Store API - getState()</h1>
 <p><strong>Why</strong>: to have access to the current data<br/>
 <strong>Arguments</strong>: none <br/>
 <strong>Return</strong>: your state data</p>
-<pre><code class="language-js">const myState = store.getState();</code></pre>
+<pre><code class="language-js">const myState = store.getState();
+</code></pre>
 <h1 id="store-api---dispatch">Store API - dispatch()</h1>
 <p><strong>Why</strong>: to inform your reducer that you need to mutate the state<br/>
 <strong>Arguments</strong>: action object <br/>
@@ -19,7 +21,8 @@
     <span class='icon'>!</span>Every action must have a type property.
 </div>
 
-<pre><code class="language-js">store.dispatch({type: &#39;UPPERCASE&#39;, payload: &#39;&#39;})</code></pre>
+<pre><code class="language-js">store.dispatch({type: &#39;UPPERCASE&#39;, payload: &#39;&#39;})
+</code></pre>
 <h1 id="store-api---subscribe">Store API - subscribe()</h1>
 <p><strong>Why</strong>: to know when there is a new data<br/>
 <strong>Arguments</strong>: a listener function <br/>
@@ -28,4 +31,5 @@
     /*here we get the new data with store.getState()*/
 }
 const unsubscribe = store.subscribe(handler);
-unsubscribe()</code></pre>
+unsubscribe()
+</code></pre>

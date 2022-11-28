@@ -4,7 +4,7 @@
 <pre><code class="language-yaml">version: &#39;3&#39;
 
 services:
-
+  
    db:
      image: mysql:5.7
      volumes:
@@ -27,9 +27,10 @@ services:
        WORDPRESS_DB_HOST: db:3306
        WORDPRESS_DB_USER: wordpress
        WORDPRESS_DB_PASSWORD: wordpress
-
+       
 volumes:
-    db_data:</code></pre>
+    db_data:
+</code></pre>
 <p>Using : </p>
 <ul>
 <li>version <strong>3</strong> of compose file </li>

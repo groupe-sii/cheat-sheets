@@ -26,7 +26,8 @@
 <h2 id="ngif"><a href="https://angular.io/api/common/NgIf">ngIf</a></h2>
 <pre><code class="language-html">
 &lt;span *ngIf=&quot;hero; else noHero&quot;&gt;{{ hero.name }} exists !&lt;/span&gt;
-&lt;ng-template #noHero&gt;No hero found :&#39;(&lt;/ng-template&gt;</code></pre>
+&lt;ng-template #noHero&gt;No hero found :&#39;(&lt;/ng-template&gt;
+</code></pre>
 <h2 id="ngfor"><a href="https://angular.io/api/common/NgForOf">ngFor</a></h2>
 <pre><code class="language-html">
 &lt;span *ngFor=&quot;let hero of heroes; let i=index&quot;&gt;{{ hero.name }} is at index {{ i }}&lt;/span&gt;
@@ -36,14 +37,16 @@
   &lt;span *ngSwitchCase=&quot;&#39;knight&#39;&quot;&gt;You are strong&lt;/span&gt;
   &lt;span *ngSwitchCase=&quot;&#39;mage&#39;&quot;&gt;You are intelligent&lt;/span&gt;
   &lt;span *ngSwitchDefault&gt;You are special&lt;/span&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
 <h1 id="basic-http-request">Basic HTTP Request</h1>
 <p>HTTP request need to import <strong>ONLY ONE TIME</strong> <code>HttpClientModule</code>. </p>
 <pre><code class="language-ts">import {Http} from &quot;@angular/http&quot;;
 import &quot;rxjs/add/operator/map&quot;;
 
 this.http.post(environment.apiAddress + &quot;/api-method&quot;, myJsonData)
-      .map(resp=&gt;resp.json());</code></pre>
+      .map(resp=&gt;resp.json());
+</code></pre>
 <h1 id="sources">Sources</h1>
 <p><strong>Angular module:</strong> <a href="http://www.learn-angular.fr/les-modules-angular/">http://www.learn-angular.fr/les-modules-angular/</a></p>
 <p><strong>Template syntax:</strong> <a href="https://angular.io/guide/template-syntax">https://angular.io/guide/template-syntax</a></p>

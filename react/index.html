@@ -41,11 +41,13 @@
         <div class="column1">
           <h1 id="rendering-an-element-into-the-dom-reactdom">Rendering an Element into the DOM (ReactDom)</h1>
 <p>Let’s say there is a &lt; div &gt; somewhere in your HTML file:</p>
-<pre><code class="language-html">&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;</code></pre>
+<pre><code class="language-html">&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+</code></pre>
 <p>We call this a “root” DOM node because everything inside it will be managed by React DOM.</p>
 <pre><code class="language-js">const element = &lt;h1&gt;Hello, world&lt;/h1&gt;
 const node = document.getElementById(&#39;root&#39;)
-ReactDOM.createRoot(node);</code></pre>
+ReactDOM.createRoot(node);
+</code></pre>
 <h1 id="react-element">React Element</h1>
 <h2 id="a-simple-component">A Simple Component</h2>
 <p>React components extends React.Component.</p>
@@ -59,7 +61,8 @@ ReactDOM.createRoot(node);</code></pre>
 
 const node = document.getElementById(&#39;root&#39;)
 const root = ReactDOM.createRoot(node);
-root.render(&lt;HelloWorld /&gt;);</code></pre>
+root.render(&lt;HelloWorld /&gt;);
+</code></pre>
 <h2 id="a-simple-function">A Simple function</h2>
 <p>A stateless component can be replace by a simple function.</p>
 <pre><code class="language-js">const HelloWorld = () =&gt; {
@@ -70,7 +73,8 @@ root.render(&lt;HelloWorld /&gt;);</code></pre>
 
 const node = document.getElementById(&#39;root&#39;)
 const root = ReactDOM.createRoot(node);
-root.render(&lt;HelloWorld /&gt;);</code></pre>
+root.render(&lt;HelloWorld /&gt;);
+</code></pre>
 
         </div>
         <div class="column2">
@@ -86,10 +90,12 @@ root.render(&lt;HelloWorld /&gt;);</code></pre>
 
 const node = document.getElementById(&#39;root&#39;)
 const root = ReactDOM.createRoot(node);
-root.render(&lt;HelloWorld /&gt;);</code></pre>
+root.render(&lt;HelloWorld /&gt;);
+</code></pre>
 <pre><code class="language-js">const HelloMessage = (props) =&gt; (
   &lt;div&gt;Hello {props.msg}&lt;/div&gt;
-)</code></pre>
+)
+</code></pre>
 <h1 id="state">State</h1>
 <p>Every component can have an internal state.</p>
 <h2 id="initialize">Initialize</h2>
@@ -98,12 +104,15 @@ When we override the constructor, you have to pass the props to the parents.</p>
 <pre><code class="language-js">constructor(props) {
     super(props);
     this.state = {firstName: &#39;John&#39;, lastName: &#39;Doe&#39;, age: 20};
-  }</code></pre>
+  }
+</code></pre>
 <h2 id="modify">Modify</h2>
 <p>To modify the state you have to use the this.setState function. Only the specific change will affect.</p>
-<pre><code class="language-js">this.setState({firstName: &#39;Johnny&#39;})</code></pre>
+<pre><code class="language-js">this.setState({firstName: &#39;Johnny&#39;})
+</code></pre>
 <p>If you have to use precedent state, you should give to setState a function.</p>
-<pre><code class="language-js">this.setState((state) =&gt; ({ age: state.age + 1 })</code></pre>
+<pre><code class="language-js">this.setState((state) =&gt; ({ age: state.age + 1 })
+</code></pre>
 
         </div>
       </main>
@@ -148,7 +157,8 @@ When we override the constructor, you have to pass the props to the parents.</p>
       }
     &lt;/div&gt;
   );
-}</code></pre>
+}
+</code></pre>
 <p>JSX understand null and doesnt display anything il necessary</p>
 <pre><code class="language-js">render() {
   const isLoggedIn = this.state.isLoggedIn;
@@ -160,11 +170,13 @@ When we override the constructor, you have to pass the props to the parents.</p>
       }
     &lt;/div&gt;
   );
-}</code></pre>
+}
+</code></pre>
 <h1 id="context">Context</h1>
 <p>Create the context once</p>
 <pre><code class="language-js">const defaultValue = { ... }
-export const { Provider, Consumer } = React.createContext(defaultValue);</code></pre>
+export const { Provider, Consumer } = React.createContext(defaultValue);
+</code></pre>
 <h2 id="provider">Provider</h2>
 <p>Wrap your application with the provider</p>
 <pre><code class="language-js">render() {
@@ -173,7 +185,8 @@ export const { Provider, Consumer } = React.createContext(defaultValue);</code><
       &lt;App /&gt;
     &lt;/Provider&gt;
   )
-}</code></pre>
+}
+</code></pre>
 
         </div>
         <div class="column2">
@@ -181,7 +194,8 @@ export const { Provider, Consumer } = React.createContext(defaultValue);</code><
 <p>A React component that subscribes to context changes. This lets you subscribe to a context within a function component.</p>
 <pre><code class="language-js">&lt;Consumer&gt;
   {value =&gt; /* render something based on the context value */}
-&lt;/Consumer&gt;</code></pre>
+&lt;/Consumer&gt;
+</code></pre>
 <p>Requires a function as a child. The function receives the current context value and returns a React node. The value argument passed to the function will be equal to the value prop of the closest Provider for this context above in the tree. If there is no Provider for this context above, the value argument will be equal to the defaultValue that was passed to createContext().</p>
 <h1 id="routing">Routing</h1>
 <p>React Router allow you to route your application easily</p>
@@ -212,7 +226,8 @@ const Routes = () =&gt; {
 
 const node = document.getElementById(&#39;root&#39;)
 const root = ReactDOM.createRoot(node);
-root.render(&lt;Routes /&gt;);</code></pre>
+root.render(&lt;Routes /&gt;);
+</code></pre>
 
         </div>
       </main>
