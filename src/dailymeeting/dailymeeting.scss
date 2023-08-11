@@ -15,10 +15,7 @@ mark {
 }
 
 body {
-  // available colors are: blue, green, purple, orange and grey
-  --currentColor: var(--blue);
   
-
   #showPreview:checked ~ .reverse .landscape {
    		transform: rotate(90deg) translateX(164px) translateY(164px);
    		width: 29.7cm;
