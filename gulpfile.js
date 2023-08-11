@@ -33,18 +33,6 @@ const CATEGORY = {
 let name = '';
 let category = '';
 
-const getColor = category => {
-  switch (category) {
-    case CATEGORY.FRAMEWORKS:
-      return 'green';
-    case CATEGORY.LANGUAGES:
-      return 'orange';
-    case CATEGORY.TOOLS:
-    default:
-      return 'blue';
-  }
-};
-
 /**
  * PRIVATE TASKS
  */
@@ -168,7 +156,7 @@ task(
 function renameCss() {
   return gulp
     .src('./src/' + name + '/style.scss')
-    .pipe(replace('{{COLOR}}', getColor(category)))
+    .pipe(replace('{{CATEGORY}}', category))
     .pipe(rename(name + '.scss'))
     .pipe(gulp.dest('./src/' + name));
 }
