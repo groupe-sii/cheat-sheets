@@ -9,6 +9,11 @@
 	}
 }
 
+mark {
+    background-color: var(--lightgrey);
+    color: marktext;
+}
+
 body {
   
   #showPreview:checked ~ .reverse .landscape {
