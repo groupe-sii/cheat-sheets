@@ -168,12 +168,33 @@
 
 body {
     --nb-column: 2;
-    --blue: #005AA2;
-    --green: #B2BE3A;
-    --purple: #8D3589;
+    --blue: #004278;
+    --light-blue: #007eb5;
+    --green: #097f03;
+    --purple: #7c08a3;
+    --red: #d30012;
+    --fuchsia: #da277a;
     --orange: #D64B13;
     --grey: #80888C;
     --lightgrey: #eeeef0;
+
+    --currentColor: var(--grey);
+
+    &.AGILE {
+        --currentColor: var(--purple);
+    }
+    &.FRAMEWORKS {
+        --currentColor: var(--orange);
+    }
+    &.LANGUAGES {
+        --currentColor: var(--green);
+    }
+    &.PRACTICES {
+        --currentColor: var(--red);
+    }
+    &.TOOLS {
+        --currentColor: var(--blue);
+    }    
 
     min-width: 740px;
     margin: 0;
