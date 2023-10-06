@@ -8,22 +8,22 @@ Ex : Chaque participant répond à chacune de ces questions avant de passer à l
 <mark>"Rien" ou "RAS" est une réponse !</mark>
 
 # Entrants
-- Chaque participant arrive en ayant <mark>préparé</mark>
+- Chaque participant arrive en ayant préparé
 - ScrumBoard à jour, lisible
 
 # Sortants
 - ScrumBoard à jour
 - Burndown à jour
+- Sprint Backlog adapté si nécessaire
 
 # Potentiels problèmes / solutions
-Discussions trop longues ? ➡️ Préparer, reporter, respecter le déroulé
+Discussions trop longues / détaillées ? ➡️ Préparer, reporter, respecter le déroulé
 
 Problèmes cachés ? ➡️ Respecter les questions du déroulé
 
 1 personne présente mais ne dit jamais rien ? ➡️ Faire tourner l'animateur
 
 1 personne parle de sujets hors projet ? ➡️ Recentrer sur les questions du déroulé, convenir d'un point dédié dans la journée
-
 
 # Idées
 - Ne pas essayer de régler tous les problèmes en DM
