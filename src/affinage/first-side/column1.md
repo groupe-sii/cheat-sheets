@@ -16,11 +16,10 @@
 
 # Rôle du Product Owner
 
-- Clarifier les besoins
 - Assurer la cohérence avec la vision produit
-- Animer l’atelier
+- Animer l'atelier
 - Arbitrer entre différentes solutions proposées si elles ont un impact sur le périmètre fonctionnel
-
+- Clarifier les besoins
 
 # Definition Of Ready
 La DOR est établie par l’équipe et doit lister l’ensemble des critères que doit vérifier une US pour être considérée comme mûrie / prête à développer.
