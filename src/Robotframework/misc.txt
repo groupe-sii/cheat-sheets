@@ -1,0 +1,23 @@
+
+# Variables
+
+| Déclaration    | Usage    |
+|-------------|------------------------------------------------------------------------------------------|
+| ${var} | Valeur scalaire |
+| @{list}| Liste |
+| &{dict}| Dictionnaire |
+| ${var}=| Affecte une valeur |
+
+
+# Rappel XPath
+
+| Syntaxe                     | Description                                                           | Exemple                                 |
+|-----------------------------|------------------------------------------------------------------------|-----------------------------------------|
+| &lt; htmltag>                 | Recherche d'un élément ayant ce Tag HTML                              | body, a, div, footer, header… |
+|  /&lt; tag>/...                 | Chemin absolue depuis la racine de la page                            |  /html/body/div/div/footer/section/div  |
+|  //&lt; tag>                    | Chemin relatif n'importe où dans la page                              |  //input                                |
+|  &lt; htmltag>[{n°}]            | Le n° élément dans l'arborescence                                   |  //input[2]                             |
+|  [@&lt; attrib>={value}]        | L'élément ayant une  <value>  pour l'attribut  <attrib>               |  [@id='username']                       |
+|  [ {X} and/or {Y}]          | L'élément ayant l'attribut {X} et/ou {Y}  [@id='username' or @name='wm_login-username']                  |
+|  text()                     | Accès au texte de l'élément                                           | –                                       |
+|  contains({X},{Y})          | L'élément dont  {X}  contient les caractères {Y}                     |  //td[contains(text(),'Item 1')]        |

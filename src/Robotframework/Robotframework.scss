@@ -1,0 +1,25 @@
+/* put your all custom css rules here */
+/* you must not change other scss files */
+
+
+
+body {
+  // available colors are: blue, green, purple, orange and grey
+  --currentColor: var(--orange);
+
+  main div {
+    img {
+      height: 230px;
+    }
+    font-size: 12px; // ou 12px, selon ton besoin
+  }
+}
+
+table {
+  font-size: 10px; // ou 12px, selon ton besoin
+}
+
+table th,
+table td {
+  padding: 4px 8px; // optionnel : rend le tableau plus compact
+}
