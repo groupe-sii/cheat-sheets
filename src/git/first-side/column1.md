@@ -16,7 +16,7 @@ Add &lt;file&gt; contents to the index
 `git add <file>`
 
 Remove &lt;file&gt; from the index
-`git reset <file>`
+`git restore --staged <file>`
 
 Add current contents of the index in a new commit
 `git commit -m 'subject' -m 'body'`
