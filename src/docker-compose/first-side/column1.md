@@ -1,32 +1,32 @@
- docker-compose version: __1.27.0__ - Date: __June 2022__
+ docker compose version: __1.27.0__ - Date: __June 2022__
  
 # Info
 
-Show the docker-compose version  
-`docker-compose version`
+Show the docker compose version  
+`docker compose version`
 
 Display help and usage instructions for a command
-`docker-compose help`
+`docker compose help`
 
 # Manage containers
 
 Build, (re)create and start containers
-`docker-compose up [options] [SERVICE]`
+`docker compose up [options] [SERVICE]`
 
-  * Start all containers in background: `docker-compose up -d`
+  * Start all containers in background: `docker compose up -d`
 
 Stop containers and remove containers, networks, volumes, and images created.
-`docker-compose down [options]`
+`docker compose down [options]`
 
 Restart all stopped and running services
-`docker-compose restart [options] [SERVICE]`
+`docker compose restart [options] [SERVICE]`
 
 Create containers (without starting them)
-`docker-compose create [options] [SERVICE]`
+`docker compose create [options] [SERVICE]`
 
-  * Build images before creating containers: `docker-compose create --build`
+  * Build images before creating containers: `docker compose create --build`
 
 Removes stopped service containers
-`docker-compose rm [options] [SERVICE]`
+`docker compose rm [options] [SERVICE]`
 
-  * Stop the containers, if required, before removing: `docker-compose rm --stop`
+  * Stop the containers, if required, before removing: `docker compose rm --stop`
