@@ -1,7 +1,7 @@
 # Branch
 
 Create a new local branch and switch HEAD branch
-`git checkout -b newBranch`
+`git switch -c newBranch`
 
 List local branches
 `git branch`
@@ -23,9 +23,10 @@ List all operations on repository
 
 Discard all local changes in your working directory
 `git reset --hard HEAD`
+**Be careful: you may lose valuable work!**
 
 Discard local changes in a file
-`git checkout HEAD <file>`
+`git restore --staged --worktree <file>`
 
 Revert a commit (add a new commit with contrary changes)
 `git revert <commit>`

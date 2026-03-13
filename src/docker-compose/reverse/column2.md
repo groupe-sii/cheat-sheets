@@ -1,6 +1,6 @@
 # Compose File Example
 
-Deploying Wordpress with docker-compose :
+Deploying Wordpress with docker compose :
 
 `docker-compose.yml`
 
