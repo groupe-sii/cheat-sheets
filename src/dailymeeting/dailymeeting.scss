@@ -9,6 +9,11 @@
 	}
 }
 
+mark {
+    background-color: var(--lightgrey);
+    color: marktext;
+}
+
 body {
   // available colors are: blue, green, purple, orange and grey
   --currentColor: var(--blue);
