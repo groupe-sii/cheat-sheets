@@ -5,16 +5,14 @@
 
 body {
   margin: 0;
-  background-color: #e2e2e2;
-   --blue: #B2BE3A;
   font-family: 'open-sans', sans-serif;
   min-width: 740px;
 
   header {
+      background-color: var(--currentColor);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background-color: var(--blue);
       padding: 0 1%;
       height: 108px;
 
@@ -153,12 +151,12 @@ body {
   }
 
   footer {
-    background-color:var(--blue);
     height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: fixed;
+    background-color: var(--currentColor);
     bottom: 0;
     width: 100%;
 
