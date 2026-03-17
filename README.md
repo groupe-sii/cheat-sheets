@@ -28,7 +28,7 @@ or
 
 From install folder:
 
-`gulp create-new-cheat-sheet --name <name> --category <tools|frameworks|languages|agile|best-practices>`
+`gulp create-new-cheat-sheet --name <name> --category <tools|frameworks|languages|scrum|best-practices>`
 
 Put your svg|png logo in assets/images folder
 Put your commands or codes on:
